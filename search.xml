@@ -18,6 +18,12 @@
       </categories>
       
       
+        <tags>
+            
+            <tag> Deep Learning </tag>
+            
+        </tags>
+      
     </entry>
     
     
@@ -39,9 +45,9 @@
       
         <tags>
             
-            <tag> Machine Learning </tag>
-            
             <tag> Deep Learning </tag>
+            
+            <tag> Machine Learning </tag>
             
             <tag> Lane Detection </tag>
             
