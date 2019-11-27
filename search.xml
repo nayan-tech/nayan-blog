@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>Sharing modules across Android apps</title>
+      <link href="/blog//2019/11/27/sharing-modules-across-android-apps/"/>
+      <url>/blog//2019/11/27/sharing-modules-across-android-apps/</url>
+      
+        <content type="html"><![CDATA[<h2 id="Sharing-modules-across-Android-apps"><a href="#Sharing-modules-across-Android-apps" class="headerlink" title="Sharing modules across Android apps"></a>Sharing modules across Android apps</h2><p>While most android apps are created with a single default <code>app</code> module, in the last few years people have started<br>moving to a multi module structure for their Android apps. Having multiple smaller modules have a few distinct<br>advantages</p><ul><li>Build times are noticeably faster</li><li>Your code is decoupled with clear dependencies</li><li>Better distribution of ownership across different parts of the app</li><li>Allows modules to be reused across apps</li></ul><h4 id="Example-modules"><a href="#Example-modules" class="headerlink" title="Example modules"></a>Example modules</h4><p>A possible strategy is to have one module per feature.</p><ul><li><code>app</code>: This is the main module which will be the entry point into your app. It acts mainly as a coordinator between<br>other modules</li><li><code>core</code>: This will contain the model definitions that are core to your app and will be required across modules</li><li><code>networking</code>: This provides the networking code for the other modules</li><li><code>login</code>: Login/Signup logic goes here</li><li><code>dashboard</code>: User dashboard will be here</li></ul><img src="/blog/2019/11/27/sharing-modules-across-android-apps/modules.jpg" class="" title="Modules"><p>There are many <a href="https://medium.com/google-developer-experts/modularizing-android-applications-9e2d18f244a0" target="_blank" rel="noopener">posts</a> on the advantages and strategies for modularizing your Android apps. For this post, we will<br>focus on the strategy to reuse modules across apps.</p><h4 id="Reusing-modules-across-apps"><a href="#Reusing-modules-across-apps" class="headerlink" title="Reusing modules across apps"></a>Reusing modules across apps</h4><p>We have multiple apps in our company that share the <code>core</code> and <code>login</code> logic. So we decided to share these modules among<br>the two applications.</p><p><img src="hierarchy.png" alt="hierarchy" title="Hierarchy"></p><p>One obvious way to share Android Library modules would be to share the generated <code>.aar</code> files and add them as<br>dependencies to the different apps. While this is simpler, the main applications and the library modules will be<br>different Android Studio projects. If any change needs to be done in the library, the <code>.aar</code> will have to be regenerated<br>and manually updated. There has to be a better way.</p><p>The solution we decided to use for sharing modules is <a href="https://git-scm.com/book/en/v2/Git-Tools-Submodules" target="_blank" rel="noopener">git submodules</a>. Though it had a small overhead in bringing<br>the entire team up to speed with submodules, it has worked exceptionally well for us.</p><p>In the above example, we have two git submodules, core and login.</p><p><img src="submodules.png" alt="submodules" title="Submodules"></p><p>And the submodules will be added as dependencies just as any Android module,</p><p><img src="dependencies.png" alt="dependencies" title="Dependencies"></p><h4 id="Creating-a-new-submodules"><a href="#Creating-a-new-submodules" class="headerlink" title="Creating a new submodules"></a>Creating a new submodules</h4><p>To create a new submodule, we follow the following process</p><ul><li>Create an empty repo on Github and initialize with a README</li><li>Add a new submodule to our app <code>git submodule add git@github.com:username/core.git</code></li><li>Create a new Android Library module in the new directory</li><li>Commit the changes in the library module and push</li><li>Commit the changes in the main repo and push</li></ul><p>Next time we need to use this submodule in another app, we only need to</p><ul><li>Add a new submodule to our app <code>git submodule add git@github.com:username/core.git</code></li><li>Add the newly added module to <code>settings.gradle</code> and a dependency in <code>build.gradle</code></li></ul><h4 id="Committing-changes-to-a-submodule"><a href="#Committing-changes-to-a-submodule" class="headerlink" title="Committing changes to a submodule"></a>Committing changes to a submodule</h4><p>Every time we make some changes to a submodule, we just need to make sure that we commit and push those changes<br>before committing the changes in the main repo.</p><p>Submodule:</p><ul><li>If you are on a detached head, <code>git checkout -b new-branch</code></li><li><code>git add . &amp;&amp; git commit -am &quot;commit message&quot;</code></li><li><code>git push origin new-branch</code></li></ul><p>Main repo:</p><ul><li><code>git add . &amp;&amp; git commit -am &quot;commit message&quot;</code></li><li><code>git push</code></li></ul><h4 id="Fetching-remote-changes"><a href="#Fetching-remote-changes" class="headerlink" title="Fetching remote changes"></a>Fetching remote changes</h4><p>Every time we do a git pull, we just need to remember to update the submodules as well</p><p><code>git submodule update</code></p><p>and that’s it. We have the latest version of the submodule locally!</p><p>Hope this works for you.</p><p>Happy coding!</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Android </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> android </tag>
+            
+            <tag> git submodules </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Text detection in number plates</title>
       <link href="/blog//2019/11/26/Text-detection-in-number-plates/"/>
       <url>/blog//2019/11/26/Text-detection-in-number-plates/</url>
