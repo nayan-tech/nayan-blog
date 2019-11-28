@@ -6,24 +6,16 @@
     
 
     
-    <title>Sharing modules across Android apps | Nayan Blog</title>
+    <title>Tag: AOCR | Nayan Blog</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-    <meta name="keywords" content="android,git submodules" />
-    
-    <meta name="description" content="Sharing modules across Android appsWhile most android apps are created with a single default app module, in the last few years people have startedmoving to a multi module structure for their Android a">
-<meta name="keywords" content="android,git submodules">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Sharing modules across Android apps">
-<meta property="og:url" content="https:&#x2F;&#x2F;nayan.co&#x2F;blog&#x2F;2019&#x2F;11&#x2F;27&#x2F;sharing-modules-across-android-apps&#x2F;index.html">
+    <meta property="og:type" content="website">
+<meta property="og:title" content="Nayan Blog">
+<meta property="og:url" content="https:&#x2F;&#x2F;nayan.co&#x2F;blog&#x2F;tags&#x2F;AOCR&#x2F;index.html">
 <meta property="og:site_name" content="Nayan Blog">
-<meta property="og:description" content="Sharing modules across Android appsWhile most android apps are created with a single default app module, in the last few years people have startedmoving to a multi module structure for their Android a">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https:&#x2F;&#x2F;nayan.co&#x2F;blog&#x2F;2019&#x2F;11&#x2F;27&#x2F;sharing-modules-across-android-apps&#x2F;modules.jpg">
-<meta property="og:updated_time" content="2019-11-28T08:12:01.420Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https:&#x2F;&#x2F;nayan.co&#x2F;blog&#x2F;2019&#x2F;11&#x2F;27&#x2F;sharing-modules-across-android-apps&#x2F;modules.jpg">
     
 
     
@@ -133,206 +125,73 @@
                         <div class="main-body-header">
     <h1 class="header">
     
-    <a class="page-title-link" href="/blog/categories/Android/">Android</a>
+    <i class="icon fa fa-tag"></i>Tag: <em>AOCR</em>
     </h1>
 </div>
 
                         <div class="main-body-content">
-                            <article id="post-sharing-modules-across-android-apps" class="article article-single article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
+                            
+
+    
+    
         
-            <header class="article-header">
-                
+        
+        <section class="archives-wrap">
+            <div class="archive-year-wrap">
+                <a href="/blog/archives/2019" class="archive-year"><i class="icon fa fa-calendar-o"></i>2019</a>
+            </div>
+            <div class="archives">
+    
+    
+    
+        <div class="article-row">
+    
+        <article class="article article-summary">
+    <div class="article-summary-inner">
+        
+        <a href="/blog/2019/11/28/License-plate-recognition-using-Attention-based-OCR/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/blog/2019/11/28/License-plate-recognition-using-Attention-based-OCR/p1.png)" alt="License plate recognition using Attention based OCR" class="thumbnail-image"></span>
+    
+    
+        
+<span class="comment-counter">
+    <i class="fa fa-comments-o"></i>
+    
+        <span><a href="https://nayan.co/blog/2019/11/28/License-plate-recognition-using-Attention-based-OCR/#isso-thread"></a></span>
+    
+</span>
+
+
+    
+</a>
+
+        
+        <div class="article-meta">
+            <div class="category">
+            <a class="article-category-link" href="/blog/categories/AI/">AI</a>
+            </div>
+            <div class="date"><time datetime="2019-11-28T12:06:56.000Z" itemprop="datePublished">2019-11-28</time></div>
+        </div>
+        
     
         <h1 class="article-title" itemprop="name">
-        Sharing modules across Android apps
+        <a href="/blog/2019/11/28/License-plate-recognition-using-Attention-based-OCR/">License plate recognition using Attention based OCR</a>
         </h1>
     
 
-            </header>
-        
-        
-            <div class="article-meta">
-                
-    <div class="article-date">
-      <i class="fa fa-calendar"></i>
-      <a href="/blog/2019/11/27/sharing-modules-across-android-apps/" class="article-date">
-         <time datetime="2019-11-27T13:00:00.000Z" itemprop="datePublished">2019-11-27</time>
-      </a>
+        <p class="article-excerpt">
+            IntroductionIf you clicked on this post title then it is certain that you are working on some kind of License plate recognition task and working on a specific kind of License Plate, if that’s the case
+        </p>
     </div>
-
-
-                
-  <div class="article-author">
-    Anuj Middha
-  </div>
-
-
-                
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/blog/tags/android/" rel="tag">android</a>, <a class="tag-link" href="/blog/tags/git-submodules/" rel="tag">git submodules</a>
-    </div>
-
-                
-
-                
-
-            </div>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-            <h2 id="Sharing-modules-across-Android-apps"><a href="#Sharing-modules-across-Android-apps" class="headerlink" title="Sharing modules across Android apps"></a>Sharing modules across Android apps</h2><p>While most android apps are created with a single default <code>app</code> module, in the last few years people have started<br>moving to a multi module structure for their Android apps. Having multiple smaller modules have a few distinct<br>advantages</p>
-<ul>
-<li>Build times are noticeably faster</li>
-<li>Your code is decoupled with clear dependencies</li>
-<li>Better distribution of ownership across different parts of the app</li>
-<li>Allows modules to be reused across apps</li>
-</ul>
-<h4 id="Example-modules"><a href="#Example-modules" class="headerlink" title="Example modules"></a>Example modules</h4><p>A possible strategy is to have one module per feature.</p>
-<ul>
-<li><code>app</code>: This is the main module which will be the entry point into your app. It acts mainly as a coordinator between<br>other modules</li>
-<li><code>core</code>: This will contain the model definitions that are core to your app and will be required across modules</li>
-<li><code>networking</code>: This provides the networking code for the other modules</li>
-<li><code>login</code>: Login/Signup logic goes here</li>
-<li><code>dashboard</code>: User dashboard will be here</li>
-</ul>
-<img src="/blog/2019/11/27/sharing-modules-across-android-apps/modules.jpg" class="" title="Modules">
-
-<p>There are many <a href="https://medium.com/google-developer-experts/modularizing-android-applications-9e2d18f244a0" target="_blank" rel="noopener">posts</a> on the advantages and strategies for modularizing your Android apps. For this post, we will<br>focus on the strategy to reuse modules across apps.</p>
-<h4 id="Reusing-modules-across-apps"><a href="#Reusing-modules-across-apps" class="headerlink" title="Reusing modules across apps"></a>Reusing modules across apps</h4><p>We have multiple apps in our company that share the <code>core</code> and <code>login</code> logic. So we decided to share these modules among<br>the two applications.</p>
-<p><img src="hierarchy.png" alt="hierarchy" title="Hierarchy"></p>
-<p>One obvious way to share Android Library modules would be to share the generated <code>.aar</code> files and add them as<br>dependencies to the different apps. While this is simpler, the main applications and the library modules will be<br>different Android Studio projects. If any change needs to be done in the library, the <code>.aar</code> will have to be regenerated<br>and manually updated. There has to be a better way.</p>
-<p>The solution we decided to use for sharing modules is <a href="https://git-scm.com/book/en/v2/Git-Tools-Submodules" target="_blank" rel="noopener">git submodules</a>. Though it had a small overhead in bringing<br>the entire team up to speed with submodules, it has worked exceptionally well for us.</p>
-<p>In the above example, we have two git submodules, core and login.</p>
-<p><img src="submodules.png" alt="submodules" title="Submodules"></p>
-<p>And the submodules will be added as dependencies just as any Android module,</p>
-<p><img src="dependencies.png" alt="dependencies" title="Dependencies"></p>
-<h4 id="Creating-a-new-submodules"><a href="#Creating-a-new-submodules" class="headerlink" title="Creating a new submodules"></a>Creating a new submodules</h4><p>To create a new submodule, we follow the following process</p>
-<ul>
-<li>Create an empty repo on Github and initialize with a README</li>
-<li>Add a new submodule to our app <code>git submodule add git@github.com:username/core.git</code></li>
-<li>Create a new Android Library module in the new directory</li>
-<li>Commit the changes in the library module and push</li>
-<li>Commit the changes in the main repo and push</li>
-</ul>
-<p>Next time we need to use this submodule in another app, we only need to</p>
-<ul>
-<li>Add a new submodule to our app <code>git submodule add git@github.com:username/core.git</code></li>
-<li>Add the newly added module to <code>settings.gradle</code> and a dependency in <code>build.gradle</code></li>
-</ul>
-<h4 id="Committing-changes-to-a-submodule"><a href="#Committing-changes-to-a-submodule" class="headerlink" title="Committing changes to a submodule"></a>Committing changes to a submodule</h4><p>Every time we make some changes to a submodule, we just need to make sure that we commit and push those changes<br>before committing the changes in the main repo.</p>
-<p>Submodule:</p>
-<ul>
-<li>If you are on a detached head, <code>git checkout -b new-branch</code></li>
-<li><code>git add . &amp;&amp; git commit -am &quot;commit message&quot;</code></li>
-<li><code>git push origin new-branch</code></li>
-</ul>
-<p>Main repo:</p>
-<ul>
-<li><code>git add . &amp;&amp; git commit -am &quot;commit message&quot;</code></li>
-<li><code>git push</code></li>
-</ul>
-<h4 id="Fetching-remote-changes"><a href="#Fetching-remote-changes" class="headerlink" title="Fetching remote changes"></a>Fetching remote changes</h4><p>Every time we do a git pull, we just need to remember to update the submodules as well</p>
-<p><code>git submodule update</code></p>
-<p>and that’s it. We have the latest version of the submodule locally!</p>
-<p>Hope this works for you.</p>
-<p>Happy coding!</p>
-
-        </div>
-        <footer class="article-footer">
-            
-
-
-
-    <a data-url="https://nayan.co/blog/2019/11/27/sharing-modules-across-android-apps/" data-id="ck3ifwtt00001yusjcxc7hzcz" class="article-share-link"><i class="fa fa-share"></i>Share</a>
-<script>
-    (function ($) {
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-        </footer>
-    </div>
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "BlogPosting",
-        "author": {
-            "@type": "Person",
-            "name": "NayanTech"
-        },
-        "headline": "Sharing modules across Android apps",
-        "image": "https://nayan.co/blog/blog/2019/11/27/sharing-modules-across-android-apps/modules.jpg",
-        "keywords": "android git submodules",
-        "genre": "Android",
-        "datePublished": "2019-11-27",
-        "dateCreated": "2019-11-27",
-        "dateModified": "2019-11-28",
-        "url": "https://nayan.co/blog//2019/11/27/sharing-modules-across-android-apps/",
-        "description": "Sharing modules across Android appsWhile most android apps are created with a single default app module, in the last few years people have startedmoving to a multi module structure for their Android a",
-        "wordCount": 558
-    }
-</script>
-
 </article>
-
-    <section id="comments">
     
-    </section>
+        </div>
+    
+
+
+    </div></section>
 
 
 
@@ -386,29 +245,6 @@
             
         </ul>
     </div>
-    
-        
-<nav id="article-nav">
-    
-        <a href="/blog/2019/11/28/License-plate-recognition-using-Attention-based-OCR/" id="article-nav-newer" class="article-nav-link-wrap">
-        <strong class="article-nav-caption">newer</strong>
-        <p class="article-nav-title">
-        
-            License plate recognition using Attention based OCR
-        
-        </p>
-        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
-    </a>
-    
-    
-        <a href="/blog/2019/11/26/Text-detection-in-number-plates/" id="article-nav-older" class="article-nav-link-wrap">
-        <strong class="article-nav-caption">older</strong>
-        <p class="article-nav-title">Text detection in number plates</p>
-        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
-        </a>
-    
-</nav>
-
     
     <div class="widgets-container">
         

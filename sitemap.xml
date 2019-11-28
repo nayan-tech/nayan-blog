@@ -2,23 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://nayan.co/blog/2019/11/26/Text-detection-in-number-plates/</loc>
+    <loc>https://nayan.co/blog/2019/11/27/sharing-modules-across-android-apps/</loc>
     
-    <lastmod>2019-11-27T08:35:11.667Z</lastmod>
+    <lastmod>2019-11-28T08:12:01.420Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://nayan.co/blog/2019/11/27/sharing-modules-across-android-apps/</loc>
+    <loc>https://nayan.co/blog/2019/11/26/Text-detection-in-number-plates/</loc>
     
-    <lastmod>2019-11-27T08:35:11.667Z</lastmod>
+    <lastmod>2019-11-28T08:12:01.416Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://nayan.co/blog/2019/11/28/License-plate-recognition-using-Attention-based-OCR/</loc>
+    
+    <lastmod>2019-11-28T08:12:01.416Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://nayan.co/blog/2019/11/26/Detecting-Lanes-using-Deep-Neural-Networks/</loc>
     
-    <lastmod>2019-11-27T08:35:11.659Z</lastmod>
+    <lastmod>2019-11-28T08:12:01.408Z</lastmod>
     
   </url>
   
