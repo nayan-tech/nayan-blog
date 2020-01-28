@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>Getting Started with Ruby on Rails</title>
+      <link href="/blog//2020/01/28/rails-getting-started/"/>
+      <url>/blog//2020/01/28/rails-getting-started/</url>
+      
+        <content type="html"><![CDATA[<img src="/blog/2020/01/28/rails-getting-started/ruby-on-rails.png" class=""><p>We recently inducted a couple of engineers into our Rails team. Both of them had a web frontend experience, but zero experience with Ruby or backend development. Thanks to the simplicity and convention focussed approach of the Rails framework, both of them were writing test driven production grade code within a week!</p><p>First thing was setting up their machines. We decided to go with</p><ul><li>Ubuntu 18.04 for the OS</li><li>RVM as the Ruby version manager</li><li>RubyMine as the IDE</li><li>Postgresql as the database</li></ul><h3 id="Ruby"><a href="#Ruby" class="headerlink" title="Ruby"></a>Ruby</h3><p>First step was to get them comfortable with Ruby. We believe that doing is the best way of learning. So we got them to complete the wonderful koans at <a href="http://rubykoans.com/" target="_blank" rel="noopener">http://rubykoans.com/</a> to get hands on practice.</p><p>An important thing while working in a team is to have consistent coding style across all members. We follow the style guide at <a href="https://github.com/rubocop-hq/ruby-style-guide" target="_blank" rel="noopener">https://github.com/rubocop-hq/ruby-style-guide</a> , so they read through the guide.</p><h3 id="Rails"><a href="#Rails" class="headerlink" title="Rails"></a>Rails</h3><p>We feel the best guide for Rails is the official guide itself.</p><p><a href="https://edgeguides.rubyonrails.org/" target="_blank" rel="noopener">https://edgeguides.rubyonrails.org/</a></p><p>The three sections that were assigned were,</p><ul><li>Getting Started with Rails</li><li>Models</li><li>Controllers</li></ul><p>We skipped the views as we mostly work on API only apps.</p><p>After this, we covered the Rails style guide <a href="https://github.com/rubocop-hq/rails-style-guide" target="_blank" rel="noopener">https://github.com/rubocop-hq/rails-style-guide</a> .</p><h3 id="Tests"><a href="#Tests" class="headerlink" title="Tests"></a>Tests</h3><p>We use <a href="https://github.com/rspec/rspec-rails" target="_blank" rel="noopener">RSpec</a> and <a href="https://github.com/thoughtbot/factory_bot" target="_blank" rel="noopener">FactoryBot</a> internally for writing our tests.</p><p>For RSpec, the Github page is a good starting point <a href="https://github.com/rspec/rspec-rails" target="_blank" rel="noopener">https://github.com/rspec/rspec-rails</a></p><p>For FactoryBot, we assigned the Getting Started guide on Github <a href="https://github.com/thoughtbot/factory_bot/blob/master/GETTING_STARTED.md" target="_blank" rel="noopener">https://github.com/thoughtbot/factory_bot/blob/master/GETTING_STARTED.md</a></p><h3 id="Continuing-Education"><a href="#Continuing-Education" class="headerlink" title="Continuing Education"></a>Continuing Education</h3><p>With these basic tutorials, the engineers were basically ready for contributing to production. Their first few pull requests had many comments, but they came down significantly within the first two weeks.</p><p>For continuing our Rails education, we keep reading up on the frequent gems that we use, such as</p><ul><li>devise</li><li>aasm</li><li>active_model_serializers</li><li>pundit</li><li>resque</li><li>whenever</li><li>carrierwave</li></ul><p>and other excellent gems.</p><h3 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h3><p>We got a pleasant reminder as to why Rails is our favorite framework to work on. Within the first few weeks only the engineers were writing production grade, well tested code.</p><p>Hats off to the Ruby philosophy and Matz that our fresh Ruby engineers were able to start guessing the function names for different classes almost immediately!</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Rails </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Ruby </tag>
+            
+            <tag> Rails </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Efficient-Residual-Factorized-Neural-Network-for-Semantic-Segmentation</title>
       <link href="/blog//2020/01/09/Efficient-Residual-Factorized-Neural-Network-for-Semantic-Segmentation/"/>
       <url>/blog//2020/01/09/Efficient-Residual-Factorized-Neural-Network-for-Semantic-Segmentation/</url>

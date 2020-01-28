@@ -6,16 +6,24 @@
     
 
     
-    <title>Tag: Line Chart | Nayan Blog</title>
+    <title>Getting Started with Ruby on Rails | Nayan Blog</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-    <meta property="og:type" content="website">
-<meta property="og:title" content="Nayan Blog">
-<meta property="og:url" content="https:&#x2F;&#x2F;nayan.co&#x2F;blog&#x2F;tags&#x2F;Line-Chart&#x2F;index.html">
+    <meta name="keywords" content="Ruby,Rails" />
+    
+    <meta name="description" content="We recently inducted a couple of engineers into our Rails team. Both of them had a web frontend experience, but zero experience with Ruby or backend development. Thanks to the simplicity and convent">
+<meta name="keywords" content="Ruby,Rails">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Getting Started with Ruby on Rails">
+<meta property="og:url" content="https:&#x2F;&#x2F;nayan.co&#x2F;blog&#x2F;2020&#x2F;01&#x2F;28&#x2F;rails-getting-started&#x2F;index.html">
 <meta property="og:site_name" content="Nayan Blog">
+<meta property="og:description" content="We recently inducted a couple of engineers into our Rails team. Both of them had a web frontend experience, but zero experience with Ruby or backend development. Thanks to the simplicity and convent">
 <meta property="og:locale" content="en">
+<meta property="og:image" content="https:&#x2F;&#x2F;nayan.co&#x2F;blog&#x2F;2020&#x2F;01&#x2F;28&#x2F;rails-getting-started&#x2F;ruby-on-rails.png">
+<meta property="og:updated_time" content="2020-01-28T12:20:41.773Z">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;nayan.co&#x2F;blog&#x2F;2020&#x2F;01&#x2F;28&#x2F;rails-getting-started&#x2F;ruby-on-rails.png">
     
 
     
@@ -125,79 +133,191 @@
                         <div class="main-body-header">
     <h1 class="header">
     
-    <i class="icon fa fa-tag"></i>Tag: <em>Line Chart</em>
+    <a class="page-title-link" href="/blog/categories/Rails/">Rails</a>
     </h1>
 </div>
 
                         <div class="main-body-content">
-                            
-
-    
-    
+                            <article id="post-rails-getting-started" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
         
-        
-        <section class="archives-wrap">
-            <div class="archive-year-wrap">
-                <a href="/blog/archives/2020" class="archive-year"><i class="icon fa fa-calendar-o"></i>2020</a>
-            </div>
-            <div class="archives">
-    
-    
-    
-        <div class="article-row">
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <a href="/blog/2020/01/02/angular-charts/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/blog/2020/01/02/angular-charts/BG.png)" alt="Angular Charts" class="thumbnail-image"></span>
-    
-    
-        
-<span class="comment-counter">
-    <i class="fa fa-comments-o"></i>
-    
-        <span><a href="https://nayan.co/blog/2020/01/02/angular-charts/#isso-thread"></a></span>
-    
-</span>
-
-
-    
-</a>
-
-        
-        <div class="article-meta">
-            <div class="category">
-            <a class="article-category-link" href="/blog/categories/Web/">Web</a>
-            </div>
-            <div class="date"><time datetime="2020-01-02T16:27:55.000Z" itemprop="datePublished">2020-01-02</time></div>
-        </div>
-        
+            <header class="article-header">
+                
     
         <h1 class="article-title" itemprop="name">
-        <a href="/blog/2020/01/02/angular-charts/">Angular Charts</a>
+        Getting Started with Ruby on Rails
         </h1>
     
 
-        <p class="article-excerpt">
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+      <i class="fa fa-calendar"></i>
+      <a href="/blog/2020/01/28/rails-getting-started/" class="article-date">
+         <time datetime="2020-01-28T08:00:00.000Z" itemprop="datePublished">2020-01-28</time>
+      </a>
+    </div>
+
+
+                
+  <div class="article-author">
+    Anuj Middha
+  </div>
+
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/blog/tags/Rails/" rel="tag">Rails</a>, <a class="tag-link" href="/blog/tags/Ruby/" rel="tag">Ruby</a>
+    </div>
+
+                
+
+                
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            <img src="/blog/2020/01/28/rails-getting-started/ruby-on-rails.png" class="">
+
+<p>We recently inducted a couple of engineers into our Rails team. Both of them had a web frontend experience, but zero experience with Ruby or backend development. Thanks to the simplicity and convention focussed approach of the Rails framework, both of them were writing test driven production grade code within a week!</p>
+<p>First thing was setting up their machines. We decided to go with</p>
+<ul>
+<li>Ubuntu 18.04 for the OS</li>
+<li>RVM as the Ruby version manager</li>
+<li>RubyMine as the IDE</li>
+<li>Postgresql as the database</li>
+</ul>
+<h3 id="Ruby"><a href="#Ruby" class="headerlink" title="Ruby"></a>Ruby</h3><p>First step was to get them comfortable with Ruby. We believe that doing is the best way of learning. So we got them to complete the wonderful koans at <a href="http://rubykoans.com/" target="_blank" rel="noopener">http://rubykoans.com/</a> to get hands on practice.</p>
+<p>An important thing while working in a team is to have consistent coding style across all members. We follow the style guide at <a href="https://github.com/rubocop-hq/ruby-style-guide" target="_blank" rel="noopener">https://github.com/rubocop-hq/ruby-style-guide</a> , so they read through the guide.</p>
+<h3 id="Rails"><a href="#Rails" class="headerlink" title="Rails"></a>Rails</h3><p>We feel the best guide for Rails is the official guide itself.</p>
+<p><a href="https://edgeguides.rubyonrails.org/" target="_blank" rel="noopener">https://edgeguides.rubyonrails.org/</a></p>
+<p>The three sections that were assigned were,</p>
+<ul>
+<li>Getting Started with Rails</li>
+<li>Models</li>
+<li>Controllers</li>
+</ul>
+<p>We skipped the views as we mostly work on API only apps.</p>
+<p>After this, we covered the Rails style guide <a href="https://github.com/rubocop-hq/rails-style-guide" target="_blank" rel="noopener">https://github.com/rubocop-hq/rails-style-guide</a> .</p>
+<h3 id="Tests"><a href="#Tests" class="headerlink" title="Tests"></a>Tests</h3><p>We use <a href="https://github.com/rspec/rspec-rails" target="_blank" rel="noopener">RSpec</a> and <a href="https://github.com/thoughtbot/factory_bot" target="_blank" rel="noopener">FactoryBot</a> internally for writing our tests.</p>
+<p>For RSpec, the Github page is a good starting point <a href="https://github.com/rspec/rspec-rails" target="_blank" rel="noopener">https://github.com/rspec/rspec-rails</a></p>
+<p>For FactoryBot, we assigned the Getting Started guide on Github <a href="https://github.com/thoughtbot/factory_bot/blob/master/GETTING_STARTED.md" target="_blank" rel="noopener">https://github.com/thoughtbot/factory_bot/blob/master/GETTING_STARTED.md</a></p>
+<h3 id="Continuing-Education"><a href="#Continuing-Education" class="headerlink" title="Continuing Education"></a>Continuing Education</h3><p>With these basic tutorials, the engineers were basically ready for contributing to production. Their first few pull requests had many comments, but they came down significantly within the first two weeks.</p>
+<p>For continuing our Rails education, we keep reading up on the frequent gems that we use, such as</p>
+<ul>
+<li>devise</li>
+<li>aasm</li>
+<li>active_model_serializers</li>
+<li>pundit</li>
+<li>resque</li>
+<li>whenever</li>
+<li>carrierwave</li>
+</ul>
+<p>and other excellent gems.</p>
+<h3 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h3><p>We got a pleasant reminder as to why Rails is our favorite framework to work on. Within the first few weeks only the engineers were writing production grade, well tested code.</p>
+<p>Hats off to the Ruby philosophy and Matz that our fresh Ruby engineers were able to start guessing the function names for different classes almost immediately!</p>
+
+        </div>
+        <footer class="article-footer">
             
 
 
 
-Chart.js is a popular JavaScript charting library and ng2-charts is a wrapper for Angular 2+ that makes it easy to integrate Chart.js in Angular. Let’s go over the basic usage.
-Installation
-Instal
-        </p>
+    <a data-url="https://nayan.co/blog/2020/01/28/rails-getting-started/" data-id="ck5xunhas000a5dpw1d2n82ex" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
     </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "NayanTech"
+        },
+        "headline": "Getting Started with Ruby on Rails",
+        "image": "https://nayan.co/blog/blog/2020/01/28/rails-getting-started/ruby-on-rails.png",
+        "keywords": "Ruby Rails",
+        "genre": "Rails",
+        "datePublished": "2020-01-28",
+        "dateCreated": "2020-01-28",
+        "dateModified": "2020-01-28",
+        "url": "https://nayan.co/blog//2020/01/28/rails-getting-started/",
+        "description": "
+
+We recently inducted a couple of engineers into our Rails team. Both of them had a web frontend experience, but zero experience with Ruby or backend development. Thanks to the simplicity and convent",
+        "wordCount": 364
+    }
+</script>
+
 </article>
-    
-        </div>
-    
 
-
-    </div></section>
+    <section id="comments">
+    
+    </section>
 
 
 
@@ -251,6 +371,19 @@ Instal
             
         </ul>
     </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/blog/2020/01/09/Efficient-Residual-Factorized-Neural-Network-for-Semantic-Segmentation/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">Efficient-Residual-Factorized-Neural-Network-for-Semantic-Segmentation</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
     
     <div class="widgets-container">
         
