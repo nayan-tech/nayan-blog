@@ -6,16 +6,24 @@
     
 
     
-    <title>Tag: AOCR | Nayan Blog</title>
+    <title>Character-Recognition-with-CNN-network | Nayan Blog</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-    <meta property="og:type" content="website">
-<meta property="og:title" content="Nayan Blog">
-<meta property="og:url" content="https:&#x2F;&#x2F;nayan.co&#x2F;blog&#x2F;tags&#x2F;AOCR&#x2F;index.html">
+    <meta name="keywords" content="Machine Learning,Deep Learning,OCR,Character Recognition" />
+    
+    <meta name="description" content="IntroductionThis post talks about a simple Convolution Neural Network (CNN) which is used torecognize characters i.e. Numeric and Alphabet. We have total 10 Numeric and 26Alphabets that sums up the to">
+<meta name="keywords" content="Machine Learning,Deep Learning,OCR,Character Recognition">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Character-Recognition-with-CNN-network">
+<meta property="og:url" content="https:&#x2F;&#x2F;nayan.co&#x2F;blog&#x2F;2020&#x2F;01&#x2F;29&#x2F;Character-Recognition-with-CNN-network&#x2F;index.html">
 <meta property="og:site_name" content="Nayan Blog">
+<meta property="og:description" content="IntroductionThis post talks about a simple Convolution Neural Network (CNN) which is used torecognize characters i.e. Numeric and Alphabet. We have total 10 Numeric and 26Alphabets that sums up the to">
 <meta property="og:locale" content="en">
+<meta property="og:image" content="https:&#x2F;&#x2F;nayan.co&#x2F;blog&#x2F;2020&#x2F;01&#x2F;29&#x2F;Character-Recognition-with-CNN-network&#x2F;p1.png">
+<meta property="og:updated_time" content="2020-01-29T07:19:48.291Z">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;nayan.co&#x2F;blog&#x2F;2020&#x2F;01&#x2F;29&#x2F;Character-Recognition-with-CNN-network&#x2F;p1.png">
     
 
     
@@ -125,73 +133,214 @@
                         <div class="main-body-header">
     <h1 class="header">
     
-    <i class="icon fa fa-tag"></i>Tag: <em>AOCR</em>
+    <a class="page-title-link" href="/blog/categories/AI/">AI</a>
     </h1>
 </div>
 
                         <div class="main-body-content">
-                            
-
-    
-    
+                            <article id="post-Character-Recognition-with-CNN-network" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
         
-        
-        <section class="archives-wrap">
-            <div class="archive-year-wrap">
-                <a href="/blog/archives/2019" class="archive-year"><i class="icon fa fa-calendar-o"></i>2019</a>
-            </div>
-            <div class="archives">
-    
-    
-    
-        <div class="article-row">
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <a href="/blog/2019/11/28/License-plate-recognition-using-Attention-based-OCR/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/blog/2019/11/28/License-plate-recognition-using-Attention-based-OCR/p1.png)" alt="License plate recognition using Attention based OCR" class="thumbnail-image"></span>
-    
-    
-        
-<span class="comment-counter">
-    <i class="fa fa-comments-o"></i>
-    
-        <span><a href="https://nayan.co/blog/2019/11/28/License-plate-recognition-using-Attention-based-OCR/#isso-thread"></a></span>
-    
-</span>
-
-
-    
-</a>
-
-        
-        <div class="article-meta">
-            <div class="category">
-            <a class="article-category-link" href="/blog/categories/AI/">AI</a>
-            </div>
-            <div class="date"><time datetime="2019-11-28T12:06:56.000Z" itemprop="datePublished">2019-11-28</time></div>
-        </div>
-        
+            <header class="article-header">
+                
     
         <h1 class="article-title" itemprop="name">
-        <a href="/blog/2019/11/28/License-plate-recognition-using-Attention-based-OCR/">License plate recognition using Attention based OCR</a>
+        Character-Recognition-with-CNN-network
         </h1>
     
 
-        <p class="article-excerpt">
-            IntroductionIf you clicked on this post title then it is certain that you are working on some kind of License plate recognition task and working on a specific kind of License Plate, if that’s the case
-        </p>
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+      <i class="fa fa-calendar"></i>
+      <a href="/blog/2020/01/29/Character-Recognition-with-CNN-network/" class="article-date">
+         <time datetime="2020-01-29T11:47:04.000Z" itemprop="datePublished">2020-01-29</time>
+      </a>
     </div>
-</article>
-    
+
+
+                
+  <div class="article-author">
+    Piyush Jain
+  </div>
+
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/blog/tags/Character-Recognition/" rel="tag">Character Recognition</a>, <a class="tag-link" href="/blog/tags/Deep-Learning/" rel="tag">Deep Learning</a>, <a class="tag-link" href="/blog/tags/Machine-Learning/" rel="tag">Machine Learning</a>, <a class="tag-link" href="/blog/tags/OCR/" rel="tag">OCR</a>
+    </div>
+
+                
+
+                
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>This post talks about a simple Convolution Neural Network (CNN) which is used to<br>recognize characters i.e. Numeric and Alphabet. We have total 10 Numeric and 26<br>Alphabets that sums up the total number of classes in our network to 36. In<br>order to get characters from the License Plates we first need to use some kind<br>of License Plate detector which is followed by a Character segmentation method<br>in order to extract character from the License Plates (LP).</p>
+<h2 id="Architecture-of-model"><a href="#Architecture-of-model" class="headerlink" title="Architecture of model"></a>Architecture of model</h2><p>We have used very familiar CNN network for OCR, usually CNN consists of some<br>Convolution layers(All Convolution layers are followed by max pooling layers)<br>and fully connected layers.</p>
+<p>We already know much about Convolution layers so i am gonna talk about max<br>pooling and fully connected layers here.</p>
+<p><strong>Pooling</strong> <strong>layers</strong> section would reduce the number of parameters when the<br>images are too large. Spatial pooling also called sub-sampling or down-sampling<br>which reduces the dimensionality of each map but retains important information.<br>Spatial pooling can be of different types:</p>
+<ul>
+<li>Max Pooling</li>
+<li>Average Pooling</li>
+<li>Sum Pooling</li>
+</ul>
+<p>Max pooling takes the largest element from the rectified feature map. Taking the<br>largest element could also take the average pooling. Sum of all elements in the<br>feature map call as sum pooling.</p>
+<p>The layer we call as <strong>Fully Connected Layer (FC) layer</strong>, we flattened our<br>matrix into vector and feed it into a fully connected layer like a neural<br>network. After the last max pooling layer there will be a sequence of FC layers.<br>Finally we will apply an activation function such as softmax or sigmoid to<br>classify the outputs between classes.</p>
+<p>Model configuration is given below:</p>
+<p>Total layer : 14</p>
+<ol>
+<li>Convolution with 64 different filters in size of (3x3)</li>
+<li>Max Pooling by 2<ul>
+<li><a href="https://www.tensorflow.org/api_docs/python/tf/nn/relu" target="_blank" rel="noopener">ReLU</a> activation function</li>
+<li>Batch Normalization</li>
+</ul>
+</li>
+<li>Convolution with 128 different filters in size of (3x3)</li>
+<li>Max Pooling by 2<ul>
+<li><a href="https://www.tensorflow.org/api_docs/python/tf/nn/relu" target="_blank" rel="noopener">ReLU</a> activation function</li>
+<li>Batch Normalization</li>
+</ul>
+</li>
+<li>Convolution with 256 different filters in size of (5x5)</li>
+<li>Max Pooling by 2<ul>
+<li><a href="https://www.tensorflow.org/api_docs/python/tf/nn/relu" target="_blank" rel="noopener">ReLU</a> activation function </li>
+<li>Batch Normalization</li>
+</ul>
+</li>
+<li>Convolution with 512 different filters in size of (5x5)</li>
+<li>Max Pooling by 2<ul>
+<li><a href="https://www.tensorflow.org/api_docs/python/tf/nn/relu" target="_blank" rel="noopener">ReLU</a> activation function </li>
+<li>Batch Normalization</li>
+</ul>
+</li>
+<li>Flattening the 3-D output of the last convolving operations.</li>
+<li>Fully Connected Layer with 128 units</li>
+<li>Fully Connected Layer with 256 units</li>
+<li>Fully Connected Layer with 512 units</li>
+<li>Fully Connected Layer with 1024 units</li>
+<li>Fully Connected Layer with 36 units (number of classes)<img src="/blog/2020/01/29/Character-Recognition-with-CNN-network/p1.png" class=""> <center>Figure 1.  Architecture of model</center>
+
+
+</li>
+</ol>
+<h2 id="Placeholders"><a href="#Placeholders" class="headerlink" title="Placeholders"></a>Placeholders</h2><p>Defining a placeholder in tensorflow is very common. When we want to declare our<br>input and output without initialization this method comes very useful. You can<br>use them during training of model by feeding them with training data and labels.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">def create_placeholders(n_H0, n_W0, n_C0, n_y):</span><br><span class="line">    X = tf.placeholder(tf.float32, shape = (None, n_H0, n_W0, n_C0), name=&apos;X&apos;)</span><br><span class="line">    Y = tf.placeholder(tf.float32, shape = (None, n_y), name = &apos;Y&apos;)</span><br><span class="line">    keep_prob = tf.placeholder(tf.float32, name=&quot;keep_prob&quot;)</span><br><span class="line"></span><br><span class="line">    return X,Y,keep_prob</span><br><span class="line"></span><br><span class="line"># X_train contains training data with shape (batch_size,height,widht,channel)</span><br><span class="line"></span><br><span class="line"># Y_train contains labels of training data with shape (batch_size,num_classes,1)</span><br><span class="line">m, n_H0, n_W0, n_C0 = X_train.shape</span><br><span class="line">n_y = Y_train.shape[1]</span><br><span class="line">X, Y, keep_prob = create_placeholders(n_H0, n_W0, n_C0, n_y)</span><br></pre></td></tr></table></figure>
+
+<br> 
+
+<p>Once you have defined your model architecture you now need to define cost and<br>optimizer for your model which is defined in the next section.</p>
+<h2 id="Cost-function-and-optimizer"><a href="#Cost-function-and-optimizer" class="headerlink" title="Cost function and optimizer"></a>Cost function and optimizer</h2><p>Cost function gives degree of error between predicted and expected values and<br>after that it represent it in form of a real number. Whereas optimizer update<br>the weight parameters to minimize the cost function.</p>
+<p>Finally, you’ll define cost, optimizer, and accuracy. The <a href="https://www.tensorflow.org/api_docs/python/tf/math/reduce_mean" target="_blank" rel="noopener">tf.reduce_mean</a><br>takes an input tensor to reduce, and the input tensor is the results of  certain<br>loss functions between predicted results and ground truths. We have to measure<br>loss over 36 classes, <a href="https://www.tensorflow.org/api_docs/python/tf/nn/softmax_cross_entropy_with_logits" target="_blank" rel="noopener">tf.nn.softmax_cross_entropy_with_logis</a>  function is<br>used. </p>
+<p>When training the network, what you want is minimize  the cost by applying a<br>algorithm of your choice. It could be <a href="https://www.tensorflow.org/api_docs/python/tf/train/GradientDescentOptimizer" target="_blank" rel="noopener">SGD</a>,<a href="https://www.tensorflow.org/api_docs/python/tf/train/AdamOptimizer" target="_blank" rel="noopener">AdamOptimizer</a><a href="https://www.tensorflow.org/api_docs/python/tf/train/AdagradOptimizer" target="_blank" rel="noopener">,AdagradOptimizer</a> or<br>something else. You have to study how each algorithm works to choose what<br>to use, but AdamOptimizer works fine for most cases in general.</p>
+<p>Please find cost and optimizer sample below:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">learning_rate = 0.001</span><br><span class="line"># X is placeholder you defined in previous section</span><br><span class="line">Z3 = forward_propagation(X, keep_prob)</span><br><span class="line"></span><br><span class="line"># Z3 has the model structure</span><br><span class="line"># Loss and Optimizer</span><br><span class="line">cost = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(logits=Z3, labels=Y))</span><br><span class="line">optimizer = tf.train.AdamOptimizer(learning_rate=learning_rate).minimize(cost)</span><br><span class="line"></span><br><span class="line"># Accuracy</span><br><span class="line">y_pred = tf.nn.softmax(Z3)</span><br><span class="line">y_pred_class = tf.argmax(y_pred, axis = 1)</span><br><span class="line">y_true_class = tf.argmax(Y, axis = 1)</span><br><span class="line"></span><br><span class="line">correct_prediction = tf.equal(y_pred_class, y_true_class)</span><br><span class="line">accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))</span><br></pre></td></tr></table></figure>
+
+<h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><p>So in this post i have explained basic steps to train simple CNN network for any<br>classification task i.e. OCR in this particular post. I have given all the steps<br>except the training part for that you just need to use session of tensorflow<br>while feeding image data and labels for those images to placeholder you have<br>created to the session.run function.</p>
+<br> 
+
+<br> 
+
         </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="https://nayan.co/blog/2020/01/29/Character-Recognition-with-CNN-network/" data-id="ck5yzcdr100010hwi7hbxep4v" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "NayanTech"
+        },
+        "headline": "Character-Recognition-with-CNN-network",
+        "image": "https://nayan.co/blog/blog/2020/01/29/Character-Recognition-with-CNN-network/p1.png",
+        "keywords": "Machine Learning Deep Learning OCR Character Recognition",
+        "genre": "AI",
+        "datePublished": "2020-01-29",
+        "dateCreated": "2020-01-29",
+        "dateModified": "2020-01-29",
+        "url": "https://nayan.co/blog//2020/01/29/Character-Recognition-with-CNN-network/",
+        "description": "IntroductionThis post talks about a simple Convolution Neural Network (CNN) which is used torecognize characters i.e. Numeric and Alphabet. We have total 10 Numeric and 26Alphabets that sums up the to",
+        "wordCount": 833
+    }
+</script>
+
+</article>
+
+    <section id="comments">
     
-
-
-    </div></section>
+    </section>
 
 
 
@@ -245,6 +394,19 @@
             
         </ul>
     </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/blog/2020/01/28/rails-getting-started/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">Getting Started with Ruby on Rails</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
     
     <div class="widgets-container">
         
