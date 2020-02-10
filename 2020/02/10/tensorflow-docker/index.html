@@ -6,24 +6,23 @@
     
 
     
-    <title>Angular Charts | Nayan Blog</title>
+    <title>tensorflow-docker | Nayan Blog</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-    <meta name="keywords" content="Line Chart,Javascript,Data Visualization" />
+    <meta name="keywords" content="" />
     
-    <meta name="description" content="Chart.js is a popular JavaScript charting library and ng2-charts is a wrapper for Angular 2+ that makes it easy to integrate Chart.js in Angular. Let’s go over the basic usage. Installation Instal">
-<meta name="keywords" content="Line Chart,Javascript,Data Visualization">
+    <meta name="description" content="Installing Tensorflow 2.0 on Ubuntu 18.04 using docker. Run all experiments from a container.I have come across many developers who face serious issues when it comes to installing tensorflow on a linu">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Angular Charts">
-<meta property="og:url" content="https:&#x2F;&#x2F;nayan.co&#x2F;blog&#x2F;2020&#x2F;01&#x2F;02&#x2F;angular-charts&#x2F;index.html">
+<meta property="og:title" content="tensorflow-docker">
+<meta property="og:url" content="https:&#x2F;&#x2F;nayan.co&#x2F;blog&#x2F;2020&#x2F;02&#x2F;10&#x2F;tensorflow-docker&#x2F;index.html">
 <meta property="og:site_name" content="Nayan Blog">
-<meta property="og:description" content="Chart.js is a popular JavaScript charting library and ng2-charts is a wrapper for Angular 2+ that makes it easy to integrate Chart.js in Angular. Let’s go over the basic usage. Installation Instal">
+<meta property="og:description" content="Installing Tensorflow 2.0 on Ubuntu 18.04 using docker. Run all experiments from a container.I have come across many developers who face serious issues when it comes to installing tensorflow on a linu">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https:&#x2F;&#x2F;nayan.co&#x2F;blog&#x2F;2020&#x2F;01&#x2F;02&#x2F;angular-charts&#x2F;BG.png">
-<meta property="og:updated_time" content="2020-02-10T06:07:14.139Z">
+<meta property="og:image" content="https:&#x2F;&#x2F;cdn-images-1.medium.com&#x2F;max&#x2F;2000&#x2F;1*dPZfCX1ia00A3BmTP-QQhA.jpeg">
+<meta property="og:updated_time" content="2020-02-10T06:07:14.167Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https:&#x2F;&#x2F;nayan.co&#x2F;blog&#x2F;2020&#x2F;01&#x2F;02&#x2F;angular-charts&#x2F;BG.png">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;cdn-images-1.medium.com&#x2F;max&#x2F;2000&#x2F;1*dPZfCX1ia00A3BmTP-QQhA.jpeg">
     
 
     
@@ -133,19 +132,19 @@
                         <div class="main-body-header">
     <h1 class="header">
     
-    <a class="page-title-link" href="/blog/categories/Web/">Web</a>
+    uncategorized
     </h1>
 </div>
 
                         <div class="main-body-content">
-                            <article id="post-angular-charts" class="article article-single article-type-post" itemscope itemprop="blogPost">
+                            <article id="post-tensorflow-docker" class="article article-single article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
             <header class="article-header">
                 
     
         <h1 class="article-title" itemprop="name">
-        Angular Charts
+        tensorflow-docker
         </h1>
     
 
@@ -156,24 +155,15 @@
                 
     <div class="article-date">
       <i class="fa fa-calendar"></i>
-      <a href="/blog/2020/01/02/angular-charts/" class="article-date">
-         <time datetime="2020-01-02T16:27:55.000Z" itemprop="datePublished">2020-01-02</time>
+      <a href="/blog/2020/02/10/tensorflow-docker/" class="article-date">
+         <time datetime="2020-02-10T06:07:14.167Z" itemprop="datePublished">2020-02-10</time>
       </a>
     </div>
 
 
                 
-  <div class="article-author">
-    Abhishek Rana
-  </div>
-
 
                 
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/blog/tags/Data-Visualization/" rel="tag">Data Visualization</a>, <a class="tag-link" href="/blog/tags/Javascript/" rel="tag">Javascript</a>, <a class="tag-link" href="/blog/tags/Line-Chart/" rel="tag">Line Chart</a>
-    </div>
-
                 
 
                 
@@ -182,64 +172,28 @@
         
         
         <div class="article-entry" itemprop="articleBody">
-            <br>
+            <h1 id="Installing-Tensorflow-2-0-on-Ubuntu-18-04-using-docker-Run-all-experiments-from-a-container"><a href="#Installing-Tensorflow-2-0-on-Ubuntu-18-04-using-docker-Run-all-experiments-from-a-container" class="headerlink" title="Installing Tensorflow 2.0 on Ubuntu 18.04 using docker. Run all experiments from a container."></a>Installing Tensorflow 2.0 on Ubuntu 18.04 using docker. Run all experiments from a container.</h1><p>I have come across many developers who face serious issues when it comes to installing <strong>tensorflow</strong> on a <strong>linux</strong> distro such as <strong>Ubuntu</strong>. There are very few instances when the installation goes smoothly the first time itself. Mostly, the developer has to face a plethora of error messages which get quite tricky to solve. Some of the error messages are shown below:</p>
+<pre><code>[...\stream_executor\dso_loader.cc] Couldn&apos;t open CUDA library nvcuda.dll
 
-<img src="/blog/2020/01/02/angular-charts/BG.png" class="" title="l">
-
-<p>Chart.js is a popular JavaScript charting library and ng2-charts is a wrapper for Angular 2+ that makes it easy to integrate Chart.js in Angular. Let’s go over the basic usage.</p>
-<h2 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h2><ol>
-<li>Install ng2-charts using npm: <code>npm install --save ng2-charts</code></li>
-<li>Install Chart.js library: <code>npm install --save chart.js</code></li>
-<li><em>[Options]</em> Then, if you’re using the <strong>Angular CLI</strong>, you can simply add Chart.js to the list of scripts in your <code>.angular-cli.json</code> file so that it gets bundled with the app: </li>
-</ol>
-<p><strong><em>angular-cli.json</em></strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&quot;scripts&quot;: [</span><br><span class="line">  &quot;../node_modules/chart.js/dist/Chart.min.js&quot;</span><br><span class="line">],</span><br></pre></td></tr></table></figure>
-
-<h2 id="API"><a href="#API" class="headerlink" title="API"></a>API</h2><p>Now you’ll want to import ng2-chart’s <code>ChartsModule</code> into your app module or a feature module:</p>
-<p><strong><em>app.module.ts</em></strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">import &#123; BrowserModule &#125; from &apos;@angular/platform-browser&apos;;</span><br><span class="line">import &#123; NgModule &#125; from &apos;@angular/core&apos;;</span><br><span class="line">import &#123; ChartsModule &#125; from &apos;ng2-charts&apos;;</span><br><span class="line"></span><br><span class="line">import &#123; AppComponent &#125; from &apos;./app.component&apos;;</span><br><span class="line"></span><br><span class="line">@NgModule(&#123;</span><br><span class="line">  declarations: [AppComponent],</span><br><span class="line">  imports: [</span><br><span class="line">    BrowserModule,</span><br><span class="line">    ChartsModule</span><br><span class="line">  ],</span><br><span class="line">  providers: [],</span><br><span class="line">  bootstrap: [AppComponent]</span><br><span class="line">&#125;)</span><br><span class="line">export class AppModule &#123;&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h2><p>ng2-charts gives us a <code>baseChart</code> directive that can be applied on an HTML <code>canvas</code> element. Here’s an example showing-off some of the options to pass-in as inputs and the <code>chartClick</code> event that’s outputted by the directive:</p>
-<p><strong><em>app.component.html</em></strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;div style=&quot;width: 40%;&quot;&gt;</span><br><span class="line">  &lt;canvas</span><br><span class="line">      baseChart</span><br><span class="line">      [chartType]=&quot;&apos;line&apos;&quot;</span><br><span class="line">      [datasets]=&quot;chartData&quot;</span><br><span class="line">      [labels]=&quot;chartLabels&quot;</span><br><span class="line">      [options]=&quot;chartOptions&quot;</span><br><span class="line">      [legend]=&quot;true&quot;</span><br><span class="line">      (chartClick)=&quot;onChartClick($event)&quot;&gt;</span><br><span class="line">  &lt;/canvas&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
-
-<p>And here’s what it can look like in our component class:</p>
-<p><strong><em>app.component.ts</em></strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">import &#123; Component &#125; from &apos;@angular/core&apos;;</span><br><span class="line"></span><br><span class="line">@Component(&#123; ... &#125;)</span><br><span class="line">export class AppComponent &#123;</span><br><span class="line">  chartOptions = &#123;</span><br><span class="line">    responsive: true</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  chartData = [</span><br><span class="line">    &#123; data: [330, 600, 260, 700], label: &apos;Account A&apos; &#125;,</span><br><span class="line">    &#123; data: [120, 455, 100, 340], label: &apos;Account B&apos; &#125;,</span><br><span class="line">    &#123; data: [45, 67, 800, 500], label: &apos;Account C&apos; &#125;</span><br><span class="line">  ];</span><br><span class="line"></span><br><span class="line">  chartLabels = [&apos;January&apos;, &apos;February&apos;, &apos;Mars&apos;, &apos;April&apos;];</span><br><span class="line"></span><br><span class="line">  onChartClick(event) &#123;</span><br><span class="line">    console.log(event);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><img src="chart_1.png" alt="Chart 1: Basic Line Chart"></p>
-<h2 id="Options"><a href="#Options" class="headerlink" title="Options"></a>Options</h2><p>Here’s a quick breakdown of the different input options</p>
-<ul>
-<li>chartType: This sets the base type of the chart. The value can be <code>pie</code>, <code>doughnut</code>, <code>bar</code>, <code>line</code>, <code>polarArea</code>, <code>radar</code> or <code>horizontalBar</code>.</li>
-<li>legend: A boolean for whether or not a legend should be displayed above the chart.</li>
-<li>datasets: This should be an array of objects that contain a data array and a label for each data set.</li>
-<li>data: If your chart is simple and has only one data set, you can use <code>data</code> instead of <code>datasets</code> and pass-in an array of data points.</li>
-<li>labels: An array of labels for the X-axis.</li>
-<li>options: An object that contains options for the chart. You can refer to the official <a href="https://www.chartjs.org/docs/latest/configuration/" target="_blank" rel="noopener"><code>Chart.js documentation</code></a> for details on the available options.</li>
-</ul>
-<p>In the above example we set the chart to be responsive and adapt depending on the viewport size.</p>
-<ul>
-<li>colors: Not shown in the above example, but you can define your own colors with the <code>colors</code> input. Pass-in an array of object literals that contain the following value:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">myColors = [</span><br><span class="line">  &#123;</span><br><span class="line">    backgroundColor: &apos;rgba(103, 58, 183, .1)&apos;,</span><br><span class="line">    borderColor: &apos;rgb(103, 58, 183)&apos;,</span><br><span class="line">    pointBackgroundColor: &apos;rgb(103, 58, 183)&apos;,</span><br><span class="line">    pointBorderColor: &apos;#fff&apos;,</span><br><span class="line">    pointHoverBackgroundColor: &apos;#fff&apos;,</span><br><span class="line">    pointHoverBorderColor: &apos;rgba(103, 58, 183, .8)&apos;</span><br><span class="line">  &#125;,</span><br><span class="line">  ... other colors</span><br><span class="line">];</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<h2 id="Events"><a href="#Events" class="headerlink" title="Events"></a>Events</h2><p>Two events are emitted, <code>chartClick</code> and <code>chartHover</code>, and they allow to react to the user interacting with the chart. The currently active points and labels are returned as part of the emitted event’s data.</p>
-<ul>
-<li>chartClick: fires when click on a chart has occurred, returns information regarding active points and labels</li>
-<li>chartHover: fires when mousemove (hover) on a chart has occurred, returns information regarding active points and labels</li>
-<li>Updating Datasets Dynamically: Of course, the beauty of Chart.js is that your charts can easily by dynamic and update/respond to data received from a backend or from user input.</li>
-</ul>
-<p>In the bellow example we add a new data points for the month of May:</p>
-<p><strong><em>app.component.ts</em></strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">newDataPoint(dataArr = [100, 100, 100], label) &#123;</span><br><span class="line"></span><br><span class="line">  this.chartData.forEach((dataset, index) =&gt; &#123;</span><br><span class="line">    this.chartData[index] = Object.assign(&#123;&#125;, this.chartData[index], &#123;</span><br><span class="line">      data: [...this.chartData[index].data, dataArr[index]]</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  this.chartLabels = [...this.chartLabels, label];</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>And it can be used like this:</p>
-<p><strong><em>app.component.html</em></strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;button (click)=&quot;newDataPoint([900, 50, 300], &apos;May&apos;)&quot;&gt;</span><br><span class="line">  Add data point</span><br><span class="line">&lt;/button&gt;</span><br></pre></td></tr></table></figure>
-
-<h2 id="Schematics"><a href="#Schematics" class="headerlink" title="Schematics"></a>Schematics</h2><p>There are schematics that may be used to generate chart components using Angular CLI. The components are defined in package ng2-charts-schematics.</p>
-<p>Installation of Schematics Package<br><code>npm instal --save-dev ng2-charts-schematics</code></p>
-<p>Example of Generating a Line Chart using Angular CLI<br><code>ng generate ng20chart0schematics:line my-line-chart</code></p>
-<p>This calls angular’s component schematics and then modifies the result, so all the options for the component schematic are also usable here. This schematics will also add the ChartsModule as an imported module in the main app module (or another module as specified in the –module command switch).</p>
+[...\stream_executor\cuda\cuda_dnn.cc] Unable to load cuDNN DSO</code></pre><p>Similar error messages can be found in this official tensorflow link → <a href="https://www.tensorflow.org/install/errors" target="_blank" rel="noopener"><strong><em>https://www.tensorflow.org/install/errors</em></strong></a></p>
+<p>Let’s make things easier and lives simpler:</p>
+<h2 id="Enter-Docker"><a href="#Enter-Docker" class="headerlink" title="Enter Docker:"></a>Enter Docker:</h2><p>Using <strong><em>Docker</em></strong> containers the life of a developer becomes easier by a massive amount. Many developers shy away from using docker containers thinking that it introduces extra dependencies into the system followed by maintenance issues, but that’s a misconception.</p>
+<p><strong><em>Docker</em></strong> containers actually reduce the time spent on figuring out different library versions to be installed and how they would communicate with one another. Containers solve multiple issues which arise with incompatibility of libraries and version mismatch. A container is completely independent from it’s host and reduces the chances of ruining environments on the host machine</p>
+<h3 id="Installing-Docker-and-NVIDIA-Docker"><a href="#Installing-Docker-and-NVIDIA-Docker" class="headerlink" title="Installing Docker and NVIDIA Docker :"></a>Installing Docker and NVIDIA Docker :</h3><p>In order to run <strong><em>tensorflow</em></strong> as a container we would obviously need the latest version of docker to be installed and configured. Along with that we would also need <strong><em>NVIDIA Docker v2</em></strong> to be installed on the host machine. <strong><em>NVIDIA Docker</em></strong> plays a beautiful role of exposing the host machine’s GPU and GPU drivers to a container. Hence the developer only has to worry about installing the correct <strong><em>NVIDIA GPU</em></strong> <strong><em>driver</em></strong> on this machine. The <strong><em>NVIDIA Docker v2</em></strong> does the task of making it available for the container.</p>
+<p>In order to learn how to install the latest version of Docker and NVIDIA Docker v2 , head over to my earlier post which describes this is in detail. Link given below:</p>
+<p><a href="https://medium.com/@abose550/deep-learning-for-production-deploying-yolo-using-docker-2c32bb50e8d6" target="_blank" rel="noopener"><strong>Deep Learning for Production: Deploying YOLO using Docker.</strong></a></p>
+<h3 id="Installing-tensorflow-using-Docker"><a href="#Installing-tensorflow-using-Docker" class="headerlink" title="Installing tensorflow using Docker:"></a><strong>Installing tensorflow using Docker:</strong></h3><p>Once your docker and NVIDIA docker v2 installation is complete with <strong><em>nvidia-smi</em></strong> giving you the output as shown in Fig 1, when run inside a docker container, we can move ahead with pulling the correct image for tensorflow.</p>
+<p><img src="https://cdn-images-1.medium.com/max/2000/1*dPZfCX1ia00A3BmTP-QQhA.jpeg" alt="Fig 1: Output of nvidia-smi inside docker container"></p>
+<p>Simply doing a <strong><em>docker pull tensorflow/tensorflow</em></strong> would download the latest version of tensorflow image. This can be run using the following command</p>
+<pre><code>docker run -it -rm --runtime=nvidia --name=tensorflow_container ***tensorflow_image_name***</code></pre><p>Executing the command given above will run the tensorflow container in an interactive shell along with the availability of the <strong><em>NVIDIA gpus</em></strong> inside the container.</p>
+<p>Now there are certain modifications which can be performed to get the tensorflow <strong><em>version</em></strong> required along with other libraries. Let’s say you want the latest version of tensorflow along with <strong><em>gpu</em></strong> support and <strong><em>python 3</em></strong> pre-installed. The image for this customization can be easily pulled using the following command:</p>
+<pre><code>docker pull tensorflow/tensorflow:latest-gpu-py3</code></pre><p>You can find many other such images in the following link →<a href="https://hub.docker.com/r/tensorflow/tensorflow/tags" target="_blank" rel="noopener"><strong><em>https://hub.docker.com/r/tensorflow/tensorflow/tags</em></strong></a></p>
+<p>Just do a docker pull on the one which suits your requirement.</p>
+<p>If you want other libraries along with tensorflow, you can put them in a <strong><em>dockerfile</em></strong> and perform build command.</p>
+<p><img src="https://cdn-images-1.medium.com/max/2000/1*bRwR0nlR4-XbX-00xpY5-Q.png" alt="Fig 2: Custom dockerfile with tensorflow"></p>
+<p>Fig 2 above shows a custom <strong><em>dockerfile</em></strong> with <strong><em>tensorflow v1</em></strong> image being used along with installation of other libraries such as <strong><em>OpenCV,Moviepy,Keras</em></strong> and <strong><em>Apache Kafka</em></strong> for python</p>
+<p>Once inside the container invoked using docker run, you can setup code to use tensorflow easily as you would done on the host machine without the container.</p>
+<p>I would encourage all AI/ML practitioners to increase the use of docker containers to increase their research and development efficiency by reducing the time spent in managing multiple libraries and dueling with incompatibility errors.</p>
 
         </div>
         <footer class="article-footer">
@@ -247,7 +201,7 @@
 
 
 
-    <a data-url="https://nayan.co/blog/2020/01/02/angular-charts/" data-id="ck6g21ad4000a10yrcruxfja2" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://nayan.co/blog/2020/02/10/tensorflow-docker/" data-id="ck6g21adf000r10yrbtxogxye" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -317,22 +271,16 @@
             "@type": "Person",
             "name": "NayanTech"
         },
-        "headline": "Angular Charts",
-        "image": "https://nayan.co/blog/blog/2020/01/02/angular-charts/BG.png",
-        "keywords": "Line Chart Javascript Data Visualization",
-        "genre": "Web",
-        "datePublished": "2020-01-02",
-        "dateCreated": "2020-01-02",
+        "headline": "tensorflow-docker",
+        "image": "https://nayan.co/bloghttps://cdn-images-1.medium.com/max/2000/1*dPZfCX1ia00A3BmTP-QQhA.jpeg",
+        "keywords": "",
+        "genre": "",
+        "datePublished": "2020-02-10",
+        "dateCreated": "2020-02-10",
         "dateModified": "2020-02-10",
-        "url": "https://nayan.co/blog//2020/01/02/angular-charts/",
-        "description": "
-
-
-
-Chart.js is a popular JavaScript charting library and ng2-charts is a wrapper for Angular 2+ that makes it easy to integrate Chart.js in Angular. Let’s go over the basic usage.
-Installation
-Instal",
-        "wordCount": 976
+        "url": "https://nayan.co/blog//2020/02/10/tensorflow-docker/",
+        "description": "Installing Tensorflow 2.0 on Ubuntu 18.04 using docker. Run all experiments from a container.I have come across many developers who face serious issues when it comes to installing tensorflow on a linu",
+        "wordCount": 656
     }
 </script>
 
@@ -398,20 +346,10 @@ Instal",
         
 <nav id="article-nav">
     
-        <a href="/blog/2020/01/06/create-custom-grafana-panel/" id="article-nav-newer" class="article-nav-link-wrap">
-        <strong class="article-nav-caption">newer</strong>
-        <p class="article-nav-title">
-        
-            Creating custom Grafana panel
-        
-        </p>
-        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
-    </a>
     
-    
-        <a href="/blog/2020/01/02/paytm-gateway-integration/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/blog/2020/02/05/Flask-PyMongo-Integration/" id="article-nav-older" class="article-nav-link-wrap">
         <strong class="article-nav-caption">older</strong>
-        <p class="article-nav-title">Paytm Gateway Integration</p>
+        <p class="article-nav-title">Flask + PyMongo Integration</p>
         <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
         </a>
     
