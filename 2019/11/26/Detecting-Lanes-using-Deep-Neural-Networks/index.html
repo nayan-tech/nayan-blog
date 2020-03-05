@@ -16,12 +16,12 @@
 <meta name="keywords" content="Machine Learning,Deep Learning,Lane Detection,Advance Driver Assistance,Autonomous Driving">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Detecting Lanes using Deep Neural Networks">
-<meta property="og:url" content="https:&#x2F;&#x2F;nayan.co&#x2F;blog&#x2F;2019&#x2F;11&#x2F;26&#x2F;Detecting-Lanes-using-Deep-Neural-Networks&#x2F;index.html">
+<meta property="og:url" content="https:&#x2F;&#x2F;nayan.co&#x2F;2019&#x2F;11&#x2F;26&#x2F;Detecting-Lanes-using-Deep-Neural-Networks&#x2F;index.html">
 <meta property="og:site_name" content="Nayan Blog">
 <meta property="og:description" content="This post explains how to use deep neural networks to detect highway lanes. Lane markings are the main static component on highways.They instruct the vehicles to interactively and safely drive on the">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https:&#x2F;&#x2F;nayan.co&#x2F;blog&#x2F;2019&#x2F;11&#x2F;26&#x2F;Detecting-Lanes-using-Deep-Neural-Networks&#x2F;dir_structure.png">
-<meta property="og:updated_time" content="2020-03-05T09:56:17.884Z">
+<meta property="og:updated_time" content="2020-03-05T10:30:28.609Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;nayan.co&#x2F;blog&#x2F;2019&#x2F;11&#x2F;26&#x2F;Detecting-Lanes-using-Deep-Neural-Networks&#x2F;dir_structure.png">
     
@@ -29,28 +29,28 @@
     
 
     
-        <link rel="icon" href="/blog/css/images/favicon.png" />
+        <link rel="icon" href="https://nayan.co/blog/css/images/favicon.png" />
     
 
-    <link rel="stylesheet" href="/blog/libs/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="/blog/libs/titillium-web/styles.css">
-    <link rel="stylesheet" href="/blog/libs/source-code-pro/styles.css">
+    <link rel="stylesheet" href="https://nayan.co/blog/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://nayan.co/blog/libs/titillium-web/styles.css">
+    <link rel="stylesheet" href="https://nayan.co/blog/libs/source-code-pro/styles.css">
 
-    <link rel="stylesheet" href="/blog/css/style.css">
+    <link rel="stylesheet" href="https://nayan.co/blog/css/style.css">
 
-    <script src="/blog/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://nayan.co/blog/libs/jquery/3.4.1/jquery.min.js"></script>
     
     
-        <link rel="stylesheet" href="/blog/libs/lightgallery/css/lightgallery.min.css">
+        <link rel="stylesheet" href="https://nayan.co/blog/libs/lightgallery/css/lightgallery.min.css">
     
     
-        <link rel="stylesheet" href="/blog/libs/justified-gallery/justifiedGallery.min.css">
+        <link rel="stylesheet" href="https://nayan.co/blog/libs/justified-gallery/justifiedGallery.min.css">
     
     
     
 
 
-<link rel="alternate" href="/blog/atom.xml" title="Nayan Blog" type="application/atom+xml">
+<link rel="alternate" href="https://nayan.co/blog/atom.xml" title="Nayan Blog" type="application/atom+xml">
 </head>
 
 <body>
@@ -61,7 +61,7 @@
             <div class="container-inner">
                 <div id="header-title">
                     <h1 class="logo-wrap">
-                        <a href="https://nayan.co/#/home" class="logo"></a>
+                        <a href="https://nayan.co/blog/" class="logo"></a>
                     </h1>
                     
                 </div>
@@ -71,13 +71,17 @@
                         <ul id="main-nav">
                             
                                 <li class="main-nav-list-item" >
-                                    <a class="main-nav-list-link" href="/blog/">Home</a>
+                                    <a class="main-nav-list-link" href="https://nayan.co">index.nayan</a>
                                 </li>
                             
-                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/blog/categories/AI/">AI</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/blog/categories/Android/">Android</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/blog/categories/Rails/">Rails</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/blog/categories/Ruby-on-Rails/">Ruby on Rails</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/blog/categories/Web/">Web</a></li></ul>
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="https://nayan.co/blog/">Home</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="https://nayan.co/blog/categories/AI/">AI</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="https://nayan.co/blog/categories/Android/">Android</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="https://nayan.co/blog/categories/Rails/">Rails</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="https://nayan.co/blog/categories/Ruby-on-Rails/">Ruby on Rails</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="https://nayan.co/blog/categories/Web/">Web</a></li></ul>
                                     
                                 <li class="main-nav-list-item" >
-                                    <a class="main-nav-list-link" href="/blog/archives/index.html">Archive</a>
+                                    <a class="main-nav-list-link" href="https://nayan.co/blog/archives/index.html">Archive</a>
                                 </li>
                             
                         </ul>
@@ -110,13 +114,13 @@
             TAGS: 'Tags',
             UNTITLED: '(Untitled)',
         },
-        ROOT_URL: '/blog/',
-        CONTENT_URL: '/blog/content.json',
+        ROOT_URL: 'https://nayan.co/blog/',
+        CONTENT_URL: 'https://nayan.co/blog/content.json',
     };
     window.INSIGHT_CONFIG = INSIGHT_CONFIG;
 })(window);
 </script>
-<script src="/blog/js/insight.js"></script>
+<script src="https://nayan.co/blog/js/insight.js"></script>
 
 </div>
                         </nav>
@@ -133,7 +137,7 @@
                         <div class="main-body-header">
     <h1 class="header">
     
-    <a class="page-title-link" href="/blog/categories/AI/">AI</a>
+    <a class="page-title-link" href="https://nayan.co/blog/categories/AI/">AI</a>
     </h1>
 </div>
 
@@ -156,7 +160,7 @@
                 
     <div class="article-date">
       <i class="fa fa-calendar"></i>
-      <a href="/blog/2019/11/26/Detecting-Lanes-using-Deep-Neural-Networks/" class="article-date">
+      <a href="https://nayan.co/blog/2019/11/26/Detecting-Lanes-using-Deep-Neural-Networks/" class="article-date">
          <time datetime="2019-11-26T11:17:10.000Z" itemprop="datePublished">2019-11-26</time>
       </a>
     </div>
@@ -171,7 +175,7 @@
                 
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/blog/tags/Advance-Driver-Assistance/" rel="tag">Advance Driver Assistance</a>, <a class="tag-link" href="/blog/tags/Autonomous-Driving/" rel="tag">Autonomous Driving</a>, <a class="tag-link" href="/blog/tags/Deep-Learning/" rel="tag">Deep Learning</a>, <a class="tag-link" href="/blog/tags/Lane-Detection/" rel="tag">Lane Detection</a>, <a class="tag-link" href="/blog/tags/Machine-Learning/" rel="tag">Machine Learning</a>
+        <a class="tag-link" href="https://nayan.co/blog/tags/Advance-Driver-Assistance/" rel="tag">Advance Driver Assistance</a>, <a class="tag-link" href="https://nayan.co/blog/tags/Autonomous-Driving/" rel="tag">Autonomous Driving</a>, <a class="tag-link" href="https://nayan.co/blog/tags/Deep-Learning/" rel="tag">Deep Learning</a>, <a class="tag-link" href="https://nayan.co/blog/tags/Lane-Detection/" rel="tag">Lane Detection</a>, <a class="tag-link" href="https://nayan.co/blog/tags/Machine-Learning/" rel="tag">Machine Learning</a>
     </div>
 
                 
@@ -188,7 +192,7 @@
 <p>For the task of lane detection, we have two open-source datasets available. One is the Tusimple dataset and the other is the CULane dataset. Let’s have a brief look at one of the datasets.</p>
 <h2 id="Tusimple-Dataset"><a href="#Tusimple-Dataset" class="headerlink" title="Tusimple Dataset"></a>Tusimple Dataset</h2><p>This dataset was released as part of the Tusimple Lane Detection Challenge. It contains 3626 video clips of 1 sec duration each. Each of these video clips contains 20 frames of which, the last frame is annotated. These videos were captured by mounting the cameras on a vehicle dashboard. You can download the dataset from <a href="https://github.com/TuSimple/tusimple-benchmark/issues/3" target="_blank" rel="noopener">here</a>.</p>
 <p>The directory structure looks like the figure below,</p>
-<img src="/blog/2019/11/26/Detecting-Lanes-using-Deep-Neural-Networks/dir_structure.png" class="" title="Dataset directory structure">
+<img src="https://nayan.co/blog/2019/11/26/Detecting-Lanes-using-Deep-Neural-Networks/dir_structure.png" class="" title="Dataset directory structure">
 
 <p>Each sub-directory contains 20 sequential images of which, the last frame is annotated. label_data_(date).json contains labels in JSON format for the last frame. Each line in the JSON file is a dictionary with key values…</p>
 <p><strong>raw_file</strong>: string type. the file path in the clip</p>
@@ -200,29 +204,29 @@
 <p>It says that there are four lanes in the image, and the first lane starts at (632,280), the second lane starts at (719,280), the third lane starts at (532,290) and the fourth lane starts at (781,270).</p>
 <h2 id="DataSet-Visualization"><a href="#DataSet-Visualization" class="headerlink" title="DataSet Visualization"></a>DataSet Visualization</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"># import required packages</span><br><span class="line">import json</span><br><span class="line">import numpy as np</span><br><span class="line">import cv2</span><br><span class="line">import matplotlib.pyplot as plt</span><br><span class="line"># read each line of json file</span><br><span class="line">json_gt = [json.loads(line) for line in open(&apos;label_data.json&apos;)]</span><br><span class="line">gt = json_gt[0]</span><br><span class="line">gt_lanes = gt[&apos;lanes&apos;]</span><br><span class="line">y_samples = gt[&apos;h_samples&apos;]</span><br><span class="line">raw_file = gt[&apos;raw_file&apos;]</span><br><span class="line"># see the image</span><br><span class="line">img = cv2.imread(raw_file)</span><br><span class="line">cv2.imshow(&apos;image&apos;,img)</span><br><span class="line">cv2.WaitKey(0)</span><br><span class="line">cv2.destroyAllWindows()</span><br></pre></td></tr></table></figure>
 
-<img src="/blog/2019/11/26/Detecting-Lanes-using-Deep-Neural-Networks/image_1.jpg" class="" title="Image 1. Raw image from the dataset">
+<img src="https://nayan.co/blog/2019/11/26/Detecting-Lanes-using-Deep-Neural-Networks/image_1.jpg" class="" title="Image 1. Raw image from the dataset">
 
 <p>Now see the JSON points visualization on the image</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">gt_lanes_vis = [[(x, y) for (x, y) in zip(lane, y_samples)</span><br><span class="line">                  if x &gt;= 0] for lane in gt_lanes]</span><br><span class="line">img_vis = img.copy()</span><br><span class="line"></span><br><span class="line">for lane in gt_lanes_vis:</span><br><span class="line">    cv2.polylines(img_vis, np.int32([lane]), isClosed=False,</span><br><span class="line">                   color=(0,255,0), thickness=5)</span><br></pre></td></tr></table></figure>
 
-<img src="/blog/2019/11/26/Detecting-Lanes-using-Deep-Neural-Networks/image_2.jpg" class="" title="Image 2. Label visualications of image">
+<img src="https://nayan.co/blog/2019/11/26/Detecting-Lanes-using-Deep-Neural-Networks/image_2.jpg" class="" title="Image 2. Label visualications of image">
 
 <p>Now, we have understood the dataset, but we can not pass the above image as a label for the neural network since <strong>grayscale images with values ranging from zero to num_classes -1 are to be passed to the deep convolution neural network to outputs an image containing predicted lanes</strong>. So, we need to generate label images for the JSON files. Label images can be generated using <strong>OpenCV</strong> by drawing lines passing through the points in the JSON file.</p>
 <p>OpenCV has an inbuilt function to draw multiple lines through a set of points. OpenCV’s Polylines method can be used here. First, create a mask of all zeros with height and width equal to the raw file’s height and width using numpy. <strong>The image size can be reduced to maintain lesser computations during training, but do not forget to maintain the same aspect ratio</strong>.</p>
 <h2 id="Generating-Labels"><a href="#Generating-Labels" class="headerlink" title="Generating Labels"></a>Generating Labels</h2><p>The label should be a grayscale image. Generate one label for each clip from the JSON file. First, create a mask of black pixels with a shape similar to the raw_file image from the JSON file. Now, using OpenCV’s polylines method draw lines with different colors (each corresponding to each lane in lanes) on the mask image using the lanes and h_samples from the JSON file. From the three channeled mask image generate a gray scale mask image with values as class numbers. Likewise, create labels for all the images in the JSON file. You can resize the image and its label to a smaller size for lesser computations.</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">mask = np.zeros_like(img)</span><br><span class="line">colors = [[255,0,0],[0,255,0],[0,0,255],[0,255,255]]</span><br><span class="line">for i in range(len(gt_lanes_vis)):</span><br><span class="line">    cv2.polylines(mask, np.int32([gt_lanes_vis[i]]), isClosed=False,color=colors[i], thickness=5)</span><br><span class="line">!! create grey-scale label image</span><br><span class="line">label = np.zeros((720,1280),dtype = np.uint8)</span><br><span class="line">for i in range(len(colors)):</span><br><span class="line">   label[np.where((mask == colors[i]).all(axis = 2))] = i+1</span><br></pre></td></tr></table></figure>
-<img src="/blog/2019/11/26/Detecting-Lanes-using-Deep-Neural-Networks/image_3.jpg" class="" title="Image 3. Generated mask image">
+<img src="https://nayan.co/blog/2019/11/26/Detecting-Lanes-using-Deep-Neural-Networks/image_3.jpg" class="" title="Image 3. Generated mask image">
 
 <h2 id="Build-and-Train-Model"><a href="#Build-and-Train-Model" class="headerlink" title="Build and Train Model"></a>Build and Train Model</h2><p>Lane Detection is essentially an image segmentation problem. So I am using the <strong>ERFNET model</strong> for this task, which is efficient and fast. Originally ERFNET was proposed for semantic segmentation problems, but it can also be extended to other image segmentation problems. You can check out for its paper <a href="https://ieeexplore.ieee.org/abstract/document/8063438" target="_blank" rel="noopener">here</a>. It is a CNN with Encoder, Decoder and dilated convolutions along with non-bottleneck residual layers. See Fig.1 for model architecture.</p>
-<img src="/blog/2019/11/26/Detecting-Lanes-using-Deep-Neural-Networks/figure_1.png" class="" title="Figure 1. Model Architecture">
+<img src="https://nayan.co/blog/2019/11/26/Detecting-Lanes-using-Deep-Neural-Networks/figure_1.png" class="" title="Figure 1. Model Architecture">
 
 <p>Build and create an object of the model. Train it over the dataset created above, for a sufficient number of epochs with Binary Cross Entropy loss or custom loss function which minimizes the per-pixel error. For better memory usage, create a dataset generator and train the model over it. Generators remove the burden of loading all the images into memory (if your dataset is of large size, you should use a generator) which leads to eating up of all memory and the other processes can’t work properly. Fig 2 shows the layers of ERFNET with input and output dimensions.</p>
-<img src="/blog/2019/11/26/Detecting-Lanes-using-Deep-Neural-Networks/figure_2.png" class="" title="Figure 2. Model layers with input and output shapes">
+<img src="https://nayan.co/blog/2019/11/26/Detecting-Lanes-using-Deep-Neural-Networks/figure_2.png" class="" title="Figure 2. Model layers with input and output shapes">
 
 <h2 id="Evaluate-Model"><a href="#Evaluate-Model" class="headerlink" title="Evaluate Model"></a>Evaluate Model</h2><p>After training, get the model’s predictions using the code snippet below. I have implemented this in Pytorch. I use the color_lanes method to convert output images from the model (which are two channeled with values as class numbers) to three channeled images. im_seg is the final overlayed image shown in Image 4.</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">#using pytorch</span><br><span class="line">import torch</span><br><span class="line">from torchvision.transforms import ToTensor</span><br><span class="line">def color_lanes(image, classes, i, color, HEIGHT, WIDTH):</span><br><span class="line">    buffer_c1 = np.zeros((HEIGHT, WIDTH), dtype=np.uint8)</span><br><span class="line">    buffer_c1[classes == i] = color[0]</span><br><span class="line">    image[:, :, 0] += buffer_c1</span><br><span class="line">    buffer_c2 = np.zeros((HEIGHT, WIDTH), dtype=np.uint8)</span><br><span class="line">    buffer_c2[classes == i] = color[1]</span><br><span class="line">    image[:, :, 1] += buffer_c2</span><br><span class="line">    buffer_c3 = np.zeros((HEIGHT, WIDTH), dtype=np.uint8)</span><br><span class="line">    buffer_c3[classes == i] = color[2]</span><br><span class="line">    image[:, :, 2] += buffer_c3</span><br><span class="line">    return image</span><br><span class="line">img = cv2.imread(&apos;images/test.jpg&apos;) </span><br><span class="line">img = cv2.resize(img,(WIDTH, HEIGHT),interpolation = cv2.INETR_CUBIC)</span><br><span class="line">op_transforms = transforms.Compose([transforms.ToTensor()])</span><br><span class="line">device = torch.device(&apos;cuda&apos; if torch.cuda.is_available() else &apos;cpu&apos;)</span><br><span class="line">im_tensor = torch.unsqueeze(op_transforms(img), dim=0)</span><br><span class="line">im_tensor = im_tensor.to(device)</span><br><span class="line">model = ERFNET(5)</span><br><span class="line">model = model.to(device)</span><br><span class="line">model = model.eval()</span><br><span class="line">out = model(im_tensor)</span><br><span class="line">out = out.max(dim=1)[1]</span><br><span class="line">out_np = out.cpu().numpy()[0]</span><br><span class="line">out_viz = np.zeros((HEIGHT, WIDTH, 3))</span><br><span class="line">for i in range(1, NUM_LD_CLASSES):</span><br><span class="line">    rand_c1 = random.randint(1, 255)</span><br><span class="line">    rand_c2 = random.randint(1, 255)</span><br><span class="line">    rand_c3 = random.randint(1, 255)</span><br><span class="line">    out_viz = color_lanes(</span><br><span class="line">            out_viz, out_np,</span><br><span class="line">            i, (rand_c1, rand_c2, rand_c3), HEIGHT, WIDTH)</span><br><span class="line">instance_im = out_viz.astype(np.uint8)</span><br><span class="line">im_seg = cv2.addWeighted(img, 1, instance_im, 1, 0)</span><br></pre></td></tr></table></figure>
 
-<img src="/blog/2019/11/26/Detecting-Lanes-using-Deep-Neural-Networks/image_4.jpg" class="" title="Image 4. Final predicted image">
+<img src="https://nayan.co/blog/2019/11/26/Detecting-Lanes-using-Deep-Neural-Networks/image_4.jpg" class="" title="Image 4. Final predicted image">
 
 <p>Thanks for reading it…</p>
 <h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ol>
@@ -237,7 +241,7 @@
 
 
 
-    <a data-url="https://nayan.co/blog/2019/11/26/Detecting-Lanes-using-Deep-Neural-Networks/" data-id="ck7eksd7f003axnkvfqb1a7vp" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://nayan.co/2019/11/26/Detecting-Lanes-using-Deep-Neural-Networks/" data-id="ck7em09y4003a04qb5jdn24q2" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -308,13 +312,13 @@
             "name": "NayanTech"
         },
         "headline": "Detecting Lanes using Deep Neural Networks",
-        "image": "https://nayan.co/blog/blog/2019/11/26/Detecting-Lanes-using-Deep-Neural-Networks/dir_structure.png",
+        "image": "https://nayan.cohttps://nayan.co/blog/2019/11/26/Detecting-Lanes-using-Deep-Neural-Networks/dir_structure.png",
         "keywords": "Machine Learning Deep Learning Lane Detection Advance Driver Assistance Autonomous Driving",
         "genre": "AI",
         "datePublished": "2019-11-26",
         "dateCreated": "2019-11-26",
         "dateModified": "2020-03-05",
-        "url": "https://nayan.co/blog//2019/11/26/Detecting-Lanes-using-Deep-Neural-Networks/",
+        "url": "https://nayan.co//2019/11/26/Detecting-Lanes-using-Deep-Neural-Networks/",
         "description": "
 This post explains how to use deep neural networks to detect highway lanes. Lane markings are the main static component on highways.They instruct the vehicles to interactively and safely drive on the",
         "wordCount": 1750
@@ -383,7 +387,7 @@ This post explains how to use deep neural networks to detect highway lanes. Lane
         
 <nav id="article-nav">
     
-        <a href="/blog/2019/11/26/Text-detection-in-number-plates/" id="article-nav-newer" class="article-nav-link-wrap">
+        <a href="https://nayan.co/blog/2019/11/26/Text-detection-in-number-plates/" id="article-nav-newer" class="article-nav-link-wrap">
         <strong class="article-nav-caption">newer</strong>
         <p class="article-nav-title">
         
@@ -412,7 +416,7 @@ This post explains how to use deep neural networks to detect highway lanes. Lane
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/blog/2020/03/05/tensorflow-docker/" class="thumbnail">
+                            <a href="https://nayan.co/blog/2020/03/05/tensorflow-docker/" class="thumbnail">
     
     
         <span style="background-image:url(https://cdn-images-1.medium.com/max/2000/1*dPZfCX1ia00A3BmTP-QQhA.jpeg)" alt="tensorflow-docker" class="thumbnail-image"></span>
@@ -424,18 +428,18 @@ This post explains how to use deep neural networks to detect highway lanes. Lane
                         
                         <div class="item-inner">
                             <p class="item-category"></p>
-                            <p class="item-title"><a href="/blog/2020/03/05/tensorflow-docker/" class="title">tensorflow-docker</a></p>
-                            <p class="item-date"><time datetime="2020-03-05T09:56:17.940Z" itemprop="datePublished">2020-03-05</time></p>
+                            <p class="item-title"><a href="https://nayan.co/blog/2020/03/05/tensorflow-docker/" class="title">tensorflow-docker</a></p>
+                            <p class="item-date"><time datetime="2020-03-05T10:30:28.665Z" itemprop="datePublished">2020-03-05</time></p>
                         </div>
                     </li>
                 
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/blog/2020/02/11/angular-advanced/" class="thumbnail">
+                            <a href="https://nayan.co/blog/2020/02/11/angular-advanced/" class="thumbnail">
     
     
-        <span style="background-image:url(/blog/2020/02/11/angular-advanced/BG.png)" alt="Angular Charts Features" class="thumbnail-image"></span>
+        <span style="background-image:url(https://nayan.co/blog/2020/02/11/angular-advanced/BG.png)" alt="Angular Charts Features" class="thumbnail-image"></span>
     
     
 </a>
@@ -443,8 +447,8 @@ This post explains how to use deep neural networks to detect highway lanes. Lane
                         </div>
                         
                         <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/blog/categories/Web/">Web</a></p>
-                            <p class="item-title"><a href="/blog/2020/02/11/angular-advanced/" class="title">Angular Charts Features</a></p>
+                            <p class="item-category"><a class="article-category-link" href="https://nayan.co/blog/categories/Web/">Web</a></p>
+                            <p class="item-title"><a href="https://nayan.co/blog/2020/02/11/angular-advanced/" class="title">Angular Charts Features</a></p>
                             <p class="item-date"><time datetime="2020-02-11T11:33:31.000Z" itemprop="datePublished">2020-02-11</time></p>
                         </div>
                     </li>
@@ -452,10 +456,10 @@ This post explains how to use deep neural networks to detect highway lanes. Lane
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/blog/2020/02/05/Flask-PyMongo-Integration/" class="thumbnail">
+                            <a href="https://nayan.co/blog/2020/02/05/Flask-PyMongo-Integration/" class="thumbnail">
     
     
-        <span style="background-image:url(/blog/2020/02/05/Flask-PyMongo-Integration/maxresdefault.jpg)" alt="Flask + PyMongo Integration" class="thumbnail-image"></span>
+        <span style="background-image:url(https://nayan.co/blog/2020/02/05/Flask-PyMongo-Integration/maxresdefault.jpg)" alt="Flask + PyMongo Integration" class="thumbnail-image"></span>
     
     
 </a>
@@ -464,7 +468,7 @@ This post explains how to use deep neural networks to detect highway lanes. Lane
                         
                         <div class="item-inner">
                             <p class="item-category"></p>
-                            <p class="item-title"><a href="/blog/2020/02/05/Flask-PyMongo-Integration/" class="title">Flask + PyMongo Integration</a></p>
+                            <p class="item-title"><a href="https://nayan.co/blog/2020/02/05/Flask-PyMongo-Integration/" class="title">Flask + PyMongo Integration</a></p>
                             <p class="item-date"><time datetime="2020-02-05T11:09:31.000Z" itemprop="datePublished">2020-02-05</time></p>
                         </div>
                     </li>
@@ -472,10 +476,10 @@ This post explains how to use deep neural networks to detect highway lanes. Lane
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/blog/2020/02/03/App-Heartbeat/" class="thumbnail">
+                            <a href="https://nayan.co/blog/2020/02/03/App-Heartbeat/" class="thumbnail">
     
     
-        <span style="background-image:url(/blog/2020/02/03/App-Heartbeat/heartbeat.jpeg)" alt="App-Heartbeat" class="thumbnail-image"></span>
+        <span style="background-image:url(https://nayan.co/blog/2020/02/03/App-Heartbeat/heartbeat.jpeg)" alt="App-Heartbeat" class="thumbnail-image"></span>
     
     
 </a>
@@ -483,8 +487,8 @@ This post explains how to use deep neural networks to detect highway lanes. Lane
                         </div>
                         
                         <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/blog/categories/Android/">Android</a></p>
-                            <p class="item-title"><a href="/blog/2020/02/03/App-Heartbeat/" class="title">App-Heartbeat</a></p>
+                            <p class="item-category"><a class="article-category-link" href="https://nayan.co/blog/categories/Android/">Android</a></p>
+                            <p class="item-title"><a href="https://nayan.co/blog/2020/02/03/App-Heartbeat/" class="title">App-Heartbeat</a></p>
                             <p class="item-date"><time datetime="2020-02-03T13:40:48.000Z" itemprop="datePublished">2020-02-03</time></p>
                         </div>
                     </li>
@@ -492,10 +496,10 @@ This post explains how to use deep neural networks to detect highway lanes. Lane
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/blog/2020/01/29/override-devise-auth-token-controllers/" class="thumbnail">
+                            <a href="https://nayan.co/blog/2020/01/29/override-devise-auth-token-controllers/" class="thumbnail">
     
     
-        <span style="background-image:url(/blog/2020/01/29/override-devise-auth-token-controllers/devise_token_auth.png)" alt="Override Devise Auth Token Controllers" class="thumbnail-image"></span>
+        <span style="background-image:url(https://nayan.co/blog/2020/01/29/override-devise-auth-token-controllers/devise_token_auth.png)" alt="Override Devise Auth Token Controllers" class="thumbnail-image"></span>
     
     
 </a>
@@ -503,8 +507,8 @@ This post explains how to use deep neural networks to detect highway lanes. Lane
                         </div>
                         
                         <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/blog/categories/Ruby-on-Rails/">Ruby on Rails</a></p>
-                            <p class="item-title"><a href="/blog/2020/01/29/override-devise-auth-token-controllers/" class="title">Override Devise Auth Token Controllers</a></p>
+                            <p class="item-category"><a class="article-category-link" href="https://nayan.co/blog/categories/Ruby-on-Rails/">Ruby on Rails</a></p>
+                            <p class="item-title"><a href="https://nayan.co/blog/2020/01/29/override-devise-auth-token-controllers/" class="title">Override Devise Auth Token Controllers</a></p>
                             <p class="item-date"><time datetime="2020-01-29T15:56:25.000Z" itemprop="datePublished">2020-01-29</time></p>
                         </div>
                     </li>
@@ -518,7 +522,7 @@ This post explains how to use deep neural networks to detect highway lanes. Lane
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">categories</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/AI/">AI</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/Android/">Android</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/Rails/">Rails</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/Ruby-on-Rails/">Ruby on Rails</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/Web/">Web</a><span class="category-list-count">4</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="https://nayan.co/blog/categories/AI/">AI</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="https://nayan.co/blog/categories/Android/">Android</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="https://nayan.co/blog/categories/Rails/">Rails</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="https://nayan.co/blog/categories/Ruby-on-Rails/">Ruby on Rails</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="https://nayan.co/blog/categories/Web/">Web</a><span class="category-list-count">4</span></li></ul>
         </div>
     </div>
 
@@ -528,7 +532,7 @@ This post explains how to use deep neural networks to detect highway lanes. Lane
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">archives</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/03/">March 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/02/">February 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/01/">January 2020</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/12/">December 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/11/">November 2019</a><span class="archive-list-count">6</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="https://nayan.co/blog/archives/2020/03/">March 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="https://nayan.co/blog/archives/2020/02/">February 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="https://nayan.co/blog/archives/2020/01/">January 2020</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="https://nayan.co/blog/archives/2019/12/">December 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="https://nayan.co/blog/archives/2019/11/">November 2019</a><span class="archive-list-count">6</span></li></ul>
         </div>
     </div>
 
@@ -538,7 +542,7 @@ This post explains how to use deep neural networks to detect highway lanes. Lane
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">tags</h3>
         <div class="widget">
-            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/AOCR/" rel="tag">AOCR</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Advance-Driver-Assistance/" rel="tag">Advance Driver Assistance</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Android-Testing/" rel="tag">Android Testing</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Autonomous-Driving/" rel="tag">Autonomous Driving</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Autonomous-driving/" rel="tag">Autonomous driving</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Character-Recognition/" rel="tag">Character Recognition</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Charts/" rel="tag">Charts</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Customization/" rel="tag">Customization</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Data-Visualization/" rel="tag">Data Visualization</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Deep-Learning/" rel="tag">Deep Learning</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Dilated-Convolutions/" rel="tag">Dilated Convolutions</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Docker/" rel="tag">Docker</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Grafana/" rel="tag">Grafana</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Image-Classification/" rel="tag">Image-Classification</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Instrumentation-Test/" rel="tag">Instrumentation Test</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Javascript/" rel="tag">Javascript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Keras/" rel="tag">Keras</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Lane-Detection/" rel="tag">Lane Detection</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/License-Plates/" rel="tag">License Plates</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/License-Plates-Recognition/" rel="tag">License Plates Recognition</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Line-Chart/" rel="tag">Line Chart</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Machine-Learning/" rel="tag">Machine Learning</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Mlflow/" rel="tag">Mlflow</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/MongoDB/" rel="tag">MongoDB</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/MySQL/" rel="tag">MySQL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/OCR/" rel="tag">OCR</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Plugins/" rel="tag">Plugins</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Rails/" rel="tag">Rails</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Residual-Networks/" rel="tag">Residual Networks</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Ruby/" rel="tag">Ruby</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Semantic-segmentation/" rel="tag">Semantic segmentation</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Tracking/" rel="tag">Tracking</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Unit-Test/" rel="tag">Unit Test</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/android/" rel="tag">android</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/authentication/" rel="tag">authentication</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/backend/" rel="tag">backend</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/devise/" rel="tag">devise</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/devise-auth-token/" rel="tag">devise_auth_token</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/gateway/" rel="tag">gateway</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/git-submodules/" rel="tag">git submodules</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/neural-network/" rel="tag">neural-network</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/payment/" rel="tag">payment</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/paytm/" rel="tag">paytm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/rails/" rel="tag">rails</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/ror/" rel="tag">ror</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/ruby/" rel="tag">ruby</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/sessions/" rel="tag">sessions</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/spark/" rel="tag">spark</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/user-interaction/" rel="tag">user interaction</a><span class="tag-list-count">1</span></li></ul>
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="https://nayan.co/blog/tags/AOCR/" rel="tag">AOCR</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="https://nayan.co/blog/tags/Advance-Driver-Assistance/" rel="tag">Advance Driver Assistance</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="https://nayan.co/blog/tags/Android-Testing/" rel="tag">Android Testing</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="https://nayan.co/blog/tags/Autonomous-Driving/" rel="tag">Autonomous Driving</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="https://nayan.co/blog/tags/Autonomous-driving/" rel="tag">Autonomous driving</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="https://nayan.co/blog/tags/Character-Recognition/" rel="tag">Character Recognition</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="https://nayan.co/blog/tags/Charts/" rel="tag">Charts</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="https://nayan.co/blog/tags/Customization/" rel="tag">Customization</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="https://nayan.co/blog/tags/Data-Visualization/" rel="tag">Data Visualization</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="https://nayan.co/blog/tags/Deep-Learning/" rel="tag">Deep Learning</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="https://nayan.co/blog/tags/Dilated-Convolutions/" rel="tag">Dilated Convolutions</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="https://nayan.co/blog/tags/Docker/" rel="tag">Docker</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="https://nayan.co/blog/tags/Grafana/" rel="tag">Grafana</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="https://nayan.co/blog/tags/Image-Classification/" rel="tag">Image-Classification</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="https://nayan.co/blog/tags/Instrumentation-Test/" rel="tag">Instrumentation Test</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="https://nayan.co/blog/tags/Javascript/" rel="tag">Javascript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="https://nayan.co/blog/tags/Keras/" rel="tag">Keras</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="https://nayan.co/blog/tags/Lane-Detection/" rel="tag">Lane Detection</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="https://nayan.co/blog/tags/License-Plates/" rel="tag">License Plates</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="https://nayan.co/blog/tags/License-Plates-Recognition/" rel="tag">License Plates Recognition</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="https://nayan.co/blog/tags/Line-Chart/" rel="tag">Line Chart</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="https://nayan.co/blog/tags/Machine-Learning/" rel="tag">Machine Learning</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="https://nayan.co/blog/tags/Mlflow/" rel="tag">Mlflow</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="https://nayan.co/blog/tags/MongoDB/" rel="tag">MongoDB</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="https://nayan.co/blog/tags/MySQL/" rel="tag">MySQL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="https://nayan.co/blog/tags/OCR/" rel="tag">OCR</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="https://nayan.co/blog/tags/Plugins/" rel="tag">Plugins</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="https://nayan.co/blog/tags/Rails/" rel="tag">Rails</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="https://nayan.co/blog/tags/Residual-Networks/" rel="tag">Residual Networks</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="https://nayan.co/blog/tags/Ruby/" rel="tag">Ruby</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="https://nayan.co/blog/tags/Semantic-segmentation/" rel="tag">Semantic segmentation</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="https://nayan.co/blog/tags/Tracking/" rel="tag">Tracking</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="https://nayan.co/blog/tags/Unit-Test/" rel="tag">Unit Test</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="https://nayan.co/blog/tags/android/" rel="tag">android</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="https://nayan.co/blog/tags/authentication/" rel="tag">authentication</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="https://nayan.co/blog/tags/backend/" rel="tag">backend</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="https://nayan.co/blog/tags/devise/" rel="tag">devise</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="https://nayan.co/blog/tags/devise-auth-token/" rel="tag">devise_auth_token</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="https://nayan.co/blog/tags/gateway/" rel="tag">gateway</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="https://nayan.co/blog/tags/git-submodules/" rel="tag">git submodules</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="https://nayan.co/blog/tags/neural-network/" rel="tag">neural-network</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="https://nayan.co/blog/tags/payment/" rel="tag">payment</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="https://nayan.co/blog/tags/paytm/" rel="tag">paytm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="https://nayan.co/blog/tags/rails/" rel="tag">rails</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="https://nayan.co/blog/tags/ror/" rel="tag">ror</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="https://nayan.co/blog/tags/ruby/" rel="tag">ruby</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="https://nayan.co/blog/tags/sessions/" rel="tag">sessions</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="https://nayan.co/blog/tags/spark/" rel="tag">spark</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="https://nayan.co/blog/tags/user-interaction/" rel="tag">user interaction</a><span class="tag-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -548,7 +552,7 @@ This post explains how to use deep neural networks to detect highway lanes. Lane
     <div class="widget-wrap widget-float">
         <h3 class="widget-title">tag cloud</h3>
         <div class="widget tagcloud">
-            <a href="/blog/tags/AOCR/" style="font-size: 10px;">AOCR</a> <a href="/blog/tags/Advance-Driver-Assistance/" style="font-size: 10px;">Advance Driver Assistance</a> <a href="/blog/tags/Android-Testing/" style="font-size: 10px;">Android Testing</a> <a href="/blog/tags/Autonomous-Driving/" style="font-size: 10px;">Autonomous Driving</a> <a href="/blog/tags/Autonomous-driving/" style="font-size: 10px;">Autonomous driving</a> <a href="/blog/tags/Character-Recognition/" style="font-size: 10px;">Character Recognition</a> <a href="/blog/tags/Charts/" style="font-size: 10px;">Charts</a> <a href="/blog/tags/Customization/" style="font-size: 10px;">Customization</a> <a href="/blog/tags/Data-Visualization/" style="font-size: 10px;">Data Visualization</a> <a href="/blog/tags/Deep-Learning/" style="font-size: 20px;">Deep Learning</a> <a href="/blog/tags/Dilated-Convolutions/" style="font-size: 10px;">Dilated Convolutions</a> <a href="/blog/tags/Docker/" style="font-size: 10px;">Docker</a> <a href="/blog/tags/Grafana/" style="font-size: 12.5px;">Grafana</a> <a href="/blog/tags/Image-Classification/" style="font-size: 10px;">Image-Classification</a> <a href="/blog/tags/Instrumentation-Test/" style="font-size: 10px;">Instrumentation Test</a> <a href="/blog/tags/Javascript/" style="font-size: 10px;">Javascript</a> <a href="/blog/tags/Keras/" style="font-size: 12.5px;">Keras</a> <a href="/blog/tags/Lane-Detection/" style="font-size: 10px;">Lane Detection</a> <a href="/blog/tags/License-Plates/" style="font-size: 10px;">License Plates</a> <a href="/blog/tags/License-Plates-Recognition/" style="font-size: 10px;">License Plates Recognition</a> <a href="/blog/tags/Line-Chart/" style="font-size: 10px;">Line Chart</a> <a href="/blog/tags/Machine-Learning/" style="font-size: 17.5px;">Machine Learning</a> <a href="/blog/tags/Mlflow/" style="font-size: 10px;">Mlflow</a> <a href="/blog/tags/MongoDB/" style="font-size: 10px;">MongoDB</a> <a href="/blog/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/blog/tags/OCR/" style="font-size: 12.5px;">OCR</a> <a href="/blog/tags/Plugins/" style="font-size: 10px;">Plugins</a> <a href="/blog/tags/Rails/" style="font-size: 10px;">Rails</a> <a href="/blog/tags/Residual-Networks/" style="font-size: 10px;">Residual Networks</a> <a href="/blog/tags/Ruby/" style="font-size: 10px;">Ruby</a> <a href="/blog/tags/Semantic-segmentation/" style="font-size: 10px;">Semantic segmentation</a> <a href="/blog/tags/Tracking/" style="font-size: 10px;">Tracking</a> <a href="/blog/tags/Unit-Test/" style="font-size: 10px;">Unit Test</a> <a href="/blog/tags/android/" style="font-size: 15px;">android</a> <a href="/blog/tags/authentication/" style="font-size: 10px;">authentication</a> <a href="/blog/tags/backend/" style="font-size: 12.5px;">backend</a> <a href="/blog/tags/devise/" style="font-size: 10px;">devise</a> <a href="/blog/tags/devise-auth-token/" style="font-size: 10px;">devise_auth_token</a> <a href="/blog/tags/gateway/" style="font-size: 10px;">gateway</a> <a href="/blog/tags/git-submodules/" style="font-size: 10px;">git submodules</a> <a href="/blog/tags/neural-network/" style="font-size: 10px;">neural-network</a> <a href="/blog/tags/payment/" style="font-size: 10px;">payment</a> <a href="/blog/tags/paytm/" style="font-size: 10px;">paytm</a> <a href="/blog/tags/rails/" style="font-size: 12.5px;">rails</a> <a href="/blog/tags/ror/" style="font-size: 12.5px;">ror</a> <a href="/blog/tags/ruby/" style="font-size: 10px;">ruby</a> <a href="/blog/tags/sessions/" style="font-size: 10px;">sessions</a> <a href="/blog/tags/spark/" style="font-size: 10px;">spark</a> <a href="/blog/tags/user-interaction/" style="font-size: 10px;">user interaction</a>
+            <a href="https://nayan.co/blog/tags/AOCR/" style="font-size: 10px;">AOCR</a> <a href="https://nayan.co/blog/tags/Advance-Driver-Assistance/" style="font-size: 10px;">Advance Driver Assistance</a> <a href="https://nayan.co/blog/tags/Android-Testing/" style="font-size: 10px;">Android Testing</a> <a href="https://nayan.co/blog/tags/Autonomous-Driving/" style="font-size: 10px;">Autonomous Driving</a> <a href="https://nayan.co/blog/tags/Autonomous-driving/" style="font-size: 10px;">Autonomous driving</a> <a href="https://nayan.co/blog/tags/Character-Recognition/" style="font-size: 10px;">Character Recognition</a> <a href="https://nayan.co/blog/tags/Charts/" style="font-size: 10px;">Charts</a> <a href="https://nayan.co/blog/tags/Customization/" style="font-size: 10px;">Customization</a> <a href="https://nayan.co/blog/tags/Data-Visualization/" style="font-size: 10px;">Data Visualization</a> <a href="https://nayan.co/blog/tags/Deep-Learning/" style="font-size: 20px;">Deep Learning</a> <a href="https://nayan.co/blog/tags/Dilated-Convolutions/" style="font-size: 10px;">Dilated Convolutions</a> <a href="https://nayan.co/blog/tags/Docker/" style="font-size: 10px;">Docker</a> <a href="https://nayan.co/blog/tags/Grafana/" style="font-size: 12.5px;">Grafana</a> <a href="https://nayan.co/blog/tags/Image-Classification/" style="font-size: 10px;">Image-Classification</a> <a href="https://nayan.co/blog/tags/Instrumentation-Test/" style="font-size: 10px;">Instrumentation Test</a> <a href="https://nayan.co/blog/tags/Javascript/" style="font-size: 10px;">Javascript</a> <a href="https://nayan.co/blog/tags/Keras/" style="font-size: 12.5px;">Keras</a> <a href="https://nayan.co/blog/tags/Lane-Detection/" style="font-size: 10px;">Lane Detection</a> <a href="https://nayan.co/blog/tags/License-Plates/" style="font-size: 10px;">License Plates</a> <a href="https://nayan.co/blog/tags/License-Plates-Recognition/" style="font-size: 10px;">License Plates Recognition</a> <a href="https://nayan.co/blog/tags/Line-Chart/" style="font-size: 10px;">Line Chart</a> <a href="https://nayan.co/blog/tags/Machine-Learning/" style="font-size: 17.5px;">Machine Learning</a> <a href="https://nayan.co/blog/tags/Mlflow/" style="font-size: 10px;">Mlflow</a> <a href="https://nayan.co/blog/tags/MongoDB/" style="font-size: 10px;">MongoDB</a> <a href="https://nayan.co/blog/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="https://nayan.co/blog/tags/OCR/" style="font-size: 12.5px;">OCR</a> <a href="https://nayan.co/blog/tags/Plugins/" style="font-size: 10px;">Plugins</a> <a href="https://nayan.co/blog/tags/Rails/" style="font-size: 10px;">Rails</a> <a href="https://nayan.co/blog/tags/Residual-Networks/" style="font-size: 10px;">Residual Networks</a> <a href="https://nayan.co/blog/tags/Ruby/" style="font-size: 10px;">Ruby</a> <a href="https://nayan.co/blog/tags/Semantic-segmentation/" style="font-size: 10px;">Semantic segmentation</a> <a href="https://nayan.co/blog/tags/Tracking/" style="font-size: 10px;">Tracking</a> <a href="https://nayan.co/blog/tags/Unit-Test/" style="font-size: 10px;">Unit Test</a> <a href="https://nayan.co/blog/tags/android/" style="font-size: 15px;">android</a> <a href="https://nayan.co/blog/tags/authentication/" style="font-size: 10px;">authentication</a> <a href="https://nayan.co/blog/tags/backend/" style="font-size: 12.5px;">backend</a> <a href="https://nayan.co/blog/tags/devise/" style="font-size: 10px;">devise</a> <a href="https://nayan.co/blog/tags/devise-auth-token/" style="font-size: 10px;">devise_auth_token</a> <a href="https://nayan.co/blog/tags/gateway/" style="font-size: 10px;">gateway</a> <a href="https://nayan.co/blog/tags/git-submodules/" style="font-size: 10px;">git submodules</a> <a href="https://nayan.co/blog/tags/neural-network/" style="font-size: 10px;">neural-network</a> <a href="https://nayan.co/blog/tags/payment/" style="font-size: 10px;">payment</a> <a href="https://nayan.co/blog/tags/paytm/" style="font-size: 10px;">paytm</a> <a href="https://nayan.co/blog/tags/rails/" style="font-size: 12.5px;">rails</a> <a href="https://nayan.co/blog/tags/ror/" style="font-size: 12.5px;">ror</a> <a href="https://nayan.co/blog/tags/ruby/" style="font-size: 10px;">ruby</a> <a href="https://nayan.co/blog/tags/sessions/" style="font-size: 10px;">sessions</a> <a href="https://nayan.co/blog/tags/spark/" style="font-size: 10px;">spark</a> <a href="https://nayan.co/blog/tags/user-interaction/" style="font-size: 10px;">user interaction</a>
         </div>
     </div>
 
@@ -633,18 +637,18 @@ This post explains how to use deep neural networks to detect highway lanes. Lane
 
 
     
-        <script src="/blog/libs/lightgallery/js/lightgallery.min.js"></script>
-        <script src="/blog/libs/lightgallery/js/lg-thumbnail.min.js"></script>
-        <script src="/blog/libs/lightgallery/js/lg-pager.min.js"></script>
-        <script src="/blog/libs/lightgallery/js/lg-autoplay.min.js"></script>
-        <script src="/blog/libs/lightgallery/js/lg-fullscreen.min.js"></script>
-        <script src="/blog/libs/lightgallery/js/lg-zoom.min.js"></script>
-        <script src="/blog/libs/lightgallery/js/lg-hash.min.js"></script>
-        <script src="/blog/libs/lightgallery/js/lg-share.min.js"></script>
-        <script src="/blog/libs/lightgallery/js/lg-video.min.js"></script>
+        <script src="https://nayan.co/blog/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="https://nayan.co/blog/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="https://nayan.co/blog/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="https://nayan.co/blog/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="https://nayan.co/blog/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="https://nayan.co/blog/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="https://nayan.co/blog/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="https://nayan.co/blog/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="https://nayan.co/blog/libs/lightgallery/js/lg-video.min.js"></script>
     
     
-        <script src="/blog/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+        <script src="https://nayan.co/blog/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
     
     
 
@@ -653,7 +657,7 @@ This post explains how to use deep neural networks to detect highway lanes. Lane
 
 
 <!-- Custom Scripts -->
-<script src="/blog/js/main.js"></script>
+<script src="https://nayan.co/blog/js/main.js"></script>
 
     </div>
 </body>
