@@ -2,177 +2,177 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://nayan.co/blog/Android/sharing-modules-across-android-apps/</loc>
-    
-    <lastmod>2020-07-02T12:10:34.252Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://nayan.co/blog/Web/using-mysql-in-custom-grafana-panel/</loc>
     
-    <lastmod>2020-07-02T12:10:34.252Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://nayan.co/blog/Rails/rails-getting-started/</loc>
-    
-    <lastmod>2020-07-02T12:10:34.252Z</lastmod>
+    <lastmod>2020-07-02T12:26:11.168Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://nayan.co/blog/uncategorized/tensorflow-docker/</loc>
     
-    <lastmod>2020-07-02T12:10:34.252Z</lastmod>
+    <lastmod>2020-07-02T12:26:11.168Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://nayan.co/blog/Ruby-on-Rails/paytm-gateway-integration/</loc>
+    <loc>https://nayan.co/blog/Android/sharing-modules-across-android-apps/</loc>
     
-    <lastmod>2020-07-02T12:10:34.232Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://nayan.co/blog/Android/drawing-custom-paths-in-android/</loc>
-    
-    <lastmod>2020-07-02T12:10:34.232Z</lastmod>
+    <lastmod>2020-07-02T12:26:11.168Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://nayan.co/blog/Ruby-on-Rails/generating-pdf-in-ruby-on-rails/</loc>
+    <loc>https://nayan.co/blog/Rails/rails-getting-started/</loc>
     
-    <lastmod>2020-07-02T12:10:34.232Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://nayan.co/blog/Ruby-on-Rails/override-devise-auth-token-controllers/</loc>
-    
-    <lastmod>2020-07-02T12:10:34.232Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://nayan.co/blog/AI/boost-up-neural-networks-using-docker-containers-and-spark/</loc>
-    
-    <lastmod>2020-07-02T12:10:34.228Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://nayan.co/blog/Web/angular-advanced/</loc>
-    
-    <lastmod>2020-07-02T12:10:34.228Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://nayan.co/blog/Web/angular-charts/</loc>
-    
-    <lastmod>2020-07-02T12:10:34.228Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://nayan.co/blog/Web/angular-maps/</loc>
-    
-    <lastmod>2020-07-02T12:10:34.228Z</lastmod>
+    <lastmod>2020-07-02T12:26:11.168Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://nayan.co/blog/Web/create-custom-grafana-panel/</loc>
     
-    <lastmod>2020-07-02T12:10:34.228Z</lastmod>
+    <lastmod>2020-07-02T12:26:11.144Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://nayan.co/blog/Ruby-on-Rails/generating-pdf-in-ruby-on-rails/</loc>
+    
+    <lastmod>2020-07-02T12:26:11.144Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://nayan.co/blog/Android/drawing-custom-paths-in-android/</loc>
+    
+    <lastmod>2020-07-02T12:26:11.144Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://nayan.co/blog/Ruby-on-Rails/paytm-gateway-integration/</loc>
+    
+    <lastmod>2020-07-02T12:26:11.144Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://nayan.co/blog/Web/angular-maps/</loc>
+    
+    <lastmod>2020-07-02T12:26:11.144Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://nayan.co/blog/Web/angular-youtube/</loc>
     
-    <lastmod>2020-07-02T12:10:34.228Z</lastmod>
+    <lastmod>2020-07-02T12:26:11.144Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://nayan.co/blog/AI/boost-up-neural-networks-using-docker-containers-and-spark/</loc>
+    
+    <lastmod>2020-07-02T12:26:11.144Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://nayan.co/blog/Ruby-on-Rails/override-devise-auth-token-controllers/</loc>
+    
+    <lastmod>2020-07-02T12:26:11.144Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://nayan.co/blog/Web/angular-advanced/</loc>
+    
+    <lastmod>2020-07-02T12:26:11.140Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://nayan.co/blog/Web/angular-charts/</loc>
+    
+    <lastmod>2020-07-02T12:26:11.140Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://nayan.co/blog/AI/Vehicle-Parking-Occupancy-Detection/</loc>
     
-    <lastmod>2020-07-02T12:10:34.204Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://nayan.co/blog/AI/Pyton-and-Kafka-Message-Passing-and-More/</loc>
-    
-    <lastmod>2020-07-02T12:10:34.188Z</lastmod>
+    <lastmod>2020-07-02T12:26:11.116Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://nayan.co/blog/AI/Tracking-Deep-Learning-Experiments-using-Keras-MlFlow-and-MongoDb/</loc>
     
-    <lastmod>2020-07-02T12:10:34.188Z</lastmod>
+    <lastmod>2020-07-02T12:26:11.104Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://nayan.co/blog/AI/Text-detection-in-number-plates/</loc>
     
-    <lastmod>2020-07-02T12:10:34.188Z</lastmod>
+    <lastmod>2020-07-02T12:26:11.100Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://nayan.co/blog/AI/Meta-Learning-Learning-to-learn-fast/</loc>
     
-    <lastmod>2020-07-02T12:10:34.184Z</lastmod>
+    <lastmod>2020-07-02T12:26:11.100Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://nayan.co/blog/uncategorized/Flask-PyMongo-Integration/</loc>
     
-    <lastmod>2020-07-02T12:10:34.184Z</lastmod>
+    <lastmod>2020-07-02T12:26:11.100Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://nayan.co/blog/AI/How-to-make-a-web-application-for-any-AI-model/</loc>
     
-    <lastmod>2020-07-02T12:10:34.184Z</lastmod>
+    <lastmod>2020-07-02T12:26:11.100Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://nayan.co/blog/AI/Pyton-and-Kafka-Message-Passing-and-More/</loc>
+    
+    <lastmod>2020-07-02T12:26:11.100Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://nayan.co/blog/Android/App-Heartbeat/</loc>
     
-    <lastmod>2020-07-02T12:10:34.180Z</lastmod>
+    <lastmod>2020-07-02T12:26:11.092Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://nayan.co/blog/AI/Efficient-Residual-Factorized-Neural-Network-for-Semantic-Segmentation/</loc>
     
-    <lastmod>2020-07-02T12:10:34.180Z</lastmod>
+    <lastmod>2020-07-02T12:26:11.092Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://nayan.co/blog/AI/Character-Recognition-with-CNN-network/</loc>
     
-    <lastmod>2020-07-02T12:10:34.180Z</lastmod>
+    <lastmod>2020-07-02T12:26:11.092Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://nayan.co/blog/Android/Android-Testing-Strategy/</loc>
     
-    <lastmod>2020-07-02T12:10:34.180Z</lastmod>
+    <lastmod>2020-07-02T12:26:11.092Z</lastmod>
     
   </url>
   
