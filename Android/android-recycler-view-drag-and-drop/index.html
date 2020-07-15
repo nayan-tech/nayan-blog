@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>How to implement Android RecyclerView Drag and Drop feature seamlessly | Nayan Blog</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="android,kotlin,ItemTouchHelper,Callback,RecyclerView,Drag and Drop,Ashish Jajoria" />
+    
+    <meta name="description" content="We some times want to implement Drag and Drop feature OR Swip to dismiss feature on our recycler view. For implementing that we usually go for a library that already have this implemented, and at this">
+<meta name="keywords" content="android,kotlin,ItemTouchHelper,Callback,RecyclerView,Drag and Drop,Ashish Jajoria">
+<meta property="og:type" content="article">
+<meta property="og:title" content="How to implement Android RecyclerView Drag and Drop feature seamlessly">
+<meta property="og:url" content="https:&#x2F;&#x2F;nayan.co&#x2F;blog&#x2F;Android&#x2F;android-recycler-view-drag-and-drop&#x2F;">
+<meta property="og:site_name" content="Nayan Blog">
+<meta property="og:description" content="We some times want to implement Drag and Drop feature OR Swip to dismiss feature on our recycler view. For implementing that we usually go for a library that already have this implemented, and at this">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https:&#x2F;&#x2F;nayan.co&#x2F;blog&#x2F;Android&#x2F;android-recycler-view-drag-and-drop&#x2F;drag_n_drop.gif">
+<meta property="og:updated_time" content="2020-07-15T04:41:25.175Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;nayan.co&#x2F;blog&#x2F;Android&#x2F;android-recycler-view-drag-and-drop&#x2F;drag_n_drop.gif">
+    
+
+    
+
+    
+        <link rel="icon" href="/blog/css/images/favicon.png" />
+    
+
+    <link rel="stylesheet" href="/blog/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/blog/libs/titillium-web/styles.css">
+    <link rel="stylesheet" href="/blog/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/blog/css/style.css">
+
+    <script src="/blog/libs/jquery/3.4.1/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/blog/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/blog/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+
+
+<link rel="alternate" href="/blog/atom.xml" title="Nayan Blog" type="application/atom+xml">
+</head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="https://nayan.co" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/blog/">Home</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/blog/categories/AI/">AI</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/blog/categories/Android/">Android</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/blog/categories/Rails/">Rails</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/blog/categories/Ruby-on-Rails/">Ruby on Rails</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/blog/categories/Web/">Web</a></li></ul>
+                                    
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/blog/archives/index.html">Archive</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/blog/',
+        CONTENT_URL: '/blog/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/blog/js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/blog/categories/Android/">Android</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-android-recycler-view-drag-and-drop" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        How to implement Android RecyclerView Drag and Drop feature seamlessly
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+      <i class="fa fa-calendar"></i>
+      <a href="/blog/Android/android-recycler-view-drag-and-drop/" class="article-date">
+         <time datetime="2020-07-07T12:41:05.000Z" itemprop="datePublished">2020-07-07</time>
+      </a>
+    </div>
+
+
+                
+  <div class="article-author">
+    Ashish Jajoria
+  </div>
+
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/blog/tags/Ashish-Jajoria/" rel="tag">Ashish Jajoria</a>, <a class="tag-link" href="/blog/tags/Callback/" rel="tag">Callback</a>, <a class="tag-link" href="/blog/tags/Drag-and-Drop/" rel="tag">Drag and Drop</a>, <a class="tag-link" href="/blog/tags/ItemTouchHelper/" rel="tag">ItemTouchHelper</a>, <a class="tag-link" href="/blog/tags/RecyclerView/" rel="tag">RecyclerView</a>, <a class="tag-link" href="/blog/tags/android/" rel="tag">android</a>, <a class="tag-link" href="/blog/tags/kotlin/" rel="tag">kotlin</a>
+    </div>
+
+                
+
+                
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            <p>We some times want to implement Drag and Drop feature OR Swip to dismiss feature on our recycler view. For implementing that we usually go for a library that already have this implemented, and at this point of time most of those libraries are using old APIs and complex logic to handle the things. But now we have simple and better ItemTouchHelper in the Android Support Library itself, so now we don’t need those good old libraries. Lets start implementing.</p>
+<p><img src="/blog/Android/android-recycler-view-drag-and-drop/drag_n_drop.gif" alt="Drag n Drop and Swipe feature"></p>
+<h2 id="1-Lets-create-an-ItemTouchHelper-Callback"><a href="#1-Lets-create-an-ItemTouchHelper-Callback" class="headerlink" title="1. Lets create an ItemTouchHelper.Callback"></a>1. Lets create an <code>ItemTouchHelper.Callback</code></h2><p>We’ll create an <code>ItemTouchHelper.Callback</code> to handle the events.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">val</span> itemTouchHelperCallback = <span class="keyword">object</span>: ItemTouchHelper.Callback() &#123;</span><br><span class="line">        <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">getMovementFlags</span><span class="params">(</span></span></span><br><span class="line"><span class="function"><span class="params">            recyclerView: <span class="type">RecyclerView</span>,</span></span></span><br><span class="line"><span class="function"><span class="params">            viewHolder: <span class="type">RecyclerView</span>.<span class="type">ViewHolder</span></span></span></span><br><span class="line"><span class="function"><span class="params">        )</span></span>: <span class="built_in">Int</span> &#123;</span><br><span class="line">            <span class="comment">// Specify the directions of movement</span></span><br><span class="line">            <span class="keyword">return</span> makeMovementFlags(<span class="literal">null</span>, <span class="number">0</span>)</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onMove</span><span class="params">(</span></span></span><br><span class="line"><span class="function"><span class="params">            recyclerView: <span class="type">RecyclerView</span>,</span></span></span><br><span class="line"><span class="function"><span class="params">            viewHolder: <span class="type">RecyclerView</span>.<span class="type">ViewHolder</span>,</span></span></span><br><span class="line"><span class="function"><span class="params">            target: <span class="type">RecyclerView</span>.<span class="type">ViewHolder</span></span></span></span><br><span class="line"><span class="function"><span class="params">        )</span></span>: <span class="built_in">Boolean</span> &#123;</span><br><span class="line">            <span class="comment">// Notify your adapter that an item is moved from x position to y position</span></span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">isLongPressDragEnabled</span><span class="params">()</span></span>: <span class="built_in">Boolean</span> &#123;</span><br><span class="line">            <span class="comment">// true: if you want to start dragging on long press</span></span><br><span class="line">            <span class="comment">// false: if you want to handle it yourself</span></span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onSwiped</span><span class="params">(viewHolder: <span class="type">RecyclerView</span>.<span class="type">ViewHolder</span>, direction: <span class="type">Int</span>)</span></span> &#123;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onSelectedChanged</span><span class="params">(viewHolder: <span class="type">RecyclerView</span>.<span class="type">ViewHolder</span>?, actionState: <span class="type">Int</span>)</span></span> &#123;</span><br><span class="line">            <span class="keyword">super</span>.onSelectedChanged(viewHolder, actionState)</span><br><span class="line">            <span class="comment">// Hanlde action state changes</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">clearView</span><span class="params">(recyclerView: <span class="type">RecyclerView</span>, viewHolder: <span class="type">RecyclerView</span>.<span class="type">ViewHolder</span>)</span></span> &#123;</span><br><span class="line">            <span class="keyword">super</span>.clearView(recyclerView, viewHolder)</span><br><span class="line">            <span class="comment">// Called by the ItemTouchHelper when the user interaction with an element is over and it also completed its animation</span></span><br><span class="line">            <span class="comment">// This is a good place to send update to your backend about changes</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-Set-directions"><a href="#2-Set-directions" class="headerlink" title="2. Set directions"></a>2. Set directions</h2><p>Add your movement flags for the directions you want to handle.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">val</span> itemTouchHelperCallback = <span class="keyword">object</span>: ItemTouchHelper.Callback() &#123;</span><br><span class="line">        <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">getMovementFlags</span><span class="params">(</span></span></span><br><span class="line"><span class="function"><span class="params">            recyclerView: <span class="type">RecyclerView</span>,</span></span></span><br><span class="line"><span class="function"><span class="params">            viewHolder: <span class="type">RecyclerView</span>.<span class="type">ViewHolder</span></span></span></span><br><span class="line"><span class="function"><span class="params">        )</span></span>: <span class="built_in">Int</span> &#123;</span><br><span class="line">            <span class="comment">// Specify the directions of movement</span></span><br><span class="line">            <span class="keyword">val</span> dragFlags = ItemTouchHelper.UP or ItemTouchHelper.DOWN</span><br><span class="line">            <span class="keyword">return</span> makeMovementFlags(dragFlags, <span class="number">0</span>)</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-Update-Adapter"><a href="#3-Update-Adapter" class="headerlink" title="3. Update Adapter"></a>3. Update Adapter</h2><p>Tell your adapter about the positions updates of the items.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">val</span> itemTouchHelperCallback = <span class="keyword">object</span>: ItemTouchHelper.Callback() &#123;</span><br><span class="line">        ...</span><br><span class="line"></span><br><span class="line">        <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onMove</span><span class="params">(</span></span></span><br><span class="line"><span class="function"><span class="params">            recyclerView: <span class="type">RecyclerView</span>,</span></span></span><br><span class="line"><span class="function"><span class="params">            viewHolder: <span class="type">RecyclerView</span>.<span class="type">ViewHolder</span>,</span></span></span><br><span class="line"><span class="function"><span class="params">            target: <span class="type">RecyclerView</span>.<span class="type">ViewHolder</span></span></span></span><br><span class="line"><span class="function"><span class="params">        )</span></span>: <span class="built_in">Boolean</span> &#123;</span><br><span class="line">            <span class="comment">// Notify your adapter that an item is moved from x position to y position</span></span><br><span class="line">            yourAdapter.notifyItemMoved(viewHolder.adapterPosition, target.adapterPosition)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-Create-ItemTouchHelper"><a href="#4-Create-ItemTouchHelper" class="headerlink" title="4. Create ItemTouchHelper"></a>4. Create <code>ItemTouchHelper</code></h2><p>From <code>itemTouchHelperCallback</code> we’ll create an <code>ItemTouchHelper</code> object to attach RecyclerView to it.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> itemTouchHelper = ItemTouchHelper(itemTouchHelperCallback)</span><br></pre></td></tr></table></figure>
+
+<h2 id="5-Attach-to-RecyclerView"><a href="#5-Attach-to-RecyclerView" class="headerlink" title="5. Attach to RecyclerView"></a>5. Attach to RecyclerView</h2><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">itemTouchHelper.attachToRecyclerView(yourRecyclerView)</span><br></pre></td></tr></table></figure>
+
+<p>By this time now you have Drag and Drop feature enabled in your RecyclerView you can just build the project and run the app.</p>
+<h2 id="6-Handle-final-state"><a href="#6-Handle-final-state" class="headerlink" title="6. Handle final state"></a>6. Handle final state</h2><p>Now when you want to send and update to you backend about the new order of the items, then just override the <code>clearView</code> method of <code>itemTouchHelperCallback</code> and you are good to go.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">val</span> itemTouchHelperCallback = <span class="keyword">object</span>: ItemTouchHelper.Callback() &#123;</span><br><span class="line">        ...</span><br><span class="line"></span><br><span class="line">        <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">clearView</span><span class="params">(recyclerView: <span class="type">RecyclerView</span>, viewHolder: <span class="type">RecyclerView</span>.<span class="type">ViewHolder</span>)</span></span> &#123;</span><br><span class="line">            <span class="keyword">super</span>.clearView(recyclerView, viewHolder)</span><br><span class="line">            <span class="comment">// Called by the ItemTouchHelper when the user interaction with an element is over and it also completed its animation</span></span><br><span class="line">            <span class="comment">// This is a good place to send update to your backend about changes</span></span><br><span class="line">            <span class="comment">// Your API call</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Make-it-working-with-SwipeRefreshLayout"><a href="#Make-it-working-with-SwipeRefreshLayout" class="headerlink" title="Make it working with SwipeRefreshLayout"></a>Make it working with <code>SwipeRefreshLayout</code></h2><p>Now comes a strange problem when you try to implement this feature in swipe refresh layout. The problem is, when you try to drag the item from bottom to top direction, then it will work, but when you try to drag from top to bottom, then it fails, as <code>SwipeRefreshLayout</code> intercepts the callback of dragging from top to bottom.</p>
+<p>We just have to disable the <code>SwipeRefreshLayout</code>‘s swipe to refresh feature for the drag time and enable it back when the user has dropped the item to its final position.</p>
+<p>So, lets override <code>onSelectedChanged</code> to handle this.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">val</span> itemTouchHelperCallback = <span class="keyword">object</span>: ItemTouchHelper.Callback() &#123;</span><br><span class="line"></span><br><span class="line">        ...</span><br><span class="line"></span><br><span class="line">        <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onSelectedChanged</span><span class="params">(viewHolder: <span class="type">RecyclerView</span>.<span class="type">ViewHolder</span>?, actionState: <span class="type">Int</span>)</span></span> &#123;</span><br><span class="line">            <span class="keyword">super</span>.onSelectedChanged(viewHolder, actionState)</span><br><span class="line">            <span class="comment">// Hanlde action state changes</span></span><br><span class="line">            <span class="keyword">val</span> swiping = actionState == ItemTouchHelper.ACTION_STATE_DRAG</span><br><span class="line">            pullToRefresh.isEnabled = !swiping</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>That’s all you have to do for implementing Drag and Drop feature for your RecyclerView</p>
+<h2 id="References"><a href="#References" class="headerlink" title="References:-"></a>References:-</h2><ol>
+<li><a href="https://medium.com/@gopalawasthi383/android-recyclerview-drag-and-drop-a3f227cdb641" target="_blank" rel="noopener">Android RecyclerView drag and drop</a></li>
+<li><a href="https://medium.com/@ipaulpro/drag-and-swipe-with-recyclerview-b9456d2b1aaf" target="_blank" rel="noopener">Drag and Swipe with RecyclerView</a></li>
+<li><a href="https://stackoverflow.com/a/32075806/5752113" target="_blank" rel="noopener">ItemTouchHelper and SwipeRefreshLayout (RecyclerView)</a></li>
+</ol>
+<h2 id="Some-good-reads-you-may-like"><a href="#Some-good-reads-you-may-like" class="headerlink" title="Some good reads you may like:-"></a>Some good reads you may like:-</h2><ol>
+<li><a href="https://nayan.co/blog/Ruby-on-Rails/paytm-gateway-integration/">Paytm Gateway Integration</a></li>
+<li><a href="https://nayan.co/blog/Android/Android-Testing-Strategy/">Android Testing Strategy</a></li>
+<li><a href="https://nayan.co/blog/Android/drawing-custom-paths-in-android/">How to draw custom paths/lines in Android usign PathEffect</a></li>
+</ol>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="https://nayan.co/blog/Android/android-recycler-view-drag-and-drop/" data-id="ckcmvns8f000e46mhgafmd6ut" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "NayanTech"
+        },
+        "headline": "How to implement Android RecyclerView Drag and Drop feature seamlessly",
+        "image": "https://nayan.co/blog/blog/Android/android-recycler-view-drag-and-drop/drag_n_drop.gif",
+        "keywords": "android kotlin ItemTouchHelper Callback RecyclerView Drag and Drop Ashish Jajoria",
+        "genre": "Android",
+        "datePublished": "2020-07-07",
+        "dateCreated": "2020-07-07",
+        "dateModified": "2020-07-15",
+        "url": "https://nayan.co/blog//Android/android-recycler-view-drag-and-drop/",
+        "description": "We some times want to implement Drag and Drop feature OR Swip to dismiss feature on our recycler view. For implementing that we usually go for a library that already have this implemented, and at this",
+        "wordCount": 1716
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="youtube" href="https://www.youtube.com/channel/UCgglHs52FLwmQNyxND57c2Q" target="_blank" rel="noopener">
+                        <i class="icon fa fa-youtube"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="twitter" href="https://twitter.com/nayancam" target="_blank" rel="noopener">
+                        <i class="icon fa fa-twitter"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="facebook" href="https://www.facebook.com/NAYANCAM/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-facebook"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="instagram" href="https://www.instagram.com/nayantechno/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-instagram"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="linkedin" href="https://in.linkedin.com/company/nayancam" target="_blank" rel="noopener">
+                        <i class="icon fa fa-linkedin"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/blog/uncategorized/tensorflow-docker/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            tensorflow-docker
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/blog/Web/angular-youtube/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">Youtube Data API in Angular app for realtime chanels video data</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/blog/uncategorized/tensorflow-docker/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://cdn-images-1.medium.com/max/2000/1*dPZfCX1ia00A3BmTP-QQhA.jpeg)" alt="tensorflow-docker" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/blog/uncategorized/tensorflow-docker/" class="title">tensorflow-docker</a></p>
+                            <p class="item-date"><time datetime="2020-07-15T04:41:25.203Z" itemprop="datePublished">2020-07-15</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/blog/Android/android-recycler-view-drag-and-drop/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/blog/Android/android-recycler-view-drag-and-drop/drag_n_drop.gif)" alt="How to implement Android RecyclerView Drag and Drop feature seamlessly" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/blog/categories/Android/">Android</a></p>
+                            <p class="item-title"><a href="/blog/Android/android-recycler-view-drag-and-drop/" class="title">How to implement Android RecyclerView Drag and Drop feature seamlessly</a></p>
+                            <p class="item-date"><time datetime="2020-07-07T12:41:05.000Z" itemprop="datePublished">2020-07-07</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/blog/Web/angular-youtube/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/blog/Web/angular-youtube/blog_banner.png)" alt="Youtube Data API in Angular app for realtime chanels video data" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/blog/categories/Web/">Web</a></p>
+                            <p class="item-title"><a href="/blog/Web/angular-youtube/" class="title">Youtube Data API in Angular app for realtime chanels video data</a></p>
+                            <p class="item-date"><time datetime="2020-06-21T16:36:18.000Z" itemprop="datePublished">2020-06-21</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/blog/Android/drawing-custom-paths-in-android/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/blog/Android/drawing-custom-paths-in-android/lines.png)" alt="How to draw custom paths/lines in Android usign PathEffect" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/blog/categories/Android/">Android</a></p>
+                            <p class="item-title"><a href="/blog/Android/drawing-custom-paths-in-android/" class="title">How to draw custom paths/lines in Android usign PathEffect</a></p>
+                            <p class="item-date"><time datetime="2020-06-08T12:41:05.000Z" itemprop="datePublished">2020-06-08</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/blog/AI/Vehicle-Parking-Occupancy-Detection/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/blog/AI/Vehicle-Parking-Occupancy-Detection/20140103__bartpark31-1.jpg)" alt="Detecting Whether a Parking Zone Is Vacant Or Occupied" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/blog/categories/AI/">AI</a></p>
+                            <p class="item-title"><a href="/blog/AI/Vehicle-Parking-Occupancy-Detection/" class="title">Detecting Whether a Parking Zone Is Vacant Or Occupied</a></p>
+                            <p class="item-date"><time datetime="2020-06-01T17:22:29.000Z" itemprop="datePublished">2020-06-01</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/AI/">AI</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/Android/">Android</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/Rails/">Rails</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/Ruby-on-Rails/">Ruby on Rails</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/Web/">Web</a><span class="category-list-count">6</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/07/">July 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/06/">June 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/05/">May 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/03/">March 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/02/">February 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/01/">January 2020</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/12/">December 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/11/">November 2019</a><span class="archive-list-count">4</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">tags</h3>
+        <div class="widget">
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Android-Testing/" rel="tag">Android Testing</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Angular/" rel="tag">Angular</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Ashish-Jajoria/" rel="tag">Ashish Jajoria</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Autonomous-driving/" rel="tag">Autonomous driving</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Callback/" rel="tag">Callback</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Character-Recognition/" rel="tag">Character Recognition</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Charts/" rel="tag">Charts</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Cloud-Data/" rel="tag">Cloud Data</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/ComposePathEffect/" rel="tag">ComposePathEffect</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Computer-Vision/" rel="tag">Computer Vision</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/CornerPathEffect/" rel="tag">CornerPathEffect</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Customization/" rel="tag">Customization</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/DashPathEffect/" rel="tag">DashPathEffect</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Data-Visualization/" rel="tag">Data Visualization</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Deep-Learning/" rel="tag">Deep Learning</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Dilated-Convolutions/" rel="tag">Dilated Convolutions</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Docker/" rel="tag">Docker</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Drag-and-Drop/" rel="tag">Drag and Drop</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Google-Maps/" rel="tag">Google Maps</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Grafana/" rel="tag">Grafana</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Image-Classification/" rel="tag">Image-Classification</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Instrumentation-Test/" rel="tag">Instrumentation Test</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/ItemTouchHelper/" rel="tag">ItemTouchHelper</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Javascript/" rel="tag">Javascript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Kafka/" rel="tag">Kafka</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Keras/" rel="tag">Keras</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Large-markers/" rel="tag">Large markers</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Line-Chart/" rel="tag">Line Chart</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Machine-Learning/" rel="tag">Machine Learning</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Meta-Learning/" rel="tag">Meta Learning</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Microservices/" rel="tag">Microservices</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Mlflow/" rel="tag">Mlflow</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/MongoDB/" rel="tag">MongoDB</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/MySQL/" rel="tag">MySQL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Nayan/" rel="tag">Nayan</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/OCR/" rel="tag">OCR</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Parking-Detection/" rel="tag">Parking Detection</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/PathDashPathEffect/" rel="tag">PathDashPathEffect</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Plugins/" rel="tag">Plugins</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Python/" rel="tag">Python</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Queue/" rel="tag">Queue</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Rails/" rel="tag">Rails</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/RecyclerView/" rel="tag">RecyclerView</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Residual-Networks/" rel="tag">Residual Networks</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Ruby/" rel="tag">Ruby</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Semantic-segmentation/" rel="tag">Semantic segmentation</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Stream-Processing/" rel="tag">Stream Processing</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Supervised-Learning/" rel="tag">Supervised Learning</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Tracking/" rel="tag">Tracking</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Unit-Test/" rel="tag">Unit Test</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Vehicle-Occupancy-Detection/" rel="tag">Vehicle Occupancy Detection</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Youtube-data-API/" rel="tag">Youtube data API</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/android/" rel="tag">android</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/angular/" rel="tag">angular</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/authentication/" rel="tag">authentication</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/backend/" rel="tag">backend</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/canvas/" rel="tag">canvas</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/devise/" rel="tag">devise</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/devise-auth-token/" rel="tag">devise_auth_token</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/draw-custom-path/" rel="tag">draw custom path</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/gateway/" rel="tag">gateway</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/generate-pdf/" rel="tag">generate pdf</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/git-submodules/" rel="tag">git submodules</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/kotlin/" rel="tag">kotlin</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/nayan/" rel="tag">nayan</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/nayanindia/" rel="tag">nayanindia</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/neural-network/" rel="tag">neural-network</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/paint/" rel="tag">paint</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/path/" rel="tag">path</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/payment/" rel="tag">payment</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/paytm/" rel="tag">paytm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/pdf/" rel="tag">pdf</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/rails/" rel="tag">rails</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/ror/" rel="tag">ror</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/ruby/" rel="tag">ruby</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/ruby-on-rails/" rel="tag">ruby on rails</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/sessions/" rel="tag">sessions</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/spark/" rel="tag">spark</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/user-interaction/" rel="tag">user interaction</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/youtube/" rel="tag">youtube</a><span class="tag-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/blog/tags/Android-Testing/" style="font-size: 10px;">Android Testing</a> <a href="/blog/tags/Angular/" style="font-size: 10px;">Angular</a> <a href="/blog/tags/Ashish-Jajoria/" style="font-size: 18px;">Ashish Jajoria</a> <a href="/blog/tags/Autonomous-driving/" style="font-size: 10px;">Autonomous driving</a> <a href="/blog/tags/Callback/" style="font-size: 10px;">Callback</a> <a href="/blog/tags/Character-Recognition/" style="font-size: 10px;">Character Recognition</a> <a href="/blog/tags/Charts/" style="font-size: 10px;">Charts</a> <a href="/blog/tags/Cloud-Data/" style="font-size: 10px;">Cloud Data</a> <a href="/blog/tags/ComposePathEffect/" style="font-size: 10px;">ComposePathEffect</a> <a href="/blog/tags/Computer-Vision/" style="font-size: 10px;">Computer Vision</a> <a href="/blog/tags/CornerPathEffect/" style="font-size: 10px;">CornerPathEffect</a> <a href="/blog/tags/Customization/" style="font-size: 10px;">Customization</a> <a href="/blog/tags/DashPathEffect/" style="font-size: 10px;">DashPathEffect</a> <a href="/blog/tags/Data-Visualization/" style="font-size: 10px;">Data Visualization</a> <a href="/blog/tags/Deep-Learning/" style="font-size: 20px;">Deep Learning</a> <a href="/blog/tags/Dilated-Convolutions/" style="font-size: 10px;">Dilated Convolutions</a> <a href="/blog/tags/Docker/" style="font-size: 10px;">Docker</a> <a href="/blog/tags/Drag-and-Drop/" style="font-size: 10px;">Drag and Drop</a> <a href="/blog/tags/Google-Maps/" style="font-size: 10px;">Google Maps</a> <a href="/blog/tags/Grafana/" style="font-size: 12px;">Grafana</a> <a href="/blog/tags/Image-Classification/" style="font-size: 10px;">Image-Classification</a> <a href="/blog/tags/Instrumentation-Test/" style="font-size: 10px;">Instrumentation Test</a> <a href="/blog/tags/ItemTouchHelper/" style="font-size: 10px;">ItemTouchHelper</a> <a href="/blog/tags/Javascript/" style="font-size: 10px;">Javascript</a> <a href="/blog/tags/Kafka/" style="font-size: 10px;">Kafka</a> <a href="/blog/tags/Keras/" style="font-size: 12px;">Keras</a> <a href="/blog/tags/Large-markers/" style="font-size: 10px;">Large markers</a> <a href="/blog/tags/Line-Chart/" style="font-size: 10px;">Line Chart</a> <a href="/blog/tags/Machine-Learning/" style="font-size: 16px;">Machine Learning</a> <a href="/blog/tags/Meta-Learning/" style="font-size: 10px;">Meta Learning</a> <a href="/blog/tags/Microservices/" style="font-size: 10px;">Microservices</a> <a href="/blog/tags/Mlflow/" style="font-size: 10px;">Mlflow</a> <a href="/blog/tags/MongoDB/" style="font-size: 10px;">MongoDB</a> <a href="/blog/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/blog/tags/Nayan/" style="font-size: 10px;">Nayan</a> <a href="/blog/tags/OCR/" style="font-size: 10px;">OCR</a> <a href="/blog/tags/Parking-Detection/" style="font-size: 10px;">Parking Detection</a> <a href="/blog/tags/PathDashPathEffect/" style="font-size: 10px;">PathDashPathEffect</a> <a href="/blog/tags/Plugins/" style="font-size: 10px;">Plugins</a> <a href="/blog/tags/Python/" style="font-size: 10px;">Python</a> <a href="/blog/tags/Queue/" style="font-size: 10px;">Queue</a> <a href="/blog/tags/Rails/" style="font-size: 10px;">Rails</a> <a href="/blog/tags/RecyclerView/" style="font-size: 10px;">RecyclerView</a> <a href="/blog/tags/Residual-Networks/" style="font-size: 10px;">Residual Networks</a> <a href="/blog/tags/Ruby/" style="font-size: 10px;">Ruby</a> <a href="/blog/tags/Semantic-segmentation/" style="font-size: 10px;">Semantic segmentation</a> <a href="/blog/tags/Stream-Processing/" style="font-size: 10px;">Stream Processing</a> <a href="/blog/tags/Supervised-Learning/" style="font-size: 10px;">Supervised Learning</a> <a href="/blog/tags/Tracking/" style="font-size: 10px;">Tracking</a> <a href="/blog/tags/Unit-Test/" style="font-size: 10px;">Unit Test</a> <a href="/blog/tags/Vehicle-Occupancy-Detection/" style="font-size: 10px;">Vehicle Occupancy Detection</a> <a href="/blog/tags/Youtube-data-API/" style="font-size: 10px;">Youtube data API</a> <a href="/blog/tags/android/" style="font-size: 18px;">android</a> <a href="/blog/tags/angular/" style="font-size: 10px;">angular</a> <a href="/blog/tags/authentication/" style="font-size: 10px;">authentication</a> <a href="/blog/tags/backend/" style="font-size: 14px;">backend</a> <a href="/blog/tags/canvas/" style="font-size: 10px;">canvas</a> <a href="/blog/tags/devise/" style="font-size: 10px;">devise</a> <a href="/blog/tags/devise-auth-token/" style="font-size: 10px;">devise_auth_token</a> <a href="/blog/tags/draw-custom-path/" style="font-size: 10px;">draw custom path</a> <a href="/blog/tags/gateway/" style="font-size: 10px;">gateway</a> <a href="/blog/tags/generate-pdf/" style="font-size: 10px;">generate pdf</a> <a href="/blog/tags/git-submodules/" style="font-size: 10px;">git submodules</a> <a href="/blog/tags/kotlin/" style="font-size: 12px;">kotlin</a> <a href="/blog/tags/nayan/" style="font-size: 10px;">nayan</a> <a href="/blog/tags/nayanindia/" style="font-size: 10px;">nayanindia</a> <a href="/blog/tags/neural-network/" style="font-size: 10px;">neural-network</a> <a href="/blog/tags/paint/" style="font-size: 10px;">paint</a> <a href="/blog/tags/path/" style="font-size: 10px;">path</a> <a href="/blog/tags/payment/" style="font-size: 10px;">payment</a> <a href="/blog/tags/paytm/" style="font-size: 10px;">paytm</a> <a href="/blog/tags/pdf/" style="font-size: 10px;">pdf</a> <a href="/blog/tags/rails/" style="font-size: 14px;">rails</a> <a href="/blog/tags/ror/" style="font-size: 14px;">ror</a> <a href="/blog/tags/ruby/" style="font-size: 12px;">ruby</a> <a href="/blog/tags/ruby-on-rails/" style="font-size: 10px;">ruby on rails</a> <a href="/blog/tags/sessions/" style="font-size: 10px;">sessions</a> <a href="/blog/tags/spark/" style="font-size: 10px;">spark</a> <a href="/blog/tags/user-interaction/" style="font-size: 10px;">user interaction</a> <a href="/blog/tags/youtube/" style="font-size: 10px;">youtube</a>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="https://nayan.co">Nayan</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <section class="footer">
+  <div class="container">
+    <div class="container-inner">
+        <div class="flexContainer">
+      <div class="col-lg-3">
+
+        <h3>NAYAN (Partner's offices)</h3>
+        <p>Gulf Business Machines (UCMC LLC.) <br>
+          Emarat Atrium Building, Wing B, 3rd Floor<br>
+          Opposite Holiday Inn (Al Safa)<br>
+          Sheikh Zayed Road, PO Box 9226, Dubai, UAE
+        </p>
+
+
+      </div>
+      <div class="col-lg-6">
+        <div class="footer-links">
+          <img src="https://nayan.co/blog/css/images/nayan-logo.png" alt="">
+          <p><span>Our Goal: </span> Stewarding and Monitoring all roadways, on demand<p>
+
+          <ul>
+          <li><a href="https://www.facebook.com/NAYANCAM/" target="_blank"><i class="fa fa-facebook"></i></a></li>
+          <li><a href="https://twitter.com/nayancam" target="_blank"><i class="fa fa-twitter"></i></a></li>
+          <li><a href="https://www.youtube.com/channel/UCgglHs52FLwmQNyxND57c2Q" target="_blank"><i class="fa fa-youtube-play"></i></a></li>
+          <li><a href="https://www.instagram.com/nayantechno/" target="_blank"><i class="fa fa-instagram"></i></a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-lg-3">
+        <ul class="footer-menu">
+          <li><a href="https://nayan.co/blog/">Home</a></li>
+          <li><a href="/blog/archives/index.html">Archive</a></li>
+          <li><a href="https://nayan.co" target="_blank">Nayan</a></li>
+        </ul>
+
+      </div>
+    </div>
+    </div>
+  </div>
+
+</section>
+<section class="credits">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+
+        <p>&copy; 2019 NAYAN <span> All Rights Reserved</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+        
+
+
+    
+        <script src="/blog/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/blog/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/blog/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/blog/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/blog/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/blog/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/blog/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/blog/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/blog/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/blog/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/blog/js/main.js"></script>
+
+    </div>
+</body>
+</html>
