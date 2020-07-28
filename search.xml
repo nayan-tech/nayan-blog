@@ -17,6 +17,43 @@
     
     
     <entry>
+      <title>How to apply Proguard in an android application (Code obfuscation, shrinking, optimization)</title>
+      <link href="/blog//Android/Applying-Proguard-in-an-android-application/"/>
+      <url>/blog//Android/Applying-Proguard-in-an-android-application/</url>
+      
+        <content type="html"><![CDATA[<p>To make an application is not good enough, but it also needs to make secure and optimize. It’s the basic needs of an application.</p><p>To make your app as small as possible, you should enable shrinking in your release build to remove unused code and resources. When enabling shrinking, you also benefit from obfuscation, which shortens the names of your app’s classes and members, and optimization, which applies more aggressive strategies to further reduce the size of your app.</p><p>ProGuard is a tool used to do the following in an Android application:</p><h2 id="Minify-the-code"><a href="#Minify-the-code" class="headerlink" title="Minify the code"></a>Minify the code</h2><p>Detects and safely removes unused classes, fields, methods, and attributes from your app and its library dependencies</p><h2 id="Obfuscate-the-code"><a href="#Obfuscate-the-code" class="headerlink" title="Obfuscate the code"></a>Obfuscate the code</h2><p>Shortens the name of classes and members, which results in reduced DEX file sizes.</p><h2 id="Optimize-the-code"><a href="#Optimize-the-code" class="headerlink" title="Optimize the code"></a>Optimize the code</h2><p>Inspects and rewrites your code to further reduce the size of your app’s DEX files.</p><p><img src="/blog/Android/Applying-Proguard-in-an-android-application/flow_diagram.jpg" alt="Flow diagram for applying proguard"></p><p>To enable shrinking, obfuscation, and optimization, include the following in your project-level build.gradle file.</p><p>In that data class, we will handle some sessions related tasks (check session is active or not, update session etc.). A session will have two values start time and end time.</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">android &#123;</span><br><span class="line">    buildTypes &#123;</span><br><span class="line">        release &#123;</span><br><span class="line">            shrinkResources true</span><br><span class="line">            minifyEnabled true</span><br><span class="line">            proguardFiles getDefaultProguardFile(</span><br><span class="line">              &apos;proguard-android-optimize.txt&apos;),</span><br><span class="line">              &apos;proguard-rules.pro&apos;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>While enabling proguard in your application there are some rules , that should be considered. Do not forget to add the Proguard rules in proguard-rules.pro file for any library that you have included in your project.</p><p>Like this for classes, also can apply for members and fields</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-keepclassmembers class &lt;className with pakage&gt;.** &#123; *; &#125;</span><br></pre></td></tr></table></figure><p>For Warning : You need to take a look on stacktrace to find which classes gives those warnings</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">-dontwarn &lt;classes_name&gt;</span><br><span class="line">-dontwarn java.nio.file.*</span><br></pre></td></tr></table></figure><h2 id="Some-stats-related-to-APK-size"><a href="#Some-stats-related-to-APK-size" class="headerlink" title="Some stats related to APK size"></a>Some stats related to APK size</h2><p><img src="/blog/Android/Applying-Proguard-in-an-android-application/stats.png" alt="Some stats before and after applying proguard"></p><h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><p><a href="https://developer.android.com/studio/build/shrink-code" target="_blank" rel="noopener">https://developer.android.com/studio/build/shrink-code</a></p><h2 id="Some-good-reads-you-may-like"><a href="#Some-good-reads-you-may-like" class="headerlink" title="Some good reads you may like:-"></a>Some good reads you may like:-</h2><ol><li><a href="https://nayan.co/blog/Android/App-Heartbeat/">App-Heartbeat</a></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> Android </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> android </tag>
+            
+            <tag> Diwakar Singh </tag>
+            
+            <tag> proguard </tag>
+            
+            <tag> kotlin </tag>
+            
+            <tag> shrinking </tag>
+            
+            <tag> obfuscation </tag>
+            
+            <tag> optimization </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>How to implement Android RecyclerView Drag and Drop feature seamlessly</title>
       <link href="/blog//Android/android-recycler-view-drag-and-drop/"/>
       <url>/blog//Android/android-recycler-view-drag-and-drop/</url>
@@ -362,6 +399,8 @@
             <tag> user interaction </tag>
             
             <tag> sessions </tag>
+            
+            <tag> Diwakar Singh </tag>
             
         </tags>
       

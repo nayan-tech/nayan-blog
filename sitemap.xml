@@ -2,184 +2,191 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://nayan.co/blog/Rails/rails-getting-started/</loc>
+    
+    <lastmod>2020-07-28T07:11:55.745Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://nayan.co/blog/Web/using-mysql-in-custom-grafana-panel/</loc>
     
-    <lastmod>2020-07-15T04:41:25.203Z</lastmod>
+    <lastmod>2020-07-28T07:11:55.745Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://nayan.co/blog/uncategorized/tensorflow-docker/</loc>
     
-    <lastmod>2020-07-15T04:41:25.203Z</lastmod>
+    <lastmod>2020-07-28T07:11:55.745Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://nayan.co/blog/Android/sharing-modules-across-android-apps/</loc>
     
-    <lastmod>2020-07-15T04:41:25.203Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://nayan.co/blog/Rails/rails-getting-started/</loc>
-    
-    <lastmod>2020-07-15T04:41:25.203Z</lastmod>
+    <lastmod>2020-07-28T07:11:55.745Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://nayan.co/blog/Ruby-on-Rails/override-devise-auth-token-controllers/</loc>
     
-    <lastmod>2020-07-15T04:41:25.183Z</lastmod>
+    <lastmod>2020-07-28T07:11:55.725Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://nayan.co/blog/Ruby-on-Rails/generating-pdf-in-ruby-on-rails/</loc>
     
-    <lastmod>2020-07-15T04:41:25.183Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://nayan.co/blog/Android/drawing-custom-paths-in-android/</loc>
-    
-    <lastmod>2020-07-15T04:41:25.183Z</lastmod>
+    <lastmod>2020-07-28T07:11:55.725Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://nayan.co/blog/Ruby-on-Rails/paytm-gateway-integration/</loc>
     
-    <lastmod>2020-07-15T04:41:25.183Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://nayan.co/blog/Web/create-custom-grafana-panel/</loc>
-    
-    <lastmod>2020-07-15T04:41:25.179Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://nayan.co/blog/Web/angular-maps/</loc>
-    
-    <lastmod>2020-07-15T04:41:25.179Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://nayan.co/blog/Web/angular-youtube/</loc>
-    
-    <lastmod>2020-07-15T04:41:25.179Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://nayan.co/blog/AI/boost-up-neural-networks-using-docker-containers-and-spark/</loc>
-    
-    <lastmod>2020-07-15T04:41:25.179Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://nayan.co/blog/Web/angular-advanced/</loc>
-    
-    <lastmod>2020-07-15T04:41:25.179Z</lastmod>
+    <lastmod>2020-07-28T07:11:55.725Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://nayan.co/blog/Web/angular-charts/</loc>
     
-    <lastmod>2020-07-15T04:41:25.179Z</lastmod>
+    <lastmod>2020-07-28T07:11:55.721Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://nayan.co/blog/AI/boost-up-neural-networks-using-docker-containers-and-spark/</loc>
+    
+    <lastmod>2020-07-28T07:11:55.721Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://nayan.co/blog/Web/angular-youtube/</loc>
+    
+    <lastmod>2020-07-28T07:11:55.721Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://nayan.co/blog/Web/angular-advanced/</loc>
+    
+    <lastmod>2020-07-28T07:11:55.721Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://nayan.co/blog/Web/create-custom-grafana-panel/</loc>
+    
+    <lastmod>2020-07-28T07:11:55.721Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://nayan.co/blog/Android/drawing-custom-paths-in-android/</loc>
+    
+    <lastmod>2020-07-28T07:11:55.721Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://nayan.co/blog/Web/angular-maps/</loc>
+    
+    <lastmod>2020-07-28T07:11:55.721Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://nayan.co/blog/Android/android-recycler-view-drag-and-drop/</loc>
     
-    <lastmod>2020-07-15T04:41:25.175Z</lastmod>
+    <lastmod>2020-07-28T07:11:55.717Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://nayan.co/blog/AI/Vehicle-Parking-Occupancy-Detection/</loc>
     
-    <lastmod>2020-07-15T04:41:25.151Z</lastmod>
+    <lastmod>2020-07-28T07:11:55.693Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://nayan.co/blog/AI/Tracking-Deep-Learning-Experiments-using-Keras-MlFlow-and-MongoDb/</loc>
     
-    <lastmod>2020-07-15T04:41:25.139Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://nayan.co/blog/AI/Text-detection-in-number-plates/</loc>
-    
-    <lastmod>2020-07-15T04:41:25.135Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://nayan.co/blog/AI/Meta-Learning-Learning-to-learn-fast/</loc>
-    
-    <lastmod>2020-07-15T04:41:25.135Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://nayan.co/blog/uncategorized/Flask-PyMongo-Integration/</loc>
-    
-    <lastmod>2020-07-15T04:41:25.135Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://nayan.co/blog/AI/How-to-make-a-web-application-for-any-AI-model/</loc>
-    
-    <lastmod>2020-07-15T04:41:25.135Z</lastmod>
+    <lastmod>2020-07-28T07:11:55.677Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://nayan.co/blog/AI/Pyton-and-Kafka-Message-Passing-and-More/</loc>
     
-    <lastmod>2020-07-15T04:41:25.135Z</lastmod>
+    <lastmod>2020-07-28T07:11:55.677Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://nayan.co/blog/AI/Text-detection-in-number-plates/</loc>
+    
+    <lastmod>2020-07-28T07:11:55.677Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://nayan.co/blog/AI/Meta-Learning-Learning-to-learn-fast/</loc>
+    
+    <lastmod>2020-07-28T07:11:55.673Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://nayan.co/blog/uncategorized/Flask-PyMongo-Integration/</loc>
+    
+    <lastmod>2020-07-28T07:11:55.673Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://nayan.co/blog/AI/How-to-make-a-web-application-for-any-AI-model/</loc>
+    
+    <lastmod>2020-07-28T07:11:55.673Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://nayan.co/blog/Android/App-Heartbeat/</loc>
     
-    <lastmod>2020-07-15T04:41:25.127Z</lastmod>
+    <lastmod>2020-07-28T07:11:55.669Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://nayan.co/blog/AI/Efficient-Residual-Factorized-Neural-Network-for-Semantic-Segmentation/</loc>
     
-    <lastmod>2020-07-15T04:41:25.127Z</lastmod>
+    <lastmod>2020-07-28T07:11:55.669Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://nayan.co/blog/AI/Character-Recognition-with-CNN-network/</loc>
     
-    <lastmod>2020-07-15T04:41:25.127Z</lastmod>
+    <lastmod>2020-07-28T07:11:55.669Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://nayan.co/blog/Android/Applying-Proguard-in-an-android-application/</loc>
+    
+    <lastmod>2020-07-28T07:11:55.669Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://nayan.co/blog/Android/Android-Testing-Strategy/</loc>
     
-    <lastmod>2020-07-15T04:41:25.127Z</lastmod>
+    <lastmod>2020-07-28T07:11:55.665Z</lastmod>
     
   </url>
   
