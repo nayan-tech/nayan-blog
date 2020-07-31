@@ -1,5 +1,5 @@
 ---
-title: Deploying a Rails app to a Docker container
+title: Deploying a Rails application to a Docker container
 date: 2020-07-25 08:00:00
 author: Anuj Middha
 category: Rails
@@ -8,7 +8,7 @@ tags:
 - Rails
 ---
 
-{% asset_img rails-docker.jpg %}
+{% asset_img rails-docker.jpg "Rails and Docker" %}
 
 Docker has gained immense popularity over the past few years as a tool for depploying your applications to production. It allows you to package you application and all of its dependencies in an image, ready to be deployed anywhere.
 
