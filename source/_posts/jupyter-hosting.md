@@ -1,5 +1,19 @@
+---
+title: Host any port on any machine	
+date: 2020-07-31 08:00:00
+author: Kunal Goyal
+category: AI 
+tags:
+- AI 
+- Deep learning
+- jupyter
+- ngrok
+- Kunal Goyal
+---
 
-# Host any port on any machine.
+<br>
+
+{% asset_img nmap_guide.png l %}
 
 In this short blog post, I will explain a great trick to expose various services like Jupyter-notebook, tensorboard, etc. to the entire internet.
 
