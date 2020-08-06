@@ -49,8 +49,9 @@ authors used MDML for Pain intensity classification.
 
 Finally, after being mapped to higher discriminative space features are enforced into the classifier for identification of the six emotions. The most sought after classifiers include template matching, rule based classifier, neural networks and support vector machines (SVM). In SVM, a hyperplane is constructed with ample distance among the different emotion classes during the training phase.
 
-While during test phase, the trained SVM model classifies the test image to one of the emotion classes. In [7] the authors utilize SVM with linear kernel for expression classification. There are six basic emotion classes which are Anger, Disgust, Happy, Sad, Surprise and Fear for analysis of
-proposed algorithm.
+While during test phase, the trained SVM model classifies the test image to one of the emotion classes. In [7] the authors utilize SVM with linear kernel for expression classification. There are six basic emotion classes which are Anger, Disgust, Happy, Sad, Surprise and Fear for analysis of proposed algorithm.
+
+The author of this blog is working currently with <a href="https://www.nayan.co" >Nayan</a>
 
 - Bibliography
 
