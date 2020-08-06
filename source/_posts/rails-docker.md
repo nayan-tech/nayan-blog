@@ -8,7 +8,7 @@ tags:
 - Rails
 ---
 
-{% asset_img rails-docker.jpg "Rails and Docker" %}
+{% asset_img rails-docker.jpg "Rails and Docker'Rails and Docker'" %}
 
 Docker has gained immense popularity over the past few years as a tool for depploying your applications to production. It allows you to package you application and all of its dependencies in an image, ready to be deployed anywhere.
 
