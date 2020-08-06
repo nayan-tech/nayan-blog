@@ -1,4 +1,16 @@
-Emotion Recognition
+---
+title: Emotion Recognition
+date: 2020-08-06 14:16:00
+author: Sagar Gupta
+category: AI
+tags:
+- Deep Learning
+- Emotion Recognition
+- AI
+- HCI
+---
+
+Emotion Recognition is used for categorizing the emotions into one of the 6 emotions through the images of face. Intially viola jones or other face detection algorithm is used for detecting the faces. Preprocessing is also used for standardizing the images into same sizes.
 
 Facial Feature extraction is used in a number of applications including emotion detection. In the following approach various popular feature descriptors, including Gabor features, HOG, DWT were computed. We have fused features using Multiview Distance Metric Learning (MDML) which
  utilizes complementary features of the images to extract every known detail while eliminating the redundant   features.   Moreover   MDML  maps   the   features   extracted   from   the   dataset   to   higher discriminative space. The features belonging to the same class are brought closer and those that are from different classes are forced away by the MDML thereby increasing the accuracy of the classifier employed. CK+ Dataset has been used to conduct the experiments. Experimental results
