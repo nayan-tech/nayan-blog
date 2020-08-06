@@ -1,5 +1,5 @@
 ---
-title: Host any port on any machine	
+title: How to host any port to entire internet on any machine?	
 date: 2020-07-31 08:00:00
 author: Kunal Goyal
 category: AI 
@@ -15,7 +15,7 @@ tags:
 
 {% asset_img nmap_guide.png l %}
 
-In this short blog post, I will explain a great trick to expose various services like Jupyter-notebook, tensorboard, etc. to the entire internet.
+In this short blog post, I will explain a great trick to expose various services like Jupyter-notebook, tensorboard, etc. to the entire internet. We generally use it at [Nayan](http://nayan.co.in)
 
 Before following the steps I want you to understand some fundamentals behind the hosting of different services.
 
@@ -23,7 +23,7 @@ Before following the steps I want you to understand some fundamentals behind the
 
 Whenever we host some services on a local server having URLs like ([https://localhost:8888](https://localhost:8888) or [http://127.0.0.1:8888](http://127.0.0.1:8888)) they are behind a NAT or firewall of our computer(Most of the hackers work to breach these).
 
-![](https://cdn-images-1.medium.com/max/2800/0*-j_n3S1WfVi3_DLe.jpg)
+![Firewall](https://cdn-images-1.medium.com/max/2800/0*-j_n3S1WfVi3_DLe.jpg)
 
 To jump over the firewall, we will use [ngrok](http://ngrok.com).
 
@@ -32,7 +32,7 @@ To jump over the firewall, we will use [ngrok](http://ngrok.com).
 Ngrok allows you to expose a web server running on your local machine to the internet. Just tell ngrok what port your web server is listening on.
 something like this:
 
-![](https://cdn-images-1.medium.com/max/2000/1*yyRGRBHIsXRHw_8LfL8CAA.png)
+![Ngrok flowchart](https://cdn-images-1.medium.com/max/2000/1*yyRGRBHIsXRHw_8LfL8CAA.png)
 
 ### **Steps to host Jupyter-Notebook on AWS EC2:**
 
@@ -61,7 +61,7 @@ something like this:
 
 4. Create an account on [ngrok](http://ngrok.com) and get authtoken.
 
-![](https://cdn-images-1.medium.com/max/2000/1*C36pyfvzwZnTXSieoHNVEw.png)
+![Authtoken](https://cdn-images-1.medium.com/max/2000/1*C36pyfvzwZnTXSieoHNVEw.png)
 
     ```
 	./ngrok authtoken <your_auth_token>
@@ -84,7 +84,7 @@ Also, you can make a config file and can host multiple ports using the same acco
 
 7. Now note the URL you got on ngrok screen.
 
-![](https://cdn-images-1.medium.com/max/2000/1*QLItoFPpvwq7VNYMVjEqYw.png)
+![Ngrok link](https://cdn-images-1.medium.com/max/2000/1*QLItoFPpvwq7VNYMVjEqYw.png)
 
 8. Cheers and now hit the URL as many times as you can to access your favorite jupyter notebook.
 
