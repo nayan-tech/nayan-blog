@@ -1,14 +1,14 @@
 ---
-title: Emotion Recognition
+title: How to recognize Emotions using deep learning?
 date: 2020-08-06 14:16:00
 author: Sagar Gupta
 category: AI
 tags:
-- Deep Learning
 - Emotion Recognition
 - AI
 - HCI
 ---
+![Emotions](https://neurohive.io/wp-content/uploads/2018/12/labeled-images.57bd-e1547550772626.jpg)
 
 Emotion Recognition is used for categorizing the emotions into one of the 6 emotions through the images of face. Intially viola jones or other face detection algorithm is used for detecting the faces. Preprocessing is also used for standardizing the images into same sizes.
 
