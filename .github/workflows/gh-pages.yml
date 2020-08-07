@@ -16,7 +16,7 @@ jobs:
           npm install
           
       - name: Install Hexo CLI
-        run: npm install -g hexo-cli
+        run: sudo npm install -g hexo-cli
       
       - name: Generate static website
         run: hexo generate
