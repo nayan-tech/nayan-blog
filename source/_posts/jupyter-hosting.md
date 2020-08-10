@@ -1,19 +1,19 @@
 ---
-title: How to host any port to entire internet on any machine?	
+title: How to host any port to entire internet on any machine?
 date: 2020-07-31 08:00:00
 author: Kunal Goyal
-category: AI 
+category: AI
 tags:
-- AI 
-- Deep learning
-- jupyter
-- ngrok
-- Kunal Goyal
+  - AI
+  - Deep learning
+  - jupyter
+  - ngrok
+  - Kunal Goyal
 ---
 
 <br>
 
-{% asset_img nmap_guide.png l %}
+![Banner](/blog/AI/jupyter-hosting/nmap-guide.png)
 
 In this short blog post, I will explain a great trick to expose various services like Jupyter-notebook, tensorboard, etc. to the entire internet. We generally use it at [Nayan](http://nayan.co.in)
 
@@ -23,7 +23,7 @@ Before following the steps I want you to understand some fundamentals behind the
 
 Whenever we host some services on a local server having URLs like ([https://localhost:8888](https://localhost:8888) or [http://127.0.0.1:8888](http://127.0.0.1:8888)) they are behind a NAT or firewall of our computer(Most of the hackers work to breach these).
 
-![Firewall](https://cdn-images-1.medium.com/max/2800/0*-j_n3S1WfVi3_DLe.jpg)
+![Firewall](/blog/AI/jupyter-hosting/banner.jpg)
 
 To jump over the firewall, we will use [ngrok](http://ngrok.com).
 
@@ -39,46 +39,49 @@ something like this:
 1. First, we need to install tmux for running processes(jupyter in our case) in background and jupyter notebook.
 
    ```
-	sudo apt-get install tmux
+   x
    ```
 
    ```
-	pip3 install jupyter
+   r
    ```
 
+2) Download ngrok using
 
-2. Download ngrok using
+   ```
+   wget [https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip](https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip)
+   ```
 
-    ```
-	wget [https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip](https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip)
-    ```
+3) Unzip to install ngrok
 
-3. Unzip to install ngrok
+   ```
+   unzip ngrok.zip
+   ```
 
-    ```
-	unzip ngrok.zip
-    ```
-
-4. Create an account on [ngrok](http://ngrok.com) and get authtoken.
+4) Create an account on [ngrok](http://ngrok.com) and get authtoken.
 
 ![Authtoken](https://cdn-images-1.medium.com/max/2000/1*C36pyfvzwZnTXSieoHNVEw.png)
 
     ```
-	./ngrok authtoken <your_auth_token>
+    ./ngrok authtoken <your_auth_token>
     ```
+
 5. Now on tmux we will run jupyter-notebook
 
-    ```
-	tmux
-    ```
-    ```
-	jupyter-notebook --ip=0.0.0.0 --allow-root ``` 
+   ```
+   tmux
+   ```
+
+   ````
+   jupyter-notebook --ip=0.0.0.0 --allow-root ```
+
+   ````
 
 6. Host the noted port using ngrok. For my case it is 8890
 
-    ```
-	./ngrok http 8890
-    ```
+   ```
+   ./ngrok http 8890
+   ```
 
 Also, you can make a config file and can host multiple ports using the same account as mentioned [here](https://ngrok.com/docs#config).
 

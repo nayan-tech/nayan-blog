@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>Text detection in number plates | Nayan Blog</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="Deep Learning" />
+    
+    <meta name="description" content="Text detection in number platesOne of the vital modules in the optical character recognition(OCR) pipeline is text detectionand segmentation which is also called text localization. In this post, we wi">
+<meta name="keywords" content="Deep Learning">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Text detection in number plates">
+<meta property="og:url" content="https:&#x2F;&#x2F;nayan.co&#x2F;AI&#x2F;Text-detection-in-number-plates&#x2F;index.html">
+<meta property="og:site_name" content="Nayan Blog">
+<meta property="og:description" content="Text detection in number platesOne of the vital modules in the optical character recognition(OCR) pipeline is text detectionand segmentation which is also called text localization. In this post, we wi">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https:&#x2F;&#x2F;nayan.co&#x2F;blog&#x2F;AI&#x2F;Text-detection-in-number-plates&#x2F;Figure_2.png">
+<meta property="og:updated_time" content="2020-03-28T16:12:56.650Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;nayan.co&#x2F;blog&#x2F;AI&#x2F;Text-detection-in-number-plates&#x2F;Figure_2.png">
+    
+
+    
+
+    
+        <link rel="icon" href="/blog/css/images/favicon.png" />
+    
+
+    <link rel="stylesheet" href="/blog/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/blog/libs/titillium-web/styles.css">
+    <link rel="stylesheet" href="/blog/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/blog/css/style.css">
+
+    <script src="/blog/libs/jquery/3.4.1/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/blog/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/blog/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+
+
+<link rel="alternate" href="/blog/atom.xml" title="Nayan Blog" type="application/atom+xml">
+</head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="https://nayan.co" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/blog/">Home</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/blog/categories/AI/">AI</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/blog/categories/Android/">Android</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/blog/categories/IP-Patents/">IP-Patents</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/blog/categories/Rails/">Rails</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/blog/categories/Ruby-on-Rails/">Ruby on Rails</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/blog/categories/Web/">Web</a></li></ul>
+                                    
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/blog/archives/index.html">Archive</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/blog/',
+        CONTENT_URL: '/blog/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/blog/js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/blog/categories/AI/">AI</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-Text-detection-in-number-plates" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        Text detection in number plates
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+      <i class="fa fa-calendar"></i>
+      <a href="/blog/AI/Text-detection-in-number-plates/" class="article-date">
+         <time datetime="2019-11-26T09:51:29.000Z" itemprop="datePublished">2019-11-26</time>
+      </a>
+    </div>
+
+
+                
+  <div class="article-author">
+    Akshay Bajpai
+  </div>
+
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/blog/tags/Deep-Learning/" rel="tag">Deep Learning</a>
+    </div>
+
+                
+
+                
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            <h1 id="Text-detection-in-number-plates"><a href="#Text-detection-in-number-plates" class="headerlink" title="Text detection in number plates"></a>Text detection in number plates</h1><p>One of the vital modules in the optical character recognition(OCR) pipeline is text detectionand segmentation which is also called text localization. In this post, we will apply variedpreprocessing techniques to the input image and find out how to localize text in theenhanced image, so that we can feed the segments to our text recognition network.</p>
+<h2 id="Image-Preprocessing"><a href="#Image-Preprocessing" class="headerlink" title="Image Preprocessing"></a>Image Preprocessing</h2><p>Sometimes images can be distorted, noisy and other problems that can scale back the OCRaccuracy. To make a better OCR pipeline, we need to do some image preprocessing.</p>
+<ul>
+<li>Grayscale the image: Generally you will get an image which is having 3channels(color images), we need to convert this image into a grayscale form whichcontains only one channel. We can also process images with three channels but itonly increases the complexity of the model and increases the processing time.OpenCV provides a built-in function that can do it for you.</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import cv2</span><br><span class="line">grayscale_image = cv2.cvtColor(image, cv2.COLOR_BRG2GRAY)</span><br></pre></td></tr></table></figure>
+<p>Or you can convert the image to grayscale while reading the image.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#opencv reads image in BGR format</span><br><span class="line">graysacle_image = cv2.imread(image_path, cv2.IMREAD_GRAYSCALE)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Noise reduction: Images come with various types of noises. OpenCV provides a lot ofnoise reduction function. I am using the Non-local Means Denoising algorithm.</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">denoised_image = cv2.fastNlMeansDenoising(grayscale_img, None, 10, 7, 21)</span><br></pre></td></tr></table></figure>
+
+<img src="/blog/AI/Text-detection-in-number-plates/Figure_2.png" class="" title="Denoising">
+
+<ul>
+<li>Contrast adjustment: Sometimes we have low contrast images. This makes it difficultto separate text from the image background. We need high contrast text images forthe localization process. We can increase image contrast using Contrast LimitedAdaptive Histogram Equalization (CLAHE) among many other contrast enhancementmethods provided by skimage.</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">from  skimage import exposure</span><br><span class="line">contrast_enhanced_image = exposure.equalize_adapthist(denoised, clip_limit=0.03)</span><br></pre></td></tr></table></figure>
+
+<img src="/blog/AI/Text-detection-in-number-plates/Figure_3.png" class="" title="Contrast Adjustment">
+
+<p>So now we are done with image preprocessing let us move on to the second part, textlocalization.</p>
+<h2 id="Text-Localization"><a href="#Text-Localization" class="headerlink" title="Text Localization"></a>Text Localization</h2><p>In this part, we will see how to detect a large number of text region candidates andprogressively removes those less likely to contain text. Using the MSER feature descriptor tofind text candidates in the image. It works well for text because the consistent color and highcontrast of text lead to stable intensity profiles.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#constructor for MSER detector</span><br><span class="line">mser = cv2.MSER_create()</span><br><span class="line">regions, mser_bboxes = mser.detectRegions(contrast_enhance_image)</span><br></pre></td></tr></table></figure>
+
+<p>Along with the text MSER picked up many other stable regions that are not text. Now, thegeometric properties of text can be used to filter out non-text regions using simplethresholds.</p>
+<p>Before moving on with the filtering process, let’s write some functions to display the results ina comprehensible manner.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">import numpy as np</span><br><span class="line">import matplotlib.pyplot as plt</span><br><span class="line"></span><br><span class="line">#display images</span><br><span class="line">def pltShow(*images):</span><br><span class="line">    #count number of images to show</span><br><span class="line">    count = len(images)</span><br><span class="line">    #three images per columnn</span><br><span class="line">    Row = np.ceil(count / 3.)</span><br><span class="line">    for i in range(count):</span><br><span class="line">        plt.subplot(nRow, 3, i+1)</span><br><span class="line">        if len(images[i][0], cmap=’gray’)</span><br><span class="line">            plt.imshow(images[i][0], cmap=’gray’)</span><br><span class="line">        else:</span><br><span class="line">            plt.imshow(images[i][0])</span><br><span class="line">        #remove x-y axis from subplots</span><br><span class="line">        plt.xticks([])</span><br><span class="line">        plt.yticks([])</span><br><span class="line">        plt.title(images[i][1])</span><br><span class="line">    plt.show()</span><br><span class="line"></span><br><span class="line">#color each MSER region in image</span><br><span class="line">def colorRegion(image_like_arr, region):</span><br><span class="line">    image_like_arr[region[:, 1], region[:, 0], 0] = np.random.randint(low=100, high=256)</span><br><span class="line">    image_like_arr[region[:, 1], region[:, 0], 1] = np.random.randint(low=100, high=256)</span><br><span class="line">    image_like_arr[region[:, 1], region[:, 0], 2] = np.random.randint(low=100, high=256)</span><br><span class="line"></span><br><span class="line">    return image</span><br></pre></td></tr></table></figure>
+
+<p>The geometric properties we are going to use to discriminate between text and non-textregion are:</p>
+<ul>
+<li>Region area</li>
+<li>Region perimeter</li>
+<li>Aspect ratio</li>
+<li>Occupancy</li>
+<li>Compactness</li>
+</ul>
+<p>We will apply simple thresholds over these parameters to eliminate non-text regions. Firstlet’s write method to compute these parameters.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">#values for the parameters</span><br><span class="line">AREA_LIM = 2.0e-4</span><br><span class="line">PERIMETER_LIM = 1e-4</span><br><span class="line">ASPECT_RATIO_LIM = 5.0</span><br><span class="line">OCCUPATION_LIM = (0.23, 0.90)</span><br><span class="line">COMPACTNESS_LIM = (3e-3, 1e-1)</span><br><span class="line"></span><br><span class="line">def getRegionShape(self, region): </span><br><span class="line">    return (max(region[:, 1]) - min(region[:, 1]), max(region[:, 0]) - min(region[:, 0]))</span><br><span class="line">    </span><br><span class="line">#compute area</span><br><span class="line">def getRegionArea(region):</span><br><span class="line">    return len(list(region))</span><br><span class="line"></span><br><span class="line">#compute perimeter</span><br><span class="line">def getRegionPerimeter(image, region):</span><br><span class="line">    #get top-left coordinate, width and height of the box enclosing the region</span><br><span class="line">    x, y, w, h = cv2.boundingRect(region)</span><br><span class="line">    return len(np.where(image[y:y+h, x:x+w] != 0)[0]))</span><br><span class="line">    </span><br><span class="line">#compute aspect ratio</span><br><span class="line">def getAspectRatio(region):    </span><br><span class="line">    return (1.0 * max(getRegionShape(region))) / (min(getRegionShape(region)) + 1e-4)</span><br><span class="line"></span><br><span class="line">#compute area occupied by the region area in the shape</span><br><span class="line">def getOccupyRate(region):</span><br><span class="line">    return (1.0 * getRegionArea(region)) / (getRegionShape(region)[0] *  \getRegionShape(region)[1] + 1.0e-10)</span><br><span class="line">    </span><br><span class="line">#compute compactness of the regio</span><br><span class="line">ndef getCompactness(region):    </span><br><span class="line">    return (1.0 * getRegionArea(region)) / (1.0 * getRegionPerimeter(region) ** 2)</span><br></pre></td></tr></table></figure>
+
+<p>Now apply these methods to filter out text regions  as follows:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">#total number of MSER regions</span><br><span class="line">n1 = len(regions)</span><br><span class="line">bboxes=[]</span><br><span class="line">for i, region in enumerate(regions):</span><br><span class="line">    self.colorRegion(res, region)</span><br><span class="line">    if self.getRegionArea(region) &gt; self.grayImg.shape[0] * self.grayImg.shape[1] * AREA_LIM:</span><br><span class="line">   	    #number of regions meeting the area criteria</span><br><span class="line">    n2 += 1</span><br><span class="line">   		 self.colorRegion(res2, region)</span><br><span class="line"></span><br><span class="line">    if self.getRegionPerimeter(region) &gt; 2 * (self.grayImg.shape[0] + \</span><br><span class="line">        self.grayImg.shape[1]) * PERIMETER_LIM:</span><br><span class="line">   		#number of regions meeting the perimeter criteria</span><br><span class="line">        n3 += 1</span><br><span class="line">   		self.colorRegion(res3, region)</span><br><span class="line">			 </span><br><span class="line">        if self.getAspectRatio(region) &lt; ASPECT_RATIO_LIM:</span><br><span class="line">   				#number of regions meeting the aspect ratio criteria </span><br><span class="line">                n4 += 1</span><br><span class="line">   				self.colorRegion(res4, region)</span><br><span class="line"></span><br><span class="line">   				if (self.getOccupyRate(region) &gt; OCCUPATION_LIM[0]) and \ (self.getOccupyRate(region) &lt; OCCUPATION_LIM[1]):</span><br><span class="line">   					n5 += 1</span><br><span class="line">   					self.colorRegion(res5, region)</span><br><span class="line"></span><br><span class="line">   					if (self.getCompactness(region) &gt; \COMPACTNESS_LIM[0]) and \(self.getCompactness(region) &lt; \COMPACTNESS_LIM[1]):</span><br><span class="line">   						#final number of regions left </span><br><span class="line">                        n6 += 1</span><br><span class="line">   						self.colorRegion(res6, region)</span><br><span class="line">                        bboxes.append(mser_bboxes[i])</span><br></pre></td></tr></table></figure>
+
+<p>After eliminating non-text regions, I draw bounding boxes on the remaining regions andvoila, we have successfully detected and segmented the characters on the number plate.<br>Note: Apply NMS to remove overlapping bounding boxes.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">for bbox in bboxes:</span><br><span class="line">   cv2.rectangle(img,(bbox[0]-1,bbox[1]-1),(bbox[0]+bbox[2]+1,box[1]+bbox[3]+1),(255,0,0), 1)</span><br></pre></td></tr></table></figure>
+
+<p>Enough coding. Let’s see some results.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">pltShow(&quot;MSER Result Analysis&quot;, \</span><br><span class="line">   	   (self.img, &quot;Image&quot;), \</span><br><span class="line">   	   (self.cannyImg, &quot;Canny&quot;), \</span><br><span class="line">   	   (res, &quot;MSER,(&#123;&#125; regions)&quot;.format(n1)), \</span><br><span class="line">   	   (res2, &quot;Area=&#123;&#125;,(&#123;&#125; regions)&quot;.format(config.mser_areaLimit, n2)), \</span><br><span class="line">   	   (res3, &quot;Perimeter=&#123;&#125;,(&#123;&#125; regions)&quot;.format(config.mser_perimeterLimit, n3)), \</span><br><span class="line">   	   (res4, &quot;Aspect Ratio=&#123;&#125;,(&#123;&#125; regions)&quot;.format(config.mser_aspectRatioLimit, n4)), \</span><br><span class="line">   	   (res5, &quot;Occupation=&#123;&#125;,(&#123;&#125; regions)&quot;.format(config.mser_occupationLimit, n5)), \</span><br><span class="line">   	   (res6, &quot;Compactness=&#123;&#125;,(&#123;&#125; regions)&quot;.format(config.mser_compactnessLimit, n6)), \</span><br><span class="line">   	   (boxRes, &quot;Segmented Image&quot;) \</span><br><span class="line">   	)</span><br></pre></td></tr></table></figure>
+
+<img src="/blog/AI/Text-detection-in-number-plates/Figure_1.png" class="" title="MSER Result Analysis">
+
+<h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><p>In this post, we covered the various image preprocessing techniques and learned about howto perform text localization on number plates.</p>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="https://nayan.co/AI/Text-detection-in-number-plates/" data-id="ckdk565y2000omrxwf8qed0mw" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "NayanTech"
+        },
+        "headline": "Text detection in number plates",
+        "image": "https://nayan.co/blog/AI/Text-detection-in-number-plates/Figure_2.png",
+        "keywords": "Deep Learning",
+        "genre": "AI",
+        "datePublished": "2019-11-26",
+        "dateCreated": "2019-11-26",
+        "dateModified": "2020-03-28",
+        "url": "https://nayan.co//AI/Text-detection-in-number-plates/",
+        "description": "Text detection in number platesOne of the vital modules in the optical character recognition(OCR) pipeline is text detectionand segmentation which is also called text localization. In this post, we wi",
+        "wordCount": 1433
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="youtube" href="https://www.youtube.com/channel/UCgglHs52FLwmQNyxND57c2Q" target="_blank" rel="noopener">
+                        <i class="icon fa fa-youtube"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="twitter" href="https://twitter.com/nayancam" target="_blank" rel="noopener">
+                        <i class="icon fa fa-twitter"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="facebook" href="https://www.facebook.com/NAYANCAM/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-facebook"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="instagram" href="https://www.instagram.com/nayantechno/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-instagram"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="linkedin" href="https://in.linkedin.com/company/nayancam" target="_blank" rel="noopener">
+                        <i class="icon fa fa-linkedin"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/blog/Android/sharing-modules-across-android-apps/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            Sharing modules across Android apps
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/blog/AI/emotion-recognition-sagar/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://neurohive.io/wp-content/uploads/2018/12/labeled-images.57bd-e1547550772626.jpg)" alt="How to recognize Emotions using deep learning?" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/blog/categories/AI/">AI</a></p>
+                            <p class="item-title"><a href="/blog/AI/emotion-recognition-sagar/" class="title">How to recognize Emotions using deep learning?</a></p>
+                            <p class="item-date"><time datetime="2020-08-06T08:46:00.000Z" itemprop="datePublished">2020-08-06</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/blog/AI/jupyter-hosting/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://cdn-images-1.medium.com/max/2800/0*-j_n3S1WfVi3_DLe.jpg)" alt="How to host any port to entire internet on any machine?" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/blog/categories/AI/">AI</a></p>
+                            <p class="item-title"><a href="/blog/AI/jupyter-hosting/" class="title">How to host any port to entire internet on any machine?</a></p>
+                            <p class="item-date"><time datetime="2020-07-31T02:30:00.000Z" itemprop="datePublished">2020-07-31</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/blog/Android/Applying-Proguard-in-an-android-application/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/blog/Android/Applying-Proguard-in-an-android-application/flow_diagram.jpg)" alt="How to apply Proguard in an android application (Code obfuscation, shrinking, optimization)" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/blog/categories/Android/">Android</a></p>
+                            <p class="item-title"><a href="/blog/Android/Applying-Proguard-in-an-android-application/" class="title">How to apply Proguard in an android application (Code obfuscation, shrinking, optimization)</a></p>
+                            <p class="item-date"><time datetime="2020-07-27T13:10:48.000Z" itemprop="datePublished">2020-07-27</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/blog/Rails/rails-docker/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/blog/Rails/rails-docker/rails-docker.jpg)" alt="Deploying a Rails application to a Docker container" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/blog/categories/Rails/">Rails</a></p>
+                            <p class="item-title"><a href="/blog/Rails/rails-docker/" class="title">Deploying a Rails application to a Docker container</a></p>
+                            <p class="item-date"><time datetime="2020-07-25T02:30:00.000Z" itemprop="datePublished">2020-07-25</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/blog/IP-Patents/potential-patent-infringement/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/blog/IP-Patents/potential-patent-infringement/banner.jpg)" alt="How to check whether your product causes potential patent infringement" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/blog/categories/IP-Patents/">IP-Patents</a></p>
+                            <p class="item-title"><a href="/blog/IP-Patents/potential-patent-infringement/" class="title">How to check whether your product causes potential patent infringement</a></p>
+                            <p class="item-date"><time datetime="2020-07-24T12:46:09.000Z" itemprop="datePublished">2020-07-24</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/AI/">AI</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/Android/">Android</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/IP-Patents/">IP-Patents</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/Rails/">Rails</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/Ruby-on-Rails/">Ruby on Rails</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/Web/">Web</a><span class="category-list-count">6</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/08/">August 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/07/">July 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/06/">June 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/05/">May 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/03/">March 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/02/">February 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/01/">January 2020</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/12/">December 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/11/">November 2019</a><span class="archive-list-count">4</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">tags</h3>
+        <div class="widget">
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/AI/" rel="tag">AI</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Android-Testing/" rel="tag">Android Testing</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Angular/" rel="tag">Angular</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Ashish-Jajoria/" rel="tag">Ashish Jajoria</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Autonomous-driving/" rel="tag">Autonomous driving</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Callback/" rel="tag">Callback</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Character-Recognition/" rel="tag">Character Recognition</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Charts/" rel="tag">Charts</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Cloud-Data/" rel="tag">Cloud Data</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/ComposePathEffect/" rel="tag">ComposePathEffect</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Computer-Vision/" rel="tag">Computer Vision</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/CornerPathEffect/" rel="tag">CornerPathEffect</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Customization/" rel="tag">Customization</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/DashPathEffect/" rel="tag">DashPathEffect</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Data-Visualization/" rel="tag">Data Visualization</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Deep-Learning/" rel="tag">Deep Learning</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Deep-learning/" rel="tag">Deep learning</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Dilated-Convolutions/" rel="tag">Dilated Convolutions</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Diwakar-Singh/" rel="tag">Diwakar Singh</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Docker/" rel="tag">Docker</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Drag-and-Drop/" rel="tag">Drag and Drop</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Emotion-Recognition/" rel="tag">Emotion Recognition</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Google-Maps/" rel="tag">Google Maps</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Grafana/" rel="tag">Grafana</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/HCI/" rel="tag">HCI</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Image-Classification/" rel="tag">Image-Classification</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Infringement/" rel="tag">Infringement</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Instrumentation-Test/" rel="tag">Instrumentation Test</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/ItemTouchHelper/" rel="tag">ItemTouchHelper</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Javascript/" rel="tag">Javascript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Kafka/" rel="tag">Kafka</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Keras/" rel="tag">Keras</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Kunal-Goyal/" rel="tag">Kunal Goyal</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Large-markers/" rel="tag">Large markers</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Line-Chart/" rel="tag">Line Chart</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Machine-Learning/" rel="tag">Machine Learning</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Meta-Learning/" rel="tag">Meta Learning</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Microservices/" rel="tag">Microservices</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Mlflow/" rel="tag">Mlflow</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/MongoDB/" rel="tag">MongoDB</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/MySQL/" rel="tag">MySQL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Nayan/" rel="tag">Nayan</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Nayan-IP/" rel="tag">Nayan IP</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Nayan-data-protection/" rel="tag">Nayan data protection</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/OCR/" rel="tag">OCR</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Parking-Detection/" rel="tag">Parking Detection</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Patents/" rel="tag">Patents</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/PathDashPathEffect/" rel="tag">PathDashPathEffect</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Plugins/" rel="tag">Plugins</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Python/" rel="tag">Python</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Queue/" rel="tag">Queue</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Rails/" rel="tag">Rails</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/RecyclerView/" rel="tag">RecyclerView</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Residual-Networks/" rel="tag">Residual Networks</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Ruby/" rel="tag">Ruby</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Semantic-segmentation/" rel="tag">Semantic segmentation</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Stream-Processing/" rel="tag">Stream Processing</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Supervised-Learning/" rel="tag">Supervised Learning</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Tracking/" rel="tag">Tracking</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Unit-Test/" rel="tag">Unit Test</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Vehicle-Occupancy-Detection/" rel="tag">Vehicle Occupancy Detection</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Youtube-data-API/" rel="tag">Youtube data API</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/android/" rel="tag">android</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/angular/" rel="tag">angular</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/authentication/" rel="tag">authentication</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/backend/" rel="tag">backend</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/canvas/" rel="tag">canvas</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/devise/" rel="tag">devise</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/devise-auth-token/" rel="tag">devise_auth_token</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/draw-custom-path/" rel="tag">draw custom path</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/gateway/" rel="tag">gateway</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/generate-pdf/" rel="tag">generate pdf</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/git-submodules/" rel="tag">git submodules</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/jupyter/" rel="tag">jupyter</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/kotlin/" rel="tag">kotlin</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/nayan/" rel="tag">nayan</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/nayanindia/" rel="tag">nayanindia</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/neural-network/" rel="tag">neural-network</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/ngrok/" rel="tag">ngrok</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/obfuscation/" rel="tag">obfuscation</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/optimization/" rel="tag">optimization</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/paint/" rel="tag">paint</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/path/" rel="tag">path</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/payment/" rel="tag">payment</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/paytm/" rel="tag">paytm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/pdf/" rel="tag">pdf</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/proguard/" rel="tag">proguard</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/rails/" rel="tag">rails</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/ror/" rel="tag">ror</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/ruby/" rel="tag">ruby</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/ruby-on-rails/" rel="tag">ruby on rails</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/sessions/" rel="tag">sessions</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/shrinking/" rel="tag">shrinking</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/spark/" rel="tag">spark</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/user-interaction/" rel="tag">user interaction</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/youtube/" rel="tag">youtube</a><span class="tag-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/blog/tags/AI/" style="font-size: 12px;">AI</a> <a href="/blog/tags/Android-Testing/" style="font-size: 10px;">Android Testing</a> <a href="/blog/tags/Angular/" style="font-size: 10px;">Angular</a> <a href="/blog/tags/Ashish-Jajoria/" style="font-size: 18px;">Ashish Jajoria</a> <a href="/blog/tags/Autonomous-driving/" style="font-size: 10px;">Autonomous driving</a> <a href="/blog/tags/Callback/" style="font-size: 10px;">Callback</a> <a href="/blog/tags/Character-Recognition/" style="font-size: 10px;">Character Recognition</a> <a href="/blog/tags/Charts/" style="font-size: 10px;">Charts</a> <a href="/blog/tags/Cloud-Data/" style="font-size: 10px;">Cloud Data</a> <a href="/blog/tags/ComposePathEffect/" style="font-size: 10px;">ComposePathEffect</a> <a href="/blog/tags/Computer-Vision/" style="font-size: 10px;">Computer Vision</a> <a href="/blog/tags/CornerPathEffect/" style="font-size: 10px;">CornerPathEffect</a> <a href="/blog/tags/Customization/" style="font-size: 10px;">Customization</a> <a href="/blog/tags/DashPathEffect/" style="font-size: 10px;">DashPathEffect</a> <a href="/blog/tags/Data-Visualization/" style="font-size: 10px;">Data Visualization</a> <a href="/blog/tags/Deep-Learning/" style="font-size: 20px;">Deep Learning</a> <a href="/blog/tags/Deep-learning/" style="font-size: 10px;">Deep learning</a> <a href="/blog/tags/Dilated-Convolutions/" style="font-size: 10px;">Dilated Convolutions</a> <a href="/blog/tags/Diwakar-Singh/" style="font-size: 12px;">Diwakar Singh</a> <a href="/blog/tags/Docker/" style="font-size: 10px;">Docker</a> <a href="/blog/tags/Drag-and-Drop/" style="font-size: 10px;">Drag and Drop</a> <a href="/blog/tags/Emotion-Recognition/" style="font-size: 10px;">Emotion Recognition</a> <a href="/blog/tags/Google-Maps/" style="font-size: 10px;">Google Maps</a> <a href="/blog/tags/Grafana/" style="font-size: 12px;">Grafana</a> <a href="/blog/tags/HCI/" style="font-size: 10px;">HCI</a> <a href="/blog/tags/Image-Classification/" style="font-size: 10px;">Image-Classification</a> <a href="/blog/tags/Infringement/" style="font-size: 10px;">Infringement</a> <a href="/blog/tags/Instrumentation-Test/" style="font-size: 10px;">Instrumentation Test</a> <a href="/blog/tags/ItemTouchHelper/" style="font-size: 10px;">ItemTouchHelper</a> <a href="/blog/tags/Javascript/" style="font-size: 10px;">Javascript</a> <a href="/blog/tags/Kafka/" style="font-size: 10px;">Kafka</a> <a href="/blog/tags/Keras/" style="font-size: 12px;">Keras</a> <a href="/blog/tags/Kunal-Goyal/" style="font-size: 10px;">Kunal Goyal</a> <a href="/blog/tags/Large-markers/" style="font-size: 10px;">Large markers</a> <a href="/blog/tags/Line-Chart/" style="font-size: 10px;">Line Chart</a> <a href="/blog/tags/Machine-Learning/" style="font-size: 16px;">Machine Learning</a> <a href="/blog/tags/Meta-Learning/" style="font-size: 10px;">Meta Learning</a> <a href="/blog/tags/Microservices/" style="font-size: 10px;">Microservices</a> <a href="/blog/tags/Mlflow/" style="font-size: 10px;">Mlflow</a> <a href="/blog/tags/MongoDB/" style="font-size: 10px;">MongoDB</a> <a href="/blog/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/blog/tags/Nayan/" style="font-size: 10px;">Nayan</a> <a href="/blog/tags/Nayan-IP/" style="font-size: 10px;">Nayan IP</a> <a href="/blog/tags/Nayan-data-protection/" style="font-size: 10px;">Nayan data protection</a> <a href="/blog/tags/OCR/" style="font-size: 10px;">OCR</a> <a href="/blog/tags/Parking-Detection/" style="font-size: 10px;">Parking Detection</a> <a href="/blog/tags/Patents/" style="font-size: 10px;">Patents</a> <a href="/blog/tags/PathDashPathEffect/" style="font-size: 10px;">PathDashPathEffect</a> <a href="/blog/tags/Plugins/" style="font-size: 10px;">Plugins</a> <a href="/blog/tags/Python/" style="font-size: 10px;">Python</a> <a href="/blog/tags/Queue/" style="font-size: 10px;">Queue</a> <a href="/blog/tags/Rails/" style="font-size: 12px;">Rails</a> <a href="/blog/tags/RecyclerView/" style="font-size: 10px;">RecyclerView</a> <a href="/blog/tags/Residual-Networks/" style="font-size: 10px;">Residual Networks</a> <a href="/blog/tags/Ruby/" style="font-size: 12px;">Ruby</a> <a href="/blog/tags/Semantic-segmentation/" style="font-size: 10px;">Semantic segmentation</a> <a href="/blog/tags/Stream-Processing/" style="font-size: 10px;">Stream Processing</a> <a href="/blog/tags/Supervised-Learning/" style="font-size: 10px;">Supervised Learning</a> <a href="/blog/tags/Tracking/" style="font-size: 10px;">Tracking</a> <a href="/blog/tags/Unit-Test/" style="font-size: 10px;">Unit Test</a> <a href="/blog/tags/Vehicle-Occupancy-Detection/" style="font-size: 10px;">Vehicle Occupancy Detection</a> <a href="/blog/tags/Youtube-data-API/" style="font-size: 10px;">Youtube data API</a> <a href="/blog/tags/android/" style="font-size: 20px;">android</a> <a href="/blog/tags/angular/" style="font-size: 10px;">angular</a> <a href="/blog/tags/authentication/" style="font-size: 10px;">authentication</a> <a href="/blog/tags/backend/" style="font-size: 14px;">backend</a> <a href="/blog/tags/canvas/" style="font-size: 10px;">canvas</a> <a href="/blog/tags/devise/" style="font-size: 10px;">devise</a> <a href="/blog/tags/devise-auth-token/" style="font-size: 10px;">devise_auth_token</a> <a href="/blog/tags/draw-custom-path/" style="font-size: 10px;">draw custom path</a> <a href="/blog/tags/gateway/" style="font-size: 10px;">gateway</a> <a href="/blog/tags/generate-pdf/" style="font-size: 10px;">generate pdf</a> <a href="/blog/tags/git-submodules/" style="font-size: 10px;">git submodules</a> <a href="/blog/tags/jupyter/" style="font-size: 10px;">jupyter</a> <a href="/blog/tags/kotlin/" style="font-size: 14px;">kotlin</a> <a href="/blog/tags/nayan/" style="font-size: 10px;">nayan</a> <a href="/blog/tags/nayanindia/" style="font-size: 10px;">nayanindia</a> <a href="/blog/tags/neural-network/" style="font-size: 10px;">neural-network</a> <a href="/blog/tags/ngrok/" style="font-size: 10px;">ngrok</a> <a href="/blog/tags/obfuscation/" style="font-size: 10px;">obfuscation</a> <a href="/blog/tags/optimization/" style="font-size: 10px;">optimization</a> <a href="/blog/tags/paint/" style="font-size: 10px;">paint</a> <a href="/blog/tags/path/" style="font-size: 10px;">path</a> <a href="/blog/tags/payment/" style="font-size: 10px;">payment</a> <a href="/blog/tags/paytm/" style="font-size: 10px;">paytm</a> <a href="/blog/tags/pdf/" style="font-size: 10px;">pdf</a> <a href="/blog/tags/proguard/" style="font-size: 10px;">proguard</a> <a href="/blog/tags/rails/" style="font-size: 14px;">rails</a> <a href="/blog/tags/ror/" style="font-size: 14px;">ror</a> <a href="/blog/tags/ruby/" style="font-size: 12px;">ruby</a> <a href="/blog/tags/ruby-on-rails/" style="font-size: 10px;">ruby on rails</a> <a href="/blog/tags/sessions/" style="font-size: 10px;">sessions</a> <a href="/blog/tags/shrinking/" style="font-size: 10px;">shrinking</a> <a href="/blog/tags/spark/" style="font-size: 10px;">spark</a> <a href="/blog/tags/user-interaction/" style="font-size: 10px;">user interaction</a> <a href="/blog/tags/youtube/" style="font-size: 10px;">youtube</a>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="https://nayan.co">Nayan</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <section class="footer">
+  <div class="container">
+    <div class="container-inner">
+        <div class="flexContainer">
+      <div class="col-lg-3">
+
+        <h3>NAYAN (Partner's offices)</h3>
+        <p>Gulf Business Machines (UCMC LLC.) <br>
+          Emarat Atrium Building, Wing B, 3rd Floor<br>
+          Opposite Holiday Inn (Al Safa)<br>
+          Sheikh Zayed Road, PO Box 9226, Dubai, UAE
+        </p>
+
+
+      </div>
+      <div class="col-lg-6">
+        <div class="footer-links">
+          <img src="https://nayan.co/blog/css/images/nayan-logo.png" alt="">
+          <p><span>Our Goal: </span> Stewarding and Monitoring all roadways, on demand<p>
+
+          <ul>
+          <li><a href="https://www.facebook.com/NAYANCAM/" target="_blank"><i class="fa fa-facebook"></i></a></li>
+          <li><a href="https://twitter.com/nayancam" target="_blank"><i class="fa fa-twitter"></i></a></li>
+          <li><a href="https://www.youtube.com/channel/UCgglHs52FLwmQNyxND57c2Q" target="_blank"><i class="fa fa-youtube-play"></i></a></li>
+          <li><a href="https://www.instagram.com/nayantechno/" target="_blank"><i class="fa fa-instagram"></i></a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-lg-3">
+        <ul class="footer-menu">
+          <li><a href="https://nayan.co/blog/">Home</a></li>
+          <li><a href="/blog/archives/index.html">Archive</a></li>
+          <li><a href="https://nayan.co" target="_blank">Nayan</a></li>
+        </ul>
+
+      </div>
+    </div>
+    </div>
+  </div>
+
+</section>
+<section class="credits">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+
+        <p>&copy; 2019 NAYAN <span> All Rights Reserved</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+        
+
+
+    
+        <script src="/blog/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/blog/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/blog/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/blog/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/blog/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/blog/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/blog/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/blog/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/blog/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/blog/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/blog/js/main.js"></script>
+
+    </div>
+</body>
+</html>

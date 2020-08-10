@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>Paytm Gateway Integration | Nayan Blog</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="android,Ashish Jajoria,backend,rails,ror,paytm,gateway,payment" />
+    
+    <meta name="description" content="A complete guide on adding payments to your Android app with backend as RoR   Steps :- Install SDK Add Static SMS Permission (for SMS autoread) Add Runtime SMS Permission (for SMS autoread) Add Progua">
+<meta name="keywords" content="android,Ashish Jajoria,backend,rails,ror,paytm,gateway,payment">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Paytm Gateway Integration">
+<meta property="og:url" content="https:&#x2F;&#x2F;nayan.co&#x2F;Ruby-on-Rails&#x2F;paytm-gateway-integration&#x2F;index.html">
+<meta property="og:site_name" content="Nayan Blog">
+<meta property="og:description" content="A complete guide on adding payments to your Android app with backend as RoR   Steps :- Install SDK Add Static SMS Permission (for SMS autoread) Add Runtime SMS Permission (for SMS autoread) Add Progua">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https:&#x2F;&#x2F;nayan.co&#x2F;blog&#x2F;Ruby-on-Rails&#x2F;paytm-gateway-integration&#x2F;img_flow_android_ios_sdk.png">
+<meta property="og:updated_time" content="2020-07-02T10:23:34.886Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;nayan.co&#x2F;blog&#x2F;Ruby-on-Rails&#x2F;paytm-gateway-integration&#x2F;img_flow_android_ios_sdk.png">
+    
+
+    
+
+    
+        <link rel="icon" href="/blog/css/images/favicon.png" />
+    
+
+    <link rel="stylesheet" href="/blog/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/blog/libs/titillium-web/styles.css">
+    <link rel="stylesheet" href="/blog/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/blog/css/style.css">
+
+    <script src="/blog/libs/jquery/3.4.1/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/blog/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/blog/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+
+
+<link rel="alternate" href="/blog/atom.xml" title="Nayan Blog" type="application/atom+xml">
+</head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="https://nayan.co" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/blog/">Home</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/blog/categories/AI/">AI</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/blog/categories/Android/">Android</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/blog/categories/IP-Patents/">IP-Patents</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/blog/categories/Rails/">Rails</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/blog/categories/Ruby-on-Rails/">Ruby on Rails</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/blog/categories/Web/">Web</a></li></ul>
+                                    
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/blog/archives/index.html">Archive</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/blog/',
+        CONTENT_URL: '/blog/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/blog/js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/blog/categories/Android/">Android</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/blog/categories/Ruby-on-Rails/">Ruby on Rails</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-paytm-gateway-integration" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        Paytm Gateway Integration
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+      <i class="fa fa-calendar"></i>
+      <a href="/blog/Ruby-on-Rails/paytm-gateway-integration/" class="article-date">
+         <time datetime="2020-01-02T09:13:06.000Z" itemprop="datePublished">2020-01-02</time>
+      </a>
+    </div>
+
+
+                
+  <div class="article-author">
+    Ashish Jajoria
+  </div>
+
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/blog/tags/Ashish-Jajoria/" rel="tag">Ashish Jajoria</a>, <a class="tag-link" href="/blog/tags/android/" rel="tag">android</a>, <a class="tag-link" href="/blog/tags/backend/" rel="tag">backend</a>, <a class="tag-link" href="/blog/tags/gateway/" rel="tag">gateway</a>, <a class="tag-link" href="/blog/tags/payment/" rel="tag">payment</a>, <a class="tag-link" href="/blog/tags/paytm/" rel="tag">paytm</a>, <a class="tag-link" href="/blog/tags/rails/" rel="tag">rails</a>, <a class="tag-link" href="/blog/tags/ror/" rel="tag">ror</a>
+    </div>
+
+                
+
+                
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            <p>A complete guide on adding payments to your Android app with backend as RoR</p>
+<img src="/blog/Ruby-on-Rails/paytm-gateway-integration/img_flow_android_ios_sdk.png" class="">
+
+<h2 id="Steps"><a href="#Steps" class="headerlink" title="Steps :-"></a>Steps :-</h2><ol>
+<li>Install SDK</li>
+<li>Add Static SMS Permission (for SMS autoread)</li>
+<li>Add Runtime SMS Permission (for SMS autoread)</li>
+<li>Add Proguard Rules</li>
+<li>Get Order Checksum from Server (our Server)</li>
+<li>Generate and send Checksum (from Our Server)</li>
+<li>Start Payment Transaction</li>
+<li>Send Payment Response to Server</li>
+<li>Confirm with Paytm Gateway about payment status</li>
+<li>Update Order Status</li>
+<li>Show Order Status on App<br>&nbsp;<br>&nbsp;</li>
+</ol>
+<h3 id="Step-1-Install-SDK"><a href="#Step-1-Install-SDK" class="headerlink" title="Step 1: Install SDK"></a>Step 1: Install SDK</h3><p>Add the following dependency to your <strong>app level</strong> <code>build.gradle</code>.</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">dependencies &#123;</span><br><span class="line"> ...</span><br><span class="line"></span><br><span class="line"> <span class="comment">// Paytm SDK</span></span><br><span class="line"> implementation(<span class="string">'com.paytm:pgplussdk:1.4.4'</span>) &#123;</span><br><span class="line">  transitive = <span class="literal">true</span></span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Step-2-Add-Static-SMS-Permission-for-SMS-autoread"><a href="#Step-2-Add-Static-SMS-Permission-for-SMS-autoread" class="headerlink" title="Step 2: Add Static SMS Permission (for SMS autoread)"></a>Step 2: Add Static SMS Permission (for SMS autoread)</h3><p>Add the following permissions to your <code>AndroidManifest.xml</code>.</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">uses-permission</span> <span class="attr">android:name</span>=<span class="string">”android.permission.READ_SMS”/</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">uses-permission</span> <span class="attr">android:name</span>=<span class="string">”android.permission.RECEIVE_SMS”/</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Step-3-Add-Runtime-SMS-Permission-for-SMS-autoread"><a href="#Step-3-Add-Runtime-SMS-Permission-for-SMS-autoread" class="headerlink" title="Step 3: Add Runtime SMS Permission (for SMS autoread)"></a>Step 3: Add Runtime SMS Permission (for SMS autoread)</h3><p>We used <a href="https://github.com/Karumi/Dexter" target="_blank" rel="noopener">Dexter</a> library for handling runtime permissions. To install that add the following dependency to your <strong>app level</strong> <code>build.gradle</code>.</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">dependencies &#123;</span><br><span class="line"> ...</span><br><span class="line"></span><br><span class="line"> <span class="comment">// Dexter runtime permissions</span></span><br><span class="line"> implementation <span class="string">'com.karumi:dexter:4.2.0'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Add the following code before starting your transaction process.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">Dexter.withActivity(<span class="keyword">this</span>)</span><br><span class="line">      .withPermissions(</span><br><span class="line">       android.Manifest.permission.READ_SMS”,</span><br><span class="line">       android.Manifest.permission.RECEIVE_SMS”</span><br><span class="line">      )</span><br><span class="line">      .withListener(<span class="keyword">object</span> : MultiplePermissionsListener &#123;</span><br><span class="line">       <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onPermissionsChecked</span><span class="params">(report: <span class="type">MultiplePermissionsReport</span>?)</span></span> &#123;</span><br><span class="line">        report?.let &#123;</span><br><span class="line">         <span class="keyword">if</span> (it.areAllPermissionsGranted()) &#123;</span><br><span class="line">          beginPaytmTransaction()</span><br><span class="line">         &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">          showMessage(<span class="string">"Permission Denied"</span>)</span><br><span class="line">         &#125;</span><br><span class="line">        &#125;</span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line">       <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onPermissionRationaleShouldBeShown</span><span class="params">(permissions: <span class="type">MutableList</span>&lt;<span class="type">PermissionRequest</span>&gt;?, token: <span class="type">PermissionToken</span>?)</span></span> &#123;</span><br><span class="line">        token?.continuePermissionRequest()</span><br><span class="line">       &#125;</span><br><span class="line">      &#125;)</span><br><span class="line">      .withErrorListener &#123;</span><br><span class="line">       showMessage(<span class="string">"Error occurred! <span class="variable">$it</span>"</span>)</span><br><span class="line">      &#125;</span><br><span class="line">      .onSameThread()</span><br><span class="line">      .check()</span><br></pre></td></tr></table></figure>
+
+<h3 id="Step-4-Add-Proguard-Rules"><a href="#Step-4-Add-Proguard-Rules" class="headerlink" title="Step 4: Add Proguard Rules"></a>Step 4: Add Proguard Rules</h3><p>Add the following rules to your <code>proguard-rules.pro</code>.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">-keepclassmembers class com.paytm.pgsdk.paytmWebView$PaytmJavaScriptInterface &#123;</span><br><span class="line"> public *;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Step-5-Get-Order-Checksum-from-Server-our-Server"><a href="#Step-5-Get-Order-Checksum-from-Server-our-Server" class="headerlink" title="Step 5: Get Order Checksum from Server (our Server)"></a>Step 5: Get Order Checksum from Server (our Server)</h3><p>Make an API call to your server to get the order checksum</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">OurService</span> </span>&#123;</span><br><span class="line"> <span class="meta">@GET(<span class="meta-string">"/subscriptions/new"</span>)</span></span><br><span class="line"> <span class="keyword">suspend</span> <span class="function"><span class="keyword">fun</span> <span class="title">newSubscription</span><span class="params">()</span></span>: NewSubscriptionResponse</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">UserRepository</span></span>(<span class="keyword">private</span> <span class="keyword">val</span> ourService: OurService) &#123;</span><br><span class="line"> <span class="keyword">suspend</span> <span class="function"><span class="keyword">fun</span> <span class="title">createNewSubscription</span><span class="params">()</span></span>: NewSubscriptionResponse = ourService.newSubscription()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">open</span> <span class="class"><span class="keyword">class</span> <span class="title">ActivityState</span></span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ProfileViewModel</span></span>(<span class="keyword">private</span> <span class="keyword">val</span> userRepository: UserRepository) : ViewModel() &#123;</span><br><span class="line"> <span class="keyword">private</span> <span class="keyword">val</span> _paytmState: MutableLiveData&lt;ActivityState&gt; = MutableLiveData(InitialState)</span><br><span class="line"> <span class="keyword">val</span> paytmState: LiveData&lt;ActivityState&gt; = _paytmState</span><br><span class="line"></span><br><span class="line"> ...</span><br><span class="line"></span><br><span class="line"> <span class="function"><span class="keyword">fun</span> <span class="title">createNewSubscription</span><span class="params">()</span></span> &#123;</span><br><span class="line">  viewModelScope.launch &#123;</span><br><span class="line">   <span class="keyword">try</span> &#123;</span><br><span class="line">    _paytmState.value = ProgressState</span><br><span class="line">    _paytmState.value = PaytmChecksumState(userRepository.createNewSubscription())</span><br><span class="line">   &#125; <span class="keyword">catch</span> (e: HttpException) &#123;</span><br><span class="line">    _paytmState.value = ErrorState(e)</span><br><span class="line">   &#125; <span class="keyword">catch</span> (e: IOException) &#123;</span><br><span class="line">    _paytmState.value = ErrorState(e)</span><br><span class="line">   &#125;</span><br><span class="line">  &#125;</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> <span class="keyword">object</span> ProgressState : ActivityState()</span><br><span class="line"> <span class="keyword">data</span> <span class="class"><span class="keyword">class</span> <span class="title">PaytmChecksumState</span></span>(<span class="keyword">val</span> checksumResponse: NewSubscriptionResponse) : ActivityState()</span><br><span class="line"> <span class="keyword">data</span> <span class="class"><span class="keyword">class</span> <span class="title">ErrorState</span></span>(<span class="keyword">val</span> exception: Exception) : ActivityState()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ProfileFragment</span> : <span class="type">Fragment</span></span>() &#123;</span><br><span class="line"> <span class="keyword">private</span> <span class="keyword">val</span> profileViewModel: ProfileViewModel <span class="keyword">by</span> viewModel()</span><br><span class="line"></span><br><span class="line"> ...</span><br><span class="line"></span><br><span class="line"> <span class="keyword">private</span> <span class="function"><span class="keyword">fun</span> <span class="title">beginPaytmTransaction</span><span class="params">()</span></span> &#123;</span><br><span class="line">  profileViewModel.createNewSubscription()</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Step-6-Generate-and-send-Checksum-from-Our-Server"><a href="#Step-6-Generate-and-send-Checksum-from-Our-Server" class="headerlink" title="Step 6: Generate and send Checksum (from Our Server)"></a>Step 6: Generate and send Checksum (from Our Server)</h3><p>To your project directory add a package named <strong>paytm</strong>.</p>
+<p>Add <code>checksum_tool.rb</code> and <code>encryption_new_pg.rb</code> to the <strong>paytm</strong> package from <a href="https://github.com/Paytm-Payments/Paytm_App_Checksum_Kit_Ruby/tree/master/paytm" target="_blank" rel="noopener">Paytm_App_Checksum_Kit_Ruby</a></p>
+<p>We will be creating order for a PaymentRequest and we follow model heavy approach for business logic. So we added a static method to generate checksum for our order in PaymentRequest model itself.</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">PaymentRequest</span> &lt; ApplicationRecord</span></span><br><span class="line"> ...</span><br><span class="line"></span><br><span class="line"> <span class="function"><span class="keyword">def</span> <span class="title">self</span>.<span class="title">create_checksum</span><span class="params">(user, order_id)</span></span></span><br><span class="line">  <span class="keyword">require</span> <span class="string">'./paytm/encryption_new_pg.rb'</span></span><br><span class="line">  <span class="keyword">require</span> <span class="string">'./paytm/checksum_tool.rb'</span></span><br><span class="line">  <span class="keyword">require</span> <span class="string">'uri'</span></span><br><span class="line"></span><br><span class="line">  paytm_hash = Hash.new</span><br><span class="line"></span><br><span class="line">  is_staging = <span class="string">'true'</span> == ENV[<span class="string">'PAYTM_STAGING'</span>]</span><br><span class="line">  merchant_id = is_staging ? ENV[<span class="string">'STAGING_PAYTM_MERCHANT_ID'</span>] : ENV[<span class="string">'PAYTM_MERCHANT_ID'</span>]</span><br><span class="line">  industry_type = is_staging ? ENV[<span class="string">'STAGING_PAYTM_INDUSTRY_TYPE'</span>] : ENV[<span class="string">'PAYTM_INDUSTRY_TYPE'</span>]</span><br><span class="line">  paytm_website = is_staging ? ENV[<span class="string">'STAGING_PAYTM_WEBSITE'</span>] : ENV[<span class="string">'PAYTM_WEBSITE'</span>]</span><br><span class="line">  paytm_callback = is_staging ? ENV[<span class="string">'STAGING_PAYTM_CALLBACK'</span>] : ENV[<span class="string">'PAYTM_CALLBACK'</span>]</span><br><span class="line"></span><br><span class="line">  paytm_hash[<span class="string">"REQUEST_TYPE"</span>] = <span class="string">'DEFAULT'</span></span><br><span class="line">  paytm_hash[<span class="string">"MID"</span>] = merchant_id <span class="comment">#Provided by Paytm</span></span><br><span class="line">  paytm_hash[<span class="string">"ORDER_ID"</span>] = order_id; <span class="comment">#unique OrderId for every request\</span></span><br><span class="line">  paytm_hash[<span class="string">"CUST_ID"</span>] = user.id.to_s <span class="comment">#unique customer identifier</span></span><br><span class="line">  paytm_hash[<span class="string">"INDUSTRY_TYPE_ID"</span>] = industry_type <span class="comment">#Provided by Paytm</span></span><br><span class="line">  paytm_hash[<span class="string">"CHANNEL_ID"</span>] = <span class="string">'WAP'</span>; <span class="comment">#Provided by Paytm</span></span><br><span class="line">  paytm_hash[<span class="string">"TXN_AMOUNT"</span>] = <span class="string">'1'</span>; <span class="comment">#transaction amount</span></span><br><span class="line">  paytm_hash[<span class="string">"WEBSITE"</span>] = paytm_website <span class="comment">#Provided by Paytm</span></span><br><span class="line">  paytm_hash[<span class="string">"EMAIL"</span>] = user.email; <span class="comment">#customer email id</span></span><br><span class="line">  <span class="keyword">if</span> user.phone_number.present?</span><br><span class="line">   paytm_hash[<span class="string">"MOBILE_NO"</span>] = user.phone_number; <span class="comment">#customer 10 digit mobile no.</span></span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line">  paytm_hash[<span class="string">"CALLBACK_URL"</span>] = paytm_callback + <span class="string">"<span class="subst">#&#123;order_id&#125;</span>"</span></span><br><span class="line"></span><br><span class="line">  checksum_hash = ChecksumTool.new.get_checksum_hash(paytm_hash).gsub(<span class="string">"\n"</span>, <span class="string">''</span>)</span><br><span class="line">  paytm_hash[<span class="string">"CHECKSUMHASH"</span>] = checksum_hash</span><br><span class="line">  paytm_hash</span><br><span class="line"> <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
+<p>First create a subscription for current user, then create a payment request for that subscription and create checksum treating that payment request as your Order.</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SubscriptionsController</span> &lt; ApplicationController</span></span><br><span class="line"> before_action <span class="symbol">:authenticate_user!</span></span><br><span class="line"></span><br><span class="line"> <span class="function"><span class="keyword">def</span> <span class="title">new</span></span></span><br><span class="line">  user = current_user</span><br><span class="line">  subscription = user.subscriptions.create!</span><br><span class="line">  payment_request = subscription.payment_requests.create!</span><br><span class="line"></span><br><span class="line">  checksum = PaymentRequest.create_checksum(user, payment_request.id)</span><br><span class="line">  render <span class="symbol">json:</span> &#123; <span class="symbol">paytm_params:</span> checksum, <span class="symbol">is_staging:</span> <span class="string">'true'</span> == ENV[<span class="string">'PAYTM_STAGING'</span>]&#125;, <span class="symbol">status:</span> <span class="symbol">:ok</span></span><br><span class="line"> <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Step-7-Start-Payment-Transaction"><a href="#Step-7-Start-Payment-Transaction" class="headerlink" title="Step 7: Start Payment Transaction"></a>Step 7: Start Payment Transaction</h3><p>With checksum response from server, initiate the paytm purchase.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ProfileFragment</span> : <span class="type">Fragment</span></span>() &#123;</span><br><span class="line"> ...</span><br><span class="line"></span><br><span class="line"> <span class="keyword">private</span> <span class="function"><span class="keyword">fun</span> <span class="title">initiatePaytmPurchase</span><span class="params">(checksumResponse: <span class="type">NewSubscriptionResponse</span>)</span></span> &#123;</span><br><span class="line">  <span class="keyword">val</span> order = PaytmOrder(checksumResponse.paytmParams)</span><br><span class="line">  <span class="keyword">val</span> service = <span class="keyword">if</span> (checksumResponse.isStaging)</span><br><span class="line">     PaytmPGService.getStagingService(<span class="literal">null</span>)</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">     PaytmPGService.getProductionService()</span><br><span class="line">  </span><br><span class="line">  service.initialize(order, <span class="literal">null</span>)</span><br><span class="line"></span><br><span class="line">  service.startPaymentTransaction(context, <span class="literal">true</span>, <span class="literal">true</span>, <span class="keyword">object</span> : PaytmPaymentTransactionCallback &#123;</span><br><span class="line">   <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onTransactionResponse</span><span class="params">(inResponse: <span class="type">Bundle</span>?)</span></span> &#123;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">clientAuthenticationFailed</span><span class="params">(inErrorMessage: <span class="type">String</span>?)</span></span> &#123;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">someUIErrorOccurred</span><span class="params">(inErrorMessage: <span class="type">String</span>?)</span></span> &#123;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onTransactionCancel</span><span class="params">(inErrorMessage: <span class="type">String</span>?, inResponse: <span class="type">Bundle</span>?)</span></span> &#123;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">networkNotAvailable</span><span class="params">()</span></span> &#123;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onErrorLoadingWebPage</span><span class="params">(iniErrorCode: <span class="type">Int</span>, inErrorMessage: <span class="type">String</span>?, inFailingUrl: <span class="type">String</span>?)</span></span> &#123;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onBackPressedCancelTransaction</span><span class="params">()</span></span> &#123;</span><br><span class="line">   &#125;</span><br><span class="line">  &#125;)</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="merchant_pg_android.gif" alt="Demo of Paytm checkout flow in app"></p>
+<h3 id="Step-8-Send-Payment-Response-to-Server"><a href="#Step-8-Send-Payment-Response-to-Server" class="headerlink" title="Step 8: Send Payment Response to Server"></a>Step 8: Send Payment Response to Server</h3><p>On Transaction response from paytm payments Activity, send the response to your server to update payment status.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">OurService</span> </span>&#123;</span><br><span class="line"> <span class="meta">@POST(<span class="meta-string">"/payment_requests/&#123;requestId&#125;/update_status"</span>)</span></span><br><span class="line"> <span class="keyword">suspend</span> <span class="function"><span class="keyword">fun</span> <span class="title">updatePaymentStatus</span><span class="params">(<span class="meta">@Path(value = <span class="meta-string">"requestId"</span>)</span> requestId: <span class="type">Int</span>,</span></span></span><br><span class="line"><span class="function"><span class="params">                                 <span class="meta">@Body</span> transactionResponse: <span class="type">JsonObject</span>)</span></span>: UpdatePaymentResponse</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">UserRepository</span></span>(<span class="keyword">private</span> <span class="keyword">val</span> ourService: OurService) &#123;</span><br><span class="line"> <span class="keyword">suspend</span> <span class="function"><span class="keyword">fun</span> <span class="title">updatePaymentResponse</span><span class="params">(requestId: <span class="type">Int</span>, transactionResponse: <span class="type">JsonObject</span>)</span></span>: UpdatePaymentResponse = ourService.updatePaymentStatus(requestId, transactionResponse)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">open</span> <span class="class"><span class="keyword">class</span> <span class="title">ActivityState</span></span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ProfileViewModel</span></span>(<span class="keyword">private</span> <span class="keyword">val</span> userRepository: UserRepository) : ViewModel() &#123;</span><br><span class="line"> <span class="keyword">private</span> <span class="keyword">val</span> _paytmState: MutableLiveData&lt;ActivityState&gt; = MutableLiveData(InitialState)</span><br><span class="line"> <span class="keyword">val</span> paytmState: LiveData&lt;ActivityState&gt; = _paytmState</span><br><span class="line"></span><br><span class="line"> ...</span><br><span class="line"></span><br><span class="line"> <span class="function"><span class="keyword">fun</span> <span class="title">updatePaymentStatus</span><span class="params">(requestId: <span class="type">Int</span>, transactionResponse: <span class="type">JsonObject</span>)</span></span> &#123;</span><br><span class="line">  viewModelScope.launch &#123;</span><br><span class="line">   <span class="keyword">try</span> &#123;</span><br><span class="line">    _paytmState.value = ProgressState</span><br><span class="line">    <span class="keyword">val</span> response = userRepository.updatePaymentResponse(requestId, transactionResponse)</span><br><span class="line">    _paytmState.value = PaytmStatusState(response)</span><br><span class="line">    _paytmState.value = PaytmIdleState</span><br><span class="line">   &#125; <span class="keyword">catch</span> (e: HttpException) &#123;</span><br><span class="line">    _paytmState.value = ErrorState(e)</span><br><span class="line">   &#125; <span class="keyword">catch</span> (e: IOException) &#123;</span><br><span class="line">    _paytmState.value = ErrorState(e)</span><br><span class="line">   &#125;</span><br><span class="line">  &#125;</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> <span class="keyword">object</span> ProgressState : ActivityState()</span><br><span class="line"> <span class="keyword">data</span> <span class="class"><span class="keyword">class</span> <span class="title">PaytmStatusState</span></span>(<span class="keyword">val</span> updatePaymentResponse: UpdatePaymentResponse) : ActivityState()</span><br><span class="line"> <span class="keyword">object</span> PaytmIdleState : ActivityState()</span><br><span class="line"> <span class="keyword">data</span> <span class="class"><span class="keyword">class</span> <span class="title">ErrorState</span></span>(<span class="keyword">val</span> exception: Exception) : ActivityState()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ProfileFragment</span> : <span class="type">Fragment</span></span>() &#123;</span><br><span class="line"> ...</span><br><span class="line"></span><br><span class="line"> <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onTransactionResponse</span><span class="params">(inResponse: <span class="type">Bundle</span>?)</span></span> &#123;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">val</span> orderId = inResponse?.getString(<span class="string">"ORDERID"</span>)</span><br><span class="line">  orderId?.let &#123;</span><br><span class="line">   <span class="keyword">val</span> responseJson = JsonObject()</span><br><span class="line">   inResponse.keySet()?.forEach &#123;</span><br><span class="line">    responseJson.addProperty(it, inResponse.getString(it))</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">val</span> responseJsonWrapper = JsonObject()</span><br><span class="line">   responseJsonWrapper.add(<span class="string">"gateway_response"</span>, responseJson)</span><br><span class="line"></span><br><span class="line">   profileViewModel.updatePaymentStatus(Integer.parseInt(orderId), responseJsonWrapper)</span><br><span class="line">  &#125;</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Step-9-Confirm-with-Paytm-Gateway-about-payment-status"><a href="#Step-9-Confirm-with-Paytm-Gateway-about-payment-status" class="headerlink" title="Step 9: Confirm with Paytm Gateway about payment status"></a>Step 9: Confirm with Paytm Gateway about payment status</h3><p>Confirm with Paytm gateway using <a href="https://developer.paytm.com/docs/transaction-status-api/" target="_blank" rel="noopener">Transaction Status API</a>.</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">PaymentRequest</span> &lt; ApplicationRecord</span></span><br><span class="line"> ...</span><br><span class="line"></span><br><span class="line"> <span class="function"><span class="keyword">def</span> <span class="title">confirm_with_gateway</span><span class="params">(user)</span></span></span><br><span class="line">  is_staging = <span class="string">'true'</span> == ENV[<span class="string">'PAYTM_STAGING'</span>]</span><br><span class="line">  status_api_url = is_staging ? ENV[<span class="string">'STAGING_PAYTM_STATUS'</span>] : ENV[<span class="string">'PAYTM_STATUS'</span>]</span><br><span class="line">  merchant_id = is_staging ? ENV[<span class="string">'STAGING_PAYTM_MERCHANT_ID'</span>] : ENV[<span class="string">'PAYTM_MERCHANT_ID'</span>]</span><br><span class="line">  order_id = <span class="keyword">self</span>.id</span><br><span class="line"></span><br><span class="line">  response = HTTParty.post(status_api_url,</span><br><span class="line">                           <span class="symbol">body:</span> &#123;</span><br><span class="line">                                  <span class="symbol">MID:</span> merchant_id,</span><br><span class="line">                                  <span class="symbol">ORDERID:</span> order_id,</span><br><span class="line">                                  <span class="symbol">CHECKSUMHASH:</span> PaymentRequest.create_checksum(user, order_id)[<span class="string">"CHECKSUMHASH"</span>]</span><br><span class="line">                                 &#125;.to_json,</span><br><span class="line">                           <span class="symbol">multipart:</span> <span class="literal">false</span>,</span><br><span class="line">                           <span class="symbol">headers:</span> &#123;</span><br><span class="line">                                     <span class="string">'Content-Type'</span> =&gt; <span class="string">'application/json'</span></span><br><span class="line">                                    &#125;,</span><br><span class="line">                           <span class="symbol">timeout:</span> <span class="number">10000</span>)</span><br><span class="line">  update_status(response) <span class="comment"># We will learn about this in next step</span></span><br><span class="line"> <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
+<p>After confirming with gateway, send back the response to App.</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">PaymentRequestsController</span> &lt; ApplicationController</span></span><br><span class="line"> before_action <span class="symbol">:authenticate_user!</span></span><br><span class="line"></span><br><span class="line"> <span class="function"><span class="keyword">def</span> <span class="title">update_status</span></span></span><br><span class="line">  payment_request = PaymentRequest.find(params[<span class="symbol">:id</span>])</span><br><span class="line">  payment_request.initiate! <span class="comment">#We are using aasm gem for this https://github.com/aasm/aasm</span></span><br><span class="line">  payment_request.confirm_with_gateway(current_user)</span><br><span class="line">  payment_request.reload</span><br><span class="line"></span><br><span class="line">  render <span class="symbol">json:</span> &#123;</span><br><span class="line">                <span class="symbol">message:</span> get_status_message(payment_request),</span><br><span class="line">                <span class="symbol">status:</span> payment_request.aasm_state</span><br><span class="line">               &#125;,</span><br><span class="line">         <span class="symbol">status:</span> <span class="symbol">:ok</span></span><br><span class="line"> <span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"> <span class="function"><span class="keyword">def</span> <span class="title">get_status_message</span><span class="params">(payment_request)</span></span></span><br><span class="line">  <span class="keyword">case</span> payment_request.aasm_state</span><br><span class="line">  <span class="keyword">when</span> <span class="symbol">:gateway_confirmation_pending</span></span><br><span class="line">   <span class="string">'Payment is still under process, please wait until the status of transaction is updated'</span></span><br><span class="line">  <span class="keyword">when</span> <span class="symbol">:success</span></span><br><span class="line">   <span class="string">'Payment was successful'</span></span><br><span class="line">  <span class="keyword">else</span></span><br><span class="line">   <span class="string">'Payment has failed'</span></span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"> <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Step-10-Update-Order-Status"><a href="#Step-10-Update-Order-Status" class="headerlink" title="Step 10: Update Order Status"></a>Step 10: Update Order Status</h3><p>Based on response codes, update the payment status of order. Response codes and statuses can be found <a href="https://developer.paytm.com/docs/transaction-status-api/" target="_blank" rel="noopener">Transaction Status API’s Response codes and Messages section</a> and <a href="https://developer.paytm.com/assets/Transaction%20response%20codes%20and%20messages.pdf" target="_blank" rel="noopener">Transaction response codes and messages</a></p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">PaymentRequest</span> &lt; ApplicationRecord</span></span><br><span class="line"> ...</span><br><span class="line"></span><br><span class="line"> private</span><br><span class="line"> <span class="function"><span class="keyword">def</span> <span class="title">update_status</span><span class="params">(response)</span></span></span><br><span class="line">  response = response.symbolize_keys</span><br><span class="line">  response_code = response[<span class="symbol">:RESPCODE</span>]</span><br><span class="line">  <span class="keyword">if</span> response_code == <span class="string">"01"</span></span><br><span class="line">   <span class="keyword">self</span>.update(<span class="symbol">transaction_reference:</span> response[<span class="symbol">:TXNID</span>], <span class="symbol">metadata:</span> response)</span><br><span class="line">   <span class="keyword">self</span>.mark_as_succeed!</span><br><span class="line">  <span class="keyword">elsif</span> response_code == <span class="string">"400"</span> <span class="params">||</span> response_code == <span class="string">"402"</span></span><br><span class="line">  <span class="keyword">elsif</span> response_code == <span class="string">"294"</span></span><br><span class="line">   <span class="keyword">self</span>.mark_as_expired!</span><br><span class="line">  <span class="keyword">else</span></span><br><span class="line">   <span class="keyword">self</span>.update(<span class="symbol">transaction_reference:</span> response[<span class="symbol">:TXNID</span>], <span class="symbol">error_message:</span> response[<span class="symbol">:RESPMSG</span>], <span class="symbol">metadata:</span> response)</span><br><span class="line">   <span class="keyword">self</span>.mark_as_failed!</span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"> <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Step-11-Show-Order-Status-on-App"><a href="#Step-11-Show-Order-Status-on-App" class="headerlink" title="Step 11: Show Order Status on App"></a>Step 11: Show Order Status on App</h3><p>Based on server response, show messages on UI.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ProfileFragment</span> : <span class="type">Fragment</span></span>() &#123;</span><br><span class="line"> <span class="keyword">private</span> <span class="keyword">val</span> paytmStateObserver: Observer&lt;ActivityState&gt; = Observer &#123;</span><br><span class="line">  <span class="keyword">when</span> (it) &#123;</span><br><span class="line">   <span class="keyword">is</span> ProfileViewModel.PaytmStatusState -&gt; &#123;</span><br><span class="line">    <span class="keyword">when</span> (it.updatePaymentResponse.status) &#123;</span><br><span class="line">     <span class="string">"success"</span> -&gt; &#123;</span><br><span class="line">                   Snackbar.make(progressBar, <span class="string">"Payment success"</span>, Snackbar.LENGTH_LONG).show()</span><br><span class="line">                  &#125;</span><br><span class="line">     <span class="string">"failed"</span> -&gt; &#123;</span><br><span class="line">                  Snackbar.make(progressBar, <span class="string">"Payment failed. <span class="subst">$&#123;it.updatePaymentResponse.message&#125;</span>"</span>, Snackbar.LENGTH_LONG).show()</span><br><span class="line">                 &#125;</span><br><span class="line">     <span class="string">"expired"</span> -&gt; &#123;</span><br><span class="line">                   Snackbar.make(progressBar, <span class="string">"Payment expired. Please try again"</span>, Snackbar.LENGTH_LONG).show()</span><br><span class="line">                  &#125;</span><br><span class="line">     <span class="string">"gateway_confirmation_pending"</span> -&gt; &#123;</span><br><span class="line">                                        Snackbar.make(progressBar, <span class="string">"Payment pending. <span class="subst">$&#123;it.updatePaymentResponse.message&#125;</span>"</span>, Snackbar.LENGTH_LONG).show()</span><br><span class="line">                                       &#125;</span><br><span class="line">     <span class="keyword">else</span> -&gt; &#123;&#125;</span><br><span class="line">    &#125;</span><br><span class="line">   &#125;</span><br><span class="line">  &#125;</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="References"><a href="#References" class="headerlink" title="References:-"></a>References:-</h2><ol>
+<li><a href="https://developer.paytm.com/docs/v1/android-sdk/" target="_blank" rel="noopener">Add payments to your Android app with Paytm SDK</a></li>
+<li><a href="https://github.com/Paytm-Payments/Paytm_App_Checksum_Kit_Ruby" target="_blank" rel="noopener">Paytm_App_Checksum_Kit_Ruby</a></li>
+<li><a href="https://medium.com/the-zalonin/android-payment-gateway-integration-guide-paytm-fa2ee01286e" target="_blank" rel="noopener">Android Payment Gateway Integration Guide: PAYTM</a></li>
+<li><a href="https://developer.paytm.com/docs/transaction-status-api/" target="_blank" rel="noopener">Transaction Status API</a></li>
+</ol>
+<h2 id="Some-good-reads-you-may-like"><a href="#Some-good-reads-you-may-like" class="headerlink" title="Some good reads you may like:-"></a>Some good reads you may like:-</h2><ol>
+<li><a href="https://nayan.co/blog/Ruby-on-Rails/override-devise-auth-token-controllers/">Override Devise Auth Token Controllers</a></li>
+<li><a href="https://nayan.co/blog/Ruby-on-Rails/generating-pdf-in-ruby-on-rails/">Generating Pdf in Ruby on Rails using Prawn</a></li>
+</ol>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="https://nayan.co/Ruby-on-Rails/paytm-gateway-integration/" data-id="ckdk565yy001smrxw8fvb38qi" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "NayanTech"
+        },
+        "headline": "Paytm Gateway Integration",
+        "image": "https://nayan.co/blog/Ruby-on-Rails/paytm-gateway-integration/img_flow_android_ios_sdk.png",
+        "keywords": "android Ashish Jajoria backend rails ror paytm gateway payment",
+        "genre": "Android Ruby on Rails",
+        "datePublished": "2020-01-02",
+        "dateCreated": "2020-01-02",
+        "dateModified": "2020-07-02",
+        "url": "https://nayan.co//Ruby-on-Rails/paytm-gateway-integration/",
+        "description": "A complete guide on adding payments to your Android app with backend as RoR
+
+
+Steps :-
+Install SDK
+Add Static SMS Permission (for SMS autoread)
+Add Runtime SMS Permission (for SMS autoread)
+Add Progua",
+        "wordCount": 3404
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="youtube" href="https://www.youtube.com/channel/UCgglHs52FLwmQNyxND57c2Q" target="_blank" rel="noopener">
+                        <i class="icon fa fa-youtube"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="twitter" href="https://twitter.com/nayancam" target="_blank" rel="noopener">
+                        <i class="icon fa fa-twitter"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="facebook" href="https://www.facebook.com/NAYANCAM/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-facebook"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="instagram" href="https://www.instagram.com/nayantechno/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-instagram"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="linkedin" href="https://in.linkedin.com/company/nayancam" target="_blank" rel="noopener">
+                        <i class="icon fa fa-linkedin"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/blog/Web/angular-charts/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            Angular Charts
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/blog/AI/How-to-make-a-web-application-for-any-AI-model/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">How to make a web application for any AI model</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/blog/AI/emotion-recognition-sagar/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://neurohive.io/wp-content/uploads/2018/12/labeled-images.57bd-e1547550772626.jpg)" alt="How to recognize Emotions using deep learning?" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/blog/categories/AI/">AI</a></p>
+                            <p class="item-title"><a href="/blog/AI/emotion-recognition-sagar/" class="title">How to recognize Emotions using deep learning?</a></p>
+                            <p class="item-date"><time datetime="2020-08-06T08:46:00.000Z" itemprop="datePublished">2020-08-06</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/blog/AI/jupyter-hosting/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://cdn-images-1.medium.com/max/2800/0*-j_n3S1WfVi3_DLe.jpg)" alt="How to host any port to entire internet on any machine?" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/blog/categories/AI/">AI</a></p>
+                            <p class="item-title"><a href="/blog/AI/jupyter-hosting/" class="title">How to host any port to entire internet on any machine?</a></p>
+                            <p class="item-date"><time datetime="2020-07-31T02:30:00.000Z" itemprop="datePublished">2020-07-31</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/blog/Android/Applying-Proguard-in-an-android-application/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/blog/Android/Applying-Proguard-in-an-android-application/flow_diagram.jpg)" alt="How to apply Proguard in an android application (Code obfuscation, shrinking, optimization)" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/blog/categories/Android/">Android</a></p>
+                            <p class="item-title"><a href="/blog/Android/Applying-Proguard-in-an-android-application/" class="title">How to apply Proguard in an android application (Code obfuscation, shrinking, optimization)</a></p>
+                            <p class="item-date"><time datetime="2020-07-27T13:10:48.000Z" itemprop="datePublished">2020-07-27</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/blog/Rails/rails-docker/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/blog/Rails/rails-docker/rails-docker.jpg)" alt="Deploying a Rails application to a Docker container" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/blog/categories/Rails/">Rails</a></p>
+                            <p class="item-title"><a href="/blog/Rails/rails-docker/" class="title">Deploying a Rails application to a Docker container</a></p>
+                            <p class="item-date"><time datetime="2020-07-25T02:30:00.000Z" itemprop="datePublished">2020-07-25</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/blog/IP-Patents/potential-patent-infringement/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/blog/IP-Patents/potential-patent-infringement/banner.jpg)" alt="How to check whether your product causes potential patent infringement" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/blog/categories/IP-Patents/">IP-Patents</a></p>
+                            <p class="item-title"><a href="/blog/IP-Patents/potential-patent-infringement/" class="title">How to check whether your product causes potential patent infringement</a></p>
+                            <p class="item-date"><time datetime="2020-07-24T12:46:09.000Z" itemprop="datePublished">2020-07-24</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/AI/">AI</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/Android/">Android</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/IP-Patents/">IP-Patents</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/Rails/">Rails</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/Ruby-on-Rails/">Ruby on Rails</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/Web/">Web</a><span class="category-list-count">6</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/08/">August 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/07/">July 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/06/">June 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/05/">May 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/03/">March 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/02/">February 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/01/">January 2020</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/12/">December 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/11/">November 2019</a><span class="archive-list-count">4</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">tags</h3>
+        <div class="widget">
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/AI/" rel="tag">AI</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Android-Testing/" rel="tag">Android Testing</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Angular/" rel="tag">Angular</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Ashish-Jajoria/" rel="tag">Ashish Jajoria</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Autonomous-driving/" rel="tag">Autonomous driving</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Callback/" rel="tag">Callback</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Character-Recognition/" rel="tag">Character Recognition</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Charts/" rel="tag">Charts</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Cloud-Data/" rel="tag">Cloud Data</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/ComposePathEffect/" rel="tag">ComposePathEffect</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Computer-Vision/" rel="tag">Computer Vision</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/CornerPathEffect/" rel="tag">CornerPathEffect</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Customization/" rel="tag">Customization</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/DashPathEffect/" rel="tag">DashPathEffect</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Data-Visualization/" rel="tag">Data Visualization</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Deep-Learning/" rel="tag">Deep Learning</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Deep-learning/" rel="tag">Deep learning</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Dilated-Convolutions/" rel="tag">Dilated Convolutions</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Diwakar-Singh/" rel="tag">Diwakar Singh</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Docker/" rel="tag">Docker</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Drag-and-Drop/" rel="tag">Drag and Drop</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Emotion-Recognition/" rel="tag">Emotion Recognition</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Google-Maps/" rel="tag">Google Maps</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Grafana/" rel="tag">Grafana</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/HCI/" rel="tag">HCI</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Image-Classification/" rel="tag">Image-Classification</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Infringement/" rel="tag">Infringement</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Instrumentation-Test/" rel="tag">Instrumentation Test</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/ItemTouchHelper/" rel="tag">ItemTouchHelper</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Javascript/" rel="tag">Javascript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Kafka/" rel="tag">Kafka</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Keras/" rel="tag">Keras</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Kunal-Goyal/" rel="tag">Kunal Goyal</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Large-markers/" rel="tag">Large markers</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Line-Chart/" rel="tag">Line Chart</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Machine-Learning/" rel="tag">Machine Learning</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Meta-Learning/" rel="tag">Meta Learning</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Microservices/" rel="tag">Microservices</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Mlflow/" rel="tag">Mlflow</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/MongoDB/" rel="tag">MongoDB</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/MySQL/" rel="tag">MySQL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Nayan/" rel="tag">Nayan</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Nayan-IP/" rel="tag">Nayan IP</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Nayan-data-protection/" rel="tag">Nayan data protection</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/OCR/" rel="tag">OCR</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Parking-Detection/" rel="tag">Parking Detection</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Patents/" rel="tag">Patents</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/PathDashPathEffect/" rel="tag">PathDashPathEffect</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Plugins/" rel="tag">Plugins</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Python/" rel="tag">Python</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Queue/" rel="tag">Queue</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Rails/" rel="tag">Rails</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/RecyclerView/" rel="tag">RecyclerView</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Residual-Networks/" rel="tag">Residual Networks</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Ruby/" rel="tag">Ruby</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Semantic-segmentation/" rel="tag">Semantic segmentation</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Stream-Processing/" rel="tag">Stream Processing</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Supervised-Learning/" rel="tag">Supervised Learning</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Tracking/" rel="tag">Tracking</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Unit-Test/" rel="tag">Unit Test</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Vehicle-Occupancy-Detection/" rel="tag">Vehicle Occupancy Detection</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Youtube-data-API/" rel="tag">Youtube data API</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/android/" rel="tag">android</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/angular/" rel="tag">angular</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/authentication/" rel="tag">authentication</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/backend/" rel="tag">backend</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/canvas/" rel="tag">canvas</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/devise/" rel="tag">devise</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/devise-auth-token/" rel="tag">devise_auth_token</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/draw-custom-path/" rel="tag">draw custom path</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/gateway/" rel="tag">gateway</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/generate-pdf/" rel="tag">generate pdf</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/git-submodules/" rel="tag">git submodules</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/jupyter/" rel="tag">jupyter</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/kotlin/" rel="tag">kotlin</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/nayan/" rel="tag">nayan</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/nayanindia/" rel="tag">nayanindia</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/neural-network/" rel="tag">neural-network</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/ngrok/" rel="tag">ngrok</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/obfuscation/" rel="tag">obfuscation</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/optimization/" rel="tag">optimization</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/paint/" rel="tag">paint</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/path/" rel="tag">path</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/payment/" rel="tag">payment</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/paytm/" rel="tag">paytm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/pdf/" rel="tag">pdf</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/proguard/" rel="tag">proguard</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/rails/" rel="tag">rails</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/ror/" rel="tag">ror</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/ruby/" rel="tag">ruby</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/ruby-on-rails/" rel="tag">ruby on rails</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/sessions/" rel="tag">sessions</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/shrinking/" rel="tag">shrinking</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/spark/" rel="tag">spark</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/user-interaction/" rel="tag">user interaction</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/youtube/" rel="tag">youtube</a><span class="tag-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/blog/tags/AI/" style="font-size: 12px;">AI</a> <a href="/blog/tags/Android-Testing/" style="font-size: 10px;">Android Testing</a> <a href="/blog/tags/Angular/" style="font-size: 10px;">Angular</a> <a href="/blog/tags/Ashish-Jajoria/" style="font-size: 18px;">Ashish Jajoria</a> <a href="/blog/tags/Autonomous-driving/" style="font-size: 10px;">Autonomous driving</a> <a href="/blog/tags/Callback/" style="font-size: 10px;">Callback</a> <a href="/blog/tags/Character-Recognition/" style="font-size: 10px;">Character Recognition</a> <a href="/blog/tags/Charts/" style="font-size: 10px;">Charts</a> <a href="/blog/tags/Cloud-Data/" style="font-size: 10px;">Cloud Data</a> <a href="/blog/tags/ComposePathEffect/" style="font-size: 10px;">ComposePathEffect</a> <a href="/blog/tags/Computer-Vision/" style="font-size: 10px;">Computer Vision</a> <a href="/blog/tags/CornerPathEffect/" style="font-size: 10px;">CornerPathEffect</a> <a href="/blog/tags/Customization/" style="font-size: 10px;">Customization</a> <a href="/blog/tags/DashPathEffect/" style="font-size: 10px;">DashPathEffect</a> <a href="/blog/tags/Data-Visualization/" style="font-size: 10px;">Data Visualization</a> <a href="/blog/tags/Deep-Learning/" style="font-size: 20px;">Deep Learning</a> <a href="/blog/tags/Deep-learning/" style="font-size: 10px;">Deep learning</a> <a href="/blog/tags/Dilated-Convolutions/" style="font-size: 10px;">Dilated Convolutions</a> <a href="/blog/tags/Diwakar-Singh/" style="font-size: 12px;">Diwakar Singh</a> <a href="/blog/tags/Docker/" style="font-size: 10px;">Docker</a> <a href="/blog/tags/Drag-and-Drop/" style="font-size: 10px;">Drag and Drop</a> <a href="/blog/tags/Emotion-Recognition/" style="font-size: 10px;">Emotion Recognition</a> <a href="/blog/tags/Google-Maps/" style="font-size: 10px;">Google Maps</a> <a href="/blog/tags/Grafana/" style="font-size: 12px;">Grafana</a> <a href="/blog/tags/HCI/" style="font-size: 10px;">HCI</a> <a href="/blog/tags/Image-Classification/" style="font-size: 10px;">Image-Classification</a> <a href="/blog/tags/Infringement/" style="font-size: 10px;">Infringement</a> <a href="/blog/tags/Instrumentation-Test/" style="font-size: 10px;">Instrumentation Test</a> <a href="/blog/tags/ItemTouchHelper/" style="font-size: 10px;">ItemTouchHelper</a> <a href="/blog/tags/Javascript/" style="font-size: 10px;">Javascript</a> <a href="/blog/tags/Kafka/" style="font-size: 10px;">Kafka</a> <a href="/blog/tags/Keras/" style="font-size: 12px;">Keras</a> <a href="/blog/tags/Kunal-Goyal/" style="font-size: 10px;">Kunal Goyal</a> <a href="/blog/tags/Large-markers/" style="font-size: 10px;">Large markers</a> <a href="/blog/tags/Line-Chart/" style="font-size: 10px;">Line Chart</a> <a href="/blog/tags/Machine-Learning/" style="font-size: 16px;">Machine Learning</a> <a href="/blog/tags/Meta-Learning/" style="font-size: 10px;">Meta Learning</a> <a href="/blog/tags/Microservices/" style="font-size: 10px;">Microservices</a> <a href="/blog/tags/Mlflow/" style="font-size: 10px;">Mlflow</a> <a href="/blog/tags/MongoDB/" style="font-size: 10px;">MongoDB</a> <a href="/blog/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/blog/tags/Nayan/" style="font-size: 10px;">Nayan</a> <a href="/blog/tags/Nayan-IP/" style="font-size: 10px;">Nayan IP</a> <a href="/blog/tags/Nayan-data-protection/" style="font-size: 10px;">Nayan data protection</a> <a href="/blog/tags/OCR/" style="font-size: 10px;">OCR</a> <a href="/blog/tags/Parking-Detection/" style="font-size: 10px;">Parking Detection</a> <a href="/blog/tags/Patents/" style="font-size: 10px;">Patents</a> <a href="/blog/tags/PathDashPathEffect/" style="font-size: 10px;">PathDashPathEffect</a> <a href="/blog/tags/Plugins/" style="font-size: 10px;">Plugins</a> <a href="/blog/tags/Python/" style="font-size: 10px;">Python</a> <a href="/blog/tags/Queue/" style="font-size: 10px;">Queue</a> <a href="/blog/tags/Rails/" style="font-size: 12px;">Rails</a> <a href="/blog/tags/RecyclerView/" style="font-size: 10px;">RecyclerView</a> <a href="/blog/tags/Residual-Networks/" style="font-size: 10px;">Residual Networks</a> <a href="/blog/tags/Ruby/" style="font-size: 12px;">Ruby</a> <a href="/blog/tags/Semantic-segmentation/" style="font-size: 10px;">Semantic segmentation</a> <a href="/blog/tags/Stream-Processing/" style="font-size: 10px;">Stream Processing</a> <a href="/blog/tags/Supervised-Learning/" style="font-size: 10px;">Supervised Learning</a> <a href="/blog/tags/Tracking/" style="font-size: 10px;">Tracking</a> <a href="/blog/tags/Unit-Test/" style="font-size: 10px;">Unit Test</a> <a href="/blog/tags/Vehicle-Occupancy-Detection/" style="font-size: 10px;">Vehicle Occupancy Detection</a> <a href="/blog/tags/Youtube-data-API/" style="font-size: 10px;">Youtube data API</a> <a href="/blog/tags/android/" style="font-size: 20px;">android</a> <a href="/blog/tags/angular/" style="font-size: 10px;">angular</a> <a href="/blog/tags/authentication/" style="font-size: 10px;">authentication</a> <a href="/blog/tags/backend/" style="font-size: 14px;">backend</a> <a href="/blog/tags/canvas/" style="font-size: 10px;">canvas</a> <a href="/blog/tags/devise/" style="font-size: 10px;">devise</a> <a href="/blog/tags/devise-auth-token/" style="font-size: 10px;">devise_auth_token</a> <a href="/blog/tags/draw-custom-path/" style="font-size: 10px;">draw custom path</a> <a href="/blog/tags/gateway/" style="font-size: 10px;">gateway</a> <a href="/blog/tags/generate-pdf/" style="font-size: 10px;">generate pdf</a> <a href="/blog/tags/git-submodules/" style="font-size: 10px;">git submodules</a> <a href="/blog/tags/jupyter/" style="font-size: 10px;">jupyter</a> <a href="/blog/tags/kotlin/" style="font-size: 14px;">kotlin</a> <a href="/blog/tags/nayan/" style="font-size: 10px;">nayan</a> <a href="/blog/tags/nayanindia/" style="font-size: 10px;">nayanindia</a> <a href="/blog/tags/neural-network/" style="font-size: 10px;">neural-network</a> <a href="/blog/tags/ngrok/" style="font-size: 10px;">ngrok</a> <a href="/blog/tags/obfuscation/" style="font-size: 10px;">obfuscation</a> <a href="/blog/tags/optimization/" style="font-size: 10px;">optimization</a> <a href="/blog/tags/paint/" style="font-size: 10px;">paint</a> <a href="/blog/tags/path/" style="font-size: 10px;">path</a> <a href="/blog/tags/payment/" style="font-size: 10px;">payment</a> <a href="/blog/tags/paytm/" style="font-size: 10px;">paytm</a> <a href="/blog/tags/pdf/" style="font-size: 10px;">pdf</a> <a href="/blog/tags/proguard/" style="font-size: 10px;">proguard</a> <a href="/blog/tags/rails/" style="font-size: 14px;">rails</a> <a href="/blog/tags/ror/" style="font-size: 14px;">ror</a> <a href="/blog/tags/ruby/" style="font-size: 12px;">ruby</a> <a href="/blog/tags/ruby-on-rails/" style="font-size: 10px;">ruby on rails</a> <a href="/blog/tags/sessions/" style="font-size: 10px;">sessions</a> <a href="/blog/tags/shrinking/" style="font-size: 10px;">shrinking</a> <a href="/blog/tags/spark/" style="font-size: 10px;">spark</a> <a href="/blog/tags/user-interaction/" style="font-size: 10px;">user interaction</a> <a href="/blog/tags/youtube/" style="font-size: 10px;">youtube</a>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="https://nayan.co">Nayan</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <section class="footer">
+  <div class="container">
+    <div class="container-inner">
+        <div class="flexContainer">
+      <div class="col-lg-3">
+
+        <h3>NAYAN (Partner's offices)</h3>
+        <p>Gulf Business Machines (UCMC LLC.) <br>
+          Emarat Atrium Building, Wing B, 3rd Floor<br>
+          Opposite Holiday Inn (Al Safa)<br>
+          Sheikh Zayed Road, PO Box 9226, Dubai, UAE
+        </p>
+
+
+      </div>
+      <div class="col-lg-6">
+        <div class="footer-links">
+          <img src="https://nayan.co/blog/css/images/nayan-logo.png" alt="">
+          <p><span>Our Goal: </span> Stewarding and Monitoring all roadways, on demand<p>
+
+          <ul>
+          <li><a href="https://www.facebook.com/NAYANCAM/" target="_blank"><i class="fa fa-facebook"></i></a></li>
+          <li><a href="https://twitter.com/nayancam" target="_blank"><i class="fa fa-twitter"></i></a></li>
+          <li><a href="https://www.youtube.com/channel/UCgglHs52FLwmQNyxND57c2Q" target="_blank"><i class="fa fa-youtube-play"></i></a></li>
+          <li><a href="https://www.instagram.com/nayantechno/" target="_blank"><i class="fa fa-instagram"></i></a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-lg-3">
+        <ul class="footer-menu">
+          <li><a href="https://nayan.co/blog/">Home</a></li>
+          <li><a href="/blog/archives/index.html">Archive</a></li>
+          <li><a href="https://nayan.co" target="_blank">Nayan</a></li>
+        </ul>
+
+      </div>
+    </div>
+    </div>
+  </div>
+
+</section>
+<section class="credits">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+
+        <p>&copy; 2019 NAYAN <span> All Rights Reserved</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+        
+
+
+    
+        <script src="/blog/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/blog/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/blog/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/blog/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/blog/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/blog/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/blog/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/blog/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/blog/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/blog/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/blog/js/main.js"></script>
+
+    </div>
+</body>
+</html>
