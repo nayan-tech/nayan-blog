@@ -13,7 +13,7 @@ tags:
 
 <br>
 
-![Banner](/blog/AI/jupyter-hosting/nmap-guide.png)
+![Banner](/blog/AI/jupyter-hosting/nmap_guide.png)
 
 In this short blog post, I will explain a great trick to expose various services like Jupyter-notebook, tensorboard, etc. to the entire internet. We generally use it at [Nayan](http://nayan.co.in)
 
