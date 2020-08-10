@@ -12,18 +12,18 @@
     
     <meta name="keywords" content="AI,Deep learning,jupyter,ngrok,Kunal Goyal" />
     
-    <meta name="description" content="In this short blog post, I will explain a great trick to expose various services like Jupyter-notebook, tensorboard, etc. to the entire internet. We generally use it at Nayan Before following the">
+    <meta name="description" content="In this short blog post, I will explain a great trick to expose various services like Jupyter-notebook, tensorboard, etc. to the entire internet. We generally use it at Nayan Before following the s">
 <meta name="keywords" content="AI,Deep learning,jupyter,ngrok,Kunal Goyal">
 <meta property="og:type" content="article">
 <meta property="og:title" content="How to host any port to entire internet on any machine?">
 <meta property="og:url" content="https:&#x2F;&#x2F;nayan.co&#x2F;AI&#x2F;jupyter-hosting&#x2F;index.html">
 <meta property="og:site_name" content="Nayan Blog">
-<meta property="og:description" content="In this short blog post, I will explain a great trick to expose various services like Jupyter-notebook, tensorboard, etc. to the entire internet. We generally use it at Nayan Before following the">
+<meta property="og:description" content="In this short blog post, I will explain a great trick to expose various services like Jupyter-notebook, tensorboard, etc. to the entire internet. We generally use it at Nayan Before following the s">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https:&#x2F;&#x2F;cdn-images-1.medium.com&#x2F;max&#x2F;2800&#x2F;0*-j_n3S1WfVi3_DLe.jpg">
-<meta property="og:updated_time" content="2020-08-07T11:18:49.056Z">
+<meta property="og:image" content="https:&#x2F;&#x2F;nayan.co&#x2F;blog&#x2F;AI&#x2F;jupyter-hosting&#x2F;nmap-guide.png">
+<meta property="og:updated_time" content="2020-08-10T14:53:59.174Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https:&#x2F;&#x2F;cdn-images-1.medium.com&#x2F;max&#x2F;2800&#x2F;0*-j_n3S1WfVi3_DLe.jpg">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;nayan.co&#x2F;blog&#x2F;AI&#x2F;jupyter-hosting&#x2F;nmap-guide.png">
     
 
     
@@ -157,7 +157,7 @@
     <div class="article-date">
       <i class="fa fa-calendar"></i>
       <a href="/blog/AI/jupyter-hosting/" class="article-date">
-         <time datetime="2020-07-31T02:30:00.000Z" itemprop="datePublished">2020-07-31</time>
+         <time datetime="2020-07-31T08:00:00.000Z" itemprop="datePublished">2020-07-31</time>
       </a>
     </div>
 
@@ -184,41 +184,40 @@
         <div class="article-entry" itemprop="articleBody">
             <br>
 
-
-
+<p><img src="/blog/AI/jupyter-hosting/nmap-guide.png" alt="Banner"></p>
 <p>In this short blog post, I will explain a great trick to expose various services like Jupyter-notebook, tensorboard, etc. to the entire internet. We generally use it at <a href="http://nayan.co.in" target="_blank" rel="noopener">Nayan</a></p>
 <p>Before following the steps I want you to understand some fundamentals behind the hosting of different services.</p>
 <h3 id="Some-Basics"><a href="#Some-Basics" class="headerlink" title="Some Basics:"></a><strong>Some Basics:</strong></h3><p>Whenever we host some services on a local server having URLs like (<a href="https://localhost:8888" target="_blank" rel="noopener">https://localhost:8888</a> or <a href="http://127.0.0.1:8888" target="_blank" rel="noopener">http://127.0.0.1:8888</a>) they are behind a NAT or firewall of our computer(Most of the hackers work to breach these).</p>
-<p><img src="https://cdn-images-1.medium.com/max/2800/0*-j_n3S1WfVi3_DLe.jpg" alt="Firewall"></p>
+<p><img src="/blog/AI/jupyter-hosting/banner.jpg" alt="Firewall"></p>
 <p>To jump over the firewall, we will use <a href="http://ngrok.com" target="_blank" rel="noopener">ngrok</a>.</p>
 <h3 id="Ngrok"><a href="#Ngrok" class="headerlink" title="Ngrok:"></a>Ngrok:</h3><p>Ngrok allows you to expose a web server running on your local machine to the internet. Just tell ngrok what port your web server is listening on.<br>something like this:</p>
 <p><img src="https://cdn-images-1.medium.com/max/2000/1*yyRGRBHIsXRHw_8LfL8CAA.png" alt="Ngrok flowchart"></p>
 <h3 id="Steps-to-host-Jupyter-Notebook-on-AWS-EC2"><a href="#Steps-to-host-Jupyter-Notebook-on-AWS-EC2" class="headerlink" title="Steps to host Jupyter-Notebook on AWS EC2:"></a><strong>Steps to host Jupyter-Notebook on AWS EC2:</strong></h3><ol>
 <li><p>First, we need to install tmux for running processes(jupyter in our case) in background and jupyter notebook.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install tmux</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">x</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip3 install jupyter</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">r</span><br></pre></td></tr></table></figure>
 
 </li>
 </ol>
-<ol start="2">
-<li><p>Download ngrok using</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget [https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip](https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Unzip to install ngrok</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">unzip ngrok.zip</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Create an account on <a href="http://ngrok.com" target="_blank" rel="noopener">ngrok</a> and get authtoken.</p>
-</li>
-</ol>
+<p>2) Download ngrok using</p>
+   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget [https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip](https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip)</span><br></pre></td></tr></table></figure>
+
+<p>3) Unzip to install ngrok</p>
+   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">unzip ngrok.zip</span><br></pre></td></tr></table></figure>
+
+<p>4) Create an account on <a href="http://ngrok.com" target="_blank" rel="noopener">ngrok</a> and get authtoken.</p>
 <p><img src="https://cdn-images-1.medium.com/max/2000/1*C36pyfvzwZnTXSieoHNVEw.png" alt="Authtoken"></p>
 <pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./ngrok authtoken &lt;your_auth_token&gt;</span><br></pre></td></tr></table></figure></code></pre><ol start="5">
 <li><p>Now on tmux we will run jupyter-notebook</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tmux</span><br></pre></td></tr></table></figure>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">	jupyter-notebook --ip=0.0.0.0 --allow-root ``` </span><br><span class="line"></span><br><span class="line">6. Host the noted port using ngrok. For my case it is 8890</span><br></pre></td></tr></table></figure>
-<p> ./ngrok http 8890</p>
-<pre><code></code></pre></li>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tmux</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jupyter-notebook --ip=0.0.0.0 --allow-root ```</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Host the noted port using ngrok. For my case it is 8890</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./ngrok http 8890</span><br></pre></td></tr></table></figure>
+
+</li>
 </ol>
 <p>Also, you can make a config file and can host multiple ports using the same account as mentioned <a href="https://ngrok.com/docs#config" target="_blank" rel="noopener">here</a>.</p>
 <ol start="7">
@@ -236,7 +235,7 @@
 
 
 
-    <a data-url="https://nayan.co/AI/jupyter-hosting/" data-id="ckdk565z1001wmrxwh6a21z1v" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://nayan.co/AI/jupyter-hosting/" data-id="ckdomzomk001q6mhn6e443ezk" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -307,19 +306,18 @@
             "name": "NayanTech"
         },
         "headline": "How to host any port to entire internet on any machine?",
-        "image": "https://nayan.cohttps://cdn-images-1.medium.com/max/2800/0*-j_n3S1WfVi3_DLe.jpg",
+        "image": "https://nayan.co/blog/AI/jupyter-hosting/nmap-guide.png",
         "keywords": "AI Deep learning jupyter ngrok Kunal Goyal",
         "genre": "AI",
         "datePublished": "2020-07-31",
         "dateCreated": "2020-07-31",
-        "dateModified": "2020-08-07",
+        "dateModified": "2020-08-10",
         "url": "https://nayan.co//AI/jupyter-hosting/",
         "description": "
 
 
-
 In this short blog post, I will explain a great trick to expose various services like Jupyter-notebook, tensorboard, etc. to the entire internet. We generally use it at Nayan
-Before following the ",
+Before following the s",
         "wordCount": 353
     }
 </script>
@@ -421,6 +419,26 @@ Before following the ",
                     <li>
                         
                         <div class="item-thumbnail">
+                            <a href="/blog/uncategorized/tensorflow-docker/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://cdn-images-1.medium.com/max/2000/1*dPZfCX1ia00A3BmTP-QQhA.jpeg)" alt="tensorflow-docker" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/blog/uncategorized/tensorflow-docker/" class="title">tensorflow-docker</a></p>
+                            <p class="item-date"><time datetime="2020-08-10T14:53:59.198Z" itemprop="datePublished">2020-08-10</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
                             <a href="/blog/AI/emotion-recognition-sagar/" class="thumbnail">
     
     
@@ -434,7 +452,7 @@ Before following the ",
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/blog/categories/AI/">AI</a></p>
                             <p class="item-title"><a href="/blog/AI/emotion-recognition-sagar/" class="title">How to recognize Emotions using deep learning?</a></p>
-                            <p class="item-date"><time datetime="2020-08-06T08:46:00.000Z" itemprop="datePublished">2020-08-06</time></p>
+                            <p class="item-date"><time datetime="2020-08-06T14:16:00.000Z" itemprop="datePublished">2020-08-06</time></p>
                         </div>
                     </li>
                 
@@ -444,7 +462,7 @@ Before following the ",
                             <a href="/blog/AI/jupyter-hosting/" class="thumbnail">
     
     
-        <span style="background-image:url(https://cdn-images-1.medium.com/max/2800/0*-j_n3S1WfVi3_DLe.jpg)" alt="How to host any port to entire internet on any machine?" class="thumbnail-image"></span>
+        <span style="background-image:url(/blog/AI/jupyter-hosting/nmap-guide.png)" alt="How to host any port to entire internet on any machine?" class="thumbnail-image"></span>
     
     
 </a>
@@ -454,7 +472,7 @@ Before following the ",
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/blog/categories/AI/">AI</a></p>
                             <p class="item-title"><a href="/blog/AI/jupyter-hosting/" class="title">How to host any port to entire internet on any machine?</a></p>
-                            <p class="item-date"><time datetime="2020-07-31T02:30:00.000Z" itemprop="datePublished">2020-07-31</time></p>
+                            <p class="item-date"><time datetime="2020-07-31T08:00:00.000Z" itemprop="datePublished">2020-07-31</time></p>
                         </div>
                     </li>
                 
@@ -474,7 +492,7 @@ Before following the ",
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/blog/categories/Android/">Android</a></p>
                             <p class="item-title"><a href="/blog/Android/Applying-Proguard-in-an-android-application/" class="title">How to apply Proguard in an android application (Code obfuscation, shrinking, optimization)</a></p>
-                            <p class="item-date"><time datetime="2020-07-27T13:10:48.000Z" itemprop="datePublished">2020-07-27</time></p>
+                            <p class="item-date"><time datetime="2020-07-27T18:40:48.000Z" itemprop="datePublished">2020-07-27</time></p>
                         </div>
                     </li>
                 
@@ -494,27 +512,7 @@ Before following the ",
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/blog/categories/Rails/">Rails</a></p>
                             <p class="item-title"><a href="/blog/Rails/rails-docker/" class="title">Deploying a Rails application to a Docker container</a></p>
-                            <p class="item-date"><time datetime="2020-07-25T02:30:00.000Z" itemprop="datePublished">2020-07-25</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/blog/IP-Patents/potential-patent-infringement/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/blog/IP-Patents/potential-patent-infringement/banner.jpg)" alt="How to check whether your product causes potential patent infringement" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/blog/categories/IP-Patents/">IP-Patents</a></p>
-                            <p class="item-title"><a href="/blog/IP-Patents/potential-patent-infringement/" class="title">How to check whether your product causes potential patent infringement</a></p>
-                            <p class="item-date"><time datetime="2020-07-24T12:46:09.000Z" itemprop="datePublished">2020-07-24</time></p>
+                            <p class="item-date"><time datetime="2020-07-25T08:00:00.000Z" itemprop="datePublished">2020-07-25</time></p>
                         </div>
                     </li>
                 
@@ -537,7 +535,7 @@ Before following the ",
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">archives</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/08/">August 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/07/">July 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/06/">June 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/05/">May 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/03/">March 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/02/">February 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/01/">January 2020</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/12/">December 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/11/">November 2019</a><span class="archive-list-count">4</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/08/">August 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/07/">July 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/06/">June 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/05/">May 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/03/">March 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/02/">February 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/01/">January 2020</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/12/">December 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/11/">November 2019</a><span class="archive-list-count">4</span></li></ul>
         </div>
     </div>
 
