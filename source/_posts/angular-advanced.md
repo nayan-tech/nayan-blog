@@ -12,7 +12,7 @@ tags:
 
 <br>
 
-{% asset_img BG.png %}
+{% asset_img bg.png %}
 
 ## Animation Configuration
 
