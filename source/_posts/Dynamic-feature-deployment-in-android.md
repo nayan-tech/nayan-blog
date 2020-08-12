@@ -14,11 +14,17 @@ tags:
   - Puneet
 ---
 
-With Google Play’s Dynamic Delivery, your app can download dynamic feature modules on demand to devices running Android 5.0 (API level 21) and higher. 
+With Google Play’s Dynamic Delivery, your app can download dynamic feature modules on demand to devices running Android 5.0 (API level 21) and higher. This helps reducing initial apk size that user need to down first time.
+
+It has been observed that not all user uses all features of an mobile application. Hence this make sense that only the bare minimum functional feature to be present in initial apk which can be described as core funcitionality of your application.
+
+**Note : For every 6 MB increase to an apk size, it has been observed that install rate deduces by 1 %.**
+
+Considering this, we should use dynamic feature delivery aproach to reduce initial apk size, and if need those features can be downloaded on demand.
 
 ![Dynamic Feature Module](/blog/Android/Dynamic-feature-deployment-in-android/dynamic_feature_module_base_image.png)
 
-Your app simply needs to call APIs in the Play Core Library to download and install those modules as required, and the Google Play Store pushes only the code and resources needed for that module to the device. You can also use this API to download on demand modules for your Android Instant Apps.
+Initially, the Google Play Store pushes only the code and resources needed for base module to the device, which is **app** module. For the rest of the modules, Your app simply needs to call APIs in the Play Core Library to download and install those modules as required, on demand for your Android Apps.
 
 ## Why you should be considering this?
 
@@ -28,38 +34,71 @@ The benefit of split APKs is the ability to break up a monolithic APK—that is,
 
 In an order to implement dyanmic feature delivery, you might need to update your application structure to extract out code of an existing feature. 
 
-If you are setup a new project then, you can start right away.
+If you are setting up a new project then, you can start right away.
 
 Add below mentioned dependency in **app/build.gradle** file
 
 ```groovy
+// app/build.gradle
 implementation 'com.google.android.play:core:1.8.0'
 ```
 
-Create a new **dynamic feature module** from menu. Let's name it New_Feature.
+Create a new **dynamic feature module** from menu. Let's name it **New_Feature**.
 
-```java
- splitInstallManager = SplitInstallManagerFactory.create(App.getInstance());
+This **"New Feature"** just like your **"app module"** containing activities, resources and other library in it's **build.gradle** file. The only different is, it uses "dynamic feature as plugin" and has **"app"** as module dependency. Meaning it inherits everything from **app module**.
+
+```groovy
+// New_Feature/build.gradle
+apply plugin: 'com.android.dynamic-feature'
+
+dependencies {
+    implementation project(':app')
+
+    ...
+}
 ```
 
-```java
-   private void installRegistrationModule(String className) {
-        SplitInstallRequest request = SplitInstallRequest.newBuilder()
-                .addModule("New_Feature")
-                .build();
+Before you try to open up any activity or try to call any utility function or code from **New_Feature**, you need download by executing below mentioned code from calling calling activity.
 
-        splitInstallManager.startInstall(request)
-                .addOnSuccessListener(integer -> {
-                    Intent i = new Intent();
-                    i.setClassName(BuildConfig.APPLICATION_ID, className);
-                    startActivity(i);
-                })
-                .addOnFailureListener(e -> {
+
+```java
+
+private void installNew_FeatureModule(String className) {
+ // Get a reference to Split APK Install Manager
+    splitInstallManager = SplitInstallManagerFactory.create(App.getInstance());
+ 
+ // Code to download New_Feature on demand
+    SplitInstallRequest request = SplitInstallRequest.newBuilder()
+            .addModule("New_Feature")
+            .build();
+    splitInstallManager.startInstall(request)
+            .addOnSuccessListener(integer -> {
+                  Toast.makeText(DashboardActivity.this,
+                            "New Feature installed",Toast.LENGTH_SHORT).show();
+             })
+            .addOnFailureListener(e -> {
                     Toast.makeText(DashboardActivity.this,
-                            "unable to get dynamic feature",Toast.LENGTH_SHORT).show();
-                });
-    }
+                            "unable to download New feature",Toast.LENGTH_SHORT).show();
+            });
+}
 ```
+
+To launch any activity from **New_Feature**, need to pass full class name prefixed with package name like
+
+**com.example.New_Feature.TestActivity**
+
+```java
+// Launching Test activity of New Feature module from App module
+private void launchTestActivity() {
+       Intent i = new Intent();
+       i.setClassName(BuildConfig.APPLICATION_ID, "com.example.New_Feature.TestActivity");
+       startActivity(i);
+}
+```
+
+## Conclusion 
+
+As you can see, implementing dynamic feature for a new project is quiet easy and simple. You should try it out for your next project. Also If you want to try out for one of your existing projects, you can but there is an effort involved in decoupling of your features.
 
 ## References:-
 
