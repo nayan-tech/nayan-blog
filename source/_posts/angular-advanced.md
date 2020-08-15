@@ -2,16 +2,17 @@
 title: Angular Charts Features
 date: 2020-02-11 11:33:31
 author: Abhishek Rana
-category: Web
+category:
+  - ["Web"]
 tags:
-- Charts
-- Plugins
-- Customization
+  - Charts
+  - Plugins
+  - Customization
 ---
 
 <br>
 
-{% asset_img BG.png l %}
+{% asset_img bg.png %}
 
 ## Animation Configuration
 
@@ -19,51 +20,51 @@ Chart.js animates charts out of the box. A number of options are provided to con
 
 The following animation options are available. The global options for are defined in Chart.defaults.global.animation.
 
-  1. **Duration**: Number of milliseconds an animation takes to complete
+1. **Duration**: Number of milliseconds an animation takes to complete
 
-  2. **Easing**: 
-    * `linear`
-    * `easeInQuad`
-    * `easeOutQuad`
-    * `easeInOutQuad`
-    * `easeInCubic`
-    * `easeOutCubic`
-    * `easeInOutCubic`
-    * `easeInQuart`
-    * `easeOutQuart`
-    * `easeInOutQuart`
-    * `easeInQuint`
-    * `easeOutQ`
+2. **Easing**:
 
-  3. **Animation Callbacks**
+   - `linear`
+   - `easeInQuad`
+   - `easeOutQuad`
+   - `easeInOutQuad`
+   - `easeInCubic`
+   - `easeOutCubic`
+   - `easeInOutCubic`
+   - `easeInQuart`
+   - `easeOutQuart`
+   - `easeInOutQuart`
+   - `easeInQuint`
+   - `easeOutQ`
 
-  The onProgress and onComplete callbacks are useful for synchronizing an external draw to the chart animation. The callback is passed a Chart.Animation instance:
+3. **Animation Callbacks**
 
+The onProgress and onComplete callbacks are useful for synchronizing an external draw to the chart animation. The callback is passed a Chart.Animation instance:
 
-  ```
-  {
-    // Chart object
-    chart: Chart,
+```
+{
+  // Chart object
+  chart: Chart,
 
-    // Current Animation frame number
-    currentStep: number,
+  // Current Animation frame number
+  currentStep: number,
 
-    // Number of animation frames
-    numSteps: number,
+  // Number of animation frames
+  numSteps: number,
 
-    // Animation easing to use
-    easing: string,
+  // Animation easing to use
+  easing: string,
 
-    // Function that renders the chart
-    render: function,
+  // Function that renders the chart
+  render: function,
 
-    // User callback
-    onAnimationProgress: function,
+  // User callback
+  onAnimationProgress: function,
 
-    // User callback
-    onAnimationComplete: function
-  }
-  ```
+  // User callback
+  onAnimationComplete: function
+}
+```
 
 ### Example of preogress bar animation
 
@@ -81,69 +82,69 @@ var chart = new Chart(ctx, {
 });
 ```
 
-
 ## Legend Configuration
 
 The chart legend displays data about the datasets that are appearing on the chart.
 
-  1. **Position**
-    Position of the legend. Options are:
-    * `top`
-    * `left`
-    * `bottom`
-    * `right`
+1. **Position**
+   Position of the legend. Options are:
 
-  2. **Align**
-    Alignment of the legend. Options are:
-    * `start`
-    * `center`
-    * `end`
+   - `top`
+   - `left`
+   - `bottom`
+   - `right`
 
-  3. **Legend Item Interface**
+2. **Align**
+   Alignment of the legend. Options are:
 
-  Items passed to the legend onClick function are the ones returned from labels.generateLabels. These items must implement the following interface.
+   - `start`
+   - `center`
+   - `end`
 
-  ```
-  {
-    // Label that will be displayed
-    text: string,
+3. **Legend Item Interface**
 
-    // Fill style of the legend box
-    fillStyle: Color,
+Items passed to the legend onClick function are the ones returned from labels.generateLabels. These items must implement the following interface.
 
-    // If true, this item represents a hidden dataset. Label will be rendered with a strike-through effect
-    hidden: boolean,
+```
+{
+  // Label that will be displayed
+  text: string,
 
-    // For box border. See https://developer.mozilla.org/en/docs/Web/API/CanvasRenderingContext2D/lineCap
-    lineCap: string,
+  // Fill style of the legend box
+  fillStyle: Color,
 
-    // For box border. See https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/setLineDash
-    lineDash: number[],
+  // If true, this item represents a hidden dataset. Label will be rendered with a strike-through effect
+  hidden: boolean,
 
-    // For box border. See https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/lineDashOffset
-    lineDashOffset: number,
+  // For box border. See https://developer.mozilla.org/en/docs/Web/API/CanvasRenderingContext2D/lineCap
+  lineCap: string,
 
-    // For box border. See https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/lineJoin
-    lineJoin: string,
+  // For box border. See https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/setLineDash
+  lineDash: number[],
 
-    // Width of box border
-    lineWidth: number,
+  // For box border. See https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/lineDashOffset
+  lineDashOffset: number,
 
-    // Stroke style of the legend box
-    strokeStyle: Color,
+  // For box border. See https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/lineJoin
+  lineJoin: string,
 
-    // Point style of the legend box (only used if usePointStyle is true)
-    pointStyle: string | Image,
+  // Width of box border
+  lineWidth: number,
 
-    // Rotation of the point in degrees (only used if usePointStyle is true)
-    rotation: number
-  }
-  ```
+  // Stroke style of the legend box
+  strokeStyle: Color,
+
+  // Point style of the legend box (only used if usePointStyle is true)
+  pointStyle: string | Image,
+
+  // Rotation of the point in degrees (only used if usePointStyle is true)
+  rotation: number
+}
+```
 
 ### Example
 
 The following example will create a chart with the legend enabled and turn all of the text red in color.
-
 
 ```
 var chart = new Chart(ctx, {
@@ -161,18 +162,19 @@ var chart = new Chart(ctx, {
 
 ```
 
-
 ## Tooltip
 
 ### Tooltip Configuration
-  1. **Position Modes**
-  Possible modes are:
 
-   * `average`
-   * `nearest`
+1. **Position Modes**
+   Possible modes are:
 
-  2. **Alignment**
-  The titleAlign, bodyAlign and footerAlign options define the horizontal position of the text lines with respect to the tooltip box. The following values are supported.
+- `average`
+- `nearest`
+
+2. **Alignment**
+   The titleAlign, bodyAlign and footerAlign options define the horizontal position of the text lines with respect to the tooltip box. The following values are supported.
+
 
     * `left`
     * `right`
@@ -180,102 +182,94 @@ var chart = new Chart(ctx, {
 
 ### Tooltip Callbacks
 
-  1. **Label Callback**
+1. **Label Callback**
 
-  The label callback can change the text that displays for a given data point. A common example to round data values; the following example rounds the data to two decimal places.
+The label callback can change the text that displays for a given data point. A common example to round data values; the following example rounds the data to two decimal places.
 
-  ```
-  var chart = new Chart(ctx, {
-    type: 'line',
-    data: data,
-    options: {
-        tooltips: {
-            callbacks: {
-                label: function(tooltipItem, data) {
-                    var label = data.datasets[tooltipItem.datasetIndex].label || '';
+```
+var chart = new Chart(ctx, {
+  type: 'line',
+  data: data,
+  options: {
+      tooltips: {
+          callbacks: {
+              label: function(tooltipItem, data) {
+                  var label = data.datasets[tooltipItem.datasetIndex].label || '';
 
-                    if (label) {
-                        label += ': ';
-                    }
-                    label += Math.round(tooltipItem.yLabel * 100) / 100;
-                    return label;
-                }
-            }
-        }
-    }
-  });
-  ```
-
-  2. **Label Color Callback**
-
-  For example, to return a red box for each item in the tooltip you could do:
-
-  ```
-  var chart = new Chart(ctx, {
-    type: 'line',
-    data: data,
-    options: {
-        tooltips: {
-            callbacks: {
-                labelColor: function(tooltipItem, chart) {
-                    return {
-                        borderColor: 'rgb(255, 0, 0)',
-                        backgroundColor: 'rgb(255, 0, 0)'
-                    };
-                },
-                labelTextColor: function(tooltipItem, chart) {
-                    return '#543453';
-                }
-            }
-        }
-    }
-  });
-  ```
-
-  3. **Tooltip Item Interface**
-
-  The tooltip items passed to the tooltip callbacks implement the following interface.
-
-  ```
-  {
-    // Label for the tooltip
-    label: string,
-
-    // Value for the tooltip
-    value: string,
-
-    // X Value of the tooltip
-    // (deprecated) use `value` or `label` instead
-    xLabel: number | string,
-
-    // Y value of the tooltip
-    // (deprecated) use `value` or `label` instead
-    yLabel: number | string,
-
-    // Index of the dataset the item comes from
-    datasetIndex: number,
-
-    // Index of this data item in the dataset
-    index: number,
-
-    // X position of matching point
-    x: number,
-
-    // Y position of matching point
-    y: number
+                  if (label) {
+                      label += ': ';
+                  }
+                  label += Math.round(tooltipItem.yLabel * 100) / 100;
+                  return label;
+              }
+          }
+      }
   }
-  ```
+});
+```
 
+2. **Label Color Callback**
+
+For example, to return a red box for each item in the tooltip you could do:
+
+```
+var chart = new Chart(ctx, {
+  type: 'line',
+  data: data,
+  options: {
+      tooltips: {
+          callbacks: {
+              labelColor: function(tooltipItem, chart) {
+                  return {
+                      borderColor: 'rgb(255, 0, 0)',
+                      backgroundColor: 'rgb(255, 0, 0)'
+                  };
+              },
+              labelTextColor: function(tooltipItem, chart) {
+                  return '#543453';
+              }
+          }
+      }
+  }
+});
+```
+
+3. **Tooltip Item Interface**
+
+The tooltip items passed to the tooltip callbacks implement the following interface.
+
+```
+{
+  // Label for the tooltip
+  label: string,
+
+  // Value for the tooltip
+  value: string,
+
+  // X Value of the tooltip
+  // (deprecated) use `value` or `label` instead
+  xLabel: number | string,
+
+  // Y value of the tooltip
+  // (deprecated) use `value` or `label` instead
+  yLabel: number | string,
+
+  // Index of the dataset the item comes from
+  datasetIndex: number,
+
+  // Index of this data item in the dataset
+  index: number,
+
+  // X position of matching point
+  x: number,
+
+  // Y position of matching point
+  y: number
+}
+```
 
 ## References
-* https://jtblin.github.io/angular-chart.js/
-* https://github.com/jtblin/angular-chart.js/blob/master/README.md
-* https://valor-software.com/ng2-charts/
 
-
-
-
-
-
-
-
+- https://jtblin.github.io/angular-chart.js/
+- https://github.com/jtblin/angular-chart.js/blob/master/README.md
+- https://valor-software.com/ng2-charts/

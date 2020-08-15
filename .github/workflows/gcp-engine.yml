@@ -1,0 +1,33 @@
+name: Deploy to GCP VM
+
+on:
+  push:
+    branches:
+      - gcp
+      - master
+
+jobs:
+  setup-build-clean:
+    name: SSH, delete old files and generate new build
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [12.x]
+
+    steps:
+      - name: Deploy blog website via SSH
+        uses: appleboy/ssh-action@v0.1.2
+        with:
+          host: ${{secrets.HOST}}
+          username: ${{ secrets.USER }}
+          key: ${{ secrets.KEY }}  
+          passphrase: ${{ secrets.PASS }}
+          script: |
+            cd blog
+            git checkout master
+            git pull
+            npm install
+            hexo clean
+            hexo generate
+
