@@ -1,9 +1,12 @@
 ---
-title: Creating deep-learning models in Docker
+title: Creating a very basic deep-learning model in Docker
 date: 2020-05-16 11:09:31
 author: Himanshu Garg
-tags: docker
-category: AI
+tags: 
+	- docker
+	- deep-learning
+	- AI
+categories: ['AI']
 ---
 
 {% asset_img docker_python.png %}
@@ -124,3 +127,8 @@ That’s simple, now, your code is running on the docker container. If you want 
 **Conclusion**
 
 Well, that’s enough in this post. Hope you liked it. I hope you get an idea about **docker** and also about how can we these deep-learning models with the docker.
+
+
+**Some good reads you may like :)**
+
+1. [Flask + Mongo Integration](https://nayan.co/blog/uncategorized/Flask-PyMongo-Integration/)
