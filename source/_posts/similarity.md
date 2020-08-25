@@ -1,16 +1,17 @@
 ---
-title: Similarity and Clustering
+title: Similarity Analysis and Clustering Technique
 date: 2020-08-17 18:45:42
 author: Nandini Bajaj
 categories:
 - ["AI"]
 tags:
 - Computer Vision
-- AI
+- [here](https://nayan.co/blog/categories/AI/ "AI")
+- Machine learning
 - Deep learning
 ---
 
-# SIMILARITY ANALYSIS AND CLUSTERING
+# SIMILARITY ANALYSIS AND CLUSTERING TECHNIQUE
 
 ![cover](COVER1.jpg)
 
@@ -57,7 +58,7 @@ Annoy makes visualisation of nearest neighbours very easy. However, to find a cl
 
 ![dbscan](dbscan.png)
 
-It is a popular clustering method  provided by sklearn library and used in Machine Learning.
+It is a popular clustering method provided by sklearn library and used in Machine Learning.
 It divides the dataset into n dimensions. For each point in the dataset it creates an n dimensional shape around it and then counts the number of datapoints that fall within that shape. Each of these shapes is called a cluster. DBSCAN iteratively expands the cluster/shape by checking each datapoint within the shape and also the ones in the vicinity. 
 
 
@@ -87,7 +88,11 @@ We went through some very basic algorithms, libraries and methods to be able to 
 
 You can read more about ANNOY [here](https://github.com/Houzz/annoy2 "ANNOY") and about DBSCAN [here](https://scikit-learn.org/stable/modules/generated/sklearn.cluster.DBSCAN.html "DBSCAN").
 
+Find some more exciting AI blogs [here](https://nayan.co/blog/categories/AI/ "here")
+
 _Try it out !!!_
+
+
 
 
 
