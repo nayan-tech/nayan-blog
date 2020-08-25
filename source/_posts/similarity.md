@@ -6,7 +6,7 @@ categories:
 - ["AI"]
 tags:
 - Computer Vision
-- [here](https://nayan.co/blog/categories/AI/ "AI")
+- AI [here](https://nayan.co/blog/categories/AI/ "AI")
 - Machine learning
 - Deep learning
 ---
@@ -88,7 +88,7 @@ We went through some very basic algorithms, libraries and methods to be able to 
 
 You can read more about ANNOY [here](https://github.com/Houzz/annoy2 "ANNOY") and about DBSCAN [here](https://scikit-learn.org/stable/modules/generated/sklearn.cluster.DBSCAN.html "DBSCAN").
 
-Find some more exciting AI blogs [here](https://nayan.co/blog/categories/AI/ "here")
+Find some more exciting AI blogs [here](https://nayan.co/blog/categories/AI/ "AI blogs")
 
 _Try it out !!!_
 
