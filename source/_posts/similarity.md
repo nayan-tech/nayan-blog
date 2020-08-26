@@ -6,12 +6,11 @@ categories:
 - ["AI"]
 tags:
 - Computer Vision
-- AI [here](https://nayan.co/blog/categories/AI/ "AI")
 - Machine learning
 - Deep learning
 ---
 
-# SIMILARITY ANALYSIS AND CLUSTERING TECHNIQUE
+# SIMILARITY ANALYSIS AND CLUSTERING TECHNIQUE USING ANNOY AND DBSCAN
 
 ![cover](COVER1.jpg)
 
@@ -21,9 +20,9 @@ Are you repeatedly overlooking minor mistakes made at an early stage in the data
 Do you feel there is a bias towards some data points because they are higher in number? 
 
 So would it not be great if you could focus your attention on only unique images from a huge dataset? 
-In this blog I am going to share a way that can help you get rid of identical images. 
+In this blog I am going to share a [Deep learning](https://nayan.co/blog/) based approach that can help you get rid of identical images. 
 
-Data collected from the real world is dynamic and unpredictable. We might be fetching thousands of identical images and just a few unique data points in terms of region of interest, lighting conditions and other factors based on your area of focus, and that is not very favourable for a Machine Learning model.
+Data collected from the real world is dynamic and unpredictable. We might be fetching thousands of identical images and just a few unique data points in terms of region of interest, lighting conditions and other factors based on your area of focus, and that is not very favourable for a [Machine learning](https://nayan.co/blog/) model.
 Also saving identical images or data points increases the cost of the product in ways we might not be keeping track of like time and money spent in storage, maintenance, data management, data cleaning, and data annotation.
 
 To solve this problem I implemented a similarity check model, and clustering using tensorflow 2.0.
@@ -58,7 +57,7 @@ Annoy makes visualisation of nearest neighbours very easy. However, to find a cl
 
 ![dbscan](dbscan.png)
 
-It is a popular clustering method provided by sklearn library and used in Machine Learning.
+It is a popular clustering method provided by sklearn library and used in [Machine learning](https://nayan.co/blog/) and [Computer Vision](https://nayan.co/blog/).
 It divides the dataset into n dimensions. For each point in the dataset it creates an n dimensional shape around it and then counts the number of datapoints that fall within that shape. Each of these shapes is called a cluster. DBSCAN iteratively expands the cluster/shape by checking each datapoint within the shape and also the ones in the vicinity. 
 
 
