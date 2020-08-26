@@ -8,6 +8,8 @@ tags:
 - Computer Vision
 - Machine learning
 - Deep learning
+- Similarity
+- Clustering
 ---
 
 # SIMILARITY ANALYSIS AND CLUSTERING TECHNIQUE USING ANNOY AND DBSCAN
