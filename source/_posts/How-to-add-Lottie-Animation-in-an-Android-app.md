@@ -13,7 +13,7 @@ tags:
 
 ---
 
-Lottie is an 'Android', IOS and React Native library that renders After Effects animations in real time, allowing apps to use animations as easily as they use static images.
+Lottie is an `Android`, IOS and React Native library that renders After Effects animations in real time, allowing apps to use animations as easily as they use static images.
 
 ![Lottie Animation](/blog/Android/How-to-add-Lottie-Animation-in-an-Android-app/image_1.gif)
 
@@ -33,17 +33,17 @@ Lottie is an 'Android', IOS and React Native library that renders After Effects 
 
 2. Add the required Lottie animation dependency in the app level build.gradle file:
 
-```
+```gradle
 //Lottie Animation
 implementation ‘com.airbnb.android:lottie:3.4.0’
 ```
-3. Add animations.json files in assets folder. You can create your own animations using Adobe After Effects, or feel free to use the ones uploaded by other users on: https://lottiefiles.com/
+3. Add `animation.json` files in assets folder. You can create your own animations using Adobe After Effects, or feel free to use the ones uploaded by other users on: [Lottie Files](https://lottiefiles.com/)
 
 ![app/assets](/blog/Android/How-to-add-Lottie-Animation-in-an-Android-app/image_3.jpg)
 
-4. Adding animation to activity_main.xml file:
+4. Adding animation to `activity_main.xml` file:
 
-```
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -98,9 +98,9 @@ implementation ‘com.airbnb.android:lottie:3.4.0’
 </LinearLayout>
 ```
 
-5. Write the following code in MainActivity.kt
+5. Write the following code in `MainActivity.kt`
 
-```
+```kotlin
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
@@ -141,8 +141,8 @@ class MainActivity : AppCompatActivity() {
 
 ## References
 
-https://airbnb.design/introducing-lottie/
-https://airbnb.io/lottie/#/android
+1. [Lottie](https://airbnb.design/introducing-lottie/)
+2. [Lottie Docs](https://airbnb.io/lottie/#/android)
 
 ## Some good reads you may like:-
 
