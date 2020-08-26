@@ -4,231 +4,238 @@
   <url>
     <loc>https://nayan.co/Rails/rails-docker/</loc>
     
-    <lastmod>2020-08-20T09:58:14.359Z</lastmod>
+    <lastmod>2020-08-26T05:49:07.516Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://nayan.co/Rails/rails-getting-started/</loc>
     
-    <lastmod>2020-08-20T09:58:14.359Z</lastmod>
+    <lastmod>2020-08-26T05:49:07.516Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://nayan.co/Web/react-cicd/</loc>
+    
+    <lastmod>2020-08-26T05:49:07.516Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://nayan.co/Android/sharing-modules-across-android-apps/</loc>
     
-    <lastmod>2020-08-20T09:58:14.359Z</lastmod>
+    <lastmod>2020-08-26T05:49:07.516Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://nayan.co/uncategorized/tensorflow-docker/</loc>
     
-    <lastmod>2020-08-20T09:58:14.359Z</lastmod>
+    <lastmod>2020-08-26T05:49:07.516Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://nayan.co/Web/using-mysql-in-custom-grafana-panel/</loc>
     
-    <lastmod>2020-08-20T09:58:14.359Z</lastmod>
+    <lastmod>2020-08-26T05:49:07.516Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://nayan.co/IP-Patents/potential-patent-infringement/</loc>
     
-    <lastmod>2020-08-20T09:58:14.355Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://nayan.co/Ruby-on-Rails/paytm-gateway-integration/</loc>
-    
-    <lastmod>2020-08-20T09:58:14.339Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://nayan.co/Web/angular-youtube/</loc>
-    
-    <lastmod>2020-08-20T09:58:14.335Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://nayan.co/AI/boost-up-neural-networks-using-docker-containers-and-spark/</loc>
-    
-    <lastmod>2020-08-20T09:58:14.335Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://nayan.co/Web/create-custom-grafana-panel/</loc>
-    
-    <lastmod>2020-08-20T09:58:14.335Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://nayan.co/Android/drawing-custom-paths-in-android/</loc>
-    
-    <lastmod>2020-08-20T09:58:14.335Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://nayan.co/AI/emotion-recognition-sagar/</loc>
-    
-    <lastmod>2020-08-20T09:58:14.335Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://nayan.co/Ruby-on-Rails/generating-pdf-in-ruby-on-rails/</loc>
-    
-    <lastmod>2020-08-20T09:58:14.335Z</lastmod>
+    <lastmod>2020-08-26T05:49:07.512Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://nayan.co/AI/jupyter-hosting/</loc>
     
-    <lastmod>2020-08-20T09:58:14.335Z</lastmod>
+    <lastmod>2020-08-26T05:49:07.484Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://nayan.co/Ruby-on-Rails/override-devise-auth-token-controllers/</loc>
     
-    <lastmod>2020-08-20T09:58:14.335Z</lastmod>
+    <lastmod>2020-08-26T05:49:07.484Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://nayan.co/Web/angular-advanced/</loc>
+    <loc>https://nayan.co/Ruby-on-Rails/paytm-gateway-integration/</loc>
     
-    <lastmod>2020-08-20T09:58:14.331Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://nayan.co/Web/angular-charts/</loc>
-    
-    <lastmod>2020-08-20T09:58:14.331Z</lastmod>
+    <lastmod>2020-08-26T05:49:07.484Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://nayan.co/Web/angular-maps/</loc>
     
-    <lastmod>2020-08-20T09:58:14.331Z</lastmod>
+    <lastmod>2020-08-26T05:49:07.480Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://nayan.co/Web/angular-youtube/</loc>
+    
+    <lastmod>2020-08-26T05:49:07.480Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://nayan.co/AI/boost-up-neural-networks-using-docker-containers-and-spark/</loc>
+    
+    <lastmod>2020-08-26T05:49:07.480Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://nayan.co/Web/create-custom-grafana-panel/</loc>
+    
+    <lastmod>2020-08-26T05:49:07.480Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://nayan.co/Android/drawing-custom-paths-in-android/</loc>
+    
+    <lastmod>2020-08-26T05:49:07.480Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://nayan.co/AI/emotion-recognition-sagar/</loc>
+    
+    <lastmod>2020-08-26T05:49:07.480Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://nayan.co/Ruby-on-Rails/generating-pdf-in-ruby-on-rails/</loc>
+    
+    <lastmod>2020-08-26T05:49:07.480Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://nayan.co/Web/angular-advanced/</loc>
+    
+    <lastmod>2020-08-26T05:49:07.476Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://nayan.co/Web/angular-charts/</loc>
+    
+    <lastmod>2020-08-26T05:49:07.476Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://nayan.co/Android/android-recycler-view-drag-and-drop/</loc>
     
-    <lastmod>2020-08-20T09:58:14.327Z</lastmod>
+    <lastmod>2020-08-26T05:49:07.472Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://nayan.co/AI/Vehicle-Parking-Occupancy-Detection/</loc>
     
-    <lastmod>2020-08-20T09:58:14.307Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://nayan.co/AI/Tracking-Deep-Learning-Experiments-using-Keras-MlFlow-and-MongoDb/</loc>
-    
-    <lastmod>2020-08-20T09:58:14.295Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://nayan.co/uncategorized/Flask-PyMongo-Integration/</loc>
-    
-    <lastmod>2020-08-20T09:58:14.291Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://nayan.co/AI/How-to-make-a-web-application-for-any-AI-model/</loc>
-    
-    <lastmod>2020-08-20T09:58:14.291Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://nayan.co/AI/Meta-Learning-Learning-to-learn-fast/</loc>
-    
-    <lastmod>2020-08-20T09:58:14.291Z</lastmod>
+    <lastmod>2020-08-26T05:49:07.444Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://nayan.co/AI/Pyton-and-Kafka-Message-Passing-and-More/</loc>
     
-    <lastmod>2020-08-20T09:58:14.291Z</lastmod>
+    <lastmod>2020-08-26T05:49:07.424Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://nayan.co/AI/Text-detection-in-number-plates/</loc>
     
-    <lastmod>2020-08-20T09:58:14.291Z</lastmod>
+    <lastmod>2020-08-26T05:49:07.424Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://nayan.co/Android/Android-Testing-Strategy/</loc>
+    <loc>https://nayan.co/AI/Tracking-Deep-Learning-Experiments-using-Keras-MlFlow-and-MongoDb/</loc>
     
-    <lastmod>2020-08-20T09:58:14.283Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://nayan.co/Android/App-Heartbeat/</loc>
-    
-    <lastmod>2020-08-20T09:58:14.283Z</lastmod>
+    <lastmod>2020-08-26T05:49:07.424Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://nayan.co/Android/Applying-Proguard-in-an-android-application/</loc>
+    <loc>https://nayan.co/uncategorized/Flask-PyMongo-Integration/</loc>
     
-    <lastmod>2020-08-20T09:58:14.283Z</lastmod>
+    <lastmod>2020-08-26T05:49:07.420Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://nayan.co/AI/How-to-make-a-web-application-for-any-AI-model/</loc>
+    
+    <lastmod>2020-08-26T05:49:07.420Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://nayan.co/AI/Meta-Learning-Learning-to-learn-fast/</loc>
+    
+    <lastmod>2020-08-26T05:49:07.420Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://nayan.co/AI/Character-Recognition-with-CNN-network/</loc>
     
-    <lastmod>2020-08-20T09:58:14.283Z</lastmod>
+    <lastmod>2020-08-26T05:49:07.412Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://nayan.co/AI/Creating-deep-learning-models-in-Docker/</loc>
     
-    <lastmod>2020-08-20T09:58:14.283Z</lastmod>
+    <lastmod>2020-08-26T05:49:07.412Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://nayan.co/Android/Dynamic-feature-deployment-in-android/</loc>
     
-    <lastmod>2020-08-20T09:58:14.283Z</lastmod>
+    <lastmod>2020-08-26T05:49:07.412Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://nayan.co/AI/Efficient-Residual-Factorized-Neural-Network-for-Semantic-Segmentation/</loc>
     
-    <lastmod>2020-08-20T09:58:14.283Z</lastmod>
+    <lastmod>2020-08-26T05:49:07.412Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://nayan.co/Android/Android-Testing-Strategy/</loc>
+    
+    <lastmod>2020-08-26T05:49:07.408Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://nayan.co/Android/App-Heartbeat/</loc>
+    
+    <lastmod>2020-08-26T05:49:07.408Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://nayan.co/Android/Applying-Proguard-in-an-android-application/</loc>
+    
+    <lastmod>2020-08-26T05:49:07.408Z</lastmod>
     
   </url>
   
