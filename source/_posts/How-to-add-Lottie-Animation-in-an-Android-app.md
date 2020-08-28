@@ -1,13 +1,13 @@
 ---
-title: Using Lottie on Android to display dynamic animations in your application.
+title: How to add Lottie Animation in an Android application
 date: 2020-08-26 18:40:48
 author: Diwakar Singh
 category: Android
 tags:
 - android
-- lottie
+- lottie animation
 - kotlin
-- dynamic
+- dynamic feature
 - animation
 - Diwakar Singh
 
