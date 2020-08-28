@@ -1,5 +1,5 @@
 ---
-title: Generating Pdf in Android using itextpdf
+title: Generating Pdf the way you want, in Android using itextpdf
 date: 2020-08-23 05:45:58
 author: Ashish Jajoria
 categories:
