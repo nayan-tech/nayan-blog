@@ -1,8 +1,10 @@
 
 ---
-title: Creating obfuscated code in python 
+title: Creating obfuscated code in python to make them unreadable 
 date: 2020-08-23 10:00:00
 author: Himanshu Garg
+categories:
+  - ["Scripting"]
 tags:
   - python
   - code-obfuscation
