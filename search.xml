@@ -17,6 +17,37 @@
     
     
     <entry>
+      <title>Creating obfuscated code in python to make them unreadable</title>
+      <link href="/blog//Scripting/Creating-obfuscated-code-in-python-to-make-them-unreadable/"/>
+      <url>/blog//Scripting/Creating-obfuscated-code-in-python-to-make-them-unreadable/</url>
+      
+        <content type="html"><![CDATA[<img src="/blog/Scripting/Creating-obfuscated-code-in-python-to-make-them-unreadable/obfuscation.png" class=""><p>This post is totally focused on how to obfuscate your python code. The term <strong>obfuscate</strong> means that “<em>creating your code that is difficult for humans to understand</em>”. In this post, I am going to obfuscate my python code. This code obfuscation is generally used for data protection so that no third party can read my code.</p><p>In python, you can obfuscate your code using a command line tool known as <strong>pyarmor</strong>. It is a tool used to obfuscate python scripts, bind obfuscated scripts to fixed machine or expire obfuscated scripts. We can simply download pyarmor using the following command.</p><pre><code>pip install pyarmor</code></pre><p>Lets start obfuscating our code. For now lets start with a simple python script to obfuscate. I had created a basic script which just prints a message on running it. Lets start obfuscating it by using below command</p><pre><code>pyarmor obfuscate /path/to/script</code></pre><p>Then you see, there will be a <strong>dist</strong> named folder will be created. Now, go inside that folder and check that, there will be a file with same name as of your script. If you run it normally like</p><pre><code>python /path/to/script</code></pre><p>then, it give the same result as before obfuscation. If you open this file you’ll see something like below<br><img src="https://cdn-images-1.medium.com/max/2000/1*EhTDQqh7kEpoukY_zPr7Iw.png" alt="Fig.1 showing how a obfuscated code looks like"></p><p>There is also a folder called <strong>pytransform</strong> in the folder along with your script. This folder contains some information about the obfuscation code like its license and its key.</p><p>Now, we will obfuscate scripts which are using folder imports (like package). Lets create a same scenario like that and will obfuscate them.<br>I am going to make a calculator type files and the package just contains those files and in my main file I am simply importing it and doing operation. Follow the below steps for obfuscating them.</p><pre><code>mkdir build cd buildpyarmor init --src /path/to/package --entry __init__.py package_namepyarmor init --src /path/to/maincodeFolder --entry codename.py code_folder</code></pre><p>Here, I have simply initialize the folders before obfuscating them, so just replacing the paths and your code name with the above names. Now,</p><pre><code>pyarmor build --output path/to/obfuscateFolder --no-runtime package_namepyarmor build --output path/to/obfuscateFolder --no-runtime code_folderpyarmor build --output path/to/obfuscateFolder --only-runtime code_folder</code></pre><p>Here, “path/to/obfuscatefolder” is the path where you want to keep your obfuscated folder. I use only-runtime for the main code. By mentioning the only-runtime, pyarmor generates a <strong>pytransform</strong> folder for that code and for no-runtime it just obfuscate them.</p><p>Now, we are ready to run our code. Just go to your “path/to/obfuscateFolder” and run the main file. You can easily able to run that and your output should be same just like before obfuscating the code.</p><p><strong>Note</strong> –: If you make any change in your main code then you need to obfuscate your code again.</p><p>I had put the whole code in my github. You can check from <a href="https://github.com/hghimanshu/Blog/tree/master/obfuscation" target="_blank" rel="noopener">here</a></p><p><strong>Some good reads you may like :)</strong></p><ol><li><a href="https://nayan.co/blog//AI/Creating-deep-learning-models-in-Docker/">Creating a very basic deep-learning model in Docker</a></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> Scripting </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> python </tag>
+            
+            <tag> code-obfuscation </tag>
+            
+            <tag> pytransform </tag>
+            
+            <tag> Data Protection </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Setup CI/CD on React app using GitHub Actions</title>
       <link href="/blog//Web/react-cicd/"/>
       <url>/blog//Web/react-cicd/</url>
