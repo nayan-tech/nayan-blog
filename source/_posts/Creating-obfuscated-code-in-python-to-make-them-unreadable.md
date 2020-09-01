@@ -9,12 +9,13 @@ tags:
   - python
   - code-obfuscation
   - pytransform
+  - Data Protection
 ---
 
 {% asset_img obfuscation.png %}
 
 
-This post is totally focused on how to obfuscate your python code. The term **obfuscate** means that “*creating your code that is difficult for humans to understand*”. In this post, I am going to obfuscate my python code.
+This post is totally focused on how to obfuscate your python code. The term **obfuscate** means that “*creating your code that is difficult for humans to understand*”. In this post, I am going to obfuscate my python code. This code obfuscation is generally used for data protection so that no third party can read my code.
 
 In python, you can obfuscate your code using a command line tool known as **pyarmor**. It is a tool used to obfuscate python scripts, bind obfuscated scripts to fixed machine or expire obfuscated scripts. We can simply download pyarmor using the following command.
 
