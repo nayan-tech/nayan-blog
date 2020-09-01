@@ -8,7 +8,8 @@ tags:
 - lottie animation
 - kotlin
 - dynamic feature
-- animation
+- nayan
+- user interaction
 - Diwakar Singh
 
 ---
