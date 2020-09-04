@@ -17,6 +17,37 @@
     
     
     <entry>
+      <title>Mocking Enumerables in Rspec</title>
+      <link href="/blog//Rails/mocking-enumerables-rspec/"/>
+      <url>/blog//Rails/mocking-enumerables-rspec/</url>
+      
+        <content type="html"><![CDATA[<img src="/blog/Rails/mocking-enumerables-rspec/mock-rails.jpg" class="" title="Mocking in Rails" alt="Mocking in Rails"><p>Rails puts some really powerful mocking libraries at our disposal. As long as your models are backed by ActiveRecord, <a href="https://api.rubyonrails.org/v3.2/classes/ActiveRecord/Fixtures.html" target="_blank" rel="noopener">ActiveRecord Fixtures</a> and <a href="https://github.com/thoughtbot/factory_bot" target="_blank" rel="noopener">Factory Bot</a> are two very good libraries for mocking. More often than not, these cover the use cases for most applications. But when your models are not backed by ActiveRecord, there’s an excellent test-double framework for rspec, called <a href="https://github.com/rspec/rspec-mocks" target="_blank" rel="noopener">RSpec Mocks</a> that you can use.</p><h4 id="Basic-Mocking-with-RSpec-Mocks"><a href="#Basic-Mocking-with-RSpec-Mocks" class="headerlink" title="Basic Mocking with RSpec Mocks"></a>Basic Mocking with RSpec Mocks</h4><p>Basic mocking using RSpec Mocks is straight forward. Initialize the mock object as below</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@mock_post = double(&apos;post&apos;)</span><br></pre></td></tr></table></figure><p>and then</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">allow(@mock_post).to receive(:title) &#123; &apos;sample title&apos; &#125;</span><br></pre></td></tr></table></figure><h3 id="Mocking-a-chain-of-methods"><a href="#Mocking-a-chain-of-methods" class="headerlink" title="Mocking a chain of methods"></a>Mocking a chain of methods</h3><p>For mocking a chain of methods, there are two options.</p><p>Lets say that the <code>Post</code> object has a method <code>author</code>, that returns another object of class <code>Author</code>. The <code>Author</code> class has multiple methods, including <code>name</code> and <code>image</code></p><ul><li><p>If your code only ever calls the <code>name</code> method for the post’s author, you can easily setup this mock object as</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">allow(@mock_post).to receive_message_chain(:author, :name) &#123; &apos;Sample Author&apos; &#125;</span><br></pre></td></tr></table></figure></li><li><p>If you need a more complex mocking, you can have 2 mock objects</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">@mock_author = double(&apos;author&apos;)</span><br><span class="line">allow(@mock_author).to receive(:name) &#123; &apos;Sample Author&apos; &#125;</span><br><span class="line">allow(@mock_author).to receive(:image) &#123; &apos;https://sample.image&apos; &#125;</span><br><span class="line"></span><br><span class="line">allow(@mock_post).to receive(:author) &#123; @mock_author &#125;</span><br></pre></td></tr></table></figure></li></ul><h3 id="Mocking-Enumerables"><a href="#Mocking-Enumerables" class="headerlink" title="Mocking Enumerables"></a>Mocking Enumerables</h3><p>In my specific project, I had a model that responded to <code>each</code>, and also had other methods that needed mocking, <code>total</code>, <code>skip</code>, <code>limit</code> etc. My initial instinct was that I could just do something like</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">posts = double(&apos;post&apos;)</span><br><span class="line">allow(posts).to receive(:each) &#123; posts_list &#125;</span><br></pre></td></tr></table></figure><p>But unfortunately that doesn’t work, because each expects a block and yields each of the list item to the block. Fortunately, RSpec Mocks has a method <a href="https://github.com/rspec/rspec-mocks/blob/main/lib/rspec/mocks/message_expectation.rb#L169" target="_blank" rel="noopener"><code>and_yields</code></a> that lets us set up just what we need.</p><p>Continuing with the above example, lets say we need to have 10 mock posts. We can set it up as,</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">posts_list = []</span><br><span class="line">10.times do |index|</span><br><span class="line">  post = double(&apos;post&apos;, title: &quot;post_#&#123;index&#125;&quot;)</span><br><span class="line">  posts_list &lt;&lt; post</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">posts = double(&apos;post&apos;, total: posts_list.size, skip: 0, limit: posts_list.size)</span><br><span class="line">iterator = allow(posts).to receive(:each)</span><br><span class="line">posts_list.each do |post|</span><br><span class="line">  iterator.and_yield(post)</span><br><span class="line">end</span><br></pre></td></tr></table></figure><p>At this point, the <code>posts</code> mock object responds to the <code>each</code> iterator and returns the 10 mock post objects. It also responds to the <code>total</code>, <code>skip</code> and <code>limit</code> methods correctly.</p><p>Hope this helps.</p><p>p.s. Nayan is a platform that offers high precision services for traffic monitoring and road safety. Check out our <a href="https://nayan.co">website</a>.</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Rails </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Ruby </tag>
+            
+            <tag> Rails </tag>
+            
+            <tag> rspec </tag>
+            
+            <tag> Mocking </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Creating obfuscated code in python to make them unreadable</title>
       <link href="/blog//Scripting/Creating-obfuscated-code-in-python-to-make-them-unreadable/"/>
       <url>/blog//Scripting/Creating-obfuscated-code-in-python-to-make-them-unreadable/</url>
