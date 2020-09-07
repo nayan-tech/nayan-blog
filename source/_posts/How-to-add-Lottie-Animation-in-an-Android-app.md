@@ -14,7 +14,7 @@ tags:
 
 ---
 
-Lottie is an `Android`, IOS and React Native library that renders After Effects animations in real time, allowing apps to use animations (dynamic feature) as easily as they use static images.They are especially useful when the UI (user interaction) changes state, such as when new content loads or new actions become available.
+Lottie is an `Android`, IOS and React Native library that renders After Effects animations in real time, allowing apps to use animations ``(Dynamic Feature)`` as easily as they use static images.They are especially useful when the UI `(User Interaction)` changes state, such as when new content loads or new actions become available.
 
 ![Lottie Animation](/blog/Android/How-to-add-Lottie-Animation-in-an-Android-app/image_1.gif)
 
