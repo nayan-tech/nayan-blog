@@ -16,7 +16,7 @@ tags:
 
 We some times want to implement Drag and Drop feature OR Swip to dismiss feature on our recycler view. For implementing that we usually go for a library that already have this implemented, and at this point of time most of those libraries are using old APIs and complex logic to handle the things. But now we have simple and better ItemTouchHelper in the Android Support Library itself, so now we don't need those good old libraries. Lets start implementing.
 
-![Drag n Drop and Swipe feature](/blog/Android/android-recycler-view-drag-and-drop/drag_n_drop.gif)
+![Drag n Drop](/blog/Android/android-recycler-view-drag-and-drop/drag-and-drop.png)
 
 ## 1. Lets create an `ItemTouchHelper.Callback`
 
@@ -120,6 +120,8 @@ itemTouchHelper.attachToRecyclerView(yourRecyclerView)
 ```
 
 By this time now you have Drag and Drop feature enabled in your RecyclerView you can just build the project and run the app.
+
+![Drag n Drop and Swipe feature](/blog/Android/android-recycler-view-drag-and-drop/drag_n_drop.gif)
 
 ## 6. Handle final state
 
