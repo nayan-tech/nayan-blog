@@ -1,9 +1,16 @@
 ---
-title: Deploying Node.js application on virtual machine with SSL certificate and Nginx
+title: Deploying Node.js application on VM with SSL and Nginx
 date: 2020-08-23 18:44:46
 author: Ishaan Ohri
 category: Node.js
 tags:
+- Node.js
+- SSL
+- Nginx
+- Deployment
+- Nayan.co
+- GCP
+- pm2
 ---
 
 {% asset_img nodejs.png  "Node.js application on VM" %}
