@@ -9,6 +9,8 @@ tags:
  - CNN
  - Pruning
  - Neural Network
+ - Machine Learning
+ - NAYAN
 ---
 
 ​
@@ -65,3 +67,6 @@ We can rank the neurons according to the L1/ L2 norm of the neuron weights. The 
 ## What’s Next?
 ​
 Next up will be a short code for demonstrating how we can prune neural networks.
+
+
+The author of this blog currently works [NAYAN](https://nayan.co)
