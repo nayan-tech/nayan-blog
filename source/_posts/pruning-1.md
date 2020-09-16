@@ -68,5 +68,6 @@ We can rank the neurons according to the L1/ L2 norm of the neuron weights. The 
 ​
 Next up will be a short code for demonstrating how we can prune neural networks.
 
+Find some more exciting AI blogs [here](https://nayan.co/blog/categories/AI/)
 
 The author of this blog currently works [NAYAN](https://nayan.co)
