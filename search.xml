@@ -223,6 +223,47 @@
     
     
     <entry>
+      <title>How to setup Jenkins CI/CD pipeline with apache tomcat for java web applications</title>
+      <link href="/blog//JAVA/How-to-setup-jenkins-CI-CD-pipeline-with-apache-tomcat/"/>
+      <url>/blog//JAVA/How-to-setup-jenkins-CI-CD-pipeline-with-apache-tomcat/</url>
+      
+        <content type="html"><![CDATA[<p>Whenever there are new updates to push either on frontend or on backend, one thing we all can agree upon is that it can be an utter chaos if there is no standard deployment process established. As developers, we always have a number of tests that need to be crossed off our checklist prior to deployment of updates and having a proper deployment pipeline take away almost all of the pain.</p><p>Today, I want to give you a demo of how you can use <strong>Jenkins (A server automation tool) written in JAVA to automate code deployment</strong> to multiple pipelines such as Development, Staging or even production <strong>straight for an version control system like Git</strong>.</p><p><img src="/blog/JAVA/How-to-setup-jenkins-CI-CD-pipeline-with-apache-tomcat/jenkins_feature.jpg" alt="Jenkins Automation Server"></p><p>I will be using <strong>a maven based Rest API project written with Jersey (Rest API Framework)</strong>.</p><h2 id="Prerequisite"><a href="#Prerequisite" class="headerlink" title="Prerequisite"></a>Prerequisite</h2><ol><li>Should have a tomcat server running on your machine.</li><li>Should have a maven based project (I am using Jersey in our case) </li><li>Should JAVA 8 or above install on your machine</li><li>maven dependency setup</li></ol><h2 id="Set-up-Jenkins"><a href="#Set-up-Jenkins" class="headerlink" title="Set up Jenkins."></a>Set up Jenkins.</h2><p>To work Download Jenkins from below this <a href="https://www.jenkins.io/download/" target="_blank" rel="noopener">link</a>. It is a web archive (war) file which we will be using to run Jenkins on our apache tomcat server.</p><p><strong>Once downloaded move Jenkins.war file to webapps directory of apache tomcat and restart tomcat server</strong></p><p><img src="/blog/JAVA/How-to-setup-jenkins-CI-CD-pipeline-with-apache-tomcat/getting_started_with_jenkins.png" alt="Getting started : Jenkins "></p><p>Try to hit <strong>http:localhost:8080/Jenkins</strong> . you should be able to see the Getting started screen. In an order to login to your Jenkins server, checkout initialAdminPassword </p><p><code>TOMCAT_HOME/.jenkins/secrets/initialAdminPassword (here tomcat home is tomcat installation directory)</code></p><p>Now create a new user in tomcat-user.xml for Jenkins deployment </p><p><code>&lt;user username=&quot;jenkins&quot; password=“Password roles=&quot;manager-script&quot; /&gt;</code></p><p>Before setting up new job we need to install below mentioned jenkins plugins </p><ol><li>Install “deploy to container” plugin (for tomcat deployment)</li><li>Install “Git” plugin (For git support) </li><li>Install “Github” Plugin (For configuring webhooks of your git repo)</li></ol><h2 id="Setup-job"><a href="#Setup-job" class="headerlink" title="Setup job"></a>Setup job</h2><p><img src="/blog/JAVA/How-to-setup-jenkins-CI-CD-pipeline-with-apache-tomcat/create_new_job.png" alt="Jenkins job"></p><p>Create a new job with a freestyle project. In an order to fully automate war deployment we need to consider below mentioned steps</p><ol><li>Pulling code from remote repository.</li></ol><p><img src="/blog/JAVA/How-to-setup-jenkins-CI-CD-pipeline-with-apache-tomcat/git_repository.png" alt="Setting up git repository"></p><p>Here I am setting up this job to pull from a demo repository from my github account. I am using <strong>Master branch to fetch for every time a new build is triggered</strong>. You can use other branches like <strong>*Dev or staging</strong> for setting up different deployment pipelines.</p><ol start="2"><li>Compiling and building the war file using maven.</li></ol><p><img src="/blog/JAVA/How-to-setup-jenkins-CI-CD-pipeline-with-apache-tomcat/build_step.png" alt="build setup"></p><p>In build section, select <strong>Execute Shell</strong> from drop down and write  </p><p><code>mvn clean install</code></p><ol start="3"><li>Deploying war to tomcat using the “Jenkins” user we just created.</li></ol><p><img src="/blog/JAVA/How-to-setup-jenkins-CI-CD-pipeline-with-apache-tomcat/war_deployment.png" alt="Post build, war deployment"></p><p>When maven is done building us a war from source code which jenkins has pulled from git repository, we need to deploy this newly cleared war file to webapps directory in apache tomcat.</p><p>This can be done by configuring post build section and provide credentials for above created <strong>Jenkins</strong> user in tomcat-user.xml file.  </p><ol start="4"><li>Setting up a web hook to trigger automatic build whenever a pull request is approved or changes are pushed to branch.</li></ol><p>You need to create a web-hook for your github repository. Go to the setting tabs, select web-hooks and create a new webhook. But before that you need to expose your Jenkins server to the external world, you can do that using ngrok (for temporary basis) or you can setup a public ip for your machine.</p><p><code>http://beb52b5f60fd.ngrok.io.ngork.io:8080/jenkins/github-webhook</code></p><p>Once done, whenever there is any push in your git repository Jenkins which gets a notification using this web hook and automatic build will be triggered.</p><h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><p>As you can see in just 15 mins we created a new job that will pull code from a specific branch of git repository, create a war build from the latest code and deploy it to tomcat. Imagine setting up different pipelines, one for development and other one for Testing / Stating environment which are configured with different code branches. It will not only help deploy updates to different environments but also make it easy to work on multiple features in parallel.  </p><h2 id="References"><a href="#References" class="headerlink" title="References:-"></a>References:-</h2><ol><li>Read more about <a href="https://www.jenkins.io/doc/" target="_blank" rel="noopener">Jenkins</a></li></ol><h2 id="Some-good-reads-you-may-like"><a href="#Some-good-reads-you-may-like" class="headerlink" title="Some good reads you may like:-"></a>Some good reads you may like:-</h2><ol><li><p>Read here to know more about <a href="http://blog.nayan.co/Android/Android-Testing-Strategy/" target="_blank" rel="noopener">Android Testing Strategy</a></p></li><li><p>Here is an great article to <a href="http://blog.nayan.co/Android/Dynamic-feature-deployment-in-android/" target="_blank" rel="noopener">setup dynamic feature delivery for android application</a></p></li></ol><p>p.s. Nayan is a platform that offers high precision services for traffic monitoring and road safety. Check out our <a href="https://nayan.co">website</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> JAVA </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> JAVA </tag>
+            
+            <tag> Puneet </tag>
+            
+            <tag> Backend </tag>
+            
+            <tag> DevOps </tag>
+            
+            <tag> NAYAN </tag>
+            
+            <tag> CI/CD </tag>
+            
+            <tag> Jersey </tag>
+            
+            <tag> MAVEN </tag>
+            
+            <tag> NAYANINDIA </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Quick guide for dynamic feature delivery using android application bundle</title>
       <link href="/blog//Android/Dynamic-feature-deployment-in-android/"/>
       <url>/blog//Android/Dynamic-feature-deployment-in-android/</url>
