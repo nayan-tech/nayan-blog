@@ -6,6 +6,7 @@ category: Web
 tags:
   - GCP
   - MySQL replica
+  - Data Protection
 ---
 
 ![GCP MySQL Replica](/blog/Web/akr-replica-setup/banner.png)
