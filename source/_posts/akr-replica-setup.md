@@ -7,6 +7,8 @@ tags:
   - GCP
   - MySQL replica
   - Data Protection
+  - NAYAN
+  - India
 ---
 
 ![GCP MySQL Replica](/blog/Web/akr-replica-setup/banner.png)
