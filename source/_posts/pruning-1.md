@@ -14,7 +14,7 @@ tags:
 ---
 
 ​
-With more and more research and development of state of the art neural network models, the neural network models are becoming deeper and deeper although these models are much more accurate but they also come with a significant cost that is a high inference time and also require more and more computational resources. This significant amount of computation resources consumed by such networks becomes a bottleneck when we require a real-time inference or when we want to deploy our Artificial Intelligence based applications onto edge devices which have limited computational resources. At Nayan we generally use this to make heavy Neural Networks fast.
+With more and more research and development of state of the art neural network models, the neural network models are becoming deeper and deeper although these models are much more accurate but they also come with a significant cost that is a high inference time and also require more and more computational resources. This significant amount of computation resources consumed by such networks becomes a bottleneck when we require a real-time inference or when we want to deploy our [Artificial Intelligence](https://nayan.co/blog/categories/AI/) based applications onto edge devices which have limited computational resources. At Nayan we generally use this to make heavy Neural Networks fast.
 ​
 There are many different methods for Efficient Inference:
 ​
