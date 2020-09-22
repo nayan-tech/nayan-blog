@@ -28,6 +28,7 @@ There are many different methods for Efficient Inference:
 ​
 * Binary / Ternary Net
 ​
+
 In this blog we will be covering Neural Network Pruning which is one of the methods to produce models of smaller size, the ones which are more power efficient as well as memory efficient and in turn helps in making inference much faster with a minimal cost to the model accuracy.
 > **Pruning deep neural networks means reducing the size of the deep learning networks by removing some parameters/ neurons.**
 ​
