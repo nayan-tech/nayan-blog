@@ -17,6 +17,43 @@
     
     
     <entry>
+      <title>How to Prune deep CNN based architectures?</title>
+      <link href="/blog//AI/pruning-1/"/>
+      <url>/blog//AI/pruning-1/</url>
+      
+        <content type="html"><![CDATA[<p>​<br>With more and more research and development of state of the art neural network models, the neural network models are becoming deeper and deeper although these models are much more accurate but they also come with a significant cost that is a high inference time and also require more and more computational resources. This significant amount of computation resources consumed by such networks becomes a bottleneck when we require a real-time inference or when we want to deploy our <a href="https://nayan.co/blog/categories/AI/">Artificial Intelligence</a> based applications onto edge devices which have limited computational resources. At Nayan we generally use this to make heavy Neural Networks fast.<br>​<br>There are many different methods for Efficient Inference:<br>​</p><ul><li><strong>Pruning</strong><br>​</li><li>Quantization<br>​</li><li>Weight Sharing<br>​</li><li>Winograd transformation<br>​</li><li>Binary / Ternary Net<br>​</li></ul><p>In this blog we will be covering Neural Network Pruning which is one of the methods to produce models of smaller size, the ones which are more power efficient as well as memory efficient and in turn helps in making inference much faster with a minimal cost to the model accuracy.</p><blockquote><p><strong>Pruning deep neural networks means reducing the size of the deep learning networks by removing some parameters/ neurons.</strong><br>​</p></blockquote><h2 id="Biological-Inspiration-for-Pruning"><a href="#Biological-Inspiration-for-Pruning" class="headerlink" title="Biological Inspiration for Pruning"></a>Biological Inspiration for Pruning</h2><p>​<br>Pruning in neural networks has been taken as an idea from <a href="https://en.wikipedia.org/wiki/Synaptic_pruning" target="_blank" rel="noopener">**Synaptic Pruning</a> <strong>in the human brain where <a href="https://en.wikipedia.org/wiki/Axon" target="_blank" rel="noopener">axon</a> and <a href="https://en.wikipedia.org/wiki/Dendrite" target="_blank" rel="noopener">dendrite</a> completely decay and die off resulting in synapse elimination that occurs between early childhood and the onset of puberty in many <a href="https://en.wikipedia.org/wiki/Mammal" target="_blank" rel="noopener">mammals</a>. Pruning starts near the time of birth and continues into the mid-20s.<br>​<br><img src="https://cdn-images-1.medium.com/max/2000/1*vtyUeef84qEk-OTWc-zoVA.png" alt="Fig: Synapses and neurons before and after pruning ([Learning both Weights and Connections for Efficient Neural Networks](https://arxiv.org/abs/1506.02626))"><em>Fig: Synapses and neurons before and after pruning (<a href="https://arxiv.org/abs/1506.02626" target="_blank" rel="noopener">Learning both Weights and Connections for Efficient Neural Networks</a>)</em><br>​<br>Networks generally look like the one on the left: every neuron in the layer below has a connection to the layer above, but this means that we have to multiply a lot of floats together. Ideally, we’d only connect each neuron to a few others and save on doing some of the multiplications.<br>​<br>In pruning we majorly rank the neurons in the network based on how much they contribute and thus remove the low-ranking neurons making the network smaller and faster. But we prune the network in an iterative manner in-order to avoid the pruning of necessary neurons. Just like the figure below.<br>​<br><img src="https://cdn-images-1.medium.com/max/2000/0*7r1YI5al1H30dHD7" alt="Fig 2: Neural Network Pruning as a backward filter ([Pruning Convolutional Neural Networks for Resource Efficient Inference](https://arxiv.org/abs/1611.06440))"><em>Fig 2: Neural Network Pruning as a backward filter (<a href="https://arxiv.org/abs/1611.06440" target="_blank" rel="noopener">Pruning Convolutional Neural Networks for Resource Efficient Inference</a>)</em><br>​<br>**3 major</strong> steps involved in Pruning are<br>​</p><ul><li>Determine which neurons are more important and which are not (Ranking Neurons)<br>​</li><li>Remove a portion of the least important neurons<br>​</li><li>Fine-tune the network<br>​<br>We can rank the neurons according to the L1/ L2 norm of the neuron weights. The accuracy of the model might drop after pruning, but the network is fine-tuned/ trained iteratively to recover the loss. Because if we prune way too much at the once then there are chances of that the model might get damaged and then it won’t be able to recover. And thus we apply ‘Iterative Pruning’.<br>​<h2 id="Types-of-Pruning"><a href="#Types-of-Pruning" class="headerlink" title="Types of Pruning"></a>Types of Pruning</h2>​</li><li><strong>Weight Pruning</strong><blockquote><ul><li>Setting individual weights in the weight matrix to zero. This corresponds to deleting connections.</li><li>Inorder to achieve sparsity of k% we rank the individual weights in weight matrix W according to their magnitude, and then set to zero the smallest k%.<br>​</li></ul></blockquote></li><li><strong>Unit/ Neuron Pruning</strong><blockquote><ul><li>Setting entire columns(entire convolutional filters) to zero, in effect deleting the corresponding output neuron.</li><li>So to achieve sparsity of k% we rank the columns of a weight matrix according to their L2-norm and delete the smallest k%.<h1 id="The-future-of-machine-learning-is-on-the-edge-And-thus-Optimizing-Machine-Learning-models-is-especially-important-when-deploying-to-low-power-devices-like-smartphones"><a href="#The-future-of-machine-learning-is-on-the-edge-And-thus-Optimizing-Machine-Learning-models-is-especially-important-when-deploying-to-low-power-devices-like-smartphones" class="headerlink" title="The future of machine learning is on the edge. And thus Optimizing Machine Learning models is especially important when deploying to low-power devices like smartphones."></a>The future of machine learning is on the edge. And thus Optimizing Machine Learning models is especially important when deploying to low-power devices like smartphones.</h1>​</li></ul></blockquote><h2 id="What’s-Next"><a href="#What’s-Next" class="headerlink" title="What’s Next?"></a>What’s Next?</h2>​<br>Next up will be a short code for demonstrating how we can prune neural networks.</li></ul><p>Find some more exciting AI blogs <a href="https://nayan.co/blog/categories/AI/">here</a></p><p>The author of this blog currently works <a href="https://nayan.co">NAYAN</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> AI </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Machine Learning </tag>
+            
+            <tag> Deep Learning </tag>
+            
+            <tag> AI </tag>
+            
+            <tag> NAYAN </tag>
+            
+            <tag> CNN </tag>
+            
+            <tag> Pruning </tag>
+            
+            <tag> Neural Network </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Mocking Enumerables in Rspec</title>
       <link href="/blog//Rails/mocking-enumerables-rspec/"/>
       <url>/blog//Rails/mocking-enumerables-rspec/</url>
