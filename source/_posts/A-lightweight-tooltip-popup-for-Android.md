@@ -14,7 +14,7 @@ tags:
 ---
 
 A tooltip is a small descriptive message that appears near a view when users long press the view or hover their mouse over it. This is useful when your app uses an icon to represent an action or piece of information to save space in the layout.
-You’ve surely seen tooltips in some of your favorite products—like `Facebook`, `Twitter`, and `Slack`. When used with consideration, tooltips can be a powerful UI [`(User Interaction)`](https://play.google.com/store/apps/details?id=com.nayan.nayanindia&hl=en_US) pattern that will guide your users to take action in your product. A good tooltip can be a great thing indeed.Below, we’ll look at how to design tooltips on Android 8.0 (API level 26) and higher that enhance the user experience and add value.
+You’ve surely seen tooltips in some of your favorite products—like `Facebook`, `Twitter`, and `Slack`. When used with consideration, tooltips can be a powerful UI [`(User Interaction)`](https://nayan.co/) pattern that will guide your users to take action in your product. A good tooltip can be a great thing indeed.Below, we’ll look at how to design tooltips on Android 8.0 (API level 26) and higher that enhance the user experience and add value.
 
 ![Tooltips](/blog/Android/A-lightweight-tooltip-popup-for-Android/tooltip_1.jpg)
 
@@ -144,4 +144,4 @@ And we are done!
 1. [Lottie Animation](https://nayan.co/blog/Android/How-to-add-Lottie-Animation-in-an-Android-app/)
 2. [How to apply Proguard in an android application](https://nayan.co/blog/Android/Applying-Proguard-in-an-android-application/)
 
-p.s. Nayan is a platform that offers high precision services for traffic monitoring and road safety. Check out our [website](https://nayan.co/).
+p.s. Nayan is a platform that offers high precision services for [traffic monitoring](https://nayan.co/) and [road safety](https://nayan.co/). Check out our [website](https://nayan.co/).
