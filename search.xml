@@ -17,6 +17,41 @@
     
     
     <entry>
+      <title>How to add a lightweight Tooltip popup in your Android Application</title>
+      <link href="/blog//Android/A-lightweight-tooltip-popup-for-Android/"/>
+      <url>/blog//Android/A-lightweight-tooltip-popup-for-Android/</url>
+      
+        <content type="html"><![CDATA[<p>A tooltip is a small descriptive message that appears near a view when users long press the view or hover their mouse over it. This is useful when your app uses an icon to represent an action or piece of information to save space in the layout.<br>You’ve surely seen tooltips in some of your favorite products—like <code>Facebook</code>, <code>Twitter</code>, and <code>Slack</code>. When used with consideration, tooltips can be a powerful UI <a href="https://nayan.co/"><code>(User Interaction)</code></a> pattern that will guide your users to take action in your product. A good tooltip can be a great thing indeed.Below, we’ll look at how to design tooltips on Android 8.0 (API level 26) and higher that enhance the user experience and add value.</p><p><img src="/blog/Android/A-lightweight-tooltip-popup-for-Android/tooltip_1.jpg" alt="Tooltips"></p><p>A lightweight popup like tooltips, fully customizable with arrow and animations.The <a href="https://github.com/skydoves/Balloon" target="_blank" rel="noopener">balloon</a> is one of the most popular libraries.</p><h2 id="Let’s-start"><a href="#Let’s-start" class="headerlink" title="Let’s start"></a>Let’s start</h2><p>Add below codes to your build.gradle file:</p><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">dependencies</span> &#123;</span><br><span class="line">    <span class="comment">//tooltips</span></span><br><span class="line">    implementation <span class="string">"com.github.skydoves:balloon:1.2.2"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>Create a balloon instance using kotlin in your activity class</p><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> balloon = Balloon.Builder(baseContext).apply &#123;</span><br><span class="line">    setWidthRatio(<span class="number">0.5f</span>)</span><br><span class="line">    setHeight(<span class="number">65</span>)</span><br><span class="line">    setArrowSize(<span class="number">10</span>)</span><br><span class="line">    setArrowOrientation(ArrowOrientation.BOTTOM)</span><br><span class="line">    setArrowVisible(<span class="literal">true</span>)</span><br><span class="line">    setArrowPosition(<span class="number">0.5f</span>)</span><br><span class="line">    setTextSize(<span class="number">15f</span>)</span><br><span class="line">    setCornerRadius(<span class="number">4f</span>)</span><br><span class="line">    setAlpha(<span class="number">0.9f</span>)</span><br><span class="line">    setTextColor(ContextCompat.getColor(baseContext, R.color.white))</span><br><span class="line">    setBalloonAnimation(BalloonAnimation.FADE)</span><br><span class="line">    setLifecycleOwner(<span class="keyword">this</span><span class="symbol">@MainActivity</span>)</span><br><span class="line">    setAutoDismissDuration(<span class="number">5_000L</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h1 id="Specific-size"><a href="#Specific-size" class="headerlink" title="Specific size"></a>Specific size</h1><p>We can set the specific size of the balloon regardless size of the contents.</p><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">balloon.setWidth(<span class="number">220</span>)</span><br><span class="line">balloon.setHeight(<span class="number">160</span>)</span><br></pre></td></tr></table></figure><p>We can also set the width according to the ratio of the horizontal screen’s size.</p><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">balloon.setWidthRatio(<span class="number">0.5f</span>)</span><br><span class="line">balloon.setHeight(<span class="number">65</span>)</span><br></pre></td></tr></table></figure><p>We can control the content size of the balloon using padding of the content.</p><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">balloon.setPadding(<span class="number">6</span>)</span><br><span class="line">balloon.setPaddingLeft(<span class="number">8</span>)</span><br><span class="line">balloon.setPaddingTop(<span class="number">12</span>)</span><br></pre></td></tr></table></figure><p>If the location of the tooltip is located at the boundaries on the screen, the tooltip will be stick to the end of the screen. In that case, we can resolve by giving margins to the balloon.</p><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ballon.setMargin(<span class="number">12</span>)</span><br><span class="line">ballon.setMarginLeft(<span class="number">14</span>)</span><br><span class="line">ballon.setMarginRight(<span class="number">14</span>)</span><br></pre></td></tr></table></figure><h1 id="Arrow-Composition"><a href="#Arrow-Composition" class="headerlink" title="Arrow Composition"></a>Arrow Composition</h1><p>We can customize the arrow on the tooltip popup. We can customize the visibility, size, position based on ratio, orientation and drawable.</p><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">balloon.setArrowVisible(<span class="literal">true</span>)</span><br><span class="line">balloon.setArrowSize(<span class="number">10</span>)</span><br><span class="line">balloon.setArrowPosition(<span class="number">0.8f</span>)</span><br><span class="line">balloon.setArrowOrientation(ArrowOrientation.BOTTOM)</span><br><span class="line">balloon.setArrowDrawable(ContextCompat.getDrawable(context, R.drawable.arrow))</span><br></pre></td></tr></table></figure><h1 id="Text-Composition"><a href="#Text-Composition" class="headerlink" title="Text Composition"></a>Text Composition</h1><p>We can customize the text on the tooltip popup.</p><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">balloon.setText(<span class="string">"Facebook Login"</span>)</span><br><span class="line">balloon.setTextSize(<span class="number">15f</span>)</span><br><span class="line">balloon.setTextTypeface(Typeface.BOLD)</span><br><span class="line">balloon.setTextColor(ContextCompat.getColor(context,R.color.white_87))</span><br></pre></td></tr></table></figure><h1 id="Listeners-OnBalloonClickListener-OnBalloonDismissListener-OnBalloonOutsideTouchListener"><a href="#Listeners-OnBalloonClickListener-OnBalloonDismissListener-OnBalloonOutsideTouchListener" class="headerlink" title="Listeners (OnBalloonClickListener, OnBalloonDismissListener, OnBalloonOutsideTouchListener)"></a>Listeners (OnBalloonClickListener, OnBalloonDismissListener, OnBalloonOutsideTouchListener)</h1><p>We can listen to the balloon popup is clicked, dismissed or touched outside using listeners.</p><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">balloon.setOnBalloonClickListener(new OnBalloonClickListener() &#123;</span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="keyword">public</span> void onBalloonClick() &#123;</span><br><span class="line">    <span class="comment">// doSomething;</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">balloon.setOnBalloonDismissListener(new OnBalloonDismissListener() &#123;</span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="keyword">public</span> void onBalloonDismiss() &#123;</span><br><span class="line">    <span class="comment">// doSomething;</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line">balloon.setOnBalloonOutsideTouchListener(new OnBalloonOutsideTouchListener() &#123;</span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="keyword">public</span> void onBalloonOutsideTouch() &#123;</span><br><span class="line">    <span class="comment">// doSomething;</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure><p>And we are done!</p><p><img src="/blog/Android/A-lightweight-tooltip-popup-for-Android/tooltip_3.gif" alt="Tooltip"></p><h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ol><li><a href="https://developer.android.com/guide/topics/ui/tooltips" target="_blank" rel="noopener">Tooltips</a></li><li><a href="https://github.com/skydoves/Balloon" target="_blank" rel="noopener">Tooltips Docs</a></li></ol><h2 id="Some-good-reads-you-may-like"><a href="#Some-good-reads-you-may-like" class="headerlink" title="Some good reads you may like:-"></a>Some good reads you may like:-</h2><ol><li><a href="https://nayan.co/blog/Android/How-to-add-Lottie-Animation-in-an-Android-app/">Lottie Animation</a></li><li><a href="https://nayan.co/blog/Android/Applying-Proguard-in-an-android-application/">How to apply Proguard in an android application</a></li></ol><p>p.s. <a href="https://nayan.co/">Nayan</a> is a platform that offers high precision services for <a href="https://nayan.co/">traffic monitoring</a> and <a href="https://nayan.co/">road safety</a>. Check out our <a href="https://nayan.co/">website</a>.</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Android </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> android </tag>
+            
+            <tag> tooltip </tag>
+            
+            <tag> kotlin </tag>
+            
+            <tag> nayan </tag>
+            
+            <tag> user interaction </tag>
+            
+            <tag> Diwakar Singh </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>How to Prune deep CNN based architectures?</title>
       <link href="/blog//AI/pruning-1/"/>
       <url>/blog//AI/pruning-1/</url>
@@ -103,17 +138,17 @@
             
             <tag> android </tag>
             
+            <tag> kotlin </tag>
+            
+            <tag> nayan </tag>
+            
             <tag> user interaction </tag>
             
             <tag> Diwakar Singh </tag>
             
-            <tag> kotlin </tag>
-            
             <tag> lottie animation </tag>
             
             <tag> dynamic feature </tag>
-            
-            <tag> nayan </tag>
             
         </tags>
       
@@ -418,11 +453,11 @@
             
             <tag> android </tag>
             
+            <tag> kotlin </tag>
+            
             <tag> Diwakar Singh </tag>
             
             <tag> proguard </tag>
-            
-            <tag> kotlin </tag>
             
             <tag> shrinking </tag>
             
@@ -686,11 +721,11 @@
       
         <tags>
             
+            <tag> nayan </tag>
+            
             <tag> Machine Learning </tag>
             
             <tag> Deep Learning </tag>
-            
-            <tag> nayan </tag>
             
             <tag> Meta Learning </tag>
             
@@ -868,9 +903,9 @@
             
             <tag> user interaction </tag>
             
-            <tag> sessions </tag>
-            
             <tag> Diwakar Singh </tag>
+            
+            <tag> sessions </tag>
             
         </tags>
       
