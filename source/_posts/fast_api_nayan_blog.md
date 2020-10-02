@@ -1,5 +1,18 @@
 
 # Getting started with FastAPI
+#NAYAN
+#Building tech to improve India
+
+---
+title: Getting started with FastAPI
+author: Abhishek Bose
+category: Python
+tags:
+- Python
+- NAYAN
+- TECH FOR INDIA
+- RestAPIs
+---
 
 Rest APIs are beautiful pieces of software that enable applications to communicate with a database or with other software very effectively.
 
@@ -81,6 +94,8 @@ Let’s upload our csv file and check the response on the dashboard. By clicking
 ![Fig 10: Upload the file using the browse button. Hit execute to test out your new API](https://cdn-images-1.medium.com/max/2930/1*kS3AAjZj1gaKhNGgau9Hgg.png)
 
 Fig 11 shows the result on hitting the ***Execute ***button. The Response body shows the json created from the csv file. I agree the json could be formatted in a much better way 😄, but the goal to parse the csv successfully using FastAPI was achieved.
+
+Fast API is a great framework which can also be used to build APIs for Machine Learning tasks as well. Artifical Intelligence is on the rise these days and FastAPI can help in building services which can be easily deployed on production.
 
 ![](https://cdn-images-1.medium.com/max/2838/1*d19dAtrKXLRXRHmJFScxNQ.png)
 > I will be posting more blogs with **FastAPI** as the major tool and will be creating REST services for AI purposes as well.
