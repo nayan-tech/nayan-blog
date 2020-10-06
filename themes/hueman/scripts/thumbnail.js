@@ -15,3 +15,10 @@ hexo.extend.helper.register('thumbnail', function (post) {
     }
     return url;
 });
+
+hexo.extend.helper.register('custom_url', function (post) {
+    var category = post.category;
+    var title = post.title;
+    var updated_url = 'https://nayan.co/blog/' + category + '/' + title + "/";
+    return updated_url;
+});
