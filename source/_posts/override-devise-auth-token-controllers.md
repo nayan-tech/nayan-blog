@@ -17,7 +17,8 @@ tags:
 
 For authentication and token management at backend in Ruby On Rails we use [devise-token-auth](https://github.com/lynndylanhurley/devise_token_auth).
 
-{% asset_img devise_token_auth.png %}
+<!-- {% asset_img devise_token_auth.png %} -->
+![Devise token](/blog/Ruby-on-Rails/override-devise-auth-token-controllers/devise_token_auth.png)
 
 ## Sometimes we need to update some of the following default behaviours:-
 
