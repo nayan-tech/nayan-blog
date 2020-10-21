@@ -8,6 +8,9 @@ tags:
   - Alexnet
   - BNN
   - yolo
+  - Traffic monitoring
+  - Smart city
+  - danger detection
   - Kunal Goyal
 ---
 
