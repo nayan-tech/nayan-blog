@@ -46,4 +46,5 @@ There also have been great papers published to get the good State of the art acc
 
 ![Comparison of accuracies on the ImageNet dataset](https://cdn-images-1.medium.com/max/2000/1*LFKiAPicXJQId3XbanwZyw.png)*Comparison of accuracies on the ImageNet dataset*
 
-On combining the above two i.e. DABNN and Methodology we can get more virtuous results. One of the classical examples we have got is [Tiny YOLOV4 XNOR](https://github.com/AlexeyAB/darknet/blob/master/cfg/tiny-yolo_xnor.cfg). It uses a 1-bit XNOR operation to perform object detection. At [nayan](nayan.co) we use this to process videos fast on edge.
+On combining the above two i.e. DABNN and Methodology we can get more virtuous results. One of the classical examples we have got is [Tiny YOLOV4 XNOR](https://github.com/AlexeyAB/darknet/blob/master/cfg/tiny-yolo_xnor.cfg). It uses a optimized XNOR operation to perform object detection. You can use this to build traffic monitoring, smart city, danger detection etc use cases. At [nayan](nayan.co) we use this to process videos fast on edge. We can also use this technique with Pruning which reduces the network complexity by manyfolds. You can read more from [here](https://nayan.co/blog/AI/pruning-1/) 
+
