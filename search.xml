@@ -17,6 +17,45 @@
     
     
     <entry>
+      <title>Binary Neural Network “A New Revolution in AI”?</title>
+      <link href="/blog//AI/binarized-neural-network/"/>
+      <url>/blog//AI/binarized-neural-network/</url>
+      
+        <content type="html"><![CDATA[<p><img src="https://miro.medium.com/max/700/1*6Xp_zjTJiVemexCdKyC8fA.png" alt=""></p><h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a><strong>Introduction</strong></h2><p>If I get to explain the neural network to a Noob. I explain to them as,</p><blockquote><p>A Neural Network is more like a Jigsaw puzzle. We try to combine these jigsaws eachother over tons of data. But the best part is we can change these pieces accordingly. These jigsaws are weights.</p></blockquote><p>Now, If we take weights as Floating points we can change them over billions of possibilities like 12.2230 or 12.2245 etc. But in Binary Neural Network(BNN) we fix those weights to +1 and -1 only. Later in this blog, I will explain how BNN is <strong>64 times **faster to that of the floating-point network</strong>. <a href="https://medium.com/unrealai/the-carbon-footprint-of-ai-its-worse-than-gas-powered-cars-4b2996fc731e" target="_blank" rel="noopener">**This</a> blog from <a href="https://www.linkedin.com/in/saurabhdotio/" target="_blank" rel="noopener">Saurabh</a> nicely explains the need for revolutionary Fast AI.</p><h2 id="What-is-behind-the-BNN"><a href="#What-is-behind-the-BNN" class="headerlink" title="What is behind the BNN?"></a>What is behind the BNN?</h2><p>During the forward pass, BNNs drastically reduce memory size and accesses, and replace most arithmetic operations with bit-wise operations, which is expected to substantially improve power-efficiency. We convert floating weights to binarized weights using:</p><p><img src="https://cdn-images-1.medium.com/max/2000/1*IkStZjBu_mbi51WUkgM97A.png" alt=""></p><p>Example:</p><p><img src="https://cdn-images-1.medium.com/max/2000/1*-qZwyyp_uh_EtsU7q043bA.png" alt=""></p><p>After converting weights to +1 and -1. <a href="https://sushscience.wordpress.com/2017/10/01/understanding-binary-neural-networks/" target="_blank" rel="noopener">This</a> blog explains the computation of +1 a. s 1(set bit) and -1 as 0(unset bit).</p><p><img src="https://cdn-images-1.medium.com/max/2000/1*tblU8P44xS0RpLeOyfNPFQ.png" alt=""></p><h2 id="Some-Proof-of-concepts"><a href="#Some-Proof-of-concepts" class="headerlink" title="Some Proof of concepts:"></a>Some Proof of concepts:</h2><p>As BNNs have a very efficient forward pass, They can be used in real-time face detection/recognition using a deep learning system running on a pair of glasses. Billions of IoT devices, small mobile devices, etc. can become smart using BNNs only.</p><p>There are various SOTAs implementations that are available out there like ours <a href="https://github.com/xyzunreal/Fiera" target="_blank" rel="noopener">Fiera</a>. <a href="https://github.com/JDAI-CV/dabnn" target="_blank" rel="noopener">DABNN</a> from JDAI-CV is the highly-optimized binary neural network inference framework for mobile platforms. On Google Pixel 1, DABNN is as 800%-2400% faster as BMXNet. We can deploy BNNs on non-Android ARM devices through onnx2bnn. This is the <a href="https://github.com/JDAI-CV/dabnn/blob/master/docs/model_conversion.md" target="_blank" rel="noopener">documentation about model conversion</a>.</p><p><img src="https://cdn-images-1.medium.com/max/2000/0*qxDr2g8qU1SEVSV-.png" alt=""></p><p>There also have been great papers published to get the good State of the art accuracy for BNN based architectures.</p><p><img src="https://cdn-images-1.medium.com/max/2000/1*LFKiAPicXJQId3XbanwZyw.png" alt="Comparison of accuracies on the ImageNet dataset"><em>Comparison of accuracies on the ImageNet dataset</em></p><p>On combining the above two i.e. DABNN and Methodology we can get more virtuous results. One of the classical examples we have got is <a href="https://github.com/AlexeyAB/darknet/blob/master/cfg/tiny-yolo_xnor.cfg" target="_blank" rel="noopener">Tiny YOLOV4 XNOR</a>. It uses a optimized XNOR operation to perform object detection. You can use this to build traffic monitoring, smart city, danger detection etc use cases. At <a href="nayan.co">nayan</a> we use this to process videos fast on edge. We can also use this technique with Pruning which reduces the network complexity by manyfolds. You can read more from <a href="https://nayan.co/blog/AI/pruning-1/">here</a> </p>]]></content>
+      
+      
+      <categories>
+          
+          <category> AI </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> AI </tag>
+            
+            <tag> Alexnet </tag>
+            
+            <tag> BNN </tag>
+            
+            <tag> yolo </tag>
+            
+            <tag> Traffic monitoring </tag>
+            
+            <tag> Smart city </tag>
+            
+            <tag> danger detection </tag>
+            
+            <tag> Kunal Goyal </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>How to add a lightweight Tooltip popup in your Android Application</title>
       <link href="/blog//Android/A-lightweight-tooltip-popup-for-Android/"/>
       <url>/blog//Android/A-lightweight-tooltip-popup-for-Android/</url>
@@ -453,13 +492,13 @@
             
             <tag> AI </tag>
             
+            <tag> Kunal Goyal </tag>
+            
             <tag> Deep learning </tag>
             
             <tag> jupyter </tag>
             
             <tag> ngrok </tag>
-            
-            <tag> Kunal Goyal </tag>
             
         </tags>
       
