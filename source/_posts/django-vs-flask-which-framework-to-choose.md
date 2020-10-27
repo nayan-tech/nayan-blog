@@ -10,7 +10,7 @@ tags:
 	- data protection
 categories: ['python']
 ---
-{% asset_img image.jpeg %}
+![Django vs Flask comparison](/blog/python/django-vs-flask-which-framework-to-choose/image.jpeg)
 
 This headline you have heard many a times before. There is a lot of buzz going on with these two names whenever you are in a stage when you get confused about should I use **Django** or **Flask** for starting some project. So, in this post I’ll guide you the **“When and Where”** of the projects for both frameworks. Lets get started.
 
