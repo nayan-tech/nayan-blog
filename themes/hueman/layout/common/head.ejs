@@ -32,7 +32,9 @@
     %>
     <meta name="keywords" content="<%= keywords.join(',') %>" />
     <% } %>
+    
     <%- open_graph({
+        url: custom_url(page),
         image:          thumbnail(page),
         fb_app_id:      theme.miscellaneous.open_graph.fb_app_id,
         fb_admins:      theme.miscellaneous.open_graph.fb_admins,

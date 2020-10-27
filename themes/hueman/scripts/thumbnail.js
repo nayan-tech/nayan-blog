@@ -4,6 +4,7 @@
 * @example
 *     <%- thumbnail(post) %>
 */
+
 hexo.extend.helper.register('thumbnail', function (post) {
     var url = post.thumbnail || '';
     if (!url) {
@@ -14,4 +15,10 @@ hexo.extend.helper.register('thumbnail', function (post) {
         }
     }
     return url;
+});
+
+hexo.extend.helper.register('custom_url', function (post) {
+    var canonical_path = post.canonical_path;
+    var updated_url = 'https://nayan.co/blog/' + canonical_path;
+    return updated_url;
 });

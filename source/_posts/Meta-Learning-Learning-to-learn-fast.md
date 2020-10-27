@@ -18,8 +18,7 @@ tags:
 > In this blog, I will explain meta-learning what is also known as learning to learn in machine learning.
 
 
-<!-- ![Meta Learning](meta-learning.png "Meta Learning") -->
-{% asset_img meta-learning.png Meta Learning %}
+![Meta Learning](/blog/AI/Meta-Learning-Learning-to-learn-fast/meta-learning.png)
 
 ## What is Meta-Learning?
 
