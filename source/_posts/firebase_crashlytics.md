@@ -23,7 +23,7 @@ Before we get into the how to integrate Firebase Crashlytics, first we need to r
 
 ## Add Firebase Crashlytics to your app
 
-1. Open top-level build.gradle file and add below classpaths in dependencies
+Open top-level build.gradle file and add below classpaths in dependencies
 
 ```gradle
 buildscript {
@@ -40,7 +40,7 @@ allprojects {
 }
 ```
 
-2. Add Firebase Crashlytics plugin to your app-level build.gradle file
+Add Firebase Crashlytics plugin to your app-level build.gradle file
 
 ```gradle
 apply plugin: 'com.google.gms.google-services'
@@ -49,7 +49,7 @@ apply plugin: 'com.google.firebase.crashlytics'
 
 ## Initialize Crashlytics
 
-1. Add Firebase Crashlytics SDK and Google Analytics SDK (recommended) to your app.
+Add Firebase Crashlytics SDK and Google Analytics SDK (recommended) to your app.
 
 ```gradle
 dependencies {
@@ -69,7 +69,7 @@ throw RuntimeException("Test Crash") // Force a crash
 
 ## References
 
-1. [Firebase Crashlytics]https://firebase.google.com/docs/crashlytics/get-started?platform=android
+1. [Firebase Crashlytics](https://firebase.google.com/docs/crashlytics/get-started?platform=android)
 
 ## Some good reads you may like:-
 
