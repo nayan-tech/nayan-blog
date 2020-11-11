@@ -100,6 +100,3 @@ As you can see in just 15 mins we created a new job that will pull code from a s
 1. Read here to know more about [Android Testing Strategy](http://blog.nayan.co/Android/Android-Testing-Strategy/)
 
 2. Here is an great article to [setup dynamic feature delivery for android application](http://blog.nayan.co/Android/Dynamic-feature-deployment-in-android/)
-
-
-p.s. Nayan is a platform that offers high precision services for traffic monitoring and road safety. Check out our [website](https://nayan.co)

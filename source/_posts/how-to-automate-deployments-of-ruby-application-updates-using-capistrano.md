@@ -1,5 +1,5 @@
 ---
-title: How to automate deployments of Ruby Application updates using Capistrano
+title: Automate deployments of Ruby App updates using Capistrano
 date: 2020-10-31 01:12:32
 author: Ashish Jajoria
 categories:
@@ -208,4 +208,3 @@ You've successfully automated your Ruby project deployment. For more details abo
 1. [Override Devise Auth Token Controllers](https://nayan.co/blog/Ruby-on-Rails/override-devise-auth-token-controllers/)
 2. [Paytm Gateway Integration](https://nayan.co/blog/Ruby-on-Rails/paytm-gateway-integration/)
 
-p.s. Nayan is a platform that offers high precision services for traffic monitoring and road safety. Check out our [website](https://nayan.co)
