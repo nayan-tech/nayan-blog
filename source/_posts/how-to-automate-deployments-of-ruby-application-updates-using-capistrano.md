@@ -207,4 +207,3 @@ You've successfully automated your Ruby project deployment. For more details abo
 
 1. [Override Devise Auth Token Controllers](https://nayan.co/blog/Ruby-on-Rails/override-devise-auth-token-controllers/)
 2. [Paytm Gateway Integration](https://nayan.co/blog/Ruby-on-Rails/paytm-gateway-integration/)
-
