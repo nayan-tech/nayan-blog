@@ -142,8 +142,9 @@ Last but not the least, add index to your column for better performance in queri
 
 ## References:-
 
-1. [Capistrano official website](https://capistranorb.com/)
-2. [Automating deployments of Ruby application updates through Capistrano](https://www.phusionpassenger.com/library/deploy/apache/automating_app_updates/ruby/)
+1. [Ruby on Rails — How to Create Perfect Enum Easily!](https://medium.com/@moulayjam/ruby-on-rails-how-to-create-perfect-enum-easily-d8678e52488e)
+2. [ActiveRecord::Enum](https://api.rubyonrails.org/v5.2.3/classes/ActiveRecord/Enum.html)
+3. [Ruby on Rails - How to Create Perfect Enum in 5 Steps](https://naturaily.com/blog/ruby-on-rails-enum)
 
 ## Some good reads you may like:-
 
