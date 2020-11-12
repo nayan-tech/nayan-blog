@@ -75,5 +75,3 @@ end
 At this point, the `posts` mock object responds to the `each` iterator and returns the 10 mock post objects. It also responds to the `total`, `skip` and `limit` methods correctly.
 
 Hope this helps.
-
-p.s. Nayan is a platform that offers high precision services for traffic monitoring and road safety. Check out our [website](https://nayan.co).
