@@ -3,7 +3,12 @@ title: A simple way to monitor and restart services using Monit
 date: 2020-11-13 12:47:37
 author: Saksham Goyal
 tags:
-
+- NAYAN
+- Machine Learning
+- Deep Learning
+- NAYANINDIA
+- Road Safety
+- Traffic Violation
 ---
 {%asset_img Monit.png "Monit'"%}
 # A simple way to monitor and restart services using Monit
@@ -53,7 +58,7 @@ Now to create a check for Ngix we have to drop in the process definition file in
 
 **Python**
 
-We can also start a python script. Just to try it out, I created a small Flask API to deploy a Deep Learning model and wanted to restart it everytime the system restarts. So for it I created the file /etc/monit/conf.d/flask_api and the contents are:
+We can also start a python script. Just to try it out, I created a small Flask API to deploy any Machine Learning/ Deep Learning (AI) model and wanted to restart it everytime the system restarts. So for it I created the file /etc/monit/conf.d/flask_api and the contents are:
 
     check process flask_api with pidfile /var/run/flask_api.pid
        start = "/bin/su - user -c 'cd path; /usr/bin/python3/app.py'"
@@ -62,3 +67,8 @@ We can also start a python script. Just to try it out, I created a small Flask A
     # path: the full dir_path Ex- /home/user/Desktop/Flask_API
 
 And that’s it. It will automatically restart any service or script. Moreover it is very simple to setup. Monit is quite extensible and can be easily customized or expanded for monitoring all kinds of services for small and large networks.
+
+The author of this blog currently works [NAYAN](https://nayan.co)
+Nayan is a platform that offers high precision services for traffic monitoring, capturing traffic violation and road safety. Check out our [website](https://nayan.co).
+
+Find some more exciting AI blogs [here](https://nayan.co/blog/categories/AI/ "AI blogs")
