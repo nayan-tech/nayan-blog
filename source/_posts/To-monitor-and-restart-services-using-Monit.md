@@ -1,4 +1,11 @@
-{% asset_img monit.png %}
+---
+title: A simple way to monitor and restart services using Monit
+date: 2020-11-13 12:47:37
+author: Saksham Goyal
+tags:
+
+---
+{%asset_img Monit.png "Monit'"%}
 # A simple way to monitor and restart services using Monit
 
 Many times we might have services that are essential to be up and running in the background. But they shutdown/ stop working due to the server/ OS being patched or rebooted.
