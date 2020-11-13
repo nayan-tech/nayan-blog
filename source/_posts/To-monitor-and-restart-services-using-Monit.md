@@ -2,6 +2,7 @@
 title: A simple way to monitor and restart services using Monit
 date: 2020-11-13 12:47:37
 author: Saksham Goyal
+category: AI
 tags:
 - NAYAN
 - Machine Learning
