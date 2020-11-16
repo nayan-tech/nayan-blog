@@ -80,5 +80,3 @@ Help you develop more awesome applications and guide you making the right decisi
 1. Read here to know about [Dynamic feature deployment in android](https://nayan.co/blog/Android/Dynamic-feature-deployment-in-android/)
 
 2. Setup CI/CD Pipeline for [tomcat automation using Jeknins](https://nayan.co/blog/JAVA/How-to-setup-jenkins-CI-CD-pipeline-with-apache-tomcat/)
-
-p.s. Nayan is a platform that offers high precision services for traffic monitoring and road safety. Check out our [website](https://nayan.co/#/home).
