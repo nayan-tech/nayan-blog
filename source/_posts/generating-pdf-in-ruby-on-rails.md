@@ -17,7 +17,7 @@ tags:
 
 We all must have got requirement to generate PDFs at backend and store that on cloud. Well, here is a quick guide on how you can start generating the PDFs your own way without any limits.
 
-{% asset_img prawn.png %}
+![Prawn](/blog/Ruby-on-Rails/generating-pdf-in-ruby-on-rails/prawn.png)
 
 ## Lets start generating PDF step by step:-
 
