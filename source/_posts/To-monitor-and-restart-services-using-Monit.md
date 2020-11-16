@@ -11,7 +11,7 @@ tags:
 - Road Safety
 - Traffic Violation
 ---
-{%asset_img Monit.png "Monit'"%}
+{%asset_img Monit.png "Monit"%}
 # A simple way to monitor and restart services using Monit
 
 Many times we might have services that are essential to be up and running in the background. But they shutdown/ stop working due to the server/ OS being patched or rebooted.
@@ -69,7 +69,7 @@ We can also start a python script. Just to try it out, I created a small Flask A
 
 And that’s it. It will automatically restart any service or script. Moreover it is very simple to setup. Monit is quite extensible and can be easily customized or expanded for monitoring all kinds of services for small and large networks.
 
-The author of this blog currently works [NAYAN](https://nayan.co)
+The author of this blog currently works at [NAYAN](https://nayan.co)
 Nayan is a platform that offers high precision services for traffic monitoring, capturing traffic violation and road safety. Check out our [website](https://nayan.co).
 
 Find some more exciting AI blogs [here](https://nayan.co/blog/categories/AI/ "AI blogs")
