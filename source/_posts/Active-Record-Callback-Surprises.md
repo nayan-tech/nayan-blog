@@ -164,5 +164,3 @@ end
 In most cases you will have different callbacks for create and update, which might make you believe that the usage has no issues. But there’s this edge case that you should be careful of, lest it catch you unawares.
 
 To close, with proper thought and care, Active Record can be used safely and super charge your applications.
-
-p.s. Nayan is a platform that offers high precision services for traffic monitoring and road safety. Check out our [website](https://nayan.co).

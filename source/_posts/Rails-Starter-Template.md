@@ -205,5 +205,3 @@ end
 ```
 
 And with that, we have setup a project with user roles and authentication, with support for both web and API end points. Here's a link to the complete [template file](https://gist.github.com/anujmiddha/d8d987b37466961fab1505de0029eaf6).
-
-p.s. Nayan is a platform that offers high precision services for traffic monitoring and road safety. Check out our [website](https://nayan.co).
