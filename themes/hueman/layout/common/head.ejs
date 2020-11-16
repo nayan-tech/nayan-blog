@@ -29,10 +29,24 @@
         for (var i in page.tags.data) {
             keywords.push(page.tags.data[i].name);
         }
-    %>
-    <meta name="keywords" content="<%= keywords.join(',') %>" />
-    <% } %>
+        
+        while (keywords.length >= 10) {
+            keywords.pop()
+        }
+
+        var mendatory_keywords = ['traffic monitoring', 'road safety']
+        var nayan_keywords = ['NAYAN','AI','Livelihood','Driver analytics','Violation mapping','Better commute','Monitor infrastructure defects','Safer roads','Traffic Violation','Artificial Intelligence','India','Smart City','Safety','Data Protection','PARKING DETECTION','VEHICLE OCCUPANCY DETECTION','NAYANINDIA','USER INTERACTION','NAYAN IP','NAYAN DATA PROTECTION','Road User','Public Road','Vehicle','Dangers','MACHINE LEARNING']
+        
+        keywords = get_new_keywords(keywords, mendatory_keywords)
+
+        if (keywords.length < 10) {
+            keywords = get_new_keywords(keywords, nayan_keywords)
+        }
+        page.keywords = keywords;
+    } %>
+    
     <%- open_graph({
+        url: custom_url(page),
         image:          thumbnail(page),
         fb_app_id:      theme.miscellaneous.open_graph.fb_app_id,
         fb_admins:      theme.miscellaneous.open_graph.fb_admins,
