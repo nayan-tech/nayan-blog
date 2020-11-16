@@ -150,5 +150,3 @@ select * from sqladmin.test_tbl;
 1. [React CI/CD](https://nayan.co/blog/Web/react-cicd/)
 2. [Angular Youtube integration](https://nayan.co/blog/Web/angular-youtube/)
 3. [Angular maps and clusters](https://nayan.co/blog/Web/angular-maps/)
-
-p.s. Nayan is a platform that offers high precision services for traffic monitoring and road safety. Check out our [website](https://nayan.co)
