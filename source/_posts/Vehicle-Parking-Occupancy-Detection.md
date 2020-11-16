@@ -13,7 +13,8 @@ tags:
 Circling around the parking is one of the most annoying experiences mainly because it is time consuming and quite irritating too.
 However , there has been a major boost in the field of [Deep Learning](https://nayan.co/#/home) and [Computer Vision](https://nayan.co/#/home) in the past few years which enables us to create a robust and a real-time solution.
 
-{% asset_img 20140103__bartpark31-1.jpg Depicting the Problem %}
+![AI Depicting the Problem](/blog/AI/Vehicle-Parking-Occupancy-Detection/asset_img 20140103__bartpark31-1.jpg)
+
 
 ### Plan Of Attack
 

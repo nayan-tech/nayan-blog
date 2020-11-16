@@ -18,6 +18,7 @@ tags:
 A complete guide on adding payments to your Android app with backend as RoR
 
 {% asset_img img_flow_android_ios_sdk.png %}
+![Flow diagram of SDK](/blog/Ruby-on-Rails/paytm-gateway-integration/img_flow_android_ios_sdk.png)
 
 ## Steps :-
 
