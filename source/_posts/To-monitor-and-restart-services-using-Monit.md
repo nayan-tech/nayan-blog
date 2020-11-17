@@ -12,6 +12,8 @@ tags:
 - Traffic Violation
 ---
 {%asset_img Monit.png "Monit"%}
+![Monit](/blog/AI/To-monitor-and-restart-services-using-Monit/Monit.png)
+
 # A simple way to monitor and restart services using Monit
 
 Many times we might have services that are essential to be up and running in the background. But they shutdown/ stop working due to the server/ OS being patched or rebooted.
