@@ -11,7 +11,6 @@ tags:
 - Road Safety
 - Traffic Violation
 ---
-{%asset_img Monit.png "Monit"%}
 ![Monit](/blog/AI/To-monitor-and-restart-services-using-Monit/Monit.png)
 
 # A simple way to monitor and restart services using Monit
