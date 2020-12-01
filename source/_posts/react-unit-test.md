@@ -13,7 +13,7 @@ tags:
   - India
 ---
 
-![React unit testing](/blog/Web/react-unit-testing/banner.jpeg)
+![React unit testing](/blog/Web/react-unit-test/banner.jpeg)
 
 I don’t think I have to tell you the importance of unit testing your code, so i’ll dive in directly to unit testing with Jest and Enzyme.
 
