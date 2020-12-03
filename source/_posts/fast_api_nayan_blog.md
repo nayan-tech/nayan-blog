@@ -6,7 +6,8 @@
 ---
 title: Getting started with FastAPI
 author: Abhishek Bose
-category: Python
+categories:
+- ["Python"]
 tags:
 - Python
 - NAYAN
