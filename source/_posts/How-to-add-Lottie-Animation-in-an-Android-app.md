@@ -149,5 +149,3 @@ class MainActivity : AppCompatActivity() {
 
 1. [App-Heartbeat](https://nayan.co/blog/Android/App-Heartbeat/)
 2. [How to apply Proguard in an android application](https://nayan.co/blog/Android/Applying-Proguard-in-an-android-application/)
-
-p.s. Nayan is a platform that offers high precision services for traffic monitoring and road safety. Check out our [website](https://nayan.co/).

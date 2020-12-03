@@ -25,9 +25,9 @@ jobs:
           passphrase: ${{ secrets.PASS }}
           script: |
             cd blog
-            sudo git checkout master
-            sudo git pull
-            sudo npm install
-            sudo hexo clean
-            sudo hexo generate
+            git checkout master
+            git pull
+            npm install
+            hexo clean
+            hexo generate
 
