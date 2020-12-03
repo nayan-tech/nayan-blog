@@ -4,18 +4,19 @@ date: 2020-11-19 16:31:19
 author: Anubhav Rohatgi
 category: AI
 tags: 
-- computer vision
-- machine learning
-- ml
+- image processing
 - nayan
 - anubhav rohatgi
 - algorithm
+- integral image
+- summed area table
+- ANPR
 ---
 ![Featured](https://computersciencesource.files.wordpress.com/2010/09/adding_1.png)
 
 # Integral Image or Summed Area Table
 
-An Integral image is where each pixel represents the cumulative sum of a corresponding input pixel with all pixels above and left of the input pixel. It enables rapid calculation of summations over image sub-regions. Any rectangular subset of such sub-region can be evaluated in constant time.
+An Integral image is where each pixel represents the cumulative sum of a corresponding input pixel with all pixels above and left of the input pixel. This algorithm enables rapid calculation of summations over image sub-regions. Any rectangular subset of such sub-region can be evaluated in constant time.
 
 This concept was introduced by Viola & Jones and is also known as *Summed Area Table*. allow fast computation of rectangular image features since they enable the summation of image values over any rectangle image region in constant time i.e. computational complexity of O(1) instead of O(n).
 
@@ -59,6 +60,7 @@ Sum = Bottom right + top left — top right — bottom left
 
 * O(1) Bilateral with Constant Spatial Filters
 
+We at **NAYAN** have been using this quiet progressively to performa adaptive thresholding for License Plates from vehicles to better the output of OCR. So far we have been able to push our OCR accuracies from 91% to 97% by using a combination of techinques which also employ adaptive thresholding on unconstrained environments.
 
 ```cpp
     class NumMatrix {
@@ -85,6 +87,9 @@ Sum = Bottom right + top left — top right — bottom left
         }
     };
 ```
+
+You can read more about how we implemetned smart parking finder [here](https://nayan.co/blog/AI/Vehicle-Parking-Occupancy-Detection)
+
 **References**
 
 1. [http://apurvsaxena.blogspot.com/2012/06/integral-image.html](http://apurvsaxena.blogspot.com/2012/06/integral-image.html)
@@ -100,3 +105,4 @@ Sum = Bottom right + top left — top right — bottom left
 1. [https://www.slideshare.net/egorodet/cpu-is-in-focus-again-implementing-dof-on-cpu](https://www.slideshare.net/egorodet/cpu-is-in-focus-again-implementing-dof-on-cpu)
 
 1. [https://arxiv.org/pdf/1907.06154.pdf](https://arxiv.org/pdf/1907.06154.pdf)
+
