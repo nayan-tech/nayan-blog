@@ -15,12 +15,12 @@ tags:
 
 ![React unit testing](/blog/Web/react-unit-test/banner.jpeg)
 
-I don’t think I have to tell you the importance of unit testing your code, so i’ll dive in directly to unit testing with Jest and Enzyme.
+I don’t think I even have to inform you the importance of unit testing your code, so i’ll dive in on to unit testing with Jest and Enzyme.
 
-First of all what are Jest and Enzyme? [Jest](https://jestjs.io/) was created by Facebook and is a testing framework to test javascript and React code. Together with Airbnb’s [Enzyme](https://enzymejs.github.io/enzyme/index.html), which is a testing utility, makes it the perfect match to easily test your React application.
+First of all what are Jest and Enzyme? [Jest](https://jestjs.io/) was created by Facebook and may be a testing framework to check javascript and React code. along side Airbnb’s [Enzyme](https://enzymejs.github.io/enzyme/index.html), which may be a testing utility, makes it the right match to simply test your React application.
 Snapshots to the rescue
 
-Let’s start off easy with testing a simple pure stateless (a.k.a. dumb) component which renders a simple link element containing a title and an url.
+Let’s begin easy with testing an easy pure stateless (a.k.a. dumb) component which renders an easy link element containing a title and an url.
 ```
 import React from 'react';
 import { string } from 'prop-types';
@@ -32,8 +32,7 @@ Link.propTypes = {
 export default Link;
 ```
 
-We want to test this component by checking if the properties are coming in right and if it’s rendered correctly. With Jest we have a very easy way to do this by creating snapshots. The first time when running the test a snapshot is created. You can then look at the created file to check whether this rendered component matches your desired outcome. Let’s write the first test for our component. In this case we’re gonna use the [shallow](https://enzymejs.github.io/enzyme/docs/api/shallow.html) renderer of Enzyme to help us creating the snapshot.
-
+We want to check this component by checking if the properties are coming in right and if it’s rendered correctly. With Jest we've a really easy thanks to do that by creating snapshots. the primary time when running the test a snapshot is made . you'll then check out the created file to see whether this rendered component matches your required outcome. Let’s write the primary test for our component. during this case we’re gonna use the [shallow](https://enzymejs.github.io/enzyme/docs/api/shallow.html) renderer of Enzyme to assist us creating the snapshot.
 ```
 import React from 'react';
 import { shallow } from 'enzyme';
@@ -49,7 +48,7 @@ describe('Link', () => {
 });
 ```
 
-After running the tests, Jest will automaticly create a `__snapshots__` directory and a snapshot file containing the outcome of the test. In this case it creates a `Link-spec.js.snap` file containing the following outcome of the rendering of our component.
+After running the tests, Jest will automaticly create a `__snapshots__` directory and a snapshot file containing the outcome of the test. In this case it creates a `Link-spec.js.snap` file containing the subsequent outcome of the rendering of our component.
 ```
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 exports[`Link should render correctly 1`] = `
@@ -63,7 +62,7 @@ exports[`Link should render correctly 1`] = `
 
 
 ### Simulating events
-Let’s upgrade our component by adding a click event. This also means we have to rewrite our component to the class notation as we are going to bind the click event function to the component. Which can easily be done by creating an arrow function inside our component.
+Let’s update our component by adding click event-listener. This also means we've to rewrite our component to the category notation as we are getting to bind the click event function to the component. Which can be done by creating a function inside your component.
 ```
 import React, { Component } from 'react';
 import { string } from 'prop-types';
@@ -78,7 +77,7 @@ class Link extends Component {
 }
 ```
 
-When you run our previous test at this moment, it will fail as your saved snapshot doesn’t match the new snapshot because we added the onClick property. If the snapshot looks correctly, you can easily update it by pressing u. The snapshot will now look like:
+When you run our previous test at this moment, it'll fail as your saved snapshot doesn’t match the new snapshot because we added the onClick property. If the snapshot looks correctly, you'll easily update it by pressing u. The snapshot will now look like:
 ```
 exports[`Link should render correctly 1`] = `
 <a
@@ -91,7 +90,7 @@ exports[`Link should render correctly 1`] = `
 `;
 ```
 
-We are going to create a second test case to check whether the onClick event is being handled correctly. Our click events triggers an alert and we can easily mock this functionality in Jest by using [jest.fn()](https://jestjs.io/docs/en/jest-object). After shallow rendering our component we’re simulating a click event and check if the alert is being called with the correct string. (In this case no snapshot file is created, as we don’t use the snapshot functionality)
+We are going to create a another test case to check whether the onClick event is being handled or not. Our click events triggers an alert message and we can mock this functionality in Jest testing library by using [jest.fn()](https://jestjs.io/docs/en/jest-object). After rendering our component we’re trying to simulate a click event and check if the alert is called with the correct message. (In this case no snapshot is created, as we don’t use the snapshot feature)
 ```
 it('should handle the click event', () => {
   window.alert = jest.fn();
@@ -104,7 +103,7 @@ it('should handle the click event', () => {
 ```
 
 ### Testing the state
-We can also easily test the state of our component. Update the component by initiating the state in the constructor and expanding the click event with the setState function. When clicking on the element, we’re now also going to update the clicked state from false to true.
+We can also test the state of the component. Update the component by adding the state in the constructor and expanding the click listener with the setState method. When clicking on the button, we’re now also going to modulate the clicked state from false to true.
 ```
 class Link extends Component {
   constructor(props) {
@@ -119,7 +118,7 @@ class Link extends Component {
 }
 ```
 
-Let’s create a third test where we render the output and check the state. The first time we check the clicked state property should be false. After a click the property should be changed to true.
+Let’s create a another test where we render the output and verify the state. The first time we check the click state property should be false. After a click the state should be changed to true.
 ```
 it('should handle state changes', () => {
   const output = shallow(
@@ -133,11 +132,11 @@ it('should handle state changes', () => {
 ```
 
 ### The art of mocking
-One of the best benefits of Jest is the easiness of creating all kind of mocks. We already used jest.fn() in one of our unit tests which is a very simple mock function that returns a spy, but you can also mock entire files.
+One of the pros of Jest is the ease of creating all different kind of mocks. We already used jest.fn() in one of unit tests which is a simple mock method that returns a value, but you can also mock entire files as a whole.
 
-> If you aren’t mocking, you aren’t unit testing!
+> If you are not mocking, you are not unit testing!
 
-The most easiest way to mock files is using the jest.mock function which automatically mocks the file by returning mocked functions. Let try to mock react-dom and check whether the render function has been called.
+The simplest way to mock files is using the jest.mock method which automatically mocks the file by returning mocked methods. Let try to mock react and react-dom and check whether the render method has been called.
 ```
 import React from 'react';
 import { render } from 'react-dom';
@@ -153,25 +152,25 @@ describe('Link', () => {
 });
 ```
 
-We create the test like we normally would do, but added the jest.mock line. Now the render function of react-dom is a mock function which returns a spy which we can now use in our test to check whether it has been called with the correct properties.
+We create a test like we would normally do, but adding the jest.mock line. Now the render method of react is a mock method which returns a valye which we can now use in our test to verify whether it has been used with the correct properties or not.
 
-When you don’t want Jest to automatically create mock functions of your file, you can easily create a mock file yourself. Just create a `__mocks__` directory and add the to be mocked file in there. Now Jest will use this file when you call jest.mock in your unit test. For the react-dom example, create react-dom.js file which returns the render spy function.
+When you do not want Jest to automatically create mock methods of your file, you can easily create a mock file for yourself. Just create a `__mocks__` directory and add the to be mock file in there. Now Jest will use that file when you call jest.mock in your unit tests. For the react example, create react-dom.js file which returns the render value function.
 ```
 export default {
   render: jest.fn(),
 };
 ```
 
-In our example we’re returning a spy function on which we can check whether it’s called correctly, but you’re spy could also return values or implementations.
+In our example we’re returning a value method on which we can verify whether it is correct, but your value could also return values or implementations rather than single value.
 ```
 render: jest.fn().mockReturnValue('component is rendered'),
 render: jest.fn().mockImplementation(() => 'mock implementation'),
 ```
 
 ### Roundup
-So these are the very basics of unit testing your application using Jest and Enzyme. Both have very good online documentation available, start from here and you can create your unit tests in a fast, efficient and easy way!
+So these are very simple techiniques of unit testing your application using Jest and Enzyme in React applications. Both have good online documentation, start from here and you can create your unit test in a fast and efficient!
 
-There’s no reason to not start testing today ;)
+There is no reason to not start testing today ;)
 
 ## References
 1. [Jest](https://jestjs.io/)
