@@ -18,16 +18,16 @@ Android 10 or above introduced a new feature: Dark theme. Dark theme applies to 
 ![Dark Mode](/blog/Android/android_dark_theme/dark_theme_1.png)
 
 It has many benefits:
-1. Can reduce power usage by a significant amount (depending on the device’s screen technology).
+
+1. Can reduce power usage (depending on the device’s screen technology).
 2. Improves visibility for users with low vision and those who are sensitive to bright light.
 3. Makes it easier for anyone to use a device in a low-light environment.
 
-
 ## Let’s begin
 
-### 1. Dependencies
+### 1. App Level Dependencies
 
-Add the following dependency to your app-level build.gradle file
+First you need to add the material design dependency to your app-level build.gradle file
 
 ```gradle
 //Material Design
@@ -44,7 +44,7 @@ Till now we have the parent theme as:
 
 Basically, a DayNight theme is composed of a Light theme in the values directory and a Dark theme in the values-night directory.
 
-Create the night resource qualifier under res/values-night/themes.xml
+Create the night resource files under ``res/values-night/themes.xml``
 
 ![Night Resource Qualifier](/blog/Android/android_dark_theme/dark_theme_2.png)
 
