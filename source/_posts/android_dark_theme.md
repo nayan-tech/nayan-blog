@@ -13,7 +13,7 @@ tags:
 
 ---
 
-Android 10(API level 29) introduced an exciting new user feature: Dark theme. While support for dark theme is not new to Android, Android 10 introduced a system-level toggle that switches between dark and light themes. That means the theme applies to the system UI as well, not only specific apps.
+Android 10 or above introduced a new feature: Dark theme. Dark theme applies to both the Android UI and apps (support dark mode) running on the device. Android 10 gave a system-level option that switches between dark and light themes.
 
 ![Dark Mode](/blog/Android/android_dark_theme/dark_theme_1.png)
 
@@ -48,39 +48,42 @@ Create the night resource qualifier under res/values-night/themes.xml
 
 ![Night Resource Qualifier](/blog/Android/android_dark_theme/dark_theme_2.png)
 
-values/themes.xml
+Add light theme in ``res/values/themes.xml``
 
 ```xml
 <style name="Theme.MaterialComponents.DayNight.NoActionBar.Bridge." parent="Theme.MaterialComponents.Light.NoActionBar.Bridge">
+    <!-- Customize your theme here. -->
     <item name="colorPrimary">@color/colorPrimary</item>
     <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
     <item name="colorAccent">@color/colorAccent</item>
 </style>
 ```
 
-values-night/themes.xml
+Add dark theme in ``res/values-night/themes.xml``
 
 ```xml
 <style name="Theme.MaterialComponents.DayNight.NoActionBar.Bridge." parent="Theme.MaterialComponents.NoActionBar.Bridge">
+    <!-- Customize your theme here. -->
     <item name="colorPrimary">@color/colorPrimary</item>
     <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
     <item name="colorAccent">@color/colorAccent</item>
 </style>
 ```
 
-And then, declare your AppTheme:
-
-values/themes.xml
+And then, declare your AppTheme in ``res/values/themes.xml``, where parent theme will be yours dark/light theme
 
 ```xml
 <style name="AppTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar.Bridge">
+    <!-- Customize your theme here. -->
     <item name="colorPrimary">@color/colorPrimary</item>
     <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
     <item name="colorAccent">@color/colorAccent</item>
 </style>
 ```
 
-values/colors.xml
+Now add colors files for both dark and light theme:
+
+For light theme add colors in ``res/values/colors.xml``
 
 ```xml
 <color name="colorPrimary">#fff5f5f5</color>
@@ -88,7 +91,7 @@ values/colors.xml
 <color name="colorAccent">#ff009688</color>
 ```
 
-values-night/colors.xml
+And for dark theme add colors in ``res/values-night/colors.xml``
 
 ```xml
 <color name="colorPrimary">#ff212121</color>
@@ -98,9 +101,9 @@ values-night/colors.xml
 
 ![Light Mode-Dark Mode](/blog/Android/android_dark_theme/dark_theme_3.png)
 
-### 3. Allow users to change the app’s theme
+### 3. Allow users to change the app’s theme programmatically
 
-Use the following code in your Activity to change the night mode:
+Use the following code in your Activity to change the app mode between dark and light.
 
 ```kotlin
 button.setOnClickListener {
