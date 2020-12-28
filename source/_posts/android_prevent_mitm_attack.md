@@ -42,7 +42,7 @@ val certificatePinner = CertificatePinner.Builder()
     .build()
 ```
 
-After that you need to **inject this newly created CretificatePinner instance in OkHttpClientBuilder**.
+After that you need to **provide this newly created CertificatePinner instance in OkHttpClientBuilder**.
 
 ```kotlin
 val okHttpClient = OkHttpClient.Builder()
@@ -51,7 +51,7 @@ val okHttpClient = OkHttpClient.Builder()
 ```
 You can add multiple fingerprints for different domains. But the question raises which certificate to pin from the chain of trust of SSL Certificate Chain. A Certificate Chain is an ordered list of certificates, containing an SSL Certificate and Certificate Authority (CA) Certificates which enable the receiver to verify that the sender and all CA’s are trustworthy. 
 
-Without Ssl certificate pinning, an application will accepts any certificate which matches the requested hostname and is issued by any trusted CA. As there are usually more than 100 CA’s in the local trust store there is a good possibility that one of these get successfully attacked. Hence you should consider this technique.
+Without Ssl certificate pinning, an application will accepts any certificate which matches the requested hostname and is issued by any trusted CA. There is a good possibility that one of trusted CA might get successfully attacked. Hence you should consider this technique.
 
 
 ## References:-
