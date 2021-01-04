@@ -102,7 +102,7 @@ to build:
 
 ### Set codecov test cover
 
-First, go to [Codecov's website](https://codecov.io/) and create an account, you can use your GitHub account to sign up.
+First, go to [Codecov's website](https://codecov.io/) and create an account, you can use a GitHub account to sign-up.
 
 Next, access your account on the website, click Cache, in the background, click Enter new storage location and select the last location you want to use. (we will set the secret in abit)
 
