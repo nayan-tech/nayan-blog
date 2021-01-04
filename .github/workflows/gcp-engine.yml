@@ -34,5 +34,7 @@ jobs:
       - run: npm install
       - run: hexo clean
       - run: hexo generate
+      - name: Removing the old blog files
+        run: rm -rf /home/rana/public/blog/*
       - name: Move source folder to nginx direc
         run: cp -r ./blog/* /home/rana/public/blog
