@@ -15,7 +15,7 @@ tags:
 
 In this tutorial, I will show you how to make the easy workflow I use for my React projects.
 
-This workflow created in GitHub Actions will be responsible for automatically checking the source code, generating a test report spread and uploading it to Codecov, building and posting the project on GitHub pages. All of these activities were done through a Push or pull application event at a large branch.
+The workflow created in GitHub Actions will be responsible for pulling the latest source code, generating a test report spread if test are configured and uploading it to Codecov, building and posting the project on GitHub pages. All of these activities will be done through a push event into your branch.
 
 ## Getting Started
 
