@@ -11,7 +11,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [14.x]
+        node-version: [12.x]
       
     steps:
       - uses: actions/checkout@v2
@@ -34,5 +34,7 @@ jobs:
       - run: npm install
       - run: hexo clean
       - run: hexo generate
+      - name: Removing the old blog files
+        run: sudo rm -rf /var/www/nayan-blog/blog/*
       - name: Move source folder to nginx direc
-        run: cp -r ./blog/* /home/rana/public/blog
+        run: sudo cp -r ./blog/* /var/www/nayan-blog/blog

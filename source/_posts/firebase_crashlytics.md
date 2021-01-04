@@ -1,5 +1,5 @@
 ---
-title: How to add Firebase Analytics in an Android application
+title: How to add Firebase Crashlytics in an Android application
 date: 2020-10-31 21:50:48
 author: Diwakar Singh
 category: Android
@@ -75,5 +75,3 @@ throw RuntimeException("Test Crash") // Force a crash
 
 1. [App-Heartbeat](https://nayan.co/blog/Android/App-Heartbeat/)
 2. [How to add Lottie Animation in an android application](https://nayan.co/blog/Android/How-to-add-Lottie-Animation-in-an-Android-app/)
-
-p.s. Nayan is a platform that offers high precision services for traffic monitoring and road safety. Check out our [website](https://nayan.co/).
