@@ -143,5 +143,3 @@ And we are done!
 
 1. [Lottie Animation](https://nayan.co/blog/Android/How-to-add-Lottie-Animation-in-an-Android-app/)
 2. [How to apply Proguard in an android application](https://nayan.co/blog/Android/Applying-Proguard-in-an-android-application/)
-
-p.s. [Nayan](https://nayan.co/) is a platform that offers high precision services for [traffic monitoring](https://nayan.co/) and [road safety](https://nayan.co/). Check out our [website](https://nayan.co/).
