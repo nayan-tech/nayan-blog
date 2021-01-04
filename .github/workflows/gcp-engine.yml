@@ -35,4 +35,4 @@ jobs:
       - run: hexo clean
       - run: hexo generate
       - name: Move source folder to nginx direc
-        run: sudo cp -r ./blog/* /home/rana/public/blog
+        run: cp -r ./blog/* /home/rana/public/blog
