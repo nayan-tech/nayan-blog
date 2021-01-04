@@ -14,7 +14,7 @@ tags:
 
 ![Google Analytics](/blog/Web/angular-analytics/banner.png)
 
-In 2018, Google Tag Manager (GTM) became the recommended way to integrate Google Analytics (GA) into the site. Here's how to add a new Tag Manager SDK to your Angular app to track standard page views.
+In 2018, Google Tag Manager (GTM) became the best way to integrate Google Analytics (GA) into the your website. Here's how to integrate a new Tag Manager SDK to your web app to track page views.
 
 ## Guessing and setting
 
