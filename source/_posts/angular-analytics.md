@@ -14,92 +14,87 @@ tags:
 
 ![Google Analytics](/blog/Web/angular-analytics/banner.png)
 
-In 2018, Google Tag Manager (GTM) became the recommended way to integrate Google Analytics (GA) into a site. Here's how to integrate the new Tag Manager SDK into your Angular app to track normal page views.
+In 2018, Google Tag Manager (GTM) became the recommended way to integrate Google Analytics (GA) into the site. Here's how to add a new Tag Manager SDK to your Angular app to track standard page views.
 
-## Assumptions & Setup
-This tutorial assumes you already have the router installed and configured. We'll be relying on it to get the appropriate events for tracking.
+## Guessing and setting
 
-1. Setup Analytics Property & Get Tracking ID
-This isn't an analytics tutorial, but it's pretty easy to visit [analytics.google.com](https://analytics.google.com/analytics/web/provision/#/provision) and create a new analytics property. The important thing you will need is the tracking ID it gives you.
+This tutorial assumes that you already have a router installed and configured. We will be relying on it to find the right tracking events.
 
-2. Install GTM
-Copy and paste the tracking code into the beginning of your `head` tag in your index.html. It should look something like this, but make sure to replace `MY_TAG` with something that looks like `UA-23639210-1`.
-```
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=MY_TAG"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-</script>
-```
+1. Set Analytics Asset & Get tracking ID
+   This is not a mathematical study, but it is easy to visit [analytics.google.com] (https://analytics.google.com/analytics/web/provision/#/provision) and build a new mathematical asset. The most important thing you will need is the tracking ID it gives you.
 
-Also note that we removed one line. This line was responsible for submitting the first page load, but we'll let our router do that.
+2. Install the GTM
+   Copy and paste the tracking code at the beginning of your `head` tag to your index.html. It should look like something like this, but be sure to replace it with `MY_TAG` with something that looks like` UA-23639210-1`.
+   ```
+   <! - Global Site Marker (gtag.js) - Google Analytics ->
+   <script async src = "https://www.googletagmanager.com/gtag/js?id=MY_TAG"> </script>
+   <script>
+     window.dataLayer = window.dataLayer || [];
+     function gtag () {dataLayer.push (argument);}
+     gtag ('js', new day ());
+   </script>
+   ```
 
-REMOVE THIS LINE:
-`gtag('config', 'MY_TAG);`
+Also note that we have deleted one line. This line was intended to deliver the first load of the page, but we will allow our route to do so.
+
+Delete this Line:
+`gtag ('setup', 'MY_TAG);`
 
 3. Track Router NavigationEnd Events
-We need to let GA know whenever a user makes a client side navigation. This will happen on page load, as well as on upon any navigation event ending. This will ignore intermediate pages and redirects, as well things like guards that might prevent a page from being accessed.
+   We need to notify GA whenever a user performs client side roaming. This will happen in page loading, and at any end of the navigation event. This will ignore the middle pages and redirect, as well as security features that could block the page from being found.
 
-We need to do this somewhere exactly once in our application, so I always put this code in my root component `app.component.ts`.
+We need to do this somehow once in our app, so I always put this code in my root section `app.component.ts`.
 
-Let's add a tool from RxJS to get just the events we care about. I'll let VSCode add the other imports we'll need (`Router` if you don't have it, `NavigationEnd` from router as well).
-```
-import { filter } from 'rxjs/operators';
-```
+Let's add a tool from RxJS to find just the events we care about. I will allow VSCode to add another import we will need (`Router` if you do not have,` NavigationEnd` from the router again).
+`import {filter} from 'rxjs / operator';`
 
-Below the import statements, let's let the typing system know were going to be using a global variable registered by GTM.
-```
-declare var gtag
-```
+Below the import statements, let us know the typing system will use the GTM-registered land variables.
+`call var gtag`
 
-Now let's track the events and let GA know for each event the URL that the user has ended up on.
+Now let's follow the events and notify GA for each event the user has saved the URL.
+
 ```
-constructor(router: Router) {
-  const navEndEvent$ = router.events.pipe(
-    filter(e => e instanceof NavigationEnd)
-  );
-  navEndEvent$.subscribe((e: NavigationEnd) => {
-    gtag('config', 'MY_ID', {'page_path':e.urlAfterRedirects});
-  });
+builder (route: Router) {
+const navEndEvent $ = router.events.pipe (
+filter (e => e instanceof NavigationEnd)
+);
+navEndEvent $ .subscribe ((e: NavigationEnd) => {
+gtag ('config', 'MY_ID', {'page_path': e.urlAfterRedirects});
+});
 
 }
 ```
 
-![Dev Tools](/blog/Web/angular-analytics/image_1.png)
+![Dev tools](/blog/Web/angular-analytics/image_1.png)
 
-## Bonus Step - Variable Tracking IDs based on environmental variable
-Perhaps you want to track your development environment separately from your production environment? To do this we have to tweak the way we import GTM.
+## Bonus Step - Variable Tracking IDs are based on natural variables
 
-Let's leave some of the config setup in our `index.html`.
+Maybe you want to follow your development environment differently in your production environment? To do this we need to change the way we import GTM.
+
+Let's leave some setup in our `index.html`.
+
 ```
 <script>
   window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  function gtag () {dataLayer.push (argument);}
+  gtag ('js', new day ());
 </script>
 ```
 
-The rest is moved to our `app.component.ts` constructor. Here we dynamically inject it via an environmental variable from `environment.ts` and `environment.prod.ts`
-```
-const script = document.createElement('script');
-    script.async = true;
-    script.src = 'https://www.googletagmanager.com/gtag/js?id=' + environment.code;
-    document.head.prepend(script);﻿
-```
+Some are removed from our `app.component.ts` builder. Here we are injecting it vigorously with evolution from `nature.ts` and` nature.prod.ts`
+`script = document.createElement ('script'); script.async = true; script.src = 'https://www.googletagmanager.com/gtag/js?id=' + environment.code; document.head.prepend (script);`
 
-For this code to work, we need to add a `code` property and import our environment file. In the `envioronment.ts` file for each of our environments, we add:
-```
-code: 'MY_TRACKING_ID'
-```
+For this code to work, we need to install `code` properties and import our native file. In the `en eniononment.ts` file for each of our locations, we add:
+`code: 'MY_TRACKING_ID'`
 
-Feel free to name the variable something that makes sense and doesn't conflict with your other configuration.
+Feel free to name a variable that makes sense and does not conflict with your other configurations.
 
 ## References:-
+
 1. [Google Analytics](https://analytics.google.com/analytics/web/provision/?hl=en#/provision)
 2. [Google Dev docs](https://developers.google.com/analytics)
 
 ## Some good reads you may like:-
+
 1. [Angular Youtube integration](https://nayan.co/blog/Web/angular-youtube/)
 2. [Angular maps and clusters](https://nayan.co/blog/Web/angular-maps/)
