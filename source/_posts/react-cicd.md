@@ -13,151 +13,154 @@ tags:
   - Code coverage
 ---
 
-In this tutorial, I'm going to show you how to create a simple workflow that I use on my personal projects with React.
+In this tutorial, I will show you how to make the easy workflow I use for my React projects.
 
-This workflow created on GitHub Actions will be responsible for automatically test the source code, generate a test coverage report and upload it on Codecov, build and deploy the project on GitHub Pages. All these jobs are activated by a push or pull request event on master branch.
+This workflow created in GitHub Actions will be responsible for automatically checking the source code, generating a test report spread and uploading it to Codecov, building and posting the project on GitHub pages. All of these activities were done through a Push or pull application event at a large branch.
 
-## Getting started
+## Getting Started
 
-First, on your React App GitHub repository, navigate to the main page of the repository, click Actions.
+First of all, in your last React App GitHub, navigate to the last main page, click on Actions.
 
-Then, you'll see suggestions of CI templates that are the best fit for your project. You can use workflow templates as a starting place to build your custom workflow.
-In this case, click Set up this workflow, under the name of the template Node.js.   
+After that, you will see CI template suggestions that are best suited for your project. You can use workflow templates as the starting point for building your custom workflow.
+In this case, click Set this functionality, under the Node.js template name.
 
 ![Basic workflow](/blog/Web/react-cicd/image1.jpeg)
 
-Finally, you'll see a default YAML file like this:
+Finally, you will see the default YAML file as follows:
+
 ```
 name: Node.js CI
 
-on:
-  push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
+to:
+Push:
+branches: [master]
+donsa_cela:
+branches: [master]
 
 jobs:
-  build:
+to build:
 
-    runs-on: ubuntu-latest
+    advances: personality-latest
 
-    strategy:
+    site:
       matrix:
-        node-version: [10.x, 12.x, 14.x]
+        Node type: [10.x, 12.x, 14.x]
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }}
-    - run: npm ci
+    - uses: actions / checkout @ v2
+    - name: Use Node.js $ {{matrix.node-version}}
+      uses: actions / setup-node @ v1
+      no:
+        version-node: $ {{matrix.node-version}}
+    - gijima: npm ci
     - run: npm run build --if-present
     - run: npm test
+
 ```
 
-## Test coverage report generation
-Lets update workflow abit to add test coverage step in our workflow
-```
-name: CI/CD
+## Production spread test report
 
-on:
-  push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
+Allow workflow reviews to add step coverage to our workflow test
+
+```
+name: CI / CD
+
+to:
+Push:
+branches: [master]
+donsa_cela:
+branches: [master]
 
 jobs:
-  build:
+to build:
 
-    runs-on: ubuntu-latest
+    advances: personality-latest
 
-    strategy:
+    site:
       matrix:
-        node-version: [12.x]
+        Node type: [12.x]
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
+    - name: Storage location
+      uses: actions / checkout @ v2
 
-    - name: Set up Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }}
+    - name: Set Node.js $ {{matrix.node-version}}
+      uses: actions / setup-node @ v1
+      no:
+        version-node: $ {{matrix.node-version}}
 
-    - name: Install dependencies
-      run: npm install
+    - name: Enter dependency
+      run: npm to install
 
-    - name: Run the tests
+    - name: Launch tests
       run: npm test
 
     - name: Build
       run: npm run build
+
 ```
 
-### Setup codecov test coverage 
-First, go to the [Codecov website](https://codecov.io/) and create an account, you can use your GitHub account to sign up.
+### Set codecov test cover
 
-Next, access your account on the website, click Repositories, after, click Add new repository and choose the repository you want to use. (we will setup secret in abit)
+First, go to [Codecov's website](https://codecov.io/) and create an account, you can use your GitHub account to sign up.
 
-## Deployment on GitHub Pages
-Install `gh-pages` and add `deploy` to scripts in `package.json`.
-Run:
-```
-$ npm install --save gh-pages
-```
-Add the following scripts in your package.json:
-```
-"predeploy": "npm run build",
-"deploy": "gh-pages -d build",
-```
+Next, access your account on the website, click Cache, in the background, click Enter new storage location and select the last location you want to use. (we will set the secret in abit)
 
-Now we are going to create a new access token, in order to deploy our application through the workflow.
+## Posting on GitHub pages
 
-Go to the Personal access tokens area in the Developer settings of your GitHub profile and click Generate new token.
+Insert `gh` pages and add` deploy` to the text in `package.json`.
+Get Started:
+`$ npm install - save gh pages`
+Include the following texts in your package.
+`"pre-use": "npm run build", "download": "gh-pages -d build",`
+
+We will now create a new access token, to send our application to workflow.
+
+Go to the location for personal access tokens in the developer settings of your GitHub profile and click Start new token.
 
 Copy the generated token.
 
-On GitHub, navigate to the main page of the repository, under your repository name, click Settings. In the left sidebar, click Secrets. And finally, Click Add a new secret.
+In GitHub, navigate to the last main page, under your last name, click Settings. In the sidebar on the left, click Secrets. And finally, Click Add New Secret.
 
-Type a name for your secret in the Name input box, like `ACTIONS_DEPLOY_ACCESS_TOKEN`.
+Type your password in the input box, such as `ACTIONS_DEPLOY_ACCESS_TOKEN`.
 
-Enter the value for your secret (which should be the personal access token we just created).
+Enter your privacy value (which should be a newly created personal access token).
 
-Click Add secret.
+Click Add Secret.
 
-Your last step on your workflow should be some like this:
+Your last step in your career journey should be as follows:
+
 ```
-- name: Deploy
-  run: |
-    git config --global user.name $user_name
-    git config --global user.email $user_email
-    git remote set-url origin https://${github_token}@github.com/${repository}
-    npm run deploy
+- name: Use
+  use: |
+    git config --global user.name $ user_name
+    git config --global user.email $ user_email
+    git remote set-url Origin https://${github_token}@github.com/${repository}
+    npm run park
   env:
-    user_name: 'github-actions[bot]'
-    user_email: 'github-actions[bot]@users.noreply.github.com'
-    github_token: ${{ secrets.ACTIONS_DEPLOY_ACCESS_TOKEN }}
-    repository: ${{ github.repository }}
+    username: 'github-actions [bot]'
+    user_email: 'github-actions [bot]@users.noreply.github.com'
+    github_token: ${{secrets.ACTIONS_DEPLOY_ACCESS_TOKEN}}
+    repository: ${{github.repository}}
 ```
 
-The name and email information need not necessarily be your real information. And you must replace ACTIONS_DEPLOY_ACCESS_TOKEN with the name of the secret you just created.
+Name and email details do not have to be your actual details. You should also replace `ACTIONS_DEPLOY_ACCESS_TOKEN` with the password you just created.
 
-After adding the deploy command on your workflow, click Start commit, and click Commit new file.
+After adding a submission command to your work trip, click on Start commit, and then click on the new Commit file.
 
-Your final workflow file should be like this:
+Your final workflow file should be as follows:
+
 ```
-name: CI/CD
+name: CI / CD
 
-on:
-  push:
-    branches: [ master ]
+to:
+  Push:
+    branches: [master]
   pull_request:
-    branches: [ master ]
+    branches: [master]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     strategy:
@@ -198,12 +201,14 @@ jobs:
         repository: ${{ github.repository }}
 ```
 
-Now, in every push or pull request event on master branch, the CI/CD workflow will be activated. And you will be able to see if all steps have passed or not.
+Now, for every request or pull event at the main branch, the CI / CD workflow will be activated. And you will be able to see if all the steps have passed or not.
 
 ## References:-
+
 1. [GitHub actions](https://github.com/features/actions)
 2. [Actions docs for JS](https://docs.github.com/en/actions/language-and-framework-guides/github-actions-for-javascript-and-typescript)
 
 ## Some good reads you may like:-
+
 1. [Angular Youtube integration](https://nayan.co/blog/Web/angular-youtube/)
 2. [Angular maps and clusters](https://nayan.co/blog/Web/angular-maps/)
